@@ -7,6 +7,7 @@ require('nvim-tree').setup {
   git = {
     ignore = false,
   },
+  auto_close = true,
 }
 
 vim.cmd [[highlight NvimTreeIndentMarker guifg=#30323E]]

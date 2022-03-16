@@ -239,6 +239,13 @@ packer.startup(function (use)
   }
 
   use {
+    'jwalton512/vim-blade',
+    config = function()
+      require('user.plugins.blade')
+    end
+  }
+
+  use {
     'glepnir/dashboard-nvim',
     config = function()
       require('user.plugins.dashboard')

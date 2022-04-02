@@ -6,6 +6,7 @@
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.zshrc: zshrc
+    ~/.Xresources: Xresources
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

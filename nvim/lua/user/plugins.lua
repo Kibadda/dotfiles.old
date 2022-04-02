@@ -246,6 +246,10 @@ packer.startup(function (use)
   }
 
   use {
+    'tpope/vim-obsession'
+  }
+
+  use {
     'glepnir/dashboard-nvim',
     config = function()
       require('user.plugins.dashboard')

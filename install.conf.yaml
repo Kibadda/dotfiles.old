@@ -5,8 +5,11 @@
 - link: 
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
+    ~/.config/lazygit: lazygit
+    ~/.config/mimeapps.list: mimeapps.list
     ~/.zshrc: zshrc
     ~/.Xresources: Xresources
+    ~/.profile: profile
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

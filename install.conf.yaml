@@ -6,6 +6,7 @@
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/lazygit: lazygit
+    ~/.config/i3: i3
     ~/.config/mimeapps.list: mimeapps.list
     ~/.zshrc: zshrc
     ~/.Xresources: Xresources

@@ -4,7 +4,6 @@ packer.startup(function (use)
   use { 'wbthomason/packer.nvim' } -- Let packer manage itself
 
   use { 'airblade/vim-rooter' }
-  use { 'christoomey/vim-tmux-navigator' }
   use { 'farmergreg/vim-lastplace' }
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-repeat' }
@@ -22,21 +21,6 @@ packer.startup(function (use)
     end
   }
 
-  -- use {
-  --   'dracula/vim',
-  --   as = 'dracula',
-  --   config = function()
-  --     require('user.plugins.dracula')
-  --   end
-  -- }
-
-  -- use {
-  --   'rakr/vim-one',
-  --   config = function()
-  --     require('user.plugins.one')
-  --   end
-  -- }
-
   use {
     'navarasu/onedark.nvim',
     config = function()
@@ -50,11 +34,6 @@ packer.startup(function (use)
       require('user.plugins.lion')
     end
   }
-
-  -- use {
-  --   'whatyouhide/vim-textobj-xmlattr',
-  --   requires = 'kana/vim-textobj-user'
-  -- }
 
   use {
     'sickill/vim-pasta',
@@ -122,12 +101,12 @@ packer.startup(function (use)
     end
   }
 
-  use {
-    'Kibadda/vim-test',
-    config = function()
-      require('user.plugins.vim-test')
-    end
-  }
+  -- use {
+  --   'Kibadda/vim-test',
+  --   config = function()
+  --     require('user.plugins.vim-test')
+  --   end
+  -- }
 
   use {
     'voldikss/vim-floaterm',
@@ -164,11 +143,11 @@ packer.startup(function (use)
     end
   }
 
-  use {
-    'tpope/vim-fugitive',
-    requires = 'tpope/vim-rhubarb',
-    cmd = 'G',
-  }
+  -- use {
+  --   'tpope/vim-fugitive',
+  --   requires = 'tpope/vim-rhubarb',
+  --   cmd = 'G',
+  -- }
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -221,15 +200,15 @@ packer.startup(function (use)
     end
   }
 
-  use {
-    'phpactor/phpactor',
-    branch = 'master',
-    ft = 'php',
-    run = 'composer install --no-dev -o',
-    config = function()
-      require('user.plugins.phpactor')
-    end
-  }
+  -- use {
+  --   'phpactor/phpactor',
+  --   branch = 'master',
+  --   ft = 'php',
+  --   run = 'composer install --no-dev -o',
+  --   config = function()
+  --     require('user.plugins.phpactor')
+  --   end
+  -- }
 
   use {
     'kdheepak/lazygit.nvim',
@@ -238,15 +217,26 @@ packer.startup(function (use)
     end
   }
 
-  use {
-    'jwalton512/vim-blade',
-    config = function()
-      require('user.plugins.blade')
-    end
-  }
+  -- use {
+  --   'jwalton512/vim-blade',
+  --   config = function()
+  --     require('user.plugins.blade')
+  --   end
+  -- }
 
   use {
     'tpope/vim-obsession'
+  }
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
   }
 
   use {

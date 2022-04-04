@@ -144,3 +144,5 @@ alias checkout='git checkout'
 alias merge='git merge'
 alias delete='git branch -d'
 alias lastcom='git show'
+
+alias vim='nvr -s'

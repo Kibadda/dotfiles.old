@@ -1,26 +1,55 @@
 local packer = require 'lib.packer-init'
 
 packer.startup(function (use)
-  use { 'wbthomason/packer.nvim' } -- Let packer manage itself
+  -- Let packer manage itself
+  use { 'wbthomason/packer.nvim' }
 
+  -- Sets root of directory
   use { 'airblade/vim-rooter' }
+  -- Places cursor at the last place of edit
   use { 'farmergreg/vim-lastplace' }
+  -- gcc
   use { 'tpope/vim-commentary' }
+  -- makes plugin commands repeatable with .
   use { 'tpope/vim-repeat' }
+  -- Surround
   use { 'tpope/vim-surround' }
-  use { 'tpope/vim-eunuch' } -- Adds :Rename, :SudoWrite
-  use { 'tpope/vim-unimpaired' } -- Adds [b and other handy mappings
-  use { 'tpope/vim-sleuth' } -- Indent autodetection with editorconfig support
-  use { 'jessarcher/vim-heritage' } -- Automatically create parent dirs when saving
+  -- Adds :Rename, :SudoWrite
+  use { 'tpope/vim-eunuch' }
+  -- Adds [b and other handy mappings
+  use { 'tpope/vim-unimpaired' }
+  -- Indent autodetection with editorconfig support
+  use { 'tpope/vim-sleuth' }
+  -- Adds Session management
+  use { 'tpope/vim-obsession' }
+  -- Automatically create parent dirs when saving
+  use { 'jessarcher/vim-heritage' }
+  -- better start and hashtag search
   use { 'nelstrom/vim-visual-star-search' }
 
+  -- Markdown Preview
   use {
-    'tpope/vim-projectionist',
+    'iamcco/markdown-preview.nvim',
+    run = ':call mkdp#util#install()'
+  }
+
+  -- See list of available commands after pressing keys
+  use {
+    "folke/which-key.nvim",
     config = function()
-      require('user.plugins.projectionist')
+      require('user.plugins.which-key')
     end
   }
 
+  -- floating git dashboard
+  use {
+    'kdheepak/lazygit.nvim',
+    config = function()
+      require('user.plugins.lazygit')
+    end
+  }
+
+  -- Theme
   use {
     'navarasu/onedark.nvim',
     config = function()
@@ -28,20 +57,10 @@ packer.startup(function (use)
     end
   }
 
-  use {
-    'tommcdo/vim-lion',
-    config = function()
-      require('user.plugins.lion')
-    end
-  }
+  -- p and P respect indentation
+  use { 'sickill/vim-pasta' }
 
-  use {
-    'sickill/vim-pasta',
-    config = function()
-      require('user.plugins.pasta')
-    end
-  }
-
+  -- Better closing of buffers
   use {
     'jessarcher/vim-sayonara',
     config = function()
@@ -49,6 +68,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Indent visualization
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -56,6 +76,7 @@ packer.startup(function (use)
     end
   }
 
+  -- One-Liner to Multi-Liner and back
   use {
     'AndrewRadev/splitjoin.vim',
     config = function()
@@ -63,13 +84,15 @@ packer.startup(function (use)
     end
   }
 
+  -- intelligent brackets
   use {
     'windwp/nvim-autopairs',
     config = function()
-      require('nvim-autopairs').setup()
+      require('user.plugins.autopairs')
     end
   }
 
+  -- Bufferline
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -78,6 +101,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -86,6 +110,7 @@ packer.startup(function (use)
     end
   }
 
+  -- File Tree
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -94,6 +119,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Smooth scrolling with <C-k> and <C-j>
   use {
     'karb94/neoscroll.nvim',
     config = function()
@@ -101,13 +127,7 @@ packer.startup(function (use)
     end
   }
 
-  -- use {
-  --   'Kibadda/vim-test',
-  --   config = function()
-  --     require('user.plugins.vim-test')
-  --   end
-  -- }
-
+  -- Floating terminal window
   use {
     'voldikss/vim-floaterm',
     config = function()
@@ -115,6 +135,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Telescope: Find, History, Buffers, Live Grep
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -128,13 +149,17 @@ packer.startup(function (use)
     end
   }
 
+  -- A lot
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     requires = {
       'nvim-treesitter/playground',
+      -- Adding custom textobjects
       'nvim-treesitter/nvim-treesitter-textobjects',
+      -- Intelligent spell check
       'lewis6991/spellsitter.nvim',
+      -- intelligent comment string based on context
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
@@ -143,12 +168,7 @@ packer.startup(function (use)
     end
   }
 
-  -- use {
-  --   'tpope/vim-fugitive',
-  --   requires = 'tpope/vim-rhubarb',
-  --   cmd = 'G',
-  -- }
-
+  -- Git visualization
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -157,6 +177,7 @@ packer.startup(function (use)
     end,
   }
 
+  -- Language Server
   use {
     'neovim/nvim-lspconfig',
     requires = {
@@ -169,6 +190,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Language Server progress
   use {
     'j-hui/fidget.nvim',
     config = function()
@@ -176,13 +198,16 @@ packer.startup(function (use)
     end,
   }
 
-  -- use {
-  --   'L3MON4D3/LuaSnip',
-  --   config = function()
-  --     require('user.plugins.luasnip')
-  --   end
-  -- }
+  -- Dashboard when opening without file
+  use {
+    'glepnir/dashboard-nvim',
+    config = function()
+      require('user.plugins.dashboard')
+    end
+  }
 
+  -- Completion engine
+  -- TODO: look more into this plugin
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -200,54 +225,16 @@ packer.startup(function (use)
     end
   }
 
-  -- use {
-  --   'phpactor/phpactor',
-  --   branch = 'master',
-  --   ft = 'php',
-  --   run = 'composer install --no-dev -o',
-  --   config = function()
-  --     require('user.plugins.phpactor')
-  --   end
-  -- }
-
+  -- Smarty syntax
   use {
-    'kdheepak/lazygit.nvim',
-    config = function()
-      require('user.plugins.lazygit')
-    end
+    'blueyed/smarty.vim'
   }
 
-  -- use {
-  --   'jwalton512/vim-blade',
-  --   config = function()
-  --     require('user.plugins.blade')
-  --   end
-  -- }
-
-  use {
-    'tpope/vim-obsession'
-  }
-
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
-  }
-
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = ':call mkdp#util#install()'
-  }
-
-  use {
-    'glepnir/dashboard-nvim',
-    config = function()
-      require('user.plugins.dashboard')
-    end
-  }
+  -- List of good plugins for which I have not found a good use for currently
+  -- tpope/vim-projectionist
+  -- tommcdo/vim-lion
+  -- vim-test/vim-test (Kibadda fork)
+  -- L3MON4D3/LuaSnip
+  -- phpactor/phpactor
+  -- jwalton512/vim-blade
 end)

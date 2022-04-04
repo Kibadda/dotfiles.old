@@ -1,5 +1,6 @@
+local keymap = require 'lib.utils'.keymap
+
 vim.g.nvim_tree_indent_markers = 1
--- vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_group_empty = 1
 
@@ -7,9 +8,11 @@ require('nvim-tree').setup {
   git = {
     ignore = false,
   },
-  auto_close = true,
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
+  }
 }
 
-vim.cmd [[highlight NvimTreeIndentMarker guifg=#30323E]]
-
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFileToggle<CR>', { silent = true, noremap = true })
+keymap('n', '<leader>n', ':NvimTreeFindFileToggle<Cr>')

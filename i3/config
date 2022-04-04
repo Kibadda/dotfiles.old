@@ -32,6 +32,11 @@ bindsym $mod+Return exec kitty
 # start chrome
 bindsym $mod+b exec firefox
 
+# media functions
+bindsym $mod+Ctrl+space exec playerctl play-pause
+bindsym $mod+Ctrl+Left exec playerctl previous
+bindsym $mod+Ctrl+Right exec playerctl next
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -137,8 +142,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+# bindsym $mod+Ctrl+Right workspace next
+# bindsym $mod+Ctrl+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -325,7 +330,7 @@ set_from_resource $term_color15    color15
 bar {
 	i3bar_command i3bar
 	status_command i3status
-	position bottom
+	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary

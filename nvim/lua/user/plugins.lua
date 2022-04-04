@@ -240,6 +240,11 @@ packer.startup(function (use)
   }
 
   use {
+    'iamcco/markdown-preview.nvim',
+    run = ':call mkdp#util#install()'
+  }
+
+  use {
     'glepnir/dashboard-nvim',
     config = function()
       require('user.plugins.dashboard')

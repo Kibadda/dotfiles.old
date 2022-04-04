@@ -8,8 +8,8 @@ keymap('', 'gf', ':edit <cfile><CR>')
 keymap('n', '<leader>vr', ':source ~/.config/nvim/init.lua<CR>')
 keymap('n', '<leader>ve', ':edit ~/.config/nvim/init.lua<CR>')
 
-keymap('n', '<leader>jj', ']b')
-keymap('n', '<leader>kk', '[b')
+keymap('n', '<leader>jj', ':bnext<CR>')
+keymap('n', '<leader>kk', ':bprevious<CR>')
 
 keymap('n', '<leader>K', ':nohlsearch<CR>')
 keymap('n', '<leader>Q', ':bufdo bdelete<CR>')

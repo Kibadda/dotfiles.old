@@ -63,6 +63,17 @@ require'lspconfig'.tsserver.setup{
   },
 }
 
+require'lspconfig'.eslint.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  handlers = {
+    ['window/showMessageRequest'] = function(_, result, _) return result end,
+  },
+}
+
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })

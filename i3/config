@@ -46,6 +46,9 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
+# swap caps and escape
+exec_always --no-startup-id setxkbmap -option caps:swapescape
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -331,6 +334,7 @@ bar {
 	i3bar_command i3bar
 	status_command i3status
 	position top
+        font xft:Jetbrains mono 20
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
@@ -424,3 +428,8 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/kitty'
+exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/rocketchat-desktop; exec /usr/bin/datagrip'
+exec --no-startup-id i3-msg 'workspace $ws4; exec /usr/bin/spotify; exec /usr/bin/tunderbird'

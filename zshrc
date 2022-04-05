@@ -145,4 +145,5 @@ alias merge='git merge'
 alias delete='git branch -d'
 alias lastcom='git show'
 
-alias vim='nvr -s'
+alias vim='nvim'
+alias vimdot='nvim ~/.dotfiles'

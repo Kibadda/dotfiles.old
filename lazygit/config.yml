@@ -174,8 +174,7 @@ keybinding:
     update: u
     bulkMenu: b
 os:
-  openCommand: sh -c "xdg-open {{filename}} >/dev/null"
-  openLinkCommand: sh -c "xdg-open {{link}} >/dev/null"
+  openCommand: 'floaterm {{filename}}'
 disableStartupPopups: false
 customCommands: []
 services: {}

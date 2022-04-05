@@ -23,7 +23,7 @@ local on_attach = function(_, bufnr)
   buf_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   buf_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   buf_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  buf_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  -- buf_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
   buf_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
   buf_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
   -- buf_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
@@ -73,6 +73,25 @@ require'lspconfig'.eslint.setup{
     ['window/showMessageRequest'] = function(_, result, _) return result end,
   },
 }
+
+-- require'lspconfig'.efm.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   flags = {
+--     debounce_text_changes = 150,
+--   },
+--   init_options = {
+--     documentFormatting = true,
+--   },
+--   settings = {
+--     rootMarkers = {'.git/'},
+--     languages = {
+--       markdown = {
+--         {lintCommand = 'markdownlint', lintStdin = true},
+--       },
+--     }
+--   }
+-- }
 
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })

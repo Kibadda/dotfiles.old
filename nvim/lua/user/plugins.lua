@@ -41,14 +41,6 @@ packer.startup(function (use)
     end
   }
 
-  -- floating git dashboard
-  use {
-    'kdheepak/lazygit.nvim',
-    config = function()
-      require('user.plugins.lazygit')
-    end
-  }
-
   -- Theme
   use {
     'navarasu/onedark.nvim',
@@ -187,6 +179,17 @@ packer.startup(function (use)
     },
     config = function ()
       require('user.plugins.lspconfig')
+    end
+  }
+
+  -- Diagnostics
+  use {
+    'folke/trouble.nvim',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function ()
+      require('user.plugins.trouble')
     end
   }
 

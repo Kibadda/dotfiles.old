@@ -4,6 +4,7 @@ vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 
 require('auto-session').setup{
   auto_save_enabled = true,
+  auto_session_suppress_dirs = {'~'}
 }
 
 require('session-lens').setup{

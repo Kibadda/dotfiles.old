@@ -20,8 +20,6 @@ packer.startup(function (use)
   use { 'tpope/vim-unimpaired' }
   -- Indent autodetection with editorconfig support
   use { 'tpope/vim-sleuth' }
-  -- Adds Session management
-  use { 'tpope/vim-obsession' }
   -- Automatically create parent dirs when saving
   use { 'jessarcher/vim-heritage' }
   -- better start and hashtag search
@@ -206,6 +204,17 @@ packer.startup(function (use)
     'glepnir/dashboard-nvim',
     config = function()
       require('user.plugins.dashboard')
+    end
+  }
+
+  use {
+    'rmagatti/session-lens',
+    requires = {
+      'rmagatti/auto-session',
+      'nvim-telescope/telescope.nvim'
+    },
+    config = function()
+      require('user.plugins.session')
     end
   }
 

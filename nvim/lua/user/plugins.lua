@@ -168,12 +168,12 @@ packer.startup(function (use)
   }
 
   -- auto format
-  use {
-    'lukas-reineke/lsp-format.nvim',
-    config = function()
-      require('lsp-format').setup{}
-    end
-  }
+  -- use {
+  --   'lukas-reineke/lsp-format.nvim',
+  --   config = function()
+  --     require('lsp-format').setup{}
+  --   end
+  -- }
 
   -- Language Server
   use {

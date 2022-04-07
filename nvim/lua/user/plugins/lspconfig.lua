@@ -16,8 +16,8 @@ vim.diagnostic.config {
   }
 }
 
-local on_attach = function(client, bufnr)
-  require 'lsp-format'.on_attach(client)
+local on_attach = function(_, bufnr)
+  -- require 'lsp-format'.on_attach(client)
   buf_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   buf_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
@@ -43,6 +43,7 @@ local on_attach = function(client, bufnr)
   -- buf_keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
   -- buf_keymap(bufnr, 'n', '<leader>so', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]])
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ autocmd BufWritePre * lua vim.lsp.buf.formatting_sync() ]]
 end
 
 -- nvim-cmp supports additional completion capabilities

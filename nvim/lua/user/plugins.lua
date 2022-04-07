@@ -258,12 +258,12 @@ packer.startup(function (use)
   }
 
   -- Nvim Linter
-  -- use {
-  --   'mfussenegger/nvim-lint',
-  --   config = function ()
-  --     require('user.plugins.nvim-lint')
-  --   end
-  -- }
+  use {
+    'mfussenegger/nvim-lint',
+    config = function ()
+      require('user.plugins.nvim-lint')
+    end
+  }
 
   -- List of good plugins for which I have not found a good use for currently
   -- tpope/vim-projectionist

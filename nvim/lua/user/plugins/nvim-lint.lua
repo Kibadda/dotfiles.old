@@ -2,6 +2,14 @@ require('lint').linters_by_ft = {
   php = {'phpcs'}
 }
 
+local phpcs = require('lint.linters.phpcs')
+phpcs.args = {
+  '-q',
+  '--standard=~/.config/nvim/lua/user/plugins/external/ruleset.xml',
+  '--report=json',
+  '-',
+}
+
 vim.cmd([[
   augroup NvimLint
     au!

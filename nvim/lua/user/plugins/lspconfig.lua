@@ -58,7 +58,9 @@ require'lspconfig'.intelephense.setup{
   settings = {
     intelephense = {
       format = {
-        braces = 'k&r'
+        braces = 'k&r',
+        insertSpaces = true,
+        tabSize = 4,
       }
     }
   }

@@ -40,7 +40,7 @@ ls.add_snippets('php', {
     t('}'),
   }),
   s('set', {
-    t('public function set'), i(0), t('($'), i(1), t({') {', ''}),
+    t('public function set'), i(0), t('($'), i(1), t({'): void {', ''}),
     t('\t$this->'), f(copy, 1), t(' = $'), f(copy, 1), t({';', ''}),
     t('}'),
   }),
@@ -48,10 +48,6 @@ ls.add_snippets('php', {
 
 ls.add_snippets('typescript', {
   s('import', {
-    t('import '),
-    i(1),
-    t(' from \''),
-    i(0),
-    t('\';'),
+    t('import '), i(1), t(' from \''), i(0), t('\';'),
   }),
 })

@@ -16,7 +16,8 @@ vim.diagnostic.config {
   }
 }
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+  require 'lsp-format'.on_attach(client)
   buf_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   buf_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
@@ -53,6 +54,13 @@ require'lspconfig'.intelephense.setup{
   flags = {
     debounce_text_changes = 150,
   },
+  settings = {
+    intelephense = {
+      format = {
+        braces = 'k&r'
+      }
+    }
+  }
 }
 
 require'lspconfig'.tsserver.setup{

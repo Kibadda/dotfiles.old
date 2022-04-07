@@ -167,6 +167,14 @@ packer.startup(function (use)
     end,
   }
 
+  -- auto format
+  use {
+    'lukas-reineke/lsp-format.nvim',
+    config = function()
+      require('lsp-format').setup{}
+    end
+  }
+
   -- Language Server
   use {
     'neovim/nvim-lspconfig',
@@ -241,6 +249,14 @@ packer.startup(function (use)
   use {
     'blueyed/smarty.vim'
   }
+
+  -- Nvim Linter
+  -- use {
+  --   'mfussenegger/nvim-lint',
+  --   config = function ()
+  --     require('user.plugins.nvim-lint')
+  --   end
+  -- }
 
   -- List of good plugins for which I have not found a good use for currently
   -- tpope/vim-projectionist

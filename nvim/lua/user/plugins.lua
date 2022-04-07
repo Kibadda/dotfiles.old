@@ -167,14 +167,6 @@ packer.startup(function (use)
     end,
   }
 
-  -- auto format
-  -- use {
-  --   'lukas-reineke/lsp-format.nvim',
-  --   config = function()
-  --     require('lsp-format').setup{}
-  --   end
-  -- }
-
   -- Language Server
   use {
     'neovim/nvim-lspconfig',
@@ -185,6 +177,14 @@ packer.startup(function (use)
     },
     config = function ()
       require('user.plugins.lspconfig')
+    end
+  }
+
+  -- auto format
+  use {
+    'lukas-reineke/lsp-format.nvim',
+    config = function()
+      require('lsp-format').setup{}
     end
   }
 
@@ -223,6 +223,13 @@ packer.startup(function (use)
     },
     config = function()
       require('user.plugins.session')
+    end
+  }
+
+  use {
+    'L3MON4D3/LuaSnip',
+    config = function()
+      require('user.plugins.luasnip')
     end
   }
 

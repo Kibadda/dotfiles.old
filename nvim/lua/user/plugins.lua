@@ -265,6 +265,10 @@ packer.startup(function (use)
     end
   }
 
+  use { 'alec-gibson/nvim-tetris' }
+  use { 'seandewar/nvimesweeper' }
+  use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+
   -- List of good plugins for which I have not found a good use for currently
   -- tpope/vim-projectionist
   -- tommcdo/vim-lion

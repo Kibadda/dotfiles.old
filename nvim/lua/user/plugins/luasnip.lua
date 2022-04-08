@@ -35,7 +35,7 @@ ls.add_snippets('php', {
     t('}')
   }),
   s('get', {
-    t('public function get'), i(1), t('(): '), i(2), t({' {', ''}),
+    t('public function get'), i(1), t('(): ?'), i(2), t({' {', ''}),
     t('\treturn $this->'), i(0), t({';', ''}),
     t('}'),
   }),

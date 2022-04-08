@@ -9,5 +9,6 @@
         <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace" />
         <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine" />
         <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine" />
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
     </rule>
 </ruleset>

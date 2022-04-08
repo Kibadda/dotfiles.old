@@ -44,6 +44,11 @@ ls.add_snippets('php', {
     t('\t$this->'), f(copy, 1), t(' = $'), f(copy, 1), t({';', ''}),
     t('}'),
   }),
+  s('for', {
+    t('foreach ('), i(1), t(' as '), i(2), t({')', ''}),
+    t('\t'), i(0), t({'', ''}),
+    t('}'),
+  }),
 })
 
 ls.add_snippets('typescript', {

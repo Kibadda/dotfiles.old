@@ -9,7 +9,12 @@ packer.startup(function (use)
   -- Places cursor at the last place of edit
   use { 'farmergreg/vim-lastplace' }
   -- gcc
-  use { 'tpope/vim-commentary' }
+  use {
+    'tpope/vim-commentary',
+    config = function ()
+      require('user.plugins.commentary')
+    end
+  }
   -- makes plugin commands repeatable with .
   use { 'tpope/vim-repeat' }
   -- Surround

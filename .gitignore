@@ -1,2 +1,4 @@
 lazygit/state.yml
 kitty/window_size.conf
+
+nvim/lua/user/plugins/external/calendar-credentials.lua

@@ -272,7 +272,13 @@ packer.startup(function (use)
 
   use { 'alec-gibson/nvim-tetris' }
   use { 'seandewar/nvimesweeper' }
-  use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+  use { 'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+  use {
+    'itchyny/calendar.vim',
+    config = function()
+      require('user.plugins.calendar')
+    end
+  }
 
   -- List of good plugins for which I have not found a good use for currently
   -- tpope/vim-projectionist

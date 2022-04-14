@@ -52,6 +52,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require'lspconfig'.intelephense.setup{
   on_attach = on_attach,
   capabilities = capabilities,
+  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/intelephense', '--stdio' },
   flags = {
     debounce_text_changes = 150,
   },

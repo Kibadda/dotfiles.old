@@ -22,8 +22,6 @@ keymap('n', '<leader>w', ':w<CR>')
 keymap('v', 'y', 'myy`y')
 keymap('v', 'Y', 'myY`y')
 
-keymap('n', 'q:', ':q<CR>')
-
 keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
 

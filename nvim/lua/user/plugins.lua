@@ -220,6 +220,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Session management
   use {
     'rmagatti/session-lens',
     requires = {
@@ -231,6 +232,7 @@ packer.startup(function (use)
     end
   }
 
+  -- snippet support
   use {
     'L3MON4D3/LuaSnip',
     config = function()
@@ -297,4 +299,6 @@ packer.startup(function (use)
   -- L3MON4D3/LuaSnip
   -- phpactor/phpactor
   -- jwalton512/vim-blade
+  -- feline-nvim/feline.nvim
+  -- ellisonleao/glow.nvim
 end)

@@ -17,6 +17,9 @@ require('nvim-tree').setup {
       enable = true,
     },
   },
+  update_focused_files = {
+    enable = true,
+  },
 }
 
 keymap('n', '<leader>n', ':NvimTreeFindFileToggle<Cr>')

@@ -26,8 +26,11 @@ font xft:URWGothic-Book 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec kitty
+# start nvim
+bindsym $mod+Return exec kitty nvim
+
+# start terminal
+bindsym $mod+Shift+Return exec kitty
 
 # start chrome
 bindsym $mod+b exec firefox

@@ -270,9 +270,19 @@ packer.startup(function (use)
     end
   }
 
+  -- Tetris
   use { 'alec-gibson/nvim-tetris' }
+
+  -- Minesweeper
   use { 'seandewar/nvimesweeper' }
-  use { 'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+
+  -- Google Keep
+  use {
+    'stevearc/gkeep.nvim',
+    run = ':UpdateRemotePlugins',
+  }
+
+  -- Google Calendar
   use {
     'itchyny/calendar.vim',
     config = function()

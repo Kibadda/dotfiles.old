@@ -9,7 +9,12 @@ packer.startup(function (use)
   -- Places cursor at the last place of edit
   use { 'farmergreg/vim-lastplace' }
   -- gcc
-  use { 'tpope/vim-commentary' }
+  use {
+    'tpope/vim-commentary',
+    config = function ()
+      require('user.plugins.commentary')
+    end
+  }
   -- makes plugin commands repeatable with .
   use { 'tpope/vim-repeat' }
   -- Surround
@@ -215,6 +220,7 @@ packer.startup(function (use)
     end
   }
 
+  -- Session management
   use {
     'rmagatti/session-lens',
     requires = {
@@ -226,6 +232,7 @@ packer.startup(function (use)
     end
   }
 
+  -- snippet support
   use {
     'L3MON4D3/LuaSnip',
     config = function()
@@ -266,7 +273,7 @@ packer.startup(function (use)
   }
 
   use {
-    'KadoBOT/nvim-spotify', 
+    'KadoBOT/nvim-spotify',
     requires = 'nvim-telescope/telescope.nvim',
     config = function()
         local spotify = require'nvim-spotify'
@@ -282,6 +289,26 @@ packer.startup(function (use)
     run = 'make'
   }
 
+  -- Tetris
+  use { 'alec-gibson/nvim-tetris' }
+
+  -- Minesweeper
+  use { 'seandewar/nvimesweeper' }
+
+  -- Google Keep
+  use {
+    'stevearc/gkeep.nvim',
+    run = ':UpdateRemotePlugins',
+  }
+
+  -- Google Calendar
+  use {
+    'itchyny/calendar.vim',
+    config = function()
+      require('user.plugins.calendar')
+    end
+  }
+
   -- List of good plugins for which I have not found a good use for currently
   -- tpope/vim-projectionist
   -- tommcdo/vim-lion
@@ -289,4 +316,6 @@ packer.startup(function (use)
   -- L3MON4D3/LuaSnip
   -- phpactor/phpactor
   -- jwalton512/vim-blade
+  -- feline-nvim/feline.nvim
+  -- ellisonleao/glow.nvim
 end)

@@ -35,13 +35,18 @@ ls.add_snippets('php', {
     t('}')
   }),
   s('get', {
-    t('public function get'), i(1), t('(): '), i(2), t({' {', ''}),
+    t('public function get'), i(1), t('(): ?'), i(2), t({' {', ''}),
     t('\treturn $this->'), i(0), t({';', ''}),
     t('}'),
   }),
   s('set', {
     t('public function set'), i(0), t('($'), i(1), t({'): void {', ''}),
     t('\t$this->'), f(copy, 1), t(' = $'), f(copy, 1), t({';', ''}),
+    t('}'),
+  }),
+  s('for', {
+    t('foreach ('), i(1), t(' as '), i(2), t({')', ''}),
+    t('\t'), i(0), t({'', ''}),
     t('}'),
   }),
 })

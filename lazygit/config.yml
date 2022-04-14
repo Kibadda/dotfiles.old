@@ -1,7 +1,7 @@
 gui:
   scrollHeight: 2
   scrollPastBottom: true
-  mouseEvents: true
+  mouseEvents: false
   skipUnstageLineWarning: false
   skipStashWarning: true
   sidePanelWidth: 0.3333
@@ -9,17 +9,6 @@ gui:
   mainPanelSplitMode: flexible
   theme:
     lightTheme: false
-    activeBorderColor:
-    - green
-    - bold
-    inactiveBorderColor:
-    - white
-    optionsTextColor:
-    - blue
-    selectedLineBgColor:
-    - reverse
-    selectedRangeBgColor:
-    - blue
   commitLength:
     show: true
   skipNoStagedFilesWarning: false

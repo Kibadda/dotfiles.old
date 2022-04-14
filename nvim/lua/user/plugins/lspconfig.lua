@@ -70,6 +70,7 @@ require'lspconfig'.intelephense.setup{
 require'lspconfig'.tsserver.setup{
   on_attach = on_attach,
   capabilities = capabilities,
+  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/typescript-language-server', '--stdio' },
   flags = {
     debounce_text_changes = 150,
   },
@@ -78,6 +79,7 @@ require'lspconfig'.tsserver.setup{
 require'lspconfig'.eslint.setup{
   on_attach = on_attach,
   capabilities = capabilities,
+  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-eslint-language-server', '--stdio' },
   flags = {
     debounce_text_changes = 150,
   },

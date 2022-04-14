@@ -276,15 +276,14 @@ packer.startup(function (use)
     'KadoBOT/nvim-spotify',
     requires = 'nvim-telescope/telescope.nvim',
     config = function()
-        local spotify = require'nvim-spotify'
-
-        spotify.setup {
-            -- default opts
-            status = {
-                update_interval = 10000, -- the interval (ms) to check for what's currently playing
-                format = '%s %t by %a' -- spotify-tui --format argument
-            }
+      local spotify = require'nvim-spotify'
+      spotify.setup {
+        -- default opts
+        status = {
+          update_interval = 10000, -- the interval (ms) to check for what's currently playing
+          format = '%s %t by %a' -- spotify-tui --format argument
         }
+      }
     end,
     run = 'make'
   }
@@ -295,9 +294,20 @@ packer.startup(function (use)
   -- Minesweeper
   use { 'seandewar/nvimesweeper' }
 
+  -- Testing my own plugin :D
+  use {
+    'Kibadda/laravel-docs.nvim',
+    config = function()
+      require('telescope').load_extension 'laraveldocs'
+    end
+  }
+
   -- Google Keep
   use {
     'stevearc/gkeep.nvim',
+    config = function ()
+      require('telescope').load_extension 'gkeep'
+    end,
     run = ':UpdateRemotePlugins',
   }
 

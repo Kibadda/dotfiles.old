@@ -319,6 +319,13 @@ packer.startup(function (use)
     end
   }
 
+  use {
+    'feline-nvim/feline.nvim',
+    config = function ()
+      -- require('user.plugins.feline')
+    end
+  }
+
   -- List of good plugins for which I have not found a good use for currently
   -- tpope/vim-projectionist
   -- tommcdo/vim-lion

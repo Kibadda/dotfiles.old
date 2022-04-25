@@ -339,6 +339,7 @@ packer.startup(function (use)
 
   use {
     'nvim-neorg/neorg',
+    tag = '*',
     config = function()
       require('user.plugins.neorg')
     end,

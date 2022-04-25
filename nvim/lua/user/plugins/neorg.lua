@@ -1,23 +1,3 @@
-local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-
--- These two are optional and provide syntax highlighting
--- for Neorg tables and the @document.meta tag
-parser_configs.norg_meta = {
-  install_info = {
-    url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-    files = { "src/parser.c" },
-    branch = "main"
-  },
-}
-
-parser_configs.norg_table = {
-  install_info = {
-    url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-    files = { "src/parser.c" },
-    branch = "main"
-  },
-}
-
 require('neorg').setup{
   load = {
     ['core.defaults'] = {},
@@ -28,7 +8,21 @@ require('neorg').setup{
         },
       },
     },
-    -- ["core.norg.completion"] = {},
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "home",
+      },
+    },
+    ["core.norg.completion"] = {
+      config = {
+        engine = 'nvim-cmp',
+      },
+    },
     ["core.norg.concealer"] = {},
+    ["core.keybinds"] = {},
+    ["core.presenter"] = {},
+    ["core.highlights"] = {},
+    ["core.norg.qol.toc"] = {},
+    ["core.norg.manoeuvre"] = {},
   },
 }

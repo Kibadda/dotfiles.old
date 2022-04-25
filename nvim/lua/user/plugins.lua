@@ -156,6 +156,8 @@ packer.startup(function (use)
       'lewis6991/spellsitter.nvim',
       -- intelligent comment string based on context
       'JoosepAlviste/nvim-ts-context-commentstring',
+      -- html tags auto
+      'windwp/nvim-ts-autotag',
     },
     config = function()
       require('user.plugins.treesitter')

@@ -58,13 +58,26 @@ require'lspconfig'.intelephense.setup{
   },
   settings = {
     intelephense = {
+      stubs = {
+        'apache', 'bcmath', 'bz2', 'calendar', 'com_dotnet', 'Core', 'ctype', 'curl', 'date',
+        'dba', 'dom', 'enchant', 'exif', 'FFI', 'fileinfo', 'filter', 'fpm', 'ftp', 'gd', 'gettext',
+        'gmp', 'hash', 'iconv', 'imap', 'intl', 'json', 'ldap', 'libxml', 'mbstring', 'meta', 'mysqli',
+        'oci8', 'odbc', 'openssl', 'pcntl', 'pcre', 'PDO', 'pdo_ibm', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql',
+        'Phar', 'posix', 'pspell', 'readline', 'Reflection', 'session', 'shmop', 'SimpleXML', 'snmp', 'soap',
+        'sockets', 'sodium', 'SPL', 'sqlite3', 'standard', 'superglobals', 'sysvmsg', 'sysvsem', 'sysvshm', 'tidy',
+        'tokenizer', 'xml', 'xmlreader', 'xmlrpc', 'xmlwriter', 'xsl', 'Zend OPcache', 'zip', 'zlib',
+        'wordpress', 'phpunit',
+      },
       format = {
         braces = 'k&r',
         insertSpaces = true,
         tabSize = 4,
-      }
-    }
-  }
+      },
+      diagnostics = {
+        enable = true,
+      },
+    },
+  },
 }
 
 require'lspconfig'.tsserver.setup{
@@ -88,6 +101,16 @@ require'lspconfig'.eslint.setup{
   },
 }
 
+require'lspconfig'.html.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-html-language-server', '--stdio' },
+  flags = {
+    debounce_text_changes = 150,
+  },
+  filetypes = { 'html', 'php', 'smarty' },
+}
+
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
@@ -104,10 +127,10 @@ require'lspconfig'.sumneko_lua.setup{
         version = 'LuaJIT',
         path = runtime_path,
       },
-    },
-    diagnostics = {
-      -- Get the language server to recognize the `vim` global
-      globals = { 'vim' },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
     },
     workspace = {
       -- Make the server aware of Neovim runtime files

@@ -102,7 +102,6 @@ require'lspconfig'.eslint.setup{
 }
 
 require'lspconfig'.html.setup{
-  on_attach = on_attach,
   capabilities = capabilities,
   cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-html-language-server', '--stdio' },
   flags = {

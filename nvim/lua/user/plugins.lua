@@ -321,11 +321,28 @@ packer.startup(function (use)
     end
   }
 
+  -- other "lualine"
   use {
     'feline-nvim/feline.nvim',
     config = function ()
       -- require('user.plugins.feline')
     end
+  }
+
+  use {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('todo-comments').setup{}
+    end
+  }
+
+  use {
+    'nvim-neorg/neorg',
+    config = function()
+      require('user.plugins.neorg')
+    end,
+    requires = 'nvim-lua/plenary.nvim'
   }
 
   -- List of good plugins for which I have not found a good use for currently

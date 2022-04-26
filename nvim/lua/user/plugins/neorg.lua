@@ -4,25 +4,26 @@ require('neorg').setup{
     ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          home = "~/notes/home",
+          home = '~/notes/home',
+          work = '~/notes/work',
         },
       },
     },
-    ["core.gtd.base"] = {
+    ['core.gtd.base'] = {
       config = {
-        workspace = "home",
+        workspace = 'work',
       },
     },
-    ["core.norg.completion"] = {
+    ['core.norg.completion'] = {
       config = {
         engine = 'nvim-cmp',
       },
     },
-    ["core.norg.concealer"] = {},
-    ["core.keybinds"] = {},
-    ["core.presenter"] = {},
-    ["core.highlights"] = {},
-    ["core.norg.qol.toc"] = {},
-    ["core.norg.manoeuvre"] = {},
+    ['core.norg.concealer'] = {},
+    ['core.keybinds'] = {},
+    ['core.presenter'] = {},
+    ['core.highlights'] = {},
+    ['core.norg.qol.toc'] = {},
+    ['core.norg.manoeuvre'] = {},
   },
 }

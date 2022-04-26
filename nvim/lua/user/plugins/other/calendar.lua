@@ -12,4 +12,4 @@ vim.g.calendar_week_number = 1
 vim.cmd [[ autocmd FileType calendar :IndentBlanklineDisable ]]
 keymap('n', '<leader>C', ':Calendar<CR>')
 
-require('user.plugins.external.calendar-credentials')
+require('user.external.calendar-credentials')

@@ -24,3 +24,5 @@ require('nvim-treesitter.configs').setup {
     filetypes = { 'html', 'php', 'smarty', 'tpl' },
   }
 }
+
+require('spellsitter').setup{}

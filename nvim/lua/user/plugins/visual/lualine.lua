@@ -1,7 +1,3 @@
-local fg = '#FFFFFF'
-local bg = '#333333'
-local separator = '#888888'
-
 require('lualine').setup {
   options = {
     icons_enabled = true,

@@ -52,6 +52,7 @@ telescope.setup {
 }
 
 require('telescope').load_extension 'fzf'
+require('telescope').load_extension 'notify'
 
 keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
 keymap('n', '<leader>F', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length

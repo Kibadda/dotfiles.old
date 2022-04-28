@@ -91,6 +91,14 @@ M.setup = function (use)
       require('user.plugins.visual.floaterm')
     end
   }
+
+  -- Notify
+  use {
+    'rcarriga/nvim-notify',
+    config = function ()
+      vim.notify = require('notify')
+    end
+  }
 end
 
 return M

@@ -96,7 +96,7 @@ M.setup = function (use)
   use {
     'rcarriga/nvim-notify',
     config = function ()
-      vim.notify = require('notify')
+      require('user.plugins.visual.notify')
     end
   }
 end

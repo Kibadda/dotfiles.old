@@ -17,7 +17,7 @@ vim.diagnostic.config {
 }
 
 local on_attach = function(client, bufnr)
-  require 'lsp-format'.on_attach(client)
+  -- require 'lsp-format'.on_attach(client)
   buf_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   buf_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')

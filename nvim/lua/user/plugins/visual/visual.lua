@@ -15,7 +15,7 @@ M.setup = function (use)
     'nvim-lualine/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      -- require('user.plugins.visual.lualine')
+      require('user.plugins.visual.lualine')
     end
   }
 

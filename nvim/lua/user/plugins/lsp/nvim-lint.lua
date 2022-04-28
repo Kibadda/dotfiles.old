@@ -5,7 +5,7 @@ require('lint').linters_by_ft = {
 local phpcs = require('lint.linters.phpcs')
 phpcs.args = {
   '-q',
-  '--standard=~/.config/nvim/lua/user/plugins/external/ruleset.xml',
+  '--standard=~/.config/nvim/lua/user/external/ruleset.xml',
   '--report=json',
   '-',
 }

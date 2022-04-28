@@ -1,4 +1,4 @@
 lazygit/state.yml
 kitty/specifics.conf
 
-nvim/lua/user/plugins/external/calendar-credentials.lua
+**/calendar-credentials.lua

@@ -1,4 +1,7 @@
-local keymap = require 'lib.utils'.keymap
+vim.g.sayonara_filetypes = {
+  NvimTree = 'NvimTreeClose',
+}
 
-keymap('n', '<Leader>q', ':Sayonara!<CR>')
-keymap('n', '<A-q>', ':Sayonara!<CR>')
+vim.g.sayonara_confirm_quit = 1
+
+vim.keymap.set('n', '<A-q>', ':Sayonara<CR>')

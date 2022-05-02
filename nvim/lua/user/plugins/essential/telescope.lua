@@ -55,7 +55,9 @@ require('telescope').load_extension 'fzf'
 require('telescope').load_extension 'notify'
 
 keymap('n', '<leader>f', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-keymap('n', '<leader>F', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length
+keymap('n', '<leader>F', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]])
 keymap('n', '<leader>s', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
 keymap('n', '<leader>h', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
+keymap('n', '<leader>gs', [[<cmd>lua require('telescope.builtin').git_status()<CR>]])
+keymap('n', '<leader>pr', [[<cmd>lua require('lib.utils').reload()<CR>]])

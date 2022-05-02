@@ -77,6 +77,7 @@ M.setup = function (use)
       { 'kyazdani42/nvim-web-devicons' },
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'nvim-telescope/telescope-live-grep-raw.nvim' },
+      { 'nvim-telescope/telescope-symbols.nvim' },
     },
     config = function()
       require('user.plugins.essential.telescope')

@@ -31,6 +31,9 @@ M.setup = function (use)
 
   -- easy motion
   use { 'easymotion/vim-easymotion' }
+
+  -- tmux navigation
+  -- use { 'christoomey/vim-tmux-navigator' }
 end
 
 return M

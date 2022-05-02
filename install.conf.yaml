@@ -11,6 +11,7 @@
     ~/.zshrc: zshrc
     ~/.Xresources: Xresources
     ~/.profile: profile
+    ~/.tmux.conf: tmux.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

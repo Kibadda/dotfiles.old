@@ -34,6 +34,15 @@ M.setup = function (use)
 
   -- tmux navigation
   -- use { 'christoomey/vim-tmux-navigator' }
+
+  -- lua auto add end
+  use { 'tpope/vim-endwise' }
+
+  -- json formatting
+  use { 'tpope/vim-jdaddy' }
+
+  -- <C-a> / <C-x> work with way more stuff
+  use { 'tpope/vim-speeddating' }
 end
 
 return M

@@ -22,6 +22,9 @@ M.setup = function (use)
   -- Indent autodetection with editorconfig support
   use { 'tpope/vim-sleuth' }
 
+  -- string cases conversion, better substitutions
+  use { 'tpope/vim-abolish' }
+
   -- Automatically create parent dirs when saving
   use { 'jessarcher/vim-heritage' }
 

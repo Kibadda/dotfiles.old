@@ -37,6 +37,7 @@ end
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- install via npm i -g intelephense
 require'lspconfig'.intelephense.setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -63,6 +64,17 @@ require'lspconfig'.intelephense.setup{
       },
       diagnostics = {
         enable = true,
+      },
+      phpdoc = {
+        textFormat = 'text',
+        functionTemplate = {
+          summary = '$1',
+          tags = {
+            '@param ${1:$SYMBOL_TYPE} $SYMBOL_NAME',
+            '@return ${1:$SYMBOL_TYPE}',
+            '@throws ${1:$SYMBOL_TYPE}',
+          },
+        },
       },
     },
   },
@@ -98,6 +110,7 @@ require'lspconfig'.html.setup{
   filetypes = { 'html', 'php', 'smarty' },
 }
 
+-- install via pacman -S lua-language-server
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')

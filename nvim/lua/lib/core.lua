@@ -13,7 +13,9 @@ M.lua_systemlist = function (cmd)
   local handle = io.popen(cmd .. ' 2>&1 ; echo $?', 'r')
 
   if handle then
-    for line in handle:lines() do stdout[#stdout + 1] = line end
+    for line in handle:lines() do
+      stdout[#stdout + 1] = line
+    end
     rc = tonumber(stdout[#stdout])
     stdout[#stdout] = nil
   end

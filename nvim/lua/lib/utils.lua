@@ -58,6 +58,7 @@ M.open_repo_on_github = function (remote)
   url = url:gsub('git:', 'https://')
   url = url:gsub('git@', 'https://')
   url = url:gsub('com:', 'com/')
+  url = url:gsub('de:', 'de/')
   core.lua_system('xdg-open ' .. url)
 
   vim.notify(string.format('[%s] -> %s', remote, url), 'info', { title = 'opening remote in browser' })

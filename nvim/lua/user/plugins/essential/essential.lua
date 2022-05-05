@@ -41,12 +41,7 @@ M.setup = function (use)
   use { 'blueyed/smarty.vim' }
 
   -- gcc
-  use {
-    'tpope/vim-commentary',
-    config = function ()
-      require('user.plugins.essential.commentary')
-    end
-  }
+  use { 'tpope/vim-commentary' }
 
   -- Better closing of buffers
   use {

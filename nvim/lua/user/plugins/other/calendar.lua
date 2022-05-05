@@ -9,9 +9,4 @@ vim.g.calendar_week_number = 1
 
 require('user.external.calendar-credentials')
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'calendar',
-  command = 'IndentBlanklineDisable',
-})
-
 vim.keymap.set('n', '<leader>C', ':Calendar<CR>')

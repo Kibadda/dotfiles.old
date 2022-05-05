@@ -62,7 +62,10 @@ M.setup = function (use)
 
   -- Theme
   use {
-    'navarasu/onedark.nvim',
+    'Mofiqul/vscode.nvim',
+    requires = {
+      'navarasu/onedark.nvim'
+    },
     config = function()
       require('user.plugins.visual.colorscheme')
     end

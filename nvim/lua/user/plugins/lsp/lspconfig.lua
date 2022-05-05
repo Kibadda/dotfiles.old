@@ -1,3 +1,5 @@
+local utils = require('lib.utils')
+
 vim.diagnostic.config {
   virtual_text = false,
   severity_sort = true,
@@ -15,6 +17,8 @@ vim.diagnostic.config {
 
 local on_attach = function(client, bufnr)
   -- require 'lsp-format'.on_attach(client)
+
+  vim.notify(string.format('[lsp] %s\n[cwd] %s', client.name, utils.get_cwd()), 'info', {title = '[lsp] Active'})
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 

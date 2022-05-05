@@ -9,21 +9,3 @@ phpcs.args = {
   '--report=json',
   '-',
 }
-
-vim.api.nvim_create_augroup('NvimLint', { clear = true })
-
-vim.api.nvim_create_autocmd('BufRead', {
-  group = 'NvimLint',
-  pattern = '*',
-  callback = function ()
-    require('lint').try_lint()
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-  group = 'NvimLint',
-  pattern = '*',
-  callback = function ()
-    require('lint').try_lint()
-  end,
-})

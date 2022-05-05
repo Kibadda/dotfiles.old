@@ -9,3 +9,8 @@ UserGroup
 userGroup
 SharedUserGroup
 sharedUserGroup
+ResourceGroup
+resourceGroup
+tgesuperuser
+tgeadmin
+orgadmin

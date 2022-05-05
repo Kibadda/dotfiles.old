@@ -1,1 +1,4 @@
-vim.cmd [[ autocmd FileType smarty setlocal commentstring={*\ %s\ *} ]]
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'smarty',
+  command = 'setlocal commentstring={* %s *}',
+})

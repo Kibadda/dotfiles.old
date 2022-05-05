@@ -27,3 +27,4 @@ vim.o.updatetime = 250          -- Decrease CursorHold delay
 vim.o.redrawtime = 10000        -- Allow more time for loading syntax on large files
 vim.o.showmode = false
 vim.o.fillchars = 'eob: '
+vim.o.laststatus = 3

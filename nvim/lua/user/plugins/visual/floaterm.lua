@@ -1,5 +1,3 @@
-local keymap = require 'lib.utils'.keymap
-
 vim.g.floaterm_gitcommit='floaterm'
 vim.g.floaterm_opener='drop'
 vim.g.floaterm_keymap_toggle='<F1>'
@@ -12,5 +10,5 @@ vim.g.floaterm_width=0.8
 vim.g.floaterm_height=0.8
 vim.g.floaterm_wintitle=0
 
-keymap('n', '<leader>gg', ':FloatermNew lazygit<CR>')
-keymap('n', '<leader>rr', ':FloatermNew ranger<CR>')
+vim.keymap.set('n', '<leader>gg', ':FloatermNew lazygit<CR>')
+vim.keymap.set('n', '<leader>rr', ':FloatermNew ranger<CR>')

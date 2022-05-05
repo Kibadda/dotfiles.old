@@ -1,3 +1,4 @@
+local core = require('lib.core')
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -22,11 +23,12 @@ packer.set_handler('config', function(_, plugin, value)
   end
 end)
 
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost */.dotfiles/nvim/** source <afile> | PackerCompile
-  augroup end
-]]
+vim.api.nvim_create_augroup('packer_user_config', { clear = true })
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = 'packer_user_config',
+  pattern = core.get_homedir() .. '/.dotfiles/nvim/**',
+  command = 'source <afile> | PackerCompile',
+})
 
 return packer

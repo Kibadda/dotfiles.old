@@ -19,10 +19,10 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<C-r>', '"hy<CMD>%s/<C-r>h//gc<LEFT><LEFT><LEFT>')
 
 -- buffer navigation
-vim.keymap.set('n', '<A-j>', '<CMD>bnext<CR>')
-vim.keymap.set('n', '<A-k>', '<CMD>bprevious<CR>')
-vim.keymap.set('i', '<A-j>', '<ESC><CMD>bnext<CR>')
-vim.keymap.set('i', '<A-k>', '<ESC><CMD>bprevious<CR>')
+vim.keymap.set('n', '<A-j>', '<CMD>BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<A-k>', '<CMD>BufferLineCyclePrev<CR>')
+vim.keymap.set('i', '<A-j>', '<ESC><CMD>BufferLineCycleNext<CR>')
+vim.keymap.set('i', '<A-k>', '<ESC><CMD>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<leader>Q', '<CMD>bufdo bdelete<CR>')
 
 -- buffer resizing

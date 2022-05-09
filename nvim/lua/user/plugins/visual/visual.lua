@@ -19,6 +19,14 @@ M.setup = function (use)
     end
   }
 
+  -- other "lualine"
+  use {
+    'feline-nvim/feline.nvim',
+    config = function ()
+      -- require('user.plugins.visual.feline')
+    end
+  }
+
   -- File Tree
   use {
     'kyazdani42/nvim-tree.lua',
@@ -76,14 +84,6 @@ M.setup = function (use)
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require('user.plugins.visual.indent-blankline')
-    end
-  }
-
-  -- other "lualine"
-  use {
-    'feline-nvim/feline.nvim',
-    config = function ()
-      -- require('user.plugins.visual.feline')
     end
   }
 

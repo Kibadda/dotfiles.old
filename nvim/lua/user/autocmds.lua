@@ -49,8 +49,21 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.opt_local.number = false
     vim.opt_local.signcolumn = 'no'
     vim.opt_local.spell = false
+    vim.cmd[[startinsert]]
   end
 })
+
+-- vim.api.nvim_create_autocmd('BufEnter', {
+--   group = TerminalGroup,
+--   pattern = 'term://*',
+--   command = 'startinsert',
+-- })
+
+-- vim.api.nvim_create_autocmd('BufLeave', {
+--   group = TerminalGroup,
+--   pattern = 'term://*',
+--   command = 'stopinsert',
+-- })
 
 ------------------------------------
 -- Config

@@ -24,6 +24,7 @@ require('bufferline').setup {
     modified_icon = '',
     separator_style = 'thin',
     show_buffer_close_icons = false,
+    show_close_icon = false,
     custom_areas = {
       left = function()
         return {
@@ -31,7 +32,6 @@ require('bufferline').setup {
         }
       end,
     },
-    diagnostics = 'nvim_lsp',
   },
   highlights = {
     background = {

@@ -83,13 +83,13 @@ M.setup = function (use)
   }
 
   -- Git visualization
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require('gitsigns').setup { sign_priority = 20 }
-    end,
-  }
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   requires = 'nvim-lua/plenary.nvim',
+  --   config = function()
+  --     require('gitsigns').setup { sign_priority = 20 }
+  --   end,
+  -- }
 
   -- Session management
   use {

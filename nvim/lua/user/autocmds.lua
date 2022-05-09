@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   group = MiscGroup,
   pattern = 'smarty',
-  command = 'setlocal commentstring={* %s *}',
+  command = 'setlocal commentstring={*\\ %s\\ *}',
 })
 
 ------------------------------------

@@ -10,7 +10,13 @@ ls.config.set_config {
 }
 
 local function copy(args)
-  return args[1]
+  return args[1][1]
+end
+
+local function copyToCamelCase(args)
+  local first = string.sub(args[1][1], 1, 1)
+  local tail = string.sub(args[1][1], 2)
+  return string.lower(first) .. tail
 end
 
 ls.add_snippets('php', {
@@ -35,17 +41,23 @@ ls.add_snippets('php', {
     t('}')
   }),
   s('get', {
+    -- t({'/**', ''}),
+    -- t({' * @return mixed', ''}),
+    -- t({' */', ''}),
     t('public function get'), i(1), t('(): ?'), i(2), t({' {', ''}),
-    t('\treturn $this->'), i(0), t({';', ''}),
+    t('\treturn $this->'), f(copyToCamelCase, 1), t({';', ''}),
     t('}'),
   }),
   s('set', {
-    t('public function set'), i(0), t('($'), i(1), t({'): void {', ''}),
-    t('\t$this->'), f(copy, 1), t(' = $'), f(copy, 1), t({';', ''}),
+    -- t({'/**', ''}),
+    -- t(' * @param $'), f(copyToCamelCase, 1), t({'', ''}),
+    -- t({' */', ''}),
+    t('public function set'), i(1), t('($'), f(copyToCamelCase, 1), t({'): void {', ''}),
+    t('\t$this->'), f(copyToCamelCase, 1), t(' = $'), f(copyToCamelCase, 1), t({';', ''}),
     t('}'),
   }),
   s('for', {
-    t('foreach ('), i(1), t(' as '), i(2), t({')', ''}),
+    t('foreach ('), i(1), t(' as '), i(2), t({') {', ''}),
     t('\t'), i(0), t({'', ''}),
     t('}'),
   }),

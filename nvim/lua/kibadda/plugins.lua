@@ -22,6 +22,7 @@ return require("packer").startup {
     use "tpope/vim-repeat"
 
     use "tjdevries/colorbuddy.nvim"
+    use "tjdevries/gruvbuddy.nvim"
     use "tjdevries/express_line.nvim"
 
     use "neovim/nvim-lspconfig"

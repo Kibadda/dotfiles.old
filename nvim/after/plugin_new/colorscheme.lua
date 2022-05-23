@@ -4,15 +4,23 @@ end
 
 vim.opt.termguicolors = true
 
-require("colorbuddy").colorscheme = "gruvbuddy"
 require("colorizer").setup()
+require("colorbuddy").setup()
 
-local c = require("colorbuddy.color").colors
-local Group = require("colorbuddy.group").Group
-local g = require("colorbuddy.group").groups
+local Color = require('colorbuddy').Color
 
--- Group.new("StatuslineError1", c.red:light():light(), g.Statusline)
--- Group.new("StatuslineError2", c.red:light(), g.Statusline)
--- Group.new("StatuslineError3", c.red, g.Statusline)
--- Group.new("StatuslineError3", c.red:dark(), g.Statusline)
--- Group.new("StatuslineError3", c.red:dark():dark(), g.Statusline)
+Color.new('white',     '#f2e5bc')
+Color.new('red',       '#cc6666')
+Color.new('pink',      '#33f607')
+Color.new('green',     '#99cc99')
+Color.new('yellow',    '#f8fe7a')
+Color.new('blue',      '#81a2be')
+Color.new('aqua',      '#8ec07c')
+Color.new('cyan',      '#8abeb7')
+Color.new('purple',    '#8e6fbd')
+Color.new('violet',    '#b294bb')
+Color.new('orange',    '#de935f')
+Color.new('brown',     '#a3685a')
+
+Color.new('seagreen',  '#698b69')
+Color.new('turquoise', '#698b69')

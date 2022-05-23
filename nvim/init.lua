@@ -3,6 +3,7 @@
 require "kibadda.globals"
 require "kibadda.settings"
 require "kibadda.keymaps"
+require "user.autocmds"
 
 if require "kibadda.first_load"() then
   return
@@ -17,4 +18,3 @@ require "kibadda.disable_builtin"
 -- require "kibadda.telescope.mappings"
 
 require "user.plugins"
-require "user.autocmds"

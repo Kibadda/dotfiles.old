@@ -24,8 +24,11 @@ return require("packer").startup {
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/gruvbuddy.nvim"
     use "tjdevries/express_line.nvim"
+    use "tjdevries/nlua.nvim"
 
     use "neovim/nvim-lspconfig"
+    use "nvim-lua/lsp-status.nvim"
+    use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
     use "rcarriga/nvim-notify"
 

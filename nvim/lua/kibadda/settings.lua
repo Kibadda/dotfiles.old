@@ -60,6 +60,7 @@ opt.clipboard = "unnamedplus"
 
 opt.inccommand = "split"
 opt.swapfile = false
+opt.undofile = true
 opt.shada = { "!", "'1000", "<50", "s10", "h" }
 
 opt.mouse = "n"
@@ -74,4 +75,4 @@ opt.diffopt = { "internal", "filler", "closeoff", "hiddenoff", "algorithm:minima
 
 opt.laststatus = 3
 
-opt.signcolumn = "yes:2"
+opt.signcolumn = "yes:3"

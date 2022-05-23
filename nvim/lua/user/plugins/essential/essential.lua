@@ -76,6 +76,8 @@ M.setup = function (use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'nvim-telescope/telescope-live-grep-raw.nvim' },
       { 'nvim-telescope/telescope-symbols.nvim' },
+      { 'nvim-telescope/telescope-file-browser.nvim' },
+      { 'nvim-telescope/telescope-project.nvim' },
     },
     config = function()
       require('user.plugins.essential.telescope')

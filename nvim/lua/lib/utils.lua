@@ -4,24 +4,24 @@ local core = require('lib.core')
 local M = {}
 
 -- strip filename from full path
-M.strip_fname = function (path)
+function M.strip_fname (path)
   return vim.fn.fnamemodify(path, ':t:r')
 end
 
 -- strip trailing whitespaces in file
-M.strip_trailing_whitespaces = function ()
+function M.strip_trailing_whitespaces ()
   local cursor = vim.api.nvim_win_get_cursor(0)
   vim.api.nvim_command('%s/\\s\\+$//e')
   vim.api.nvim_win_set_cursor(0, cursor)
 end
 
 -- get vim cwd
-M.get_cwd = function ()
+function M.get_cwd ()
   return vim.fn.getcwd()
 end
 
 -- get git repo root dir (or nil)
-M.get_git_root = function ()
+function M.get_git_root ()
   local git_cmd = 'git -C ' .. M.get_cwd() .. ' rev-parse --show-toplevel'
   local root, rc = core.lua_systemlist(git_cmd)
 
@@ -33,7 +33,7 @@ M.get_git_root = function ()
 end
 
 -- get git remote names
-M.get_git_remotes = function ()
+function M.get_git_remotes ()
   local table, rc = core.lua_systemlist('git remote -v | cut -f 1 | uniq')
   if rc ~= 0 then
     return {}
@@ -43,7 +43,7 @@ M.get_git_remotes = function ()
 end
 
 -- open repository on github
-M.open_repo_on_github = function (remote)
+function M.open_repo_on_github (remote)
   if M.get_git_root() == nil then
     vim.notify('not in a git repository', 'error', { title = 'could not open on github' })
   end
@@ -65,7 +65,7 @@ M.open_repo_on_github = function (remote)
 end
 
 -- spellings: toggle spellings globally
-M.toggle_spellings = function ()
+function M.toggle_spellings ()
   if vim.api.nvim_get_option_value('spell', { scope = 'global' }) then
     vim.opt.spell = false
     vim.notify('spellings deactivated', 'info', { render = 'minimal' })
@@ -76,7 +76,7 @@ M.toggle_spellings = function ()
 end
 
 -- laststatus: toggle between global and local statusline
-M.toggle_global_statusline = function (force_local)
+function M.toggle_global_statusline (force_local)
   if vim.api.nvim_get_option_value('laststatus', { scope = 'global' }) == 3 or force_local then
     vim.opt.laststatus = 2
     vim.notify('global statusline deactivated', 'info', { render = 'minimal' })

@@ -13,18 +13,20 @@ return require("packer").startup {
   function (use)
     use "wbthomason/packer.nvim"
 
+    use "folke/which-key.nvim"
+
     use "nvim-lua/plenary.nvim"
+
+    use "tjdevries/colorbuddy.nvim"
+    use "tjdevries/nlua.nvim"
+    use "Th3Whit3Wolf/onebuddy"
+    use "tjdevries/express_line.nvim"
 
     use "numToStr/Comment.nvim"
 
     use "tpope/vim-surround"
     use "tpope/vim-abolish"
     use "tpope/vim-repeat"
-
-    use "tjdevries/colorbuddy.nvim"
-    use "tjdevries/gruvbuddy.nvim"
-    use "tjdevries/express_line.nvim"
-    use "tjdevries/nlua.nvim"
 
     use "neovim/nvim-lspconfig"
     use "nvim-lua/lsp-status.nvim"
@@ -55,13 +57,14 @@ return require("packer").startup {
     -- use "folke/twilight.nvim"
     -- use "folke/trouble.nvim"
 
-    use { "imacco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
+--    use { "imacco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
 
     use "hrsh7th/nvim-cmp"
     -- use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-nvim-lua"
+    use "onsails/lspkind-nvim"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lsp-document-symbol"
     use "saadparwaiz1/cmp_luasnip"
@@ -74,7 +77,7 @@ return require("packer").startup {
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "JoosepAlviste/nvim-ts-context-commentstring"
 
-    use "lewis6991/gitsigns.nvim"
+--    use "lewis6991/gitsigns.nvim"
   end,
   config = {
     luarocks = {

@@ -1,9 +1,6 @@
 -- Highly inspired by https://github.com/tjdevries
 
 require "kibadda.globals"
-require "kibadda.settings"
-require "kibadda.keymaps"
-require "user.autocmds"
 
 if require "kibadda.first_load"() then
   return
@@ -14,7 +11,10 @@ vim.g.maplocalleader = " "
 
 require "kibadda.disable_builtin"
 
--- require "kibadda.telescope.setup"
--- require "kibadda.telescope.mappings"
+require "kibadda.lsp"
 
-require "user.plugins"
+require "kibadda.telescope.setup"
+require "kibadda.telescope.mappings"
+
+-- require "user.plugins"
+require "kibadda.plugins"

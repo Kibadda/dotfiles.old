@@ -3,5 +3,4 @@ kitty/specifics.conf
 
 **/calendar-credentials.lua
 
-nvim/plugin
 nvim/spell/*.spl

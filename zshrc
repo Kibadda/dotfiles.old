@@ -150,3 +150,5 @@ alias lastcom='git show'
 
 alias vim='nvim'
 alias vimdot='nvim ~/.dotfiles'
+
+alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake

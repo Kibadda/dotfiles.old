@@ -49,7 +49,7 @@ local custom_attach = function (client)
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 
   vim.keymap.set("n", "gI", handlers.implementation, { buffer = 0 })
-  vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()", { buffer = 0 })
+  vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
   vim.keymap.set("n", "<LEADER>rr", "LspRestart", { buffer = 0 })
 
   telescope_mapper("gr", "lsp_references", nil, true)
@@ -91,7 +91,7 @@ if nvim_status then
   updated_capabilities = vim.tbl_deep_extend("keep", updated_capabilities, nvim_status.capabilities)
 end
 updated_capabilities.textDocument.codelens = { dynamicRegistation = false }
-updated_capabilities = require("cmp_nvim_lsp").updated_capabilities(updated_capabilities)
+updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capabilities)
 
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 

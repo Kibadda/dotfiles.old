@@ -148,7 +148,7 @@ local servers = {
         },
       },
     },
-  }
+  },
 }
 
 local setup_server = function (server, config)
@@ -198,7 +198,15 @@ _ = require("nlua.lsp.nvim").setup(lspconfig, {
     "s",
 
     "RELOAD",
-  }
+  },
+
+  settings = {
+    Lua = {
+      workspace = {
+        checkThirdParty = false,
+      },
+    },
+  },
 })
 
 if pcall(require, "sg.lsp") then

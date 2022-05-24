@@ -77,4 +77,4 @@ opt.laststatus = 3
 
 opt.signcolumn = "yes:3"
 
-opt.winbar = "%=%m %f"
+-- opt.winbar = "%=%m %f"

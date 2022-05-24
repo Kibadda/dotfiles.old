@@ -5,35 +5,46 @@ _ = vim.cmd [[packadd vimball]]
 --   return vim.fn.has(x) == 1
 -- end
 
--- local executable = function (x)
---   return vim.fn.executable(x) == 1
+-- local executable = function (x) return vim.fn.executable(x) == 1
 -- end
 
 return require("packer").startup {
   function (use)
+    -- Packer
     use "wbthomason/packer.nvim"
 
+    -- Show key visualization
     use "folke/which-key.nvim"
 
     use "nvim-lua/plenary.nvim"
 
+    -- TjDevries stuff
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/nlua.nvim"
-    use "Th3Whit3Wolf/onebuddy"
     use "tjdevries/express_line.nvim"
+    use "tjdevries/complextras.nvim"
 
+    -- Colorscheme
+    use "Th3Whit3Wolf/onebuddy"
+
+    -- Commenting
     use "numToStr/Comment.nvim"
 
+    -- TPope stuff
     use "tpope/vim-surround"
     use "tpope/vim-abolish"
     use "tpope/vim-repeat"
+    use "tpope/vim-sleuth"
 
+    -- Built-in LSP
     use "neovim/nvim-lspconfig"
     use "nvim-lua/lsp-status.nvim"
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
+    -- Better notifications
     use "rcarriga/nvim-notify"
 
+    -- Telescope
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-rs.nvim"
     use "nvim-telescope/telescope-fzf-writer.nvim"
@@ -46,38 +57,75 @@ return require("packer").startup {
     use "nvim-telescope/telescope-file-browser.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
 
+    -- Colorizer
     use "norcalli/nvim-colorizer.lua"
 
-    use "romainl/vim-qf"
-
+    -- Better icons
     use "kyazdani42/nvim-web-devicons"
     use "yamatsum/nvim-web-nonicons"
 
-    -- use "folke/zen-mode.nvim"
-    -- use "folke/twilight.nvim"
-    -- use "folke/trouble.nvim"
-
---    use { "imacco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
-
+    -- Completion engine
     use "hrsh7th/nvim-cmp"
-    -- use "hrsh7th/cmp-cmdline"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-nvim-lua"
-    use "onsails/lspkind-nvim"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lsp-document-symbol"
+    -- use "hrsh7th/cmp-cmdline"
     use "saadparwaiz1/cmp_luasnip"
     use "tamago324/cmp-zsh"
     use "L3MON4D3/LuaSnip"
-    use "tjdevries/complextras.nvim"
+    use "onsails/lspkind-nvim"
 
+    -- Treesitter
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "JoosepAlviste/nvim-ts-context-commentstring"
 
---    use "lewis6991/gitsigns.nvim"
+    -- FixCursorHold
+    use {
+      "antoinemadec/FixCursorHold.nvim",
+      run = function ()
+        vim.g.cursorhold_updatetime = 1000
+      end,
+    }
+
+    -- Startscreen and session
+    use {
+      "mhinz/vim-startify",
+      cmd = { "SLoad", "SSave" },
+      config = function ()
+        vim.g.startify_disable_at_vimenter = true
+      end,
+    }
+
+    -- One-Liner to Multi-Liner and back
+    use {
+      "AndrewRadev/splitjoin.vim",
+      keys = { "gJ", "gS" },
+    }
+
+    -- paste indentation
+    use { "sickill/vim-pasta" }
+
+    -- smarty
+    use { "blueyed/smarty.vim" }
+
+    -- intelligent brackets
+    use {
+      "windwp/nvim-autopairs",
+      config = function ()
+        require("nvim-autopairs").setup()
+      end,
+    }
+
+    -- use "lewis6991/gitsigns.nvim"
+    -- use "folke/zen-mode.nvim"
+    -- use "folke/twilight.nvim"
+    -- use "folke/trouble.nvim"
+    -- use { "imacco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
+    -- use "romainl/vim-qf"
   end,
   config = {
     luarocks = {

@@ -6,4 +6,22 @@ function! s:small_terminal() abort
   term
 endfunction
 
-nnoremap <leader>st :call <SID>small_terminal()<CR>
+nnoremap <LEADER>st :call <SID>small_terminal()<CR>
+
+function! s:lazygit_terminal() abort
+  vnew
+  wincmd L
+  set winfixwidth
+  term lazygit
+endfunction
+
+nnoremap <LEADER>gg :call <SID>lazygit_terminal()<CR>
+
+function! s:ranger_terminal() abort
+  vnew
+  wincmd L
+  set winfixwidth
+  term ranger
+endfunction
+
+nnoremap <LEADER>rr :call <SID>ranger_terminal()<CR>

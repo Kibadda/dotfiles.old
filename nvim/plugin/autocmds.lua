@@ -32,6 +32,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end
 })
 
+vim.api.nvim_create_autocmd("TermClose", {
+  group = TerminalGroup,
+  pattern = "*",
+  command = "bdelete!",
+})
+
 ------------------------------------
 -- Config
 ------------------------------------

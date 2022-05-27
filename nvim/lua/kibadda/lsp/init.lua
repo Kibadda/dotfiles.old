@@ -49,8 +49,8 @@ local custom_attach = function (client)
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 
   vim.keymap.set("n", "gI", handlers.implementation, { buffer = 0 })
-  vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
-  vim.keymap.set("n", "<LEADER>rr", "LspRestart", { buffer = 0 })
+  -- vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "<LEADER>rr", "LspRestart", { buffer = 0 })
 
   telescope_mapper("gr", "lsp_references", nil, true)
   telescope_mapper("gI", "lsp_implementations", nil, true)
@@ -98,11 +98,14 @@ updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport
 local servers = {
   html = true,
   eslint = true,
-  vimls = true,
+
+  vimls = {
+    cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vim-language-server", "--stdio" },
+  },
 
   tsserver = {
     init_options = ts_util.init_options,
-    cmd = { "typescript-language-server", "--stdio" },
+    cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/typescript-language-server", "--stdio" },
     filetypes = {
       "javascript",
     },
@@ -114,21 +117,21 @@ local servers = {
   },
 
   intelephense = {
-    cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/intelephense', '--stdio' },
+    cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/intelephense", "--stdio" },
     settings = {
       intelephense = {
         stubs = {
-          'apache', 'apcu', 'bcmath', 'bz2', 'calendar', 'com_dotnet', 'Core', 'ctype', 'curl', 'date',
-          'dba', 'dom', 'enchant', 'exif', 'FFI', 'fileinfo', 'filter', 'fpm', 'ftp', 'gd', 'gettext',
-          'gmp', 'hash', 'iconv', 'imap', 'intl', 'json', 'ldap', 'libxml', 'mbstring', 'meta', 'mysqli',
-          'oci8', 'odbc', 'openssl', 'pcntl', 'pcre', 'PDO', 'pdo_ibm', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql',
-          'Phar', 'posix', 'pspell', 'readline', 'Reflection', 'session', 'shmop', 'SimpleXML', 'snmp', 'soap',
-          'sockets', 'sodium', 'SPL', 'sqlite3', 'standard', 'superglobals', 'sysvmsg', 'sysvsem', 'sysvshm', 'tidy',
-          'tokenizer', 'xml', 'xmlreader', 'xmlrpc', 'xmlwriter', 'xsl', 'Zend OPcache', 'zip', 'zlib',
-          'wordpress', 'phpunit',
+          "apache", "apcu", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date",
+          "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext",
+          "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli",
+          "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql",
+          "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap",
+          "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
+          "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+          "wordpress", "phpunit",
         },
         format = {
-          braces = 'k&r',
+          braces = "k&r",
           insertSpaces = true,
           tabSize = 4,
         },
@@ -136,13 +139,13 @@ local servers = {
           enable = true,
         },
         phpdoc = {
-          textFormat = 'text',
+          textFormat = "text",
           functionTemplate = {
-            summary = '$1',
+            summary = "$1",
             tags = {
-              '@param ${1:$SYMBOL_TYPE} $SYMBOL_NAME',
-              '@return ${1:$SYMBOL_TYPE}',
-              '@throws ${1:$SYMBOL_TYPE}',
+              "@param ${1:$SYMBOL_TYPE} $SYMBOL_NAME",
+              "@return ${1:$SYMBOL_TYPE}",
+              "@throws ${1:$SYMBOL_TYPE}",
             },
           },
         },

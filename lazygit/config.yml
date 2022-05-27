@@ -163,7 +163,8 @@ keybinding:
     update: u
     bulkMenu: b
 os:
-  openCommand: 'floaterm {{filename}}'
+  # openCommand: 'floaterm {{filename}}'
+  # openCommand: 'nvim {{filename}}'
 disableStartupPopups: false
 customCommands: []
 services: {}

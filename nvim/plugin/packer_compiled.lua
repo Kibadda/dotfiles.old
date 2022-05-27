@@ -200,11 +200,6 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["nvim-web-nonicons"] = {
-    loaded = true,
-    path = "/home/michael/.local/share/nvim/site/pack/packer/start/nvim-web-nonicons",
-    url = "https://github.com/yamatsum/nvim-web-nonicons"
-  },
   onebuddy = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/onebuddy",
@@ -298,6 +293,11 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
   },
+  ["vim-lastplace"] = {
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-lastplace",
+    url = "https://github.com/farmergreg/vim-lastplace"
+  },
   ["vim-pasta"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-pasta",
@@ -314,12 +314,8 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-sleuth"
   },
   ["vim-startify"] = {
-    commands = { "SLoad", "SSave" },
-    config = { "\27LJ\2\n>\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\2\0=\1\2\0K\0\1\0!startify_disable_at_vimenter\6g\bvim\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/michael/.local/share/nvim/site/pack/packer/opt/vim-startify",
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-startify",
     url = "https://github.com/mhinz/vim-startify"
   },
   ["vim-surround"] = {
@@ -339,17 +335,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SLoad lua require("packer.load")({'vim-startify'}, { cmd = "SLoad", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SSave lua require("packer.load")({'vim-startify'}, { cmd = "SSave", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-time([[Defining lazy-load commands]], false)
-
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gS <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gS", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 if should_profile then save_profiles() end

@@ -13,6 +13,9 @@ return require("packer").startup {
     -- Packer
     use "wbthomason/packer.nvim"
 
+    -- Better icons
+    use "kyazdani42/nvim-web-devicons"
+
     -- Show key visualization
     use "folke/which-key.nvim"
 
@@ -60,10 +63,6 @@ return require("packer").startup {
     -- Colorizer
     use "norcalli/nvim-colorizer.lua"
 
-    -- Better icons
-    use "kyazdani42/nvim-web-devicons"
-    use "yamatsum/nvim-web-nonicons"
-
     -- Completion engine
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
@@ -92,13 +91,7 @@ return require("packer").startup {
     }
 
     -- Startscreen and session
-    use {
-      "mhinz/vim-startify",
-      cmd = { "SLoad", "SSave" },
-      config = function ()
-        vim.g.startify_disable_at_vimenter = true
-      end,
-    }
+    use { "mhinz/vim-startify" }
 
     -- One-Liner to Multi-Liner and back
     use {
@@ -119,6 +112,9 @@ return require("packer").startup {
         require("nvim-autopairs").setup()
       end,
     }
+
+    -- Places cursor at the last place of edit
+    use { 'farmergreg/vim-lastplace' }
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"

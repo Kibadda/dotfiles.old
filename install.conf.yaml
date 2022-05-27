@@ -2,7 +2,7 @@
     '~',
 ]
 
-- link: 
+- link:
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/lazygit: lazygit
@@ -12,6 +12,7 @@
     ~/.Xresources: Xresources
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
+    ~/.p10k.zsh: p10k.zsh
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

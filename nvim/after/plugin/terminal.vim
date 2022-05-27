@@ -1,3 +1,4 @@
+" open small terminal on the bottom
 function! s:small_terminal() abort
   new
   wincmd J
@@ -6,8 +7,15 @@ function! s:small_terminal() abort
   term
 endfunction
 
-nnoremap <LEADER>st :call <SID>small_terminal()<CR>
+" open terminal to the side
+function! s:side_terminal() abort
+  vnew
+  wincmd L
+  set winfixwidth
+  term
+endfunction
 
+" open lazygit to the side
 function! s:lazygit_terminal() abort
   vnew
   wincmd L
@@ -15,8 +23,7 @@ function! s:lazygit_terminal() abort
   term lazygit
 endfunction
 
-nnoremap <LEADER>gg :call <SID>lazygit_terminal()<CR>
-
+" open ranger to the side
 function! s:ranger_terminal() abort
   vnew
   wincmd L
@@ -24,4 +31,7 @@ function! s:ranger_terminal() abort
   term ranger
 endfunction
 
+nnoremap <LEADER>td :call <SID>small_terminal()<CR>
+nnoremap <LEADER>tr :call <SID>side_terminal()<CR>
+nnoremap <LEADER>gg :call <SID>lazygit_terminal()<CR>
 nnoremap <LEADER>rr :call <SID>ranger_terminal()<CR>

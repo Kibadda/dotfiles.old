@@ -116,6 +116,9 @@ return require("packer").startup {
     -- Places cursor at the last place of edit
     use { 'farmergreg/vim-lastplace' }
 
+    -- Better scrolling
+    use { 'karb94/neoscroll.nvim' }
+
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"
     -- use "folke/twilight.nvim"

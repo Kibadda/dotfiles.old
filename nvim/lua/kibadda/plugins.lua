@@ -15,11 +15,17 @@ return require("packer").startup {
     -- Basic lua stuff
     use "nvim-lua/plenary.nvim"
 
+    -- Lua helptags
+    use "milisims/nvim-luaref"
+
     -- TjDevries stuff
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/nlua.nvim"
     use "tjdevries/express_line.nvim"
     use "tjdevries/complextras.nvim"
+
+    -- tabline
+    use "mkitt/tabline.vim"
 
     -- Colorscheme
     use "Th3Whit3Wolf/onebuddy"
@@ -32,6 +38,7 @@ return require("packer").startup {
     use "tpope/vim-abolish"
     use "tpope/vim-repeat"
     use "tpope/vim-sleuth"
+    use "tpope/vim-scriptease"
 
     -- Built-in LSP
     use "neovim/nvim-lspconfig"

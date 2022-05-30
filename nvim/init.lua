@@ -16,7 +16,6 @@ require "kibadda.lsp"
 require "kibadda.telescope.setup"
 require "kibadda.telescope.mappings"
 
--- require "user.plugins"
 require "kibadda.plugins"
 
 -- require "kibadda.cmp-colors"

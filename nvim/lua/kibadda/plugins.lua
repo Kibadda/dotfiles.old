@@ -117,11 +117,13 @@ return require("packer").startup {
     -- Better scrolling
     use "karb94/neoscroll.nvim"
 
+    -- Markdown previewer
+    use { "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
+
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"
     -- use "folke/twilight.nvim"
     -- use "folke/trouble.nvim"
-    -- use { "imacco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
     -- use "romainl/vim-qf"
     -- use "mg979/vim-visual-multi"
   end,

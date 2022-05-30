@@ -150,7 +150,7 @@ require("telescope").setup {
 
     hop = {
       -- keys define your hop keys in order; defaults to roughly lower- and uppercased home row
-      keys = { "a", "s", "d", "f", "g", "h", "j", "k", "l", ";" }, -- ... and more
+      keys = { "a", "s", "d", "f", "g", "h", "j", "k", "l", "ö" }, -- ... and more
 
       -- Highlight groups to link to signs and lines; the below configuration refers to demo
       -- sign_hl typically only defines foreground to possibly be combined with line_hl

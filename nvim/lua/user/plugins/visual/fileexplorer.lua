@@ -1,7 +1,7 @@
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_group_empty = 1
 
-require('nvim-tree').setup {
+require("nvim-tree").setup {
   git = {
     ignore = false,
   },
@@ -20,4 +20,4 @@ require('nvim-tree').setup {
   },
 }
 
-vim.keymap.set('n', '<leader>n', ':NvimTreeFindFileToggle<Cr>')
+vim.keymap.set("n", "<leader>n", ":NvimTreeFindFileToggle<Cr>")

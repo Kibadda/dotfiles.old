@@ -1,6 +1,6 @@
 local override = require "kibadda.lsp.override"
 
-vim.lsp.handlers["textDocument/definition"] = function (_, result)
+vim.lsp.handlers["textDocument/definition"] = function(_, result)
   if not result or vim.tbl_isempty(result) then
     print "[LSP] Could not find definition"
     return
@@ -28,10 +28,10 @@ vim.lsp.handlers["window/showMessage"] = require "kibadda.lsp.show_message"
 
 local M = {}
 
-function M.implementation ()
+function M.implementation()
   local params = vim.lsp.utils.make_position_params()
 
-  vim.lsp.buf_request(0, "textDocument/implementation", params, function (err, result, ctx, config)
+  vim.lsp.buf_request(0, "textDocument/implementation", params, function(err, result, ctx, config)
     vim.lsp.handlers["textDocument/implementation"](err, result, ctx, config)
     vim.cmd [[normal! zz]]
   end)

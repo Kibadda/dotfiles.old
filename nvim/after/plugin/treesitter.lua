@@ -61,7 +61,7 @@ local _ = require("nvim-treesitter.configs").setup {
   --   "tsx",
   --   "typescript",
   -- },
-  ensure_installed = 'all',
+  ensure_installed = "all",
 
   highlight = {
     enable = true,

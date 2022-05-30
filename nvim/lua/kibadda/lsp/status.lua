@@ -5,7 +5,7 @@ end
 
 local status = {}
 
-status.select_symbol = function (cursor_pos, symbol)
+status.select_symbol = function(cursor_pos, symbol)
   if symbol.valueRange then
     local value_range = {
       ["start"] = {
@@ -22,7 +22,7 @@ status.select_symbol = function (cursor_pos, symbol)
   end
 end
 
-status.activate = function ()
+status.activate = function()
   nvim_status.config {
     select_symbol = status.select_symbol,
 
@@ -37,14 +37,14 @@ status.activate = function ()
   nvim_status.register_progress()
 end
 
-status.on_attach = function (client)
+status.on_attach = function(client)
   nvim_status.on_attach(client)
 
-  local KibaddaLspStatusGroup = vim.api.nvim_create_augroup('KibaddaLspStatusGroup', { clear = true })
-  vim.api.nvim_create_autocmd({ "CursorHold", "BufEnter", }, {
+  local KibaddaLspStatusGroup = vim.api.nvim_create_augroup("KibaddaLspStatusGroup", { clear = true })
+  vim.api.nvim_create_autocmd({ "CursorHold", "BufEnter" }, {
     group = KibaddaLspStatusGroup,
     pattern = "<buffer>",
-    callback = function ()
+    callback = function()
       require("lsp-status").update_current_function()
     end,
   })

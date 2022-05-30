@@ -1,4 +1,4 @@
-local utils = require('lib.utils')
+local utils = require "lib.utils"
 
 vim.diagnostic.config {
   virtual_text = false,
@@ -12,57 +12,123 @@ vim.diagnostic.config {
       end
       return diagnostic.message
     end,
-  }
+  },
 }
 
 local on_attach = function(client, bufnr)
   -- require 'lsp-format'.on_attach(client)
 
-  vim.notify(string.format('[lsp] %s\n[cwd] %s', client.name, utils.get_cwd()), 'info', {title = '[lsp] Active'})
+  vim.notify(string.format("[lsp] %s\n[cwd] %s", client.name, utils.get_cwd()), "info", { title = "[lsp] Active" })
 
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr })
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = bufnr })
-  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { buffer = bufnr })
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
-  vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', { buffer = bufnr })
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = bufnr })
+  vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", { buffer = bufnr })
 
-  vim.keymap.set('n', '<leader>ca', ':CodeActionMenu<CR>', { buffer = bufnr })
-  vim.keymap.set('v', '<leader>ca', ':CodeActionMenu<CR>', { buffer = bufnr })
+  vim.keymap.set("n", "<leader>ca", ":CodeActionMenu<CR>", { buffer = bufnr })
+  vim.keymap.set("v", "<leader>ca", ":CodeActionMenu<CR>", { buffer = bufnr })
 
-  vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { buffer = bufnr })
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = bufnr })
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = bufnr })
+  vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { buffer = bufnr })
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = bufnr })
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = bufnr })
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- install via npm i -g intelephense
-require'lspconfig'.intelephense.setup{
+require("lspconfig").intelephense.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/intelephense', '--stdio' },
+  cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/intelephense", "--stdio" },
   flags = {
     debounce_text_changes = 150,
   },
   settings = {
     intelephense = {
       stubs = {
-        'apache', 'apcu', 'bcmath', 'bz2', 'calendar', 'com_dotnet', 'Core', 'ctype', 'curl', 'date',
-        'dba', 'dom', 'enchant', 'exif', 'FFI', 'fileinfo', 'filter', 'fpm', 'ftp', 'gd', 'gettext',
-        'gmp', 'hash', 'iconv', 'imap', 'intl', 'json', 'ldap', 'libxml', 'mbstring', 'meta', 'mysqli',
-        'oci8', 'odbc', 'openssl', 'pcntl', 'pcre', 'PDO', 'pdo_ibm', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql',
-        'Phar', 'posix', 'pspell', 'readline', 'Reflection', 'session', 'shmop', 'SimpleXML', 'snmp', 'soap',
-        'sockets', 'sodium', 'SPL', 'sqlite3', 'standard', 'superglobals', 'sysvmsg', 'sysvsem', 'sysvshm', 'tidy',
-        'tokenizer', 'xml', 'xmlreader', 'xmlrpc', 'xmlwriter', 'xsl', 'Zend OPcache', 'zip', 'zlib',
-        'wordpress', 'phpunit',
+        "apache",
+        "apcu",
+        "bcmath",
+        "bz2",
+        "calendar",
+        "com_dotnet",
+        "Core",
+        "ctype",
+        "curl",
+        "date",
+        "dba",
+        "dom",
+        "enchant",
+        "exif",
+        "FFI",
+        "fileinfo",
+        "filter",
+        "fpm",
+        "ftp",
+        "gd",
+        "gettext",
+        "gmp",
+        "hash",
+        "iconv",
+        "imap",
+        "intl",
+        "json",
+        "ldap",
+        "libxml",
+        "mbstring",
+        "meta",
+        "mysqli",
+        "oci8",
+        "odbc",
+        "openssl",
+        "pcntl",
+        "pcre",
+        "PDO",
+        "pdo_ibm",
+        "pdo_mysql",
+        "pdo_pgsql",
+        "pdo_sqlite",
+        "pgsql",
+        "Phar",
+        "posix",
+        "pspell",
+        "readline",
+        "Reflection",
+        "session",
+        "shmop",
+        "SimpleXML",
+        "snmp",
+        "soap",
+        "sockets",
+        "sodium",
+        "SPL",
+        "sqlite3",
+        "standard",
+        "superglobals",
+        "sysvmsg",
+        "sysvsem",
+        "sysvshm",
+        "tidy",
+        "tokenizer",
+        "xml",
+        "xmlreader",
+        "xmlrpc",
+        "xmlwriter",
+        "xsl",
+        "Zend OPcache",
+        "zip",
+        "zlib",
+        "wordpress",
+        "phpunit",
       },
       format = {
-        braces = 'k&r',
+        braces = "k&r",
         insertSpaces = true,
         tabSize = 4,
       },
@@ -70,13 +136,13 @@ require'lspconfig'.intelephense.setup{
         enable = true,
       },
       phpdoc = {
-        textFormat = 'text',
+        textFormat = "text",
         functionTemplate = {
-          summary = '$1',
+          summary = "$1",
           tags = {
-            '@param ${1:$SYMBOL_TYPE} $SYMBOL_NAME',
-            '@return ${1:$SYMBOL_TYPE}',
-            '@throws ${1:$SYMBOL_TYPE}',
+            "@param ${1:$SYMBOL_TYPE} $SYMBOL_NAME",
+            "@return ${1:$SYMBOL_TYPE}",
+            "@throws ${1:$SYMBOL_TYPE}",
           },
         },
       },
@@ -84,56 +150,58 @@ require'lspconfig'.intelephense.setup{
   },
 }
 
-require'lspconfig'.tsserver.setup{
+require("lspconfig").tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/typescript-language-server', '--stdio' },
+  cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/typescript-language-server", "--stdio" },
   flags = {
     debounce_text_changes = 150,
   },
 }
 
-require'lspconfig'.eslint.setup{
+require("lspconfig").eslint.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-eslint-language-server', '--stdio' },
+  cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-eslint-language-server", "--stdio" },
   flags = {
     debounce_text_changes = 150,
   },
   handlers = {
-    ['window/showMessageRequest'] = function(_, result, _) return result end,
+    ["window/showMessageRequest"] = function(_, result, _)
+      return result
+    end,
   },
 }
 
-require'lspconfig'.html.setup{
+require("lspconfig").html.setup {
   capabilities = capabilities,
-  cmd = { '/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-html-language-server', '--stdio' },
+  cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-html-language-server", "--stdio" },
   flags = {
     debounce_text_changes = 150,
   },
-  filetypes = { 'html', 'php', 'smarty' },
+  filetypes = { "html", "php", "smarty" },
 }
 
 -- install via pacman -S lua-language-server
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
-require'lspconfig'.sumneko_lua.setup{
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+require("lspconfig").sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = {
     debounce_text_changes = 150,
   },
-  cmd = { '/usr/bin/lua-language-server', '-E', '/usr/lib/lua-language-server/main.lua' },
+  cmd = { "/usr/bin/lua-language-server", "-E", "/usr/lib/lua-language-server/main.lua" },
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = "LuaJIT",
         path = runtime_path,
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
+        globals = { "vim" },
       },
     },
     workspace = {
@@ -165,10 +233,10 @@ require'lspconfig'.sumneko_lua.setup{
 --   }
 -- }
 
-vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 -- suppress error messages from lang servers
 -- vim.notify = function(msg, log_level, _)

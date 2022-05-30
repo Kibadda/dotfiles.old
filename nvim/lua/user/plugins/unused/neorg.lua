@@ -1,29 +1,29 @@
-require('neorg').setup{
+require("neorg").setup {
   load = {
-    ['core.defaults'] = {},
-    ['core.norg.dirman'] = {
+    ["core.defaults"] = {},
+    ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          home = '~/notes/home',
-          work = '~/notes/work',
+          home = "~/notes/home",
+          work = "~/notes/work",
         },
       },
     },
-    ['core.gtd.base'] = {
+    ["core.gtd.base"] = {
       config = {
-        workspace = 'work',
+        workspace = "work",
       },
     },
-    ['core.norg.completion'] = {
+    ["core.norg.completion"] = {
       config = {
-        engine = 'nvim-cmp',
+        engine = "nvim-cmp",
       },
     },
-    ['core.norg.concealer'] = {},
-    ['core.keybinds'] = {},
-    ['core.presenter'] = {},
-    ['core.highlights'] = {},
-    ['core.norg.qol.toc'] = {},
-    ['core.norg.manoeuvre'] = {},
+    ["core.norg.concealer"] = {},
+    ["core.keybinds"] = {},
+    ["core.presenter"] = {},
+    ["core.highlights"] = {},
+    ["core.norg.qol.toc"] = {},
+    ["core.norg.manoeuvre"] = {},
   },
 }

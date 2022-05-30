@@ -12,11 +12,11 @@ local fmt = require("luasnip.extras.fmt").fmt
 local shared = R "kibadda.snips"
 local same = shared.same
 
-local newline = function (text)
+local newline = function(text)
   return t { "", text }
 end
 
-local require_var = function (args, _)
+local require_var = function(args, _)
   local text = args[1][1] or ""
   local split = vim.split(text, ".", { plain = true })
 

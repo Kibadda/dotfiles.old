@@ -1,4 +1,4 @@
-vim.notify = require('notify')
+vim.notify = require "notify"
 
 -- Utility functions shared between progress reports for LSP and DAP
 
@@ -15,7 +15,6 @@ vim.notify = require('notify')
 
 --   return client_notifs[client_id][token]
 -- end
-
 
 -- local spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 

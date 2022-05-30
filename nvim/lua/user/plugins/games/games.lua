@@ -1,11 +1,11 @@
 local M = {}
 
-M.setup = function (use)
+M.setup = function(use)
   -- Tetris
-  use { 'alec-gibson/nvim-tetris' }
+  use { "alec-gibson/nvim-tetris" }
 
   -- Minesweeper
-  use { 'seandewar/nvimesweeper' }
+  use { "seandewar/nvimesweeper" }
 end
 
 return M

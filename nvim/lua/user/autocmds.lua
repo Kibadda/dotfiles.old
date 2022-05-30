@@ -1,56 +1,56 @@
-local utils = require('lib.utils')
-local core = require('lib.core')
+local utils = require "lib.utils"
+local core = require "lib.core"
 
 ------------------------------------
 -- Misc
 ------------------------------------
 
-local MiscGroup = vim.api.nvim_create_augroup('Misc', { clear = true })
+local MiscGroup = vim.api.nvim_create_augroup("Misc", { clear = true })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = MiscGroup,
-  pattern = '*',
+  pattern = "*",
   callback = utils.strip_trailing_whitespaces,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd("FileType", {
   group = MiscGroup,
   pattern = {
-    'calendar',
+    "calendar",
   },
-  command = 'setlocal nospell'
+  command = "setlocal nospell",
 })
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd("FileType", {
   group = MiscGroup,
   pattern = {
-    'calendar',
+    "calendar",
   },
-  command = 'IndentBlanklineDisable',
+  command = "IndentBlanklineDisable",
 })
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd("FileType", {
   group = MiscGroup,
-  pattern = 'smarty',
-  command = 'setlocal commentstring={*\\ %s\\ *}',
+  pattern = "smarty",
+  command = "setlocal commentstring={*\\ %s\\ *}",
 })
 
 ------------------------------------
 -- Terminal
 ------------------------------------
 
-local TerminalGroup = vim.api.nvim_create_augroup('Terminal', { clear = true })
+local TerminalGroup = vim.api.nvim_create_augroup("Terminal", { clear = true })
 
-vim.api.nvim_create_autocmd('TermOpen', {
+vim.api.nvim_create_autocmd("TermOpen", {
   group = TerminalGroup,
-  pattern = '*',
-  callback = function ()
-    vim.opt_local.filetype = 'terminal'
+  pattern = "*",
+  callback = function()
+    vim.opt_local.filetype = "terminal"
     vim.opt_local.number = false
-    vim.opt_local.signcolumn = 'no'
+    vim.opt_local.signcolumn = "no"
     vim.opt_local.spell = false
-    vim.cmd[[startinsert]]
-  end
+    vim.cmd [[startinsert]]
+  end,
 })
 
 -- vim.api.nvim_create_autocmd('BufEnter', {
@@ -69,59 +69,59 @@ vim.api.nvim_create_autocmd('TermOpen', {
 -- Config
 ------------------------------------
 
-local ConfigGroup = vim.api.nvim_create_augroup('Config', { clear = true })
+local ConfigGroup = vim.api.nvim_create_augroup("Config", { clear = true })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
+vim.api.nvim_create_autocmd("BufWritePost", {
   group = ConfigGroup,
   pattern = {
-    core.get_homedir() .. '/.dotfiles/nvim/init.lua',
-    core.get_homedir() .. '/.dotfiles/nvim/lua/lib/*.lua',
-    core.get_homedir() .. '/.dotfiles/nvim/lua/user/*.lua',
-    core.get_homedir() .. '/.dotfiles/nvim/lua/user/plugins/*/*.lua',
+    core.get_homedir() .. "/.dotfiles/nvim/init.lua",
+    core.get_homedir() .. "/.dotfiles/nvim/lua/lib/*.lua",
+    core.get_homedir() .. "/.dotfiles/nvim/lua/user/*.lua",
+    core.get_homedir() .. "/.dotfiles/nvim/lua/user/plugins/*/*.lua",
   },
-  command = 'source <afile>',
+  command = "source <afile>",
 })
 
-vim.api.nvim_create_autocmd('BufEnter', {
+vim.api.nvim_create_autocmd("BufEnter", {
   group = ConfigGroup,
   pattern = {
-    core.get_homedir() .. '/.dotfiles/kitty/*.conf',
-    core.get_homedir() .. '/.dotfiles/i3/config'
+    core.get_homedir() .. "/.dotfiles/kitty/*.conf",
+    core.get_homedir() .. "/.dotfiles/i3/config",
   },
-  command = 'setlocal filetype=bash',
+  command = "setlocal filetype=bash",
 })
 
 ------------------------------------
 -- Lsp
 ------------------------------------
 
-local LanguageServerGroup = vim.api.nvim_create_augroup('LanguageServer', { clear = true })
+local LanguageServerGroup = vim.api.nvim_create_augroup("LanguageServer", { clear = true })
 
-vim.api.nvim_create_autocmd('BufRead', {
+vim.api.nvim_create_autocmd("BufRead", {
   group = LanguageServerGroup,
-  pattern = '*',
-  callback = function ()
-    require('lint').try_lint()
+  pattern = "*",
+  callback = function()
+    require("lint").try_lint()
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
+vim.api.nvim_create_autocmd("BufWritePost", {
   group = LanguageServerGroup,
-  pattern = '*',
-  callback = function ()
-    require('lint').try_lint()
+  pattern = "*",
+  callback = function()
+    require("lint").try_lint()
   end,
 })
 
 ------------------------------------
 
-vim.defer_fn(function ()
+vim.defer_fn(function()
   if utils.get_git_root() ~= 0 then
-    vim.api.nvim_create_user_command('OpenInGithub', function (_)
+    vim.api.nvim_create_user_command("OpenInGithub", function(_)
       local remotes = utils.get_git_remotes()
 
       if #remotes > 1 then
-        vim.ui.select(remotes, { prompt = 'remote> ' }, function (remote)
+        vim.ui.select(remotes, { prompt = "remote> " }, function(remote)
           utils.open_repo_on_github(remote)
         end)
       else
@@ -130,7 +130,7 @@ vim.defer_fn(function ()
     end, {
       bang = true,
       nargs = 0,
-      desc = 'Open chosen remote on Github, in the Browser'
+      desc = "Open chosen remote on Github, in the Browser",
     })
   end
 end, 0)

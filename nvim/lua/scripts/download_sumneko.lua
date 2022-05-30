@@ -1,9 +1,9 @@
-local Job = require('plenary.job')
-local log = require('plenary.log')
+local Job = require "plenary.job"
+local log = require "plenary.log"
 
 local GITHUB_URL = "https://github.com/sumneko/lua-language-server/"
 
-local directory = require('nlua.lsp.nvim').base_directory
+local directory = require("nlua.lsp.nvim").base_directory
 
 local run = function(input)
   local args = {}
@@ -13,19 +13,21 @@ local run = function(input)
 
   local command = table.remove(args, 1)
 
-  Job:new {
-    command = command,
-    args = args,
-    env = { ['git'] = '/usr/bin/git' },
+  Job
+    :new({
+      command = command,
+      args = args,
+      env = { ["git"] = "/usr/bin/git" },
 
-    cwd = input.cwd,
+      cwd = input.cwd,
 
-    on_stdout = vim.schedule_wrap(function(_, data)
-      print(command, ":", data)
-    end),
+      on_stdout = vim.schedule_wrap(function(_, data)
+        print(command, ":", data)
+      end),
 
-    skip_validation = true,
-  }:sync(50000, nil, true)
+      skip_validation = true,
+    })
+    :sync(50000, nil, true)
 end
 
 local function download()
@@ -34,18 +36,23 @@ local function download()
       "git",
       "clone",
       GITHUB_URL,
-      directory
+      directory,
     }
   else
     run {
-      "git", "pull",
+      "git",
+      "pull",
       cwd = directory,
     }
   end
 
   run {
-    "git", "submodule", "update", "--init", "--recursive",
-    cwd = directory
+    "git",
+    "submodule",
+    "update",
+    "--init",
+    "--recursive",
+    cwd = directory,
   }
 end
 
@@ -58,7 +65,8 @@ local function build()
   }
 
   run {
-    "./3rd/luamake/luamake", "rebuild",
+    "./3rd/luamake/luamake",
+    "rebuild",
     cwd = directory,
     skip_validation = true,
   }

@@ -21,18 +21,18 @@ if status then
   status.activate()
 end
 
-local custom_init = function (client)
+local custom_init = function(client)
   client.config.flags = client.config.flags or {}
   client.config.flags.allow_incremental_sync = true
 end
 
 local filetype_attach = setmetatable({}, {
-  __index = function ()
-    return function () end
-  end
+  __index = function()
+    return function() end
+  end,
 })
 
-local custom_attach = function (client)
+local custom_attach = function(client)
   local filetype = vim.api.nvim_buf_get_option(0, "filetype")
 
   if nvim_status then
@@ -109,7 +109,7 @@ local servers = {
     filetypes = {
       "javascript",
     },
-    on_attach = function (client)
+    on_attach = function(client)
       custom_attach(client)
       ts_util.setup { auto_inlay_hints = false }
       ts_util.setup_client(client)
@@ -121,14 +121,80 @@ local servers = {
     settings = {
       intelephense = {
         stubs = {
-          "apache", "apcu", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date",
-          "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext",
-          "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli",
-          "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql",
-          "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap",
-          "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
-          "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
-          "wordpress", "phpunit",
+          "apache",
+          "apcu",
+          "bcmath",
+          "bz2",
+          "calendar",
+          "com_dotnet",
+          "Core",
+          "ctype",
+          "curl",
+          "date",
+          "dba",
+          "dom",
+          "enchant",
+          "exif",
+          "FFI",
+          "fileinfo",
+          "filter",
+          "fpm",
+          "ftp",
+          "gd",
+          "gettext",
+          "gmp",
+          "hash",
+          "iconv",
+          "imap",
+          "intl",
+          "json",
+          "ldap",
+          "libxml",
+          "mbstring",
+          "meta",
+          "mysqli",
+          "oci8",
+          "odbc",
+          "openssl",
+          "pcntl",
+          "pcre",
+          "PDO",
+          "pdo_ibm",
+          "pdo_mysql",
+          "pdo_pgsql",
+          "pdo_sqlite",
+          "pgsql",
+          "Phar",
+          "posix",
+          "pspell",
+          "readline",
+          "Reflection",
+          "session",
+          "shmop",
+          "SimpleXML",
+          "snmp",
+          "soap",
+          "sockets",
+          "sodium",
+          "SPL",
+          "sqlite3",
+          "standard",
+          "superglobals",
+          "sysvmsg",
+          "sysvsem",
+          "sysvshm",
+          "tidy",
+          "tokenizer",
+          "xml",
+          "xmlreader",
+          "xmlrpc",
+          "xmlwriter",
+          "xsl",
+          "Zend OPcache",
+          "zip",
+          "zlib",
+          "wordpress",
+          "phpunit",
         },
         format = {
           braces = "k&r",
@@ -154,7 +220,7 @@ local servers = {
   },
 }
 
-local setup_server = function (server, config)
+local setup_server = function(server, config)
   if not config then
     return
   end
@@ -168,7 +234,7 @@ local setup_server = function (server, config)
     on_attach = custom_attach,
     capabilities = updated_capabilities,
     flags = {
-      debounce_text_changes = nil
+      debounce_text_changes = nil,
     },
   }, config)
 
@@ -184,7 +250,7 @@ _ = require("nlua.lsp.nvim").setup(lspconfig, {
   on_attach = custom_attach,
   capabilities = updated_capabilities,
 
-  root_dir = function (fname)
+  root_dir = function(fname)
     if string.find(vim.fn.fnamemodify(fname, ":p"), ".dotfiles/nvim/") then
       P(fname)
       return vim.fn.expand "~/.dotfiles/nvim/"

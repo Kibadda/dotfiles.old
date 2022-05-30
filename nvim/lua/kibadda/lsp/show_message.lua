@@ -14,7 +14,7 @@ local border = {
   { "▏", "FloatBorder" },
 }
 
-local create_little_window = function (messages)
+local create_little_window = function(messages)
   local msg_lines = #messages
 
   local msg_width = 0
@@ -44,7 +44,7 @@ function LspShowMessageBuffer()
   vim.cmd([[buffer ]] .. _LspMessageBuffer)
 end
 
-return function (_, result, ctx)
+return function(_, result, ctx)
   local client_id = ctx.client_id
 
   local message_type = result.type
@@ -70,9 +70,7 @@ return function (_, result, ctx)
   vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, messages)
 
   local win_id = create_little_window(messages)
-  vim.cmd(string.format(
-    [[autocmd CursorMoved * ++once :call nvim_win_close(%s, v:true)]]
-  ), win_id)
+  vim.cmd(string.format [[autocmd CursorMoved * ++once :call nvim_win_close(%s, v:true)]], win_id)
 
   return result
 end

@@ -9,24 +9,24 @@
 -- ellisonleao/glow.nvim
 -- nvim-neorg/neorg
 
-local packer = require 'lib.packer-init'
+local packer = require "lib.packer-init"
 
-packer.startup(function (use)
+packer.startup(function(use)
   -- Let packer manage itself
-  use { 'wbthomason/packer.nvim' }
+  use { "wbthomason/packer.nvim" }
 
   -- essential plugins (like linter, formatter, treesitter)
-  require('user.plugins.essential.essential').setup(use)
+  require("user.plugins.essential.essential").setup(use)
 
   -- visual plugins (like theme, status line, buffer line)
-  require('user.plugins.visual.visual').setup(use)
+  require("user.plugins.visual.visual").setup(use)
 
   -- language server
-  require('user.plugins.lsp.lsp').setup(use)
+  require("user.plugins.lsp.lsp").setup(use)
 
   -- other plugins
-  require('user.plugins.other.other').setup(use)
+  require("user.plugins.other.other").setup(use)
 
   -- games
-  require('user.plugins.games.games').setup(use)
+  require("user.plugins.games.games").setup(use)
 end)

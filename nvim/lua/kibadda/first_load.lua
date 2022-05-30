@@ -1,4 +1,4 @@
-local download_packer = function ()
+local download_packer = function()
   if vim.fn.input "Download Packer? (y for yes)" ~= "y" then
     return
   end
@@ -17,7 +17,7 @@ local download_packer = function ()
   vim.cmd [[qa]]
 end
 
-return function ()
+return function()
   if not pcall(require, "packer") then
     download_packer()
 

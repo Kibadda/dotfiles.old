@@ -9,7 +9,7 @@ _ = vim.cmd [[packadd vimball]]
 -- end
 
 return require("packer").startup {
-  function (use)
+  function(use)
     -- Packer
     use "wbthomason/packer.nvim"
 
@@ -85,7 +85,7 @@ return require("packer").startup {
     -- FixCursorHold
     use {
       "antoinemadec/FixCursorHold.nvim",
-      run = function ()
+      run = function()
         vim.g.cursorhold_updatetime = 1000
       end,
     }
@@ -108,16 +108,16 @@ return require("packer").startup {
     -- intelligent brackets
     use {
       "windwp/nvim-autopairs",
-      config = function ()
+      config = function()
         require("nvim-autopairs").setup()
       end,
     }
 
     -- Places cursor at the last place of edit
-    use { 'farmergreg/vim-lastplace' }
+    use { "farmergreg/vim-lastplace" }
 
     -- Better scrolling
-    use { 'karb94/neoscroll.nvim' }
+    use { "karb94/neoscroll.nvim" }
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"
@@ -125,6 +125,7 @@ return require("packer").startup {
     -- use "folke/trouble.nvim"
     -- use { "imacco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
     -- use "romainl/vim-qf"
+    -- use "mg979/vim-visual-multi"
   end,
   config = {
     luarocks = {

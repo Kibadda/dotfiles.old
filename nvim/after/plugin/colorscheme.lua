@@ -5,4 +5,4 @@ end
 vim.opt.termguicolors = true
 
 require("colorizer").setup()
-require("colorbuddy").colorscheme("onebuddy")
+require("colorbuddy").colorscheme "onebuddy"

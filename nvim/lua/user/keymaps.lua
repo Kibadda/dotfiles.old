@@ -1,29 +1,29 @@
-local terminal = require('user.terminal')
+local terminal = require "user.terminal"
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- useful
-vim.keymap.set('', 'gf', '<CMD>edit <cfile><CR>')
-vim.keymap.set('n', '<leader>K', '<CMD>nohlsearch<CR>')
+vim.keymap.set("", "gf", "<CMD>edit <cfile><CR>")
+vim.keymap.set("n", "<leader>K", "<CMD>nohlsearch<CR>")
 
-vim.keymap.set('i', '<A-w>', '<ESC><CMD>w<CR>')
-vim.keymap.set('n', '<A-w>', '<CMD>w<CR>')
+vim.keymap.set("i", "<A-w>", "<ESC><CMD>w<CR>")
+vim.keymap.set("n", "<A-w>", "<CMD>w<CR>")
 
-vim.keymap.set('v', 'y', 'myy`y')
-vim.keymap.set('v', 'Y', 'myY`y')
+vim.keymap.set("v", "y", "myy`y")
+vim.keymap.set("v", "Y", "myY`y")
 
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('v', '>', '>gv')
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
-vim.keymap.set('v', '<C-r>', '"hy:%s/<C-r>h//gc<LEFT><LEFT><LEFT>')
+vim.keymap.set("v", "<C-r>", '"hy:%s/<C-r>h//gc<LEFT><LEFT><LEFT>')
 
 -- buffer navigation
-vim.keymap.set('n', '<A-j>', '<CMD>BufferLineCycleNext<CR>')
-vim.keymap.set('n', '<A-k>', '<CMD>BufferLineCyclePrev<CR>')
-vim.keymap.set('i', '<A-j>', '<ESC><CMD>BufferLineCycleNext<CR>')
-vim.keymap.set('i', '<A-k>', '<ESC><CMD>BufferLineCyclePrev<CR>')
-vim.keymap.set('n', '<leader>Q', '<CMD>bufdo bdelete<CR>')
+vim.keymap.set("n", "<A-j>", "<CMD>BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<A-k>", "<CMD>BufferLineCyclePrev<CR>")
+vim.keymap.set("i", "<A-j>", "<ESC><CMD>BufferLineCycleNext<CR>")
+vim.keymap.set("i", "<A-k>", "<ESC><CMD>BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<leader>Q", "<CMD>bufdo bdelete<CR>")
 
 -- buffer resizing
 vim.keymap.set("n", "<D-j>", "<CMD>resize +2<CR>")
@@ -39,8 +39,8 @@ vim.keymap.set("n", "<D-l>", "<CMD>vertical resize +2<CR>")
 -- vim.keymap.set('t', '<C-l>', '<C-\\><C-w>l')
 
 -- terminal setup
-vim.keymap.set('n', '<leader>tt', '<CMD>vsp term://' .. vim.o.shell .. '<CR>')
-vim.keymap.set('n', '<leader>tA', terminal.run_target_command)
-vim.keymap.set('n', '<leader>ta', terminal.run_previous_command)
-vim.keymap.set('n', '<leader>tS', terminal.set_target)
-vim.keymap.set('n', '<leader>ts', terminal.toggle_target)
+vim.keymap.set("n", "<leader>tt", "<CMD>vsp term://" .. vim.o.shell .. "<CR>")
+vim.keymap.set("n", "<leader>tA", terminal.run_target_command)
+vim.keymap.set("n", "<leader>ta", terminal.run_previous_command)
+vim.keymap.set("n", "<leader>tS", terminal.set_target)
+vim.keymap.set("n", "<leader>ts", terminal.toggle_target)

@@ -48,8 +48,8 @@ local colors = {
   grey19 = "#020203",
 }
 
-require('onenord').setup {
-  theme = 'dark',
+require("onenord").setup {
+  theme = "dark",
   borders = true,
   fade_nc = false,
   styles = {

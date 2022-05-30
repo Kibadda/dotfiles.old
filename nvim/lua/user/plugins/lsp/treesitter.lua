@@ -1,18 +1,18 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'all',
+require("nvim-treesitter.configs").setup {
+  ensure_installed = "all",
   indent = {
-    enable = { 'php', 'html', 'smarty' },
+    enable = { "php", "html", "smarty" },
   },
   highlight = {
     enable = true,
-    disable = { 'NvimTree' },
+    disable = { "NvimTree" },
   },
   textobjects = {
     select = {
       enable = true,
       lookahead = true,
       keymaps = {
-        ['ia'] = '@parameter.inner',
+        ["ia"] = "@parameter.inner",
       },
     },
   },
@@ -21,8 +21,8 @@ require('nvim-treesitter.configs').setup {
   },
   autotag = {
     enable = true,
-    filetypes = { 'html', 'php', 'smarty', 'tpl' },
-  }
+    filetypes = { "html", "php", "smarty", "tpl" },
+  },
 }
 
-require('spellsitter').setup{}
+require("spellsitter").setup {}

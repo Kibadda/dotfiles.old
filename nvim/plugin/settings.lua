@@ -24,11 +24,11 @@ opt.hlsearch = true
 opt.scrolloff = 10
 opt.cursorline = true
 local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
-local set_cursorline = function (event, value, pattern)
+local set_cursorline = function(event, value, pattern)
   vim.api.nvim_create_autocmd(event, {
     group = group,
     pattern = pattern,
-    callback = function ()
+    callback = function()
       vim.opt_local.cursorline = value
     end,
   })

@@ -9,7 +9,7 @@ vim.diagnostic.config {
 
   float = {
     show_header = true,
-    format = function (d)
+    format = function(d)
       local t = vim.deepcopy(d)
       local code = d.code or d.user_data.lsp.code
       if code then
@@ -28,15 +28,15 @@ local goto_opts = {
   float = true,
 }
 
-vim.keymap.set("n", "<LEADER>dn", function ()
+vim.keymap.set("n", "<LEADER>dn", function()
   vim.diagnostic.goto_next(goto_opts)
 end)
 
-vim.keymap.set("n", "<LEADER>dp", function ()
+vim.keymap.set("n", "<LEADER>dp", function()
   vim.diagnostic.goto_prev(goto_opts)
 end)
 
-vim.keymap.set("n", "<LEADER>sl", function ()
+vim.keymap.set("n", "<LEADER>sl", function()
   vim.diagnostic.open_float(0, {
     scope = "line",
   })

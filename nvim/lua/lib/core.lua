@@ -8,9 +8,9 @@ local next = next
 
 -- run shell command and get output lines as lua table
 -- from: https://github.com/ibhagwan/fzf-lua/blob/main/lua/fzf-lua/utils.lua
-function M.lua_systemlist (cmd)
+function M.lua_systemlist(cmd)
   local stdout, rc = {}, 0
-  local handle = io.popen(cmd .. ' 2>&1 ; echo $?', 'r')
+  local handle = io.popen(cmd .. " 2>&1 ; echo $?", "r")
 
   if handle then
     for line in handle:lines() do
@@ -25,24 +25,24 @@ function M.lua_systemlist (cmd)
 end
 
 -- run shell command and get str output
-function M.lua_system (cmd)
+function M.lua_system(cmd)
   local stdout, rc = M.lua_systemlist(cmd)
 
   if next(stdout) == nil then
     return nil, rc
   end
 
-  return table.concat(stdout, '\n'), rc
+  return table.concat(stdout, "\n"), rc
 end
 
 -- get username ($USER)
-function M.get_username ()
-  return os.getenv('USER')
+function M.get_username()
+  return os.getenv "USER"
 end
 
 -- get home dir ($HOME)
-function M.get_homedir ()
-  return os.getenv('HOME')
+function M.get_homedir()
+  return os.getenv "HOME"
 end
 
 return M

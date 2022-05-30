@@ -42,7 +42,6 @@ local custom_attach = function(client)
   vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, { buffer = 0 })
 
   vim.keymap.set("n", "<LEADER>cr", handlers.rename, { buffer = 0 })
-  -- vim.keymap.set("n", "<LEADER>cr", vim.lsp.buf.rename, { buffer = 0 })
   vim.keymap.set("n", "<LEADER>ca", vim.lsp.buf.code_action, { buffer = 0 })
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
@@ -50,8 +49,8 @@ local custom_attach = function(client)
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 
   vim.keymap.set("n", "gI", handlers.implementation, { buffer = 0 })
-  -- vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
-  -- vim.keymap.set("n", "<LEADER>rr", "LspRestart", { buffer = 0 })
+  vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "<LEADER>rr", "<CMD>LspRestart<CR>", { buffer = 0 })
 
   telescope_mapper("gr", "lsp_references", nil, true)
   telescope_mapper("gI", "lsp_implementations", nil, true)

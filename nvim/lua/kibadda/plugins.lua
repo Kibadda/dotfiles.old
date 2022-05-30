@@ -120,11 +120,13 @@ return require("packer").startup {
     -- Markdown previewer
     use { "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
 
+    -- qf improvements
+    use "romainl/vim-qf"
+
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"
     -- use "folke/twilight.nvim"
     -- use "folke/trouble.nvim"
-    -- use "romainl/vim-qf"
     -- use "mg979/vim-visual-multi"
   end,
   config = {

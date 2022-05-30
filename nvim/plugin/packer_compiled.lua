@@ -325,6 +325,11 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-pasta",
     url = "https://github.com/sickill/vim-pasta"
   },
+  ["vim-qf"] = {
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-qf",
+    url = "https://github.com/romainl/vim-qf"
+  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-repeat",

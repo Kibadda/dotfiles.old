@@ -9,6 +9,8 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.snippets = "luasnip"
+
 require "kibadda.disable_builtin"
 
 require "kibadda.lsp"

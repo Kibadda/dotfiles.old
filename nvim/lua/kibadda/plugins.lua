@@ -1,13 +1,6 @@
 _ = vim.cmd [[packadd packer.nvim]]
 _ = vim.cmd [[packadd vimball]]
 
--- local has = function (x)
---   return vim.fn.has(x) == 1
--- end
-
--- local executable = function (x) return vim.fn.executable(x) == 1
--- end
-
 return require("packer").startup {
   function(use)
     -- Packer
@@ -19,6 +12,7 @@ return require("packer").startup {
     -- Show key visualization
     use "folke/which-key.nvim"
 
+    -- Basic lua stuff
     use "nvim-lua/plenary.nvim"
 
     -- TjDevries stuff
@@ -91,19 +85,16 @@ return require("packer").startup {
     }
 
     -- Startscreen and session
-    use { "mhinz/vim-startify" }
+    use "mhinz/vim-startify"
 
     -- One-Liner to Multi-Liner and back
-    use {
-      "AndrewRadev/splitjoin.vim",
-      keys = { "gJ", "gS" },
-    }
+    use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
 
     -- paste indentation
-    use { "sickill/vim-pasta" }
+    use "sickill/vim-pasta"
 
     -- smarty
-    use { "blueyed/smarty.vim" }
+    use "blueyed/smarty.vim"
 
     -- intelligent brackets
     use {
@@ -114,10 +105,10 @@ return require("packer").startup {
     }
 
     -- Places cursor at the last place of edit
-    use { "farmergreg/vim-lastplace" }
+    use "farmergreg/vim-lastplace"
 
     -- Better scrolling
-    use { "karb94/neoscroll.nvim" }
+    use "karb94/neoscroll.nvim"
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"

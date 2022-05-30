@@ -41,7 +41,8 @@ local custom_attach = function(client)
 
   vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, { buffer = 0 })
 
-  vim.keymap.set("n", "<LEADER>cr", vim.lsp.buf.rename, { buffer = 0 })
+  vim.keymap.set("n", "<LEADER>cr", handlers.rename, { buffer = 0 })
+  -- vim.keymap.set("n", "<LEADER>cr", vim.lsp.buf.rename, { buffer = 0 })
   vim.keymap.set("n", "<LEADER>ca", vim.lsp.buf.code_action, { buffer = 0 })
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
@@ -252,7 +253,6 @@ _ = require("nlua.lsp.nvim").setup(lspconfig, {
 
   root_dir = function(fname)
     if string.find(vim.fn.fnamemodify(fname, ":p"), ".dotfiles/nvim/") then
-      P(fname)
       return vim.fn.expand "~/.dotfiles/nvim/"
     end
 

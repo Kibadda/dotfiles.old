@@ -38,4 +38,12 @@ function M.make(tbl)
   return result
 end
 
+function M.sameFirstUpper(index)
+  return f(function(args)
+    local first = string.sub(args[1][1], 1, 1)
+    local tail = string.sub(args[1][1], 2)
+    return { string.upper(first) .. tail }
+  end, { index })
+end
+
 return M

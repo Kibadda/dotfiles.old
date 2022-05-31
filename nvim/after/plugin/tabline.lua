@@ -40,7 +40,13 @@ function RenderTabline()
     tabline_string = tabline_string .. buffer_string .. "%#TabLineFill# "
   end
 
-  return tabline_string .. "%#TabLineFill#"
+  tabline_string = tabline_string .. "%#TabLineFill#"
+
+  if string.len(tabline_string) > vim.api.nvim_win_get_width(0) then
+    -- TODO: figure out what to do with tabline_string
+  end
+
+  return tabline_string
 end
 
 function NextBuffer(force)

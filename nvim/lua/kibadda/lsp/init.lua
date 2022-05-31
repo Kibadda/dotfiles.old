@@ -16,7 +16,7 @@ local handlers = require "kibadda.lsp.handlers"
 local ts_util = require "nvim-lsp-ts-utils"
 
 local status = require "kibadda.lsp.status"
-print("STATUS", status)
+-- print("STATUS", status)
 if status then
   status.activate()
 end

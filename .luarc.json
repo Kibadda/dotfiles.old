@@ -17,8 +17,5 @@
         "RELOAD",
         "ngx"
     ],
-    "Lua.workspace.checkThirdParty": false,
-    "Lua.workspace.library": [
-        "${3rd}/OpenResty/library"
-    ]
+    "Lua.workspace.checkThirdParty": false
 }

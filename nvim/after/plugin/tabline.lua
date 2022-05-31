@@ -6,13 +6,15 @@ local function get_buffers()
   for _, bufnum in ipairs(bufnums) do
     if vim.fn.buflisted(bufnum) == 1 then
       local uri = vim.split(vim.uri_from_bufnr(bufnum), "/")
-      local opts = {
-        bufnum = bufnum,
-        current = current_buf == bufnum,
-        filename = uri[#uri],
-        modified = vim.fn.getbufinfo(bufnum)[1].changed == 1,
-      }
-      table.insert(buffers, opts)
+      if string.find(uri[1], "term") == nil then
+        local opts = {
+          bufnum = bufnum,
+          current = current_buf == bufnum,
+          filename = uri[#uri],
+          modified = vim.fn.getbufinfo(bufnum)[1].changed == 1,
+        }
+        table.insert(buffers, opts)
+      end
     end
   end
 
@@ -24,7 +26,6 @@ function RenderTabline()
 
   for _, buffer in ipairs(get_buffers()) do
     local buffer_string = ""
-    buffer_string = buffer_string .. "%" .. buffer.bufnum .. "T"
     if buffer.current then
       buffer_string = buffer_string .. "%#TabLineSel#"
     else
@@ -36,11 +37,44 @@ function RenderTabline()
     end
     buffer_string = buffer_string .. "]"
 
-    tabline_string = tabline_string .. buffer_string
+    tabline_string = tabline_string .. buffer_string .. "%#TabLineFill# "
   end
 
   return tabline_string .. "%#TabLineFill#"
 end
+
+function NextBuffer(force)
+  force = force or false
+  if force or vim.bo.filetype ~= "term" then
+    vim.cmd [[:bnext]]
+    if vim.bo.filetype == "term" then
+      NextBuffer(true)
+    end
+  end
+end
+
+function PrevBuffer(force)
+  force = force or false
+  if force or vim.bo.filetype ~= "term" then
+    vim.cmd [[:bprevious]]
+    if vim.bo.filetype == "term" then
+      PrevBuffer(true)
+    end
+  end
+end
+
+function DelBuffer()
+  if vim.bo.filetype ~= "term" then
+    vim.cmd [[:bdelete]]
+    if vim.bo.filetype == "term" then
+      NextBuffer(true)
+    end
+  end
+end
+
+vim.cmd [[hi TabLineSel guibg=#3a3a3a guifg=#99cc99 ctermbg=065 ctermfg=007]]
+vim.cmd [[hi TabLineFill guibg=#262626 guifg=#c0c0c0 ctermbg=239 ctermfg=237]]
+vim.cmd [[hi TabLine guibg=#262626 guifg=#c0c0c0 ctermbg=252 ctermfg=239]]
 
 vim.opt.showtabline = 2
 vim.cmd [[

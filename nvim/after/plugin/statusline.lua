@@ -11,11 +11,6 @@ local builtin = require "el.builtin"
 local extensions = require "el.extensions"
 local sections = require "el.sections"
 local subscribe = require "el.subscribe"
-local lsp_statusline = require "el.plugins.lsp_status"
-local helper = require "el.helper"
-local diagnostic = require "el.diagnostic"
-
-local has_lsp_extensions, ws_diagnostics = pcall(require, "lsp_extensions.workspace.diagnostic")
 
 local git_icon = subscribe.buf_autocmd("el_file_icon", "BufRead", function(_, bufnr)
   local icon = extensions.file_icon(_, bufnr)
@@ -37,47 +32,8 @@ local git_changes = subscribe.buf_autocmd("el_git_changes", "BufWritePost", func
   return extensions.git_changes(window, buffer)
 end)
 
-local ws_diagnostic_counts = function(_, buffer)
-  if not has_lsp_extensions then
-    return ""
-  end
-
-  local messages = {}
-
-  local error_count = ws_diagnostics.get_count(buffer.bufnr, "Error")
-
-  local x = "⬤"
-  if error_count == 0 then
-    -- pass
-  elseif error_count < 5 then
-    table.insert(messages, string.format("%s#%s#%s%%*", "%", "StatuslineError" .. error_count, x))
-  else
-    table.insert(messages, string.format("%s#%s#%s%%*", "%", "StatuslineError5", x))
-  end
-
-  return table.concat(messages, "")
-end
-
-local show_current_func = function(window, buffer)
-  if buffer.filetype == "lua" then
-    return ""
-  end
-
-  return lsp_statusline.current_function(window, buffer)
-end
-
-local minimal_status_line = function(_, buffer)
-  if string.find(buffer.name, "sourcegraph/sourcegraph") then
-    return true
-  end
-end
-
-local diagnostic_display = diagnostic.make_buffer()
-
 require("el").setup {
-  generator = function(window, buffer)
-    local is_minimal = minimal_status_line(window, buffer)
-
+  generator = function()
     local mode = extensions.gen_mode { format_string = " %s " }
 
     local items = {
@@ -89,38 +45,19 @@ require("el").setup {
       { sections.maximum_width(builtin.make_responsive_file(140, 90), 0.40), required = true },
       { sections.collapse_builtin { { " " }, { builtin.modified_flag } } },
       { sections.split, required = true },
-      { diagnostic_display },
-      { show_current_func },
-      -- { lsp_statusline.server_progress },
-      -- { ws_diagnostic_counts },
       { git_changes },
       { "[" },
       { builtin.line_with_width(3) },
       { ":" },
       { builtin.column_with_width(2) },
       { "]" },
-      {
-        sections.collapse_builtin {
-          "[",
-          builtin.help_list,
-          builtin.readonly_list,
-          "]",
-        },
-      },
+      { sections.collapse_builtin { "[", builtin.help_list, builtin.readonly_list, "]" } },
       { builtin.filetype },
     }
 
-    local add_item = function(result, item)
-      if is_minimal and not item.required then
-        return
-      end
-
-      table.insert(result, item)
-    end
-
     local result = {}
     for _, item in ipairs(items) do
-      add_item(result, item)
+      table.insert(result, item)
     end
 
     return result

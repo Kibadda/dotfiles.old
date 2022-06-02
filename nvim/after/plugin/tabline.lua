@@ -84,6 +84,7 @@ end
 function RenderTabline()
   TablineString = ""
   MaxLen = vim.api.nvim_win_get_width(0)
+  local shorten = vim.g.tabline_shorten_filepath or false
 
   local buffers = get_buffers()
   local current_index = get_current_index(buffers)
@@ -100,17 +101,17 @@ function RenderTabline()
 
     TablineString = get_buffer_string(middle)
     for j = 1, i do
-      add_buffer_on_left(left[#left - j + 1])
-      add_buffer_on_right(right[j])
+      add_buffer_on_left(left[#left - j + 1], shorten)
+      add_buffer_on_right(right[j], shorten)
     end
 
     if #left > #right then
       for j = #left - i, 1, -1 do
-        add_buffer_on_left(left[j])
+        add_buffer_on_left(left[j], shorten)
       end
     elseif #left < #right then
       for j = i + 1, #right do
-        add_buffer_on_right(right[j])
+        add_buffer_on_right(right[j], shorten)
       end
     end
 
@@ -119,6 +120,15 @@ function RenderTabline()
 
   return ""
 end
+
+function TablineToggleShortenFilePath()
+  vim.g.tabline_shorten_filepath = not vim.g.tabline_shorten_filepath
+  vim.cmd [[
+    set tabline=%!v:lua.RenderTabline()
+  ]]
+end
+
+vim.keymap.set("n", "<LEADER>tt", "<CMD>lua TablineToggleShortenFilePath()<CR>")
 
 function NextBuffer(force)
   force = force or false

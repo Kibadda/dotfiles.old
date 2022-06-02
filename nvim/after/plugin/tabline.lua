@@ -1,13 +1,3 @@
-local function search_table(key, value, table)
-  for _, entry in ipairs(table) do
-    if entry[key] == value then
-      return entry
-    end
-  end
-
-  return nil
-end
-
 local function get_current_index(buffers)
   for i, entry in ipairs(buffers) do
     if entry.current then
@@ -16,37 +6,41 @@ local function get_current_index(buffers)
   end
 end
 
-local function get_buffer_string(buffer)
+local function shorten_path(filepath)
+  local ft = vim.split(filepath, "/")
+  local rv = {}
+
+  for i = 1, #ft - 1 do
+    table.insert(rv, string.sub(ft[i], 1, 1))
+  end
+
+  table.insert(rv, ft[#ft])
+
+  return table.concat(rv, "/")
+end
+
+local function get_buffer_string(buffer, shorten)
+  shorten = shorten or false
   return (buffer.current and "%#TabLineSel#" or "%#TabLine#")
     .. "["
     .. buffer.bufnum
     .. ":"
-    .. buffer.filename
+    .. (shorten and shorten_path(buffer.filename) or buffer.filename)
     .. (buffer.modified and " +" or "")
     .. "]"
 end
 
-local function convert_buffers_to_string(buffers)
-  local strings = {}
-
-  for _, buffer in ipairs(buffers) do
-    table.insert(strings, get_buffer_string(buffer))
-  end
-
-  return strings
-end
-
 local function get_buffers()
   local bufnums = vim.api.nvim_list_bufs()
-
   local current_buf = vim.api.nvim_get_current_buf()
+
   local buffers = {}
   for _, bufnum in ipairs(bufnums) do
     if vim.fn.buflisted(bufnum) == 1 then
-      local uri = vim.split(vim.uri_from_bufnr(bufnum), "/")
+      local filepath = vim.fn.expand("#" .. bufnum)
 
-      if string.find(uri[1], "term") == nil then
-        local filename = uri[#uri]
+      if string.find(filepath, "^term://") == nil then
+        local filename = filepath
         local modified = vim.fn.getbufinfo(bufnum)[1].changed == 1
         local strlen = 3 + string.len(bufnum) + string.len(filename)
         if modified then
@@ -68,70 +62,62 @@ local function get_buffers()
   return buffers
 end
 
+local TablineString = ""
+local MaxLen = 0
+
+local function add_buffer_on_left(buffer, shorten)
+  if string.len(TablineString) + buffer.strlen < MaxLen then
+    TablineString = get_buffer_string(buffer, shorten) .. "%#TabLineFill# " .. TablineString
+  else
+    -- TODO: handle "<<<"
+  end
+end
+
+local function add_buffer_on_right(buffer, shorten)
+  if string.len(TablineString) + buffer.strlen < MaxLen then
+    TablineString = TablineString .. "%#TabLineFill# " .. get_buffer_string(buffer, shorten)
+  else
+    -- TODO: handle ">>>"
+  end
+end
+
 function RenderTabline()
+  TablineString = ""
+  MaxLen = vim.api.nvim_win_get_width(0)
+
   local buffers = get_buffers()
-  local max_len = vim.api.nvim_win_get_width(0)
   local current_index = get_current_index(buffers)
   if current_index == nil then
     current_index = math.ceil(#buffers / 2)
   end
 
-  local left = vim.list_slice(buffers, 1, current_index - 1)
-  local middle = buffers[current_index]
-  local right = vim.list_slice(buffers, current_index + 1, #buffers)
+  if #buffers > 0 then
+    local left = vim.list_slice(buffers, 1, current_index - 1)
+    local middle = buffers[current_index]
+    local right = vim.list_slice(buffers, current_index + 1, #buffers)
 
-  local i = math.min(#left, #right)
+    local i = math.min(#left, #right)
 
-  local maxlen = vim.api.nvim_win_get_width(0)
-  local strlen = middle.strlen
-  local str = get_buffer_string(middle)
-  for j = 1, i do
-    if strlen + left[#left - j + 1].strlen <= maxlen then
-      str = get_buffer_string(left[#left - j + 1]) .. str
-      strlen = strlen + left[#left - j + 1].strlen
-    else
-      -- TODO: handle "<<<"
+    TablineString = get_buffer_string(middle)
+    for j = 1, i do
+      add_buffer_on_left(left[#left - j + 1])
+      add_buffer_on_right(right[j])
     end
 
-    if strlen + right[j].strlen <= maxlen then
-      str = str .. get_buffer_string(right[j])
-      strlen = strlen + right[j].strlen
-    else
-      -- TODO: handle ">>>"
-    end
-  end
-
-  if #left < #right then
-    for j = i + 1, #right do
-      if strlen + right[j].strlen <= maxlen then
-        str = str .. get_buffer_string(right[j])
-        strlen = strlen + right[j].strlen
-      else
-        -- TODO: handle ">>>"
+    if #left > #right then
+      for j = #left - i, 1, -1 do
+        add_buffer_on_left(left[j])
+      end
+    elseif #left < #right then
+      for j = i + 1, #right do
+        add_buffer_on_right(right[j])
       end
     end
-  else
-    for j = #left - i, 1, -1 do
-      if strlen + left[j].strlen <= maxlen then
-        str = get_buffer_string(left[j]) .. str
-        strlen = strlen + left[j].strlen
-      else
-        -- TODO: handle "<<<"
-      end
-    end
+
+    return TablineString .. "%#TabLineFill#"
   end
 
-  return str .. "%#TabLineFill#"
-
-  -- local strings_table = {}
-  --
-  -- for _, buffer in ipairs(get_buffers()) do
-  --   table.insert(strings_table, get_buffer_string(buffer))
-  -- end
-  --
-  -- local tabline_string = table.concat(strings_table, "%#TabLineFill# ") .. "%#TabLineFill#"
-  --
-  -- return tabline_string
+  return ""
 end
 
 function NextBuffer(force)

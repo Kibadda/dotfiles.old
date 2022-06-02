@@ -25,7 +25,7 @@ local function get_buffer_string(buffer, shorten)
     .. "["
     .. buffer.bufnum
     .. ":"
-    .. (shorten and shorten_path(buffer.filename) or buffer.filename)
+    .. (shorten and buffer.shorten_filename or buffer.filename)
     .. (buffer.modified and " +" or "")
     .. "]"
 end
@@ -41,18 +41,23 @@ local function get_buffers()
 
       if string.find(filepath, "^term://") == nil then
         local filename = filepath
+        local shorten_filename = shorten_path(filepath)
         local modified = vim.fn.getbufinfo(bufnum)[1].changed == 1
         local strlen = 3 + string.len(bufnum) + string.len(filename)
+        local shorten_strlen = 3 + string.len(bufnum) + string.len(shorten_filename)
         if modified then
           strlen = strlen + 2
+          shorten_strlen = shorten_strlen + 2
         end
 
         local opts = {
           bufnum = bufnum,
           current = current_buf == bufnum,
           filename = filename,
+          shorten_filename = shorten_filename,
           modified = modified,
           strlen = strlen,
+          shorten_strlen = shorten_strlen,
         }
         table.insert(buffers, opts)
       end
@@ -63,19 +68,22 @@ local function get_buffers()
 end
 
 local TablineString = ""
-local MaxLen = 0
+local TablineStringLength = 0
+local MaxLength = 0
 
 local function add_buffer_on_left(buffer, shorten)
-  if string.len(TablineString) + buffer.strlen < MaxLen then
+  if TablineStringLength + (shorten and buffer.shorten_strlen or buffer.strlen) < MaxLength then
     TablineString = get_buffer_string(buffer, shorten) .. "%#TabLineFill# " .. TablineString
+    TablineStringLength = TablineStringLength + (shorten and buffer.shorten_strlen or buffer.strlen)
   else
     -- TODO: handle "<<<"
   end
 end
 
 local function add_buffer_on_right(buffer, shorten)
-  if string.len(TablineString) + buffer.strlen < MaxLen then
+  if TablineStringLength + (shorten and buffer.shorten_strlen or buffer.strlen) < MaxLength then
     TablineString = TablineString .. "%#TabLineFill# " .. get_buffer_string(buffer, shorten)
+    TablineStringLength = TablineStringLength + (shorten and buffer.shorten_strlen or buffer.strlen)
   else
     -- TODO: handle ">>>"
   end
@@ -83,7 +91,8 @@ end
 
 function RenderTabline()
   TablineString = ""
-  MaxLen = vim.api.nvim_win_get_width(0)
+  TablineStringLength = 0
+  MaxLength = vim.api.nvim_win_get_width(0)
   local shorten = vim.g.tabline_shorten_filepath or false
 
   local buffers = get_buffers()
@@ -100,6 +109,7 @@ function RenderTabline()
     local i = math.min(#left, #right)
 
     TablineString = get_buffer_string(middle)
+    TablineStringLength = middle.strlen
     for j = 1, i do
       add_buffer_on_left(left[#left - j + 1], shorten)
       add_buffer_on_right(right[j], shorten)

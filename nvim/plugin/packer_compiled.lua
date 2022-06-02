@@ -129,11 +129,6 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/complextras.nvim",
     url = "https://github.com/tjdevries/complextras.nvim"
   },
-  ["express_line.nvim"] = {
-    loaded = true,
-    path = "/home/michael/.local/share/nvim/site/pack/packer/start/express_line.nvim",
-    url = "https://github.com/tjdevries/express_line.nvim"
-  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
@@ -250,10 +245,15 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/opt/splitjoin.vim",
     url = "https://github.com/AndrewRadev/splitjoin.vim"
   },
-  ["tabline.vim"] = {
+  ["statusline.nvim"] = {
     loaded = true,
-    path = "/home/michael/.local/share/nvim/site/pack/packer/start/tabline.vim",
-    url = "https://github.com/mkitt/tabline.vim"
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/statusline.nvim",
+    url = "https://github.com/Kibadda/statusline.nvim"
+  },
+  ["tabline.nvim"] = {
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/tabline.nvim",
+    url = "https://github.com/Kibadda/tabline.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
@@ -369,8 +369,8 @@ try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K
 time([[Config for nvim-autopairs]], false)
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gS <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gS", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gJ <cmd>lua require("packer.load")({'splitjoin.vim'}, { keys = "gJ", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

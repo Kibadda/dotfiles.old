@@ -21,11 +21,13 @@ return require("packer").startup {
     -- TjDevries stuff
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/nlua.nvim"
-    use "tjdevries/express_line.nvim"
     use "tjdevries/complextras.nvim"
 
+    -- My own stuff
     -- tabline
-    use "mkitt/tabline.vim"
+    use "Kibadda/tabline.nvim"
+    -- statusline
+    use "Kibadda/statusline.nvim"
 
     -- Colorscheme
     use "Th3Whit3Wolf/onebuddy"

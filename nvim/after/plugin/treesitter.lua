@@ -49,19 +49,23 @@ local swap_next, swap_prev = (function()
 end)()
 
 local _ = require("nvim-treesitter.configs").setup {
-  -- ensure_installed = {
-  --   "go",
-  --   "html",
-  --   "javascript",
-  --   "markdown",
-  --   "python",
-  --   "query",
-  --   "rust",
-  --   "toml",
-  --   "tsx",
-  --   "typescript",
-  -- },
-  ensure_installed = "all",
+  ensure_installed = {
+    "lua",
+    "html",
+    "javascript",
+    "markdown",
+    "python",
+    "query",
+    "tsx",
+    "typescript",
+    "php",
+    "scss",
+    "bibtex",
+    "latex",
+    "vim",
+    "json",
+    "css",
+  },
 
   highlight = {
     enable = true,

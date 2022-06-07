@@ -59,6 +59,7 @@ local _ = require("nvim-treesitter.configs").setup {
     "tsx",
     "typescript",
     "php",
+    "phpdoc",
     "scss",
     "bibtex",
     "latex",

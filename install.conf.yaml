@@ -9,6 +9,7 @@
     ~/.config/i3: i3
     ~/.config/mimeapps.list: mimeapps.list
     ~/.zshrc: zshrc
+    ~/.zshenv: zshenv
     ~/.Xresources: Xresources
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
@@ -16,4 +17,3 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-

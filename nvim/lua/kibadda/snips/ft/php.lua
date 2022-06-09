@@ -45,5 +45,18 @@ ls.add_snippets(
         i(1),
       }
     ),
+
+    pubf = fmt(
+      [[
+        public function {}({}) {{
+          {}
+        }}
+      ]],
+      {
+        i(1),
+        i(2),
+        i(0),
+      }
+    ),
   }
 )

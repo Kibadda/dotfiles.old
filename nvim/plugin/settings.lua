@@ -75,6 +75,6 @@ opt.diffopt = { "internal", "filler", "closeoff", "hiddenoff", "algorithm:minima
 
 opt.laststatus = 3
 
-opt.signcolumn = "yes:3"
+opt.signcolumn = "yes:2"
 
 -- opt.winbar = "%=%m %f"

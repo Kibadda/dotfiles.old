@@ -85,6 +85,9 @@ return require("packer").startup {
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "JoosepAlviste/nvim-ts-context-commentstring"
 
+    -- Linter
+    use { "mfussenegger/nvim-lint" }
+
     -- FixCursorHold
     use {
       "antoinemadec/FixCursorHold.nvim",

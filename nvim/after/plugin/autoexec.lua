@@ -12,4 +12,4 @@ local function save_and_exec()
   end
 end
 
-vim.keymap.set("n", "<LEADER>x", save_and_exec, { desc = "Save and Execute" })
+vim.keymap.set("n", "<Leader>x", save_and_exec, { desc = "Save and Execute" })

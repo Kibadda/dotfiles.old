@@ -41,21 +41,21 @@ local custom_attach = function(client)
 
   vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, { buffer = 0 })
 
-  vim.keymap.set("n", "<LEADER>cr", handlers.rename, { buffer = 0 })
-  vim.keymap.set("n", "<LEADER>ca", vim.lsp.buf.code_action, { buffer = 0 })
+  vim.keymap.set("n", "<Leader>cr", handlers.rename, { buffer = 0 })
+  vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 
   vim.keymap.set("n", "gI", handlers.implementation, { buffer = 0 })
-  vim.keymap.set("n", "<LEADER>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
-  -- vim.keymap.set("n", "<LEADER>rr", "<CMD>LspRestart<CR>", { buffer = 0 })
+  vim.keymap.set("n", "<Leader>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "<Leader>rr", "<CMD>LspRestart<CR>", { buffer = 0 })
 
   telescope_mapper("gr", "lsp_references", nil, true)
   telescope_mapper("gI", "lsp_implementations", nil, true)
-  telescope_mapper("<LEADER>wd", "lsp_document_symbols", { ignore_filename = true }, true)
-  telescope_mapper("<LEADER>ww", "lsp_dynamic_workspace_symbols", { ignore_filename = true }, true)
+  telescope_mapper("<Leader>wd", "lsp_document_symbols", { ignore_filename = true }, true)
+  telescope_mapper("<Leader>ww", "lsp_dynamic_workspace_symbols", { ignore_filename = true }, true)
 
   if filetype ~= "lua" then
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })

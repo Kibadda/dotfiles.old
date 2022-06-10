@@ -44,4 +44,4 @@ end)
 
 vim.keymap.set("i", "<C-u>", require "luasnip.extras.select_choice")
 
-vim.keymap.set("n", "<LEADER><LEADER>s", "<CMD>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+vim.keymap.set("n", "<Leader><Leader>s", "<CMD>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")

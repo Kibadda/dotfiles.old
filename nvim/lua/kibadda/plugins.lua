@@ -86,7 +86,7 @@ return require("packer").startup {
     use "JoosepAlviste/nvim-ts-context-commentstring"
 
     -- Linter
-    use { "mfussenegger/nvim-lint" }
+    use "mfussenegger/nvim-lint"
 
     -- FixCursorHold
     use {

@@ -28,15 +28,15 @@ local goto_opts = {
   float = true,
 }
 
-vim.keymap.set("n", "<LEADER>dn", function()
+vim.keymap.set("n", "<Leader>dn", function()
   vim.diagnostic.goto_next(goto_opts)
 end)
 
-vim.keymap.set("n", "<LEADER>dp", function()
+vim.keymap.set("n", "<Leader>dp", function()
   vim.diagnostic.goto_prev(goto_opts)
 end)
 
-vim.keymap.set("n", "<LEADER>sl", function()
+vim.keymap.set("n", "<Leader>sl", function()
   vim.diagnostic.open_float(0, {
     scope = "line",
   })

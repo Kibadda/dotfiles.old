@@ -84,10 +84,10 @@ require("telescope").setup {
         -- This is nicer when used with smart-history plugin.
         ["<C-k>"] = actions.cycle_history_next,
         ["<C-j>"] = actions.cycle_history_prev,
-        ["<c-g>s"] = actions.select_all,
-        ["<c-g>a"] = actions.add_selection,
+        ["<C-g>s"] = actions.select_all,
+        ["<C-g>a"] = actions.add_selection,
 
-        ["<c-space>"] = function(prompt_bufnr)
+        ["<C-Space>"] = function(prompt_bufnr)
           local opts = {
             callback = actions.toggle_selection,
             loop_callback = actions.send_selected_to_qflist,
@@ -96,7 +96,7 @@ require("telescope").setup {
         end,
 
         ["<C-w>"] = function()
-          vim.api.nvim_input "<c-s-w>"
+          vim.api.nvim_input "<C-s-w>"
         end,
       },
 

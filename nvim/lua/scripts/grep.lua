@@ -51,10 +51,10 @@ end
 
 KIBADDA_GREP = M
 
--- vim.keymap.set("n", "<LEADER>ff", function ()
+-- vim.keymap.set("n", "<Leader>ff", function ()
 --   KIBADDA_GREP.grep_for_string(vim.fn.input("Grep For > "))
 -- end)
--- vim.keymap.set("n", "<LEADER>fr", function ()
+-- vim.keymap.set("n", "<Leader>fr", function ()
 --   KIBADDA_GREP.replace_string(vim.fn.input("Grep For > "), vim.fn.input("Replace with > "))
 -- end)
 

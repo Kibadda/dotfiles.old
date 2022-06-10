@@ -34,7 +34,7 @@ cmp.setup {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<c-y>"] = cmp.mapping(
+    ["<C-y>"] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
@@ -42,7 +42,7 @@ cmp.setup {
       { "i", "c" }
     ),
 
-    ["<c-space>"] = cmp.mapping {
+    ["<C-Space>"] = cmp.mapping {
       i = cmp.mapping.complete(),
       c = function(
         _ --[[fallback]]
@@ -57,16 +57,16 @@ cmp.setup {
       end,
     },
 
-    -- ["<tab>"] = false,
-    ["<tab>"] = cmp.config.disable,
+    -- ["<Tab>"] = false,
+    ["<Tab>"] = cmp.config.disable,
 
-    -- ["<tab>"] = cmp.mapping {
+    -- ["<Tab>"] = cmp.mapping {
     --   i = cmp.config.disable,
     --   c = function(fallback)
     --     fallback()
     --   end,
     -- },
-    ["<c-q>"] = cmp.mapping.confirm {
+    ["<C-q>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },

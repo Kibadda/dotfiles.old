@@ -35,7 +35,7 @@ end
 --   ]]
 -- end
 
-vim.keymap.set("n", "<LEADER>td", "<CMD>lua OpenTerminalToBottom()<CR>")
-vim.keymap.set("n", "<LEADER>tr", "<CMD>lua OpenTerminalToSide()<CR>")
-vim.keymap.set("n", "<LEADER>gg", "<CMD>lua OpenLazygitToSide()<CR>")
--- vim.keymap.set("n", "<LEADER>rr", "<CMD>lua OpenRangerToSide()<CR>")
+vim.keymap.set("n", "<Leader>td", "<CMD>lua OpenTerminalToBottom()<CR>")
+vim.keymap.set("n", "<Leader>tr", "<CMD>lua OpenTerminalToSide()<CR>")
+vim.keymap.set("n", "<Leader>gg", "<CMD>lua OpenLazygitToSide()<CR>")
+-- vim.keymap.set("n", "<Leader>rr", "<CMD>lua OpenRangerToSide()<CR>")

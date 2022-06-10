@@ -28,7 +28,7 @@ local M = {}
 
 --[[
 lua require('plenary.reload').reload_module("my_user.tele")
-nnoremap <leader>en <cmd>lua require('my_user.tele').edit_neovim()<CR>
+nnoremap <Leader>en <cmd>lua require('my_user.tele').edit_neovim()<CR>
 --]]
 function M.edit_neovim()
   local opts_with_preview, opts_without_preview
@@ -58,7 +58,7 @@ function M.edit_neovim()
     },
 
     attach_mappings = function(_, map)
-      map("i", "<c-y>", set_prompt_to_entry_value)
+      map("i", "<C-y>", set_prompt_to_entry_value)
       map("i", "<M-c>", function(prompt_bufnr)
         actions.close(prompt_bufnr)
         vim.schedule(function()

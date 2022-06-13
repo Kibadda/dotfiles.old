@@ -18,7 +18,7 @@ vim.keymap.set("n", "<Leader>K", "<CMD>nohlsearch<CR>")
 
 vim.keymap.set("v", "<C-r>", '"hy:%s/<C-r>h//gc<LEFT><LEFT><LEFT>')
 
-vim.keymap.set("t", "<Leader><ESC>", "<C-\\><C-n>")
+vim.keymap.set("t", "*<ESC>", "<C-\\><C-n>")
 vim.keymap.set({ "t", "n" }, "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set({ "t", "n" }, "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set({ "t", "n" }, "<C-k>", "<C-\\><C-n><C-w>k")

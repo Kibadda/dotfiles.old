@@ -32,6 +32,8 @@ return require("packer").startup {
 
     -- Show key visualization
     use "folke/which-key.nvim"
+    -- Pretty TODO
+    use "folke/todo-comments.nvim"
 
     -- Basic lua stuff
     use "nvim-lua/plenary.nvim"

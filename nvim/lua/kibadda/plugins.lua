@@ -3,6 +3,27 @@ _ = vim.cmd [[packadd vimball]]
 
 return require("packer").startup {
   function(use)
+    local function local_use(first, second, opts)
+      opts = opts or {}
+
+      local plug_path, home
+      if second == nil then
+        plug_path = first
+        home = "Kibadda"
+      else
+        plug_path = second
+        home = first
+      end
+
+      if vim.fn.isdirectory(vim.fn.expand("~/plugins/" .. plug_path)) == 1 then
+        opts[1] = "~/plugins/" .. plug_path
+      else
+        opts[1] = string.format("%s/%s", home, plug_path)
+      end
+
+      use(opts)
+    end
+
     -- Packer
     use "wbthomason/packer.nvim"
 
@@ -25,9 +46,9 @@ return require("packer").startup {
 
     -- My own stuff
     -- tabline
-    use "Kibadda/tabline.nvim"
+    local_use "tabline.nvim"
     -- statusline
-    use "Kibadda/statusline.nvim"
+    local_use "statusline.nvim"
 
     -- Colorscheme
     use "Th3Whit3Wolf/onebuddy"
@@ -100,7 +121,7 @@ return require("packer").startup {
     use "mhinz/vim-startify"
 
     -- One-Liner to Multi-Liner and back
-    use { "AndrewRadev/splitjoin.vim", keys = { "gJ", "gS" } }
+    use "AndrewRadev/splitjoin.vim"
 
     -- paste indentation
     use "sickill/vim-pasta"
@@ -109,18 +130,13 @@ return require("packer").startup {
     use "blueyed/smarty.vim"
 
     -- intelligent brackets
-    use {
-      "windwp/nvim-autopairs",
-      config = function()
-        require("nvim-autopairs").setup()
-      end,
-    }
+    use "windwp/nvim-autopairs"
 
     -- Places cursor at the last place of edit
     use "farmergreg/vim-lastplace"
 
     -- Better scrolling
-    use "karb94/neoscroll.nvim"
+    -- use "karb94/neoscroll.nvim"
 
     -- Markdown previewer
     use { "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }

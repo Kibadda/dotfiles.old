@@ -16,7 +16,7 @@ vim.keymap.set("n", "<Leader>Q", "<CMD>bufdo bdelete<CR>")
 
 vim.keymap.set("n", "<Leader>K", "<CMD>nohlsearch<CR>")
 
-vim.keymap.set("v", "<C-r>", '"hy:%s/<C-r>h//gc<LEFT><LEFT><LEFT>')
+vim.keymap.set("v", "<C-r>", '"hy<CMD>%s/<C-r>h/')
 
 vim.keymap.set("t", "*<ESC>", "<C-\\><C-n>")
 vim.keymap.set({ "t", "n" }, "<C-h>", "<C-\\><C-n><C-w>h")
@@ -33,5 +33,3 @@ vim.keymap.set("n", "<A-t>", "<C-w>+")
 vim.keymap.set("n", "<A-s>", "<C-w>-")
 vim.keymap.set("n", "<C-,>", "<C-w><")
 vim.keymap.set("n", "<C-.>", "<C-w>>")
-
-vim.keymap.set("n", "<Leader>ss", "<CMD>Startify<CR>")

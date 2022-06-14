@@ -13,6 +13,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = utils.strip_trailing_whitespaces,
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = MiscGroup,
+  pattern = "plugins.lua",
+  command = "source <afile> | PackerCompile",
+})
+
 ------------------------------------
 -- Terminal
 ------------------------------------

@@ -58,5 +58,14 @@ ls.add_snippets(
         i(0),
       }
     ),
+
+    debug = fmt(
+      [[
+        Util::getLogger()->debug({});
+      ]],
+      {
+        i(0),
+      }
+    ),
   }
 )

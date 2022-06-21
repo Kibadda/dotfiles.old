@@ -1,46 +1,41 @@
-function OpenTerminalToBottom()
-  vim.cmd [[
-    new
-    wincmd J
-    call nvim_win_set_height(0, 12)
-    set winfixheight
-    term
-  ]]
+function OpenTerminal(opts)
+  opts = opts or {}
+  opts = vim.tbl_extend("keep", opts, {
+    vertical = true,
+    height = 12,
+    program = nil,
+  })
+
+  if opts.vertical then
+    vim.cmd [[
+      vnew
+      wincmd L
+      set winfixwidth
+    ]]
+  else
+    vim.cmd [[
+      new
+      wincmd J
+      set winfixheight
+    ]]
+    vim.api.nvim_win_set_height(0, opts.height)
+  end
+
+  if opts.program == nil then
+    vim.cmd [[term]]
+  elseif vim.fn.executable(opts.program) == 1 then
+    vim.cmd(string.format("term %s", opts.program))
+  else
+    vim.notify(string.format("[TermApp] %s is not an executable", opts.program))
+  end
 end
 
-function OpenTerminalToSide()
-  vim.cmd [[
-    vnew
-    wincmd L
-    set winfixwidth
-    term
-  ]]
-end
-
-function OpenLazygitToSide()
-  vim.cmd [[
-    vnew
-    wincmd L
-    set winfixwidth
-    term lazygit
-  ]]
-end
-
-function OpenRangerToSide()
-  vim.cmd [[
-    vnew
-    wincmd L
-    set winfixwidth
-    term ranger
-  ]]
-end
-
-vim.keymap.set("n", "<Leader>td", "<CMD>lua OpenTerminalToBottom()<CR>")
-vim.keymap.set("n", "<Leader>tr", "<CMD>lua OpenTerminalToSide()<CR>")
-vim.keymap.set("n", "<Leader>gg", "<CMD>lua OpenLazygitToSide()<CR>")
-vim.keymap.set("n", "<Leader>rr", "<CMD>lua OpenRangerToSide()<CR>")
+vim.keymap.set("n", "<Leader>tr", "<CMD>lua OpenTerminal()<CR>")
+vim.keymap.set("n", "<Leader>gg", "<CMD>lua OpenTerminal({program = 'lazygit'})<CR>")
+vim.keymap.set("n", "<Leader>rr", "<CMD>lua OpenTerminal({program = 'ranger'})<CR>")
 
 function OpenFileFromTerminalApp(opts)
+  opts = opts or {}
   opts = vim.tbl_extend("keep", opts, {
     close = true,
     close_key = "q",

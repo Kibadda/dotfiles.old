@@ -67,5 +67,14 @@ ls.add_snippets(
         i(0),
       }
     ),
+
+    error = fmt(
+      [[
+        Util::getLogger()->error({});
+      ]],
+      {
+        i(0),
+      }
+    ),
   }
 )

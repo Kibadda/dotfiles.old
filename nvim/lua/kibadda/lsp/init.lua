@@ -49,7 +49,7 @@ local custom_attach = function(client)
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 
   vim.keymap.set("n", "gI", handlers.implementation, { buffer = 0 })
-  vim.keymap.set("n", "<Leader>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "<Leader>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
   -- vim.keymap.set("n", "<Leader>rr", "<CMD>LspRestart<CR>", { buffer = 0 })
 
   telescope_mapper("gr", "lsp_references", nil, true)

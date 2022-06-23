@@ -139,13 +139,16 @@ return require("packer").startup {
     use "farmergreg/vim-lastplace"
 
     -- Better scrolling
-    -- use "karb94/neoscroll.nvim"
+    use "karb94/neoscroll.nvim"
 
     -- Markdown previewer
     use { "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" }
 
     -- qf improvements
     use "romainl/vim-qf"
+
+    -- latex
+    use "lervag/vimtex"
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"

@@ -113,8 +113,9 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias la='ls -la'
-alias ll='ls -l'
+alias ls='exa --icons'
+alias la='exa -la --icons'
+alias ll='exa -l --icons'
 
 alias pacu='sudo pacman -Syyuu && sudo pamac update'
 alias paci='sudo pacman -S'

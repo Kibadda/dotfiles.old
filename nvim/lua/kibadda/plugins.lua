@@ -51,7 +51,7 @@ return require("packer").startup {
     local_use "tabline.nvim"
     -- statusline
     local_use "statusline.nvim"
-    local_use "terminal.nvim"
+    -- local_use "terminal.nvim"
 
     -- Colorscheme
     use "Th3Whit3Wolf/onebuddy"

@@ -14,6 +14,7 @@
     ~/.profile: profile
     ~/.tmux.conf: tmux.conf
     ~/.p10k.zsh: p10k.zsh
+    ~/.bashrc: bashrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

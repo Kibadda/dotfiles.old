@@ -96,11 +96,14 @@ updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capab
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 
 local servers = {
-  html = true,
   eslint = true,
 
   vimls = {
     cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vim-language-server", "--stdio" },
+  },
+
+  html = {
+    cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-html-language-server", "--stdio" },
   },
 
   tsserver = {

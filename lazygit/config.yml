@@ -32,6 +32,7 @@ git:
   overrideGpg: false
   disableForcePushing: false
   commitPrefixes: {}
+  showIcons: true
 update:
   method: prompt
   days: 14
@@ -163,8 +164,7 @@ keybinding:
     update: u
     bulkMenu: b
 os:
-  # openCommand: 'floaterm {{filename}}'
-  # openCommand: 'nvim {{filename}}'
+  openCommand: 'nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-h>"; nvim --server $NVIM_LISTEN_ADDRESS --remote-silent {{filename}}; nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-l>q"'
 disableStartupPopups: false
 customCommands: []
 services: {}

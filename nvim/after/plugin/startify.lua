@@ -24,6 +24,7 @@ vim.g.startify_lists = {
 
 vim.g.startify_commands = {
   { p = "PackerSync" },
+  { n = "OpenDirectory" },
 }
 
 vim.g.startify_custom_indices = {
@@ -37,3 +38,14 @@ vim.g.startify_custom_indices = {
 }
 
 vim.keymap.set("n", "<Leader>ss", "<CMD>SClose<CR>")
+
+vim.api.nvim_create_user_command("OpenDirectory", function()
+  local directory = vim.fn.input "directory: "
+
+  vim.cmd(string.format("cd %s", directory))
+  vim.cmd [[term ranger]]
+end, {
+  bang = true,
+  nargs = 0,
+  desc = "Open new directory",
+})

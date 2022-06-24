@@ -38,6 +38,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = TerminalGroup,
+  pattern = "term://*",
+  command = "startinsert",
+})
+
 vim.api.nvim_create_autocmd("TermClose", {
   group = TerminalGroup,
   pattern = "*",
@@ -50,17 +56,6 @@ vim.api.nvim_create_autocmd("TermClose", {
 
 local ConfigGroup = vim.api.nvim_create_augroup("Config", { clear = true })
 
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   group = ConfigGroup,
---   pattern = {
---     core.get_homedir() .. "/.dotfiles/nvim/init.lua",
---     core.get_homedir() .. "/.dotfiles/nvim/lua/lib/*.lua",
---     core.get_homedir() .. "/.dotfiles/nvim/lua/user/*.lua",
---     core.get_homedir() .. "/.dotfiles/nvim/lua/user/plugins/*/*.lua",
---   },
---   command = "source <afile>",
--- })
-
 vim.api.nvim_create_autocmd("BufEnter", {
   group = ConfigGroup,
   pattern = {
@@ -69,25 +64,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
   },
   command = "setlocal filetype=bash",
 })
-
-------------------------------------
--- Lsp
-------------------------------------
-
--- local LanguageServerGroup = vim.api.nvim_create_augroup("LanguageServer", { clear = true })
-
--- vim.api.nvim_create_autocmd("BufRead", {
---   group = LanguageServerGroup,
---   pattern = "*",
---   callback = function ()
---     require("lint").try_lint()
---   end,
--- })
---
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   group = LanguageServerGroup,
---   pattern = "*",
---   callback = function ()
---     require("lint").try_lint()
---   end,
--- })

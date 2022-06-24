@@ -19,5 +19,3 @@ require "kibadda.telescope.setup"
 require "kibadda.telescope.mappings"
 
 require "kibadda.plugins"
-
--- require "kibadda.cmp-colors"

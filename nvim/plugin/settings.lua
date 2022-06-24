@@ -50,8 +50,10 @@ opt.breakindent = true
 opt.showbreak = string.rep(" ", 3)
 opt.linebreak = true
 
-opt.foldmethod = "marker"
-opt.foldlevel = 0
+opt.foldenable = false
+-- opt.foldmethod = "marker"
+-- opt.foldlevel = 0
+
 opt.modelines = 1
 
 opt.belloff = "all"

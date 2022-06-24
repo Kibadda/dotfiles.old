@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/complextras.nvim",
     url = "https://github.com/tjdevries/complextras.nvim"
   },
+  ["gruvbuddy.nvim"] = {
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/gruvbuddy.nvim",
+    url = "https://github.com/tjdevries/gruvbuddy.nvim"
+  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
@@ -145,6 +150,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/michael/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  neorg = {
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/Vhyrro/neorg"
   },
   ["neoscroll.nvim"] = {
     loaded = true,

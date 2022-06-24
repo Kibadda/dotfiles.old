@@ -43,6 +43,7 @@ return require("packer").startup {
 
     -- TjDevries stuff
     use "tjdevries/colorbuddy.nvim"
+    use "tjdevries/gruvbuddy.nvim"
     use "tjdevries/nlua.nvim"
     use "tjdevries/complextras.nvim"
 
@@ -149,6 +150,9 @@ return require("packer").startup {
 
     -- latex
     use "lervag/vimtex"
+
+    -- note taking
+    use "Vhyrro/neorg"
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"

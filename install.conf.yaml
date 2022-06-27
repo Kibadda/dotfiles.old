@@ -8,6 +8,7 @@
     ~/.config/lazygit: lazygit
     ~/.config/i3: i3
     ~/.config/rofi: rofi
+    ~/.config/ranger: ranger
     ~/.config/mimeapps.list: mimeapps.list
     ~/.zshrc: zshrc
     ~/.zshenv: zshenv

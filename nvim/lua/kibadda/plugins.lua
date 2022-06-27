@@ -34,6 +34,8 @@ return require("packer").startup {
     use "folke/which-key.nvim"
     -- Pretty TODO
     use "folke/todo-comments.nvim"
+    use "folke/zen-mode.nvim"
+    use "folke/twilight.nvim"
 
     -- Basic lua stuff
     use "nvim-lua/plenary.nvim"
@@ -52,7 +54,6 @@ return require("packer").startup {
     local_use "tabline.nvim"
     -- statusline
     local_use "statusline.nvim"
-    -- local_use "terminal.nvim"
 
     -- Colorscheme
     use "Th3Whit3Wolf/onebuddy"
@@ -152,7 +153,8 @@ return require("packer").startup {
     use "lervag/vimtex"
 
     -- note taking
-    use "Vhyrro/neorg"
+    use "nvim-neorg/neorg-telescope"
+    use "nvim-neorg/neorg"
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/zen-mode.nvim"

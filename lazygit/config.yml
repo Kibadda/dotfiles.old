@@ -164,7 +164,8 @@ keybinding:
     update: u
     bulkMenu: b
 os:
-  openCommand: 'nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-h>"; nvim --server $NVIM_LISTEN_ADDRESS --remote-silent {{filename}}; nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-l>q"'
+  # openCommand: 'nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-h>"; nvim --server $NVIM_LISTEN_ADDRESS --remote-silent {{filename}}; nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-l>q"'
+  openCommand: 'nvim --server $NVIM_LISTEN_ADDRESS --remote-send "<C-h>:e {{filename}}<CR><C-l>q"'
 disableStartupPopups: false
 customCommands: []
 services: {}

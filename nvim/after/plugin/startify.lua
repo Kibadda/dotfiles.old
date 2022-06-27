@@ -27,15 +27,15 @@ vim.g.startify_commands = {
   { n = "OpenDirectory" },
 }
 
-vim.g.startify_custom_indices = {
-  "a",
-  "d",
-  "f",
-  "j",
-  "k",
-  "l",
-  "ö",
-}
+-- vim.g.startify_custom_indices = {
+--   "a",
+--   "d",
+--   "f",
+--   "j",
+--   "k",
+--   "l",
+--   "ö",
+-- }
 
 vim.keymap.set("n", "<Leader>ss", "<CMD>SClose<CR>")
 

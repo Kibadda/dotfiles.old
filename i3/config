@@ -46,13 +46,17 @@ bindsym $mod+Ctrl+Down exec playerctl volume 0.1-
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
 # swap caps and escape
 exec --no-startup-id setxkbmap -option caps:swapescape
+
+# set display positions
+exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##

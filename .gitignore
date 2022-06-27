@@ -1,6 +1,6 @@
 lazygit/state.yml
 kitty/specifics.conf
 
-**/calendar-credentials.lua
-
 nvim/spell/*.spl
+
+__pycache__

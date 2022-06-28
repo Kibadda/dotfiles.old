@@ -1,6 +1,3 @@
-local utils = require "lib.utils"
-local core = require "lib.core"
-
 ------------------------------------
 -- Misc
 ------------------------------------
@@ -10,7 +7,11 @@ local MiscGroup = vim.api.nvim_create_augroup("Misc", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = MiscGroup,
   pattern = "*",
-  callback = utils.strip_trailing_whitespaces,
+  callback = function()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    vim.api.nvim_command "%s/\\s\\+$//e"
+    vim.api.nvim_win_set_cursor(0, cursor)
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
@@ -59,8 +60,8 @@ local ConfigGroup = vim.api.nvim_create_augroup("Config", { clear = true })
 vim.api.nvim_create_autocmd("BufEnter", {
   group = ConfigGroup,
   pattern = {
-    core.get_homedir() .. "/.dotfiles/kitty/*.conf",
-    core.get_homedir() .. "/.dotfiles/i3/config",
+    os.getenv "HOME" .. "/.dotfiles/kitty/*.conf",
+    os.getenv "HOME" .. "/.dotfiles/i3/config",
   },
   command = "setlocal filetype=bash",
 })

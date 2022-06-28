@@ -27,25 +27,25 @@ vim.g.startify_commands = {
   { n = "OpenDirectory" },
 }
 
--- vim.g.startify_custom_indices = {
---   "a",
---   "d",
---   "f",
---   "j",
---   "k",
---   "l",
---   "ö",
--- }
-
 vim.keymap.set("n", "<Leader>ss", "<CMD>SClose<CR>")
 
-vim.api.nvim_create_user_command("OpenDirectory", function()
-  local directory = vim.fn.input "directory: "
+vim.api.nvim_create_user_command("OpenDirectory", function(opts)
+  local input = opts.args
 
-  vim.cmd(string.format("cd %s", directory))
+  if input == "" then
+    input = vim.fn.input("directory: ", "", "dir")
+  end
+
+  if vim.fn.isdirectory(input) == 0 then
+    vim.notify(string.format("%s is not a directory", input), "warn")
+    return
+  end
+
+  vim.cmd(string.format("cd %s", input))
   vim.cmd [[term ranger]]
 end, {
   bang = true,
-  nargs = 0,
+  nargs = "?",
   desc = "Open new directory",
+  complete = "dir",
 })

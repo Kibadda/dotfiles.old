@@ -346,6 +346,11 @@ _G.packer_plugins = {
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
   },
+  ["vim-kitty"] = {
+    loaded = true,
+    path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-kitty",
+    url = "https://github.com/fladson/vim-kitty"
+  },
   ["vim-lastplace"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/vim-lastplace",

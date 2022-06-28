@@ -1,6 +1,8 @@
 _ = vim.cmd [[packadd packer.nvim]]
 _ = vim.cmd [[packadd vimball]]
 
+vim.keymap.set("n", "<Leader>ep", "<CMD>e nvim/lua/kibadda/plugins.lua<CR>")
+
 return require("packer").startup {
   function(use)
     local function local_use(first, second, opts)
@@ -158,6 +160,9 @@ return require("packer").startup {
 
     -- color picker
     use "ziontee113/color-picker.nvim"
+
+    -- kitty conf highlighting
+    use "fladson/vim-kitty"
 
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/trouble.nvim"

@@ -50,18 +50,3 @@ vim.api.nvim_create_autocmd("TermClose", {
   pattern = "*",
   command = "bdelete!",
 })
-
-------------------------------------
--- Config
-------------------------------------
-
-local ConfigGroup = vim.api.nvim_create_augroup("Config", { clear = true })
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = ConfigGroup,
-  pattern = {
-    os.getenv "HOME" .. "/.dotfiles/kitty/*.conf",
-    os.getenv "HOME" .. "/.dotfiles/i3/config",
-  },
-  command = "setlocal filetype=bash",
-})

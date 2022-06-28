@@ -21,10 +21,10 @@ vim.keymap.set("i", "<C-CR>", "<C-o>O")
 
 vim.keymap.set("n", "<Leader>=", "<C-w>=")
 
-vim.keymap.set("n", "<A-t>", "<C-w>+")
-vim.keymap.set("n", "<A-s>", "<C-w>-")
-vim.keymap.set("n", "<C-,>", "<C-w><")
-vim.keymap.set("n", "<C-.>", "<C-w>>")
+vim.keymap.set({ "t", "n" }, "<S-Left>", "<CMD>vertical resize +5<CR>")
+vim.keymap.set({ "t", "n" }, "<S-Right>", "<CMD>vertical resize -5<CR>")
+vim.keymap.set({ "t", "n" }, "<S-Up>", "<CMD>resize +5<CR>")
+vim.keymap.set({ "t", "n" }, "<S-Down>", "<CMD>resize -5<CR>")
 
 vim.keymap.set("t", "*<ESC>", "<C-\\><C-n>")
 vim.keymap.set({ "t", "n" }, "<C-h>", "<C-\\><C-n><C-w>h")

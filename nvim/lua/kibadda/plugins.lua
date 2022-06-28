@@ -9,6 +9,8 @@ return require("packer").startup {
       opts = opts or {}
 
       local plug_path, home
+
+      -- default user is Kibadda
       if second == nil then
         plug_path = first
         home = "Kibadda"
@@ -17,6 +19,7 @@ return require("packer").startup {
         home = first
       end
 
+      -- check if package exists locally
       if vim.fn.isdirectory(vim.fn.expand("~/plugins/" .. plug_path)) == 1 then
         opts[1] = "~/plugins/" .. plug_path
       else

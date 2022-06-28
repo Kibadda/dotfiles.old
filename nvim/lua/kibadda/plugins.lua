@@ -156,6 +156,9 @@ return require("packer").startup {
     use "nvim-neorg/neorg-telescope"
     use "nvim-neorg/neorg"
 
+    -- color picker
+    use "ziontee113/color-picker.nvim"
+
     -- use "lewis6991/gitsigns.nvim"
     -- use "folke/trouble.nvim"
     -- use "mg979/vim-visual-multi"

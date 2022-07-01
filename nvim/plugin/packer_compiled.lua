@@ -274,12 +274,12 @@ _G.packer_plugins = {
   ["statusline.nvim"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/statusline.nvim",
-    url = "/home/michael/plugins/statusline.nvim"
+    url = "https://github.com/Kibadda/statusline.nvim"
   },
   ["tabline.nvim"] = {
     loaded = true,
     path = "/home/michael/.local/share/nvim/site/pack/packer/start/tabline.nvim",
-    url = "/home/michael/plugins/tabline.nvim"
+    url = "https://github.com/Kibadda/tabline.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,

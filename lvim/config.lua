@@ -29,22 +29,15 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["S"] = {
-  name = "Startify",
-  c = { "<cmd>SClose<cr>", "Close Session" },
-  s = { "<cmd>SSave<cr>", "Save Session" },
-}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = false
-lvim.builtin.dashboard.active = false
+lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.gitsigns.active = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -61,6 +54,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "yaml",
   "php",
+  "vue",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -73,41 +67,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "intelephense" })
-local opts = {
-  settings = {
-    intelephense = {
-      stubs = {
-        "apache", "apcu", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype",
-        "curl", "date", "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter",
-        "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv", "imap", "intl", "json",
-        "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl",
-        "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar",
-        "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML",
-        "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals",
-        "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader", "xmlrpc",
-        "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib", "wordpress", "phpunit",
-      },
-      format = {
-        braces = "k&r",
-        insertSpaces = true,
-        tabSize = 4,
-      },
-      phpdoc = {
-        textFormat = "text",
-        functionTemplate = {
-          summary = "$1",
-          tags = {
-            "@param ${1:$SYMBOL_TYPE} $SYMBOL_NAME",
-            "@return ${1:$SYMBOL_TYPE}",
-            "@throws ${1:$SYMBOL_TYPE}",
-          },
-        },
-      },
-    },
-  },
-} -- check the lspconfig documentation for a list of all possible options
-require("lvim.lsp.manager").setup("intelephense", opts)
 
 ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
@@ -125,19 +84,35 @@ require("lvim.lsp.manager").setup("intelephense", opts)
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- set a formatter, this will override the language server formatting capabilities (if it exists)
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
 --   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
+--     exe = "prettier",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "json",
+--       "markdown",
+--       "vue"
+--     },
+--   },
+-- }
+
+-- -- ESLint
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   {
+--     exe = "eslint",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "vue",
+--     },
 --   },
 -- }
 
@@ -161,7 +136,6 @@ require("lvim.lsp.manager").setup("intelephense", opts)
 
 -- Additional Plugins
 lvim.plugins = {
-  { "mhinz/vim-startify" },
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
@@ -182,11 +156,6 @@ lvim.plugins = {
   },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
-  {
-    "felipec/vim-sanegx",
-    event = "BufRead"
-  },
-  { "AndrewRadev/splitjoin.vim" }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

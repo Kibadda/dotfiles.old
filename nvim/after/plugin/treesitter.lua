@@ -66,6 +66,7 @@ local _ = require("nvim-treesitter.configs").setup {
     "vim",
     "json",
     "css",
+    "vue",
   },
 
   highlight = {

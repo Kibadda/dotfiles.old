@@ -16,7 +16,6 @@ local handlers = require "kibadda.lsp.handlers"
 local ts_util = require "nvim-lsp-ts-utils"
 
 local status = require "kibadda.lsp.status"
--- print("STATUS", status)
 if status then
   status.activate()
 end
@@ -26,7 +25,27 @@ local custom_init = function(client)
   client.config.flags.allow_incremental_sync = true
 end
 
-local filetype_attach = setmetatable({}, {
+local augroup_format = vim.api.nvim_create_augroup("my_lsp_format", { clear = true })
+local autocmd_format = function(async, filter)
+  vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_format }
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup_format,
+    buffer = 0,
+    callback = function()
+      vim.lsp.buf.format { async = async, filter = filter }
+    end,
+  })
+end
+
+local filetype_attach = setmetatable({
+  scss = function()
+    autocmd_format(false)
+  end,
+
+  css = function()
+    autocmd_format(false)
+  end,
+}, {
   __index = function()
     return function() end
   end,
@@ -49,7 +68,7 @@ local custom_attach = function(client)
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 
   vim.keymap.set("n", "gI", handlers.implementation, { buffer = 0 })
-  -- vim.keymap.set("n", "<Leader>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
+  vim.keymap.set("n", "<Leader>lr", "<CMD>lua R('kibadda.lsp.codelens').run()<CR>", { buffer = 0 })
   -- vim.keymap.set("n", "<Leader>rr", "<CMD>LspRestart<CR>", { buffer = 0 })
 
   telescope_mapper("gr", "lsp_references", nil, true)
@@ -96,7 +115,8 @@ updated_capabilities = require("cmp_nvim_lsp").update_capabilities(updated_capab
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 
 local servers = {
-  eslint = true,
+  pyright = true,
+  yamlls = true,
 
   vimls = {
     cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vim-language-server", "--stdio" },
@@ -106,11 +126,28 @@ local servers = {
     cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-html-language-server", "--stdio" },
   },
 
+  -- eslint = {
+  --   cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-eslint-language-server", "--stdio" },
+  -- },
+
+  cssls = {
+    cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vscode-css-language-server", "--stdio" },
+  },
+
+  volar = {
+    cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/vue-language-server", "--stdio" },
+  },
+
   tsserver = {
     init_options = ts_util.init_options,
     cmd = { "/home/michael/.nvm/versions/node/v16.14.2/bin/typescript-language-server", "--stdio" },
     filetypes = {
       "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
     },
     on_attach = function(client)
       custom_attach(client)
@@ -169,10 +206,6 @@ local setup_server = function(server, config)
   lspconfig[server].setup(config)
 end
 
-for server, config in pairs(servers) do
-  setup_server(server, config)
-end
-
 _ = require("nlua.lsp.nvim").setup(lspconfig, {
   on_init = custom_init,
   on_attach = custom_attach,
@@ -205,12 +238,22 @@ _ = require("nlua.lsp.nvim").setup(lspconfig, {
   },
 })
 
+for server, config in pairs(servers) do
+  setup_server(server, config)
+end
+
 if pcall(require, "sg.lsp") then
   require("sg.lsp").setup {
     on_init = custom_init,
     on_attach = custom_attach,
   }
 end
+
+require("null-ls").setup {
+  sources = {
+    require("null-ls").builtins.formatting.prettierd,
+  },
+}
 
 return {
   on_init = custom_init,

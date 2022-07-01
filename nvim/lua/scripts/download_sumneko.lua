@@ -1,5 +1,4 @@
 local Job = require "plenary.job"
-local log = require "plenary.log"
 
 local GITHUB_URL = "https://github.com/sumneko/lua-language-server/"
 
@@ -27,7 +26,7 @@ local run = function(input)
 
       skip_validation = true,
     })
-    :sync(50000, nil, true)
+    :sync(50000, nil)
 end
 
 local function download()

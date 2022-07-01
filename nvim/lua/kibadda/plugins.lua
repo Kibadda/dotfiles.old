@@ -77,6 +77,7 @@ return require("packer").startup {
     use "neovim/nvim-lspconfig"
     use "nvim-lua/lsp-status.nvim"
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    use "jose-elias-alvarez/null-ls.nvim"
 
     -- Better notifications
     use "rcarriga/nvim-notify"

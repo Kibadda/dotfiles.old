@@ -3,8 +3,13 @@
 # update first
 pacman -Syyuu --noconfirm
 
+yes | install_pulse
+
 # install git
 pacman -S --noconfirm git
+
+git config --global user.email "mstrobel97@gmail.com"
+git config --global user.name "Michael Strobel"
 
 # clone dotfiles repo
 # git clone git@github.com:Kibadda/dotfiles.git ${HOME}/.dotfiles
@@ -21,6 +26,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # nvm
 bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh)"
+nvm install --lts
 
 # remove all default config files
 cd ${HOME}/.config

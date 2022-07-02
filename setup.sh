@@ -16,11 +16,11 @@ git clone https://github.com/Kibadda/dotfiles.git ${HOME}/.dotfiles
 pacman -Syyuu --noconfirm lazygit ranger kitty neovim php zsh
 
 # zsh
-bash "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # nvm
-bash "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh)"
+bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh)"
 
 # remove all default config files
 cd ${HOME}/.config

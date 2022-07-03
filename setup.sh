@@ -4,7 +4,7 @@ while true; do
   read -p "Username: " USER
   HOME="/home/$USER"
   
-  if [ -d $HOME ] then;
+  if [ -d $HOME ]; then
     break
   else
     echo "Not a real User!"

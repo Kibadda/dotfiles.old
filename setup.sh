@@ -29,7 +29,7 @@ pacman -S --noconfirm git lazygit ranger kitty neovim zsh php rust exa dolphin u
 
 echo "========================================="
 echo "Install AUR packages"
-pamac install --no-confirm ckb-next google-chrome
+# pamac install --no-confirm ckb-next google-chrome
 
 echo "========================================="
 echo "Install oh-my-zsh and powerlevel"
@@ -56,20 +56,20 @@ echo "Link all dotfile configs"
 DOTFILES="$HOME/.dotfiles"
 sudo -u $USER git clone https://github.com/Kibadda/dotfiles.git $DOTFILES
 sudo -u $USER git -C $DOTFILES remote set-url origin git@github.com:Kibadda/dotfiles.git
-bash ./install
+bash $DOTFILES/install
 
 echo "========================================="
 echo "Enable ckb-next"
-systemctl enable ckb-next-daemon
+# systemctl enable ckb-next-daemon
 
 echo "========================================="
 echo "JetBrains Mono font"
 JMTMP="/tmp/jetbrains-mono"
 mkdir $JMTMP
-curl https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip > $JMTMP/jetbrains-mono.zip
+curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip > $JMTMP/jetbrains-mono.zip
 unzip $JMTMP/jetbrains-mono.zip -d $JMTMP
 mv $JMTMP/fonts /usr/share/fonts/jetbrains-mono
 
 echo "========================================="
 echo "Rebooting"
-shutdown -r now
+# shutdown -r now

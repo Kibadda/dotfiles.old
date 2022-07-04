@@ -37,6 +37,11 @@ yes | sudo -u $USER bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmy
 sudo -u $USER git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
 echo "========================================="
+echo "change default shell"
+LINE_NUMBER=$(grep -n $USER /etc/passwd | cut -f1 -d:)
+sed -i "${LINE_NUMBER}s=/bin/bash=/usr/bin/zsh=" /etc/passwd
+
+echo "========================================="
 echo "Install LunarVim"
 yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 

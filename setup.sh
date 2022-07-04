@@ -44,7 +44,7 @@ echo "========================================="
 echo "Remove default configs"
 CONFIG="$HOME/.config"
 rm -rf $CONFIG/kitty $CONFIG/lazygit $CONFIG/ranger $CONFIG/nvim $CONFIG/i3 $CONFIG/lvim $CONFIG/rofi
-rm $HOME/.zshrc $HOME/.zshenv $HOME/.p10k.zsh
+rm -f $HOME/.zshrc $HOME/.zshenv $HOME/.p10k.zsh $HOME/.Xresources $HOME/.profile $HOME/.bashrc $CONFIG/mimeapps.list
 
 echo "========================================="
 echo "Link all dotfile configs"
@@ -94,7 +94,7 @@ done
 while true; do
   read -p "Do you want to install disord? " yn
   case $yn in
-    [Yy]* ) pacman install --noconfirm discord; break;;
+    [Yy]* ) pacman -S --noconfirm discord; break;;
     [Nn]* ) break;;
     * ) echo "Please answer yes or no.";;
   esac

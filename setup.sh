@@ -7,7 +7,7 @@ while true; do
   if [ -d $HOME ]; then
     break
   else
-    echo "Not a real User!"
+    echo "User $USER does not exist! Please enter a valid user!"
   fi
 done
 
@@ -17,7 +17,7 @@ pacman -Syyuu --noconfirm
 
 echo "========================================="
 echo "Install pulse"
-yes | install_pulse
+yes | sudo -u $USER install_pulse
 
 echo "========================================="
 echo "Enable AUR support"
@@ -25,11 +25,11 @@ sed -i "s/#EnableAUR/EnableAUR/" /etc/pamac.conf
 
 echo "========================================="
 echo "Install applications"
-pacman -S --noconfirm git lazygit ranger kitty neovim zsh php rust exa dolphin unzip playerctl rofi npm
+pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip zsh
 
 echo "========================================="
 echo "Install AUR packages"
-# pamac install --no-confirm ckb-next google-chrome
+pamac install --no-confirm google-chrome
 
 echo "========================================="
 echo "Install oh-my-zsh and powerlevel"
@@ -37,16 +37,11 @@ yes | sudo -u $USER bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmy
 sudo -u $USER git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
 echo "========================================="
-echo "Global git config"
-sudo -u $USER git config --global user.email "mstrobel97@gmail.com"
-sudo -u $USER git config --global user.name "Michael Strobel"
-
-echo "========================================="
 echo "Install LunarVim"
 yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 
 echo "========================================="
-echo "Remove pre defined configs"
+echo "Remove default configs"
 CONFIG="$HOME/.config"
 rm -rf $CONFIG/kitty $CONFIG/lazygit $CONFIG/ranger $CONFIG/nvim $CONFIG/i3 $CONFIG/lvim $CONFIG/rofi
 rm $HOME/.zshrc $HOME/.zshenv $HOME/.p10k.zsh
@@ -59,16 +54,51 @@ sudo -u $USER git -C $DOTFILES remote set-url origin git@github.com:Kibadda/dotf
 bash $DOTFILES/install
 
 echo "========================================="
-echo "Enable ckb-next"
-# systemctl enable ckb-next-daemon
-
-echo "========================================="
 echo "JetBrains Mono font"
 JMTMP="/tmp/jetbrains-mono"
 mkdir $JMTMP
 curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip > $JMTMP/jetbrains-mono.zip
 unzip $JMTMP/jetbrains-mono.zip -d $JMTMP
 mv $JMTMP/fonts /usr/share/fonts/jetbrains-mono
+
+# echo "========================================="
+# echo "Yubikey stuff"
+# KEYID="0x123456789ABCDEF"
+# pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioauth-desktop
+# sudo -u $USER gpg --recv KEYID
+# echo -e "5y" | sudo -u $USER gpg --command-fd 0 --edit-key "$KEYID" trust
+# sudo -u $USER git config --global user.signingkey "$KEYID"
+# sudo -u $USER git config --global commit.gpgsign true
+# PAM_LINE="auth sufficient pam_u2f.so"
+# echo $PAM_LINE >> /etc/pam.d/sudo
+# echo $PAM_LINE >> /etc/pam.d/polkit-1
+# echo $PAM_LINE >> /etc/pam.d/lightdm
+# echo $PAM_LINE >> /etc/pam.d/i3lock
+
+echo "========================================="
+echo "Global git config"
+sudo -u $USER git config --global user.email "mstrobel97@gmail.com"
+sudo -u $USER git config --global user.name "Michael Strobel"
+
+echo "========================================="
+echo "Install additional packages"
+while true; do
+  read -p "Do you want to install ckb-next? " yn
+  case $yn in
+    [Yy]* ) pamac install --no-confirm ckb-next; systemctl enable ckb-next-daemon; break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
+
+while true; do
+  read -p "Do you want to install disord? " yn
+  case $yn in
+    [Yy]* ) pacman install --noconfirm discord; break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
 
 echo "========================================="
 echo "Rebooting"

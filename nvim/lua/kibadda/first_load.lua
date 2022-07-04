@@ -16,7 +16,7 @@ local download_packer = function()
 end
 
 local download_lsps = function()
-  if vim.fn.input "Download Packer? (y for yes)" ~= "y" then
+  if vim.fn.input "Download Lsps? (y for yes)" ~= "y" then
     return
   end
 

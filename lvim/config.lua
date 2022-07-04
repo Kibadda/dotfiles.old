@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = false
+lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 
 lvim.leader = "space"
@@ -156,6 +156,7 @@ lvim.plugins = {
   },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
+  { "fladson/vim-kitty" }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

@@ -51,7 +51,7 @@ echo "Link all dotfile configs"
 DOTFILES="$HOME/.dotfiles"
 sudo -u $USER git clone https://github.com/Kibadda/dotfiles.git $DOTFILES
 sudo -u $USER git -C $DOTFILES remote set-url origin git@github.com:Kibadda/dotfiles.git
-bash $DOTFILES/install
+sudo -u $USER bash $DOTFILES/install
 
 echo "========================================="
 echo "JetBrains Mono font"

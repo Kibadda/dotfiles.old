@@ -103,4 +103,4 @@ done
 
 echo "========================================="
 echo "Rebooting"
-shutdown -r now
+# shutdown -r now

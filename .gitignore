@@ -4,3 +4,5 @@ kitty/specifics.conf
 nvim/spell/*.spl
 
 __pycache__
+
+packer_compiled.lua

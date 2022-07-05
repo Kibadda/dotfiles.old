@@ -113,6 +113,8 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export KEYID=0x3B6861376B6D3D78
+
 alias ls='exa --icons'
 alias la='exa -la --icons'
 alias ll='exa -l --icons'

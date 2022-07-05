@@ -3,7 +3,7 @@
 while true; do
   read -p "Username: " USER
   HOME="/home/$USER"
-  
+
   if [ -d $HOME ]; then
     break
   else
@@ -68,17 +68,17 @@ mv $JMTMP/fonts /usr/share/fonts/jetbrains-mono
 
 # echo "========================================="
 # echo "Yubikey stuff"
-# KEYID="0x123456789ABCDEF"
-# pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioauth-desktop
-# sudo -u $USER gpg --recv KEYID
-# echo -e "5y" | sudo -u $USER gpg --command-fd 0 --edit-key "$KEYID" trust
-# sudo -u $USER git config --global user.signingkey "$KEYID"
-# sudo -u $USER git config --global commit.gpgsign true
-# PAM_LINE="auth sufficient pam_u2f.so"
-# echo $PAM_LINE >> /etc/pam.d/sudo
-# echo $PAM_LINE >> /etc/pam.d/polkit-1
-# echo $PAM_LINE >> /etc/pam.d/lightdm
-# echo $PAM_LINE >> /etc/pam.d/i3lock
+KEYID="0x3B6861376B6D3D78"
+pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioauth-desktop
+sudo -u $USER gpg --recv KEYID
+echo -e "5y" | sudo -u $USER gpg --command-fd 0 --edit-key "$KEYID" trust
+sudo -u $USER git config --global user.signingkey "$KEYID"
+sudo -u $USER git config --global commit.gpgsign true
+PAM_LINE="auth sufficient pam_u2f.so"
+echo $PAM_LINE >> /etc/pam.d/sudo
+echo $PAM_LINE >> /etc/pam.d/polkit-1
+echo $PAM_LINE >> /etc/pam.d/lightdm
+echo $PAM_LINE >> /etc/pam.d/i3lock
 
 echo "========================================="
 echo "Global git config"

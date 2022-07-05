@@ -11,6 +11,3 @@ echo "auth sufficient pam_u2f.so" >> /etc/pam.d/lightdm
 ```
 pamu2fcfg -o pam://hostname -i pam://hostname > ~/.config/Yubico/u2f_keys
 ```
-
-```
-```

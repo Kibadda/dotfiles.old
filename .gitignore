@@ -5,4 +5,5 @@ nvim/spell/*.spl
 
 __pycache__
 
-packer_compiled.lua
+nvim/plugin/packer_compiled.lua
+lvim/plugin/packer_compiled.lua

@@ -7,9 +7,9 @@ vim.keymap.set("v", "Y", "myY`y")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
-vim.keymap.set({ "n", "i" }, "<A-j>", "<ESC><CMD>lua NextBuffer()<CR>")
-vim.keymap.set({ "n", "i" }, "<A-k>", "<ESC><CMD>lua PrevBuffer()<CR>")
-vim.keymap.set("n", "<A-q>", "<CMD>lua DelBuffer()<CR>")
+vim.keymap.set({ "n", "i", "t" }, "<A-j>", "<CMD>bnext<CR>")
+vim.keymap.set({ "n", "i", "t" }, "<A-k>", "<CMD>bprevious<CR>")
+vim.keymap.set("n", "<A-q>", "<CMD>bdelete()<CR>")
 vim.keymap.set("n", "<Leader>Q", "<CMD>bufdo bdelete<CR>")
 
 vim.keymap.set("n", "<Leader>K", "<CMD>nohlsearch<CR>")

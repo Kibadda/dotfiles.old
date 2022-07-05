@@ -1,6 +1,7 @@
 function OpenTerminal(opts)
   opts = opts or {}
   opts = vim.tbl_extend("keep", opts, {
+    no_split = true,
     vertical = true,
     height = 12,
     program = nil,
@@ -14,19 +15,21 @@ function OpenTerminal(opts)
     file = nil
   end
 
-  if opts.vertical then
-    vim.cmd [[
-      vnew
-      wincmd L
-      set winfixwidth
-    ]]
-  else
-    vim.cmd [[
-      new
-      wincmd J
-      set winfixheight
-    ]]
-    vim.api.nvim_win_set_height(0, opts.height)
+  if not opts.no_split then
+    if opts.vertical then
+      vim.cmd [[
+        vnew
+        wincmd L
+        set winfixwidth
+      ]]
+    else
+      vim.cmd [[
+        new
+        wincmd J
+        set winfixheight
+      ]]
+      vim.api.nvim_win_set_height(0, opts.height)
+    end
   end
 
   if opts.program == nil then

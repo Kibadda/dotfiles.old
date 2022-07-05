@@ -9,7 +9,7 @@ vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set({ "n", "i", "t" }, "<A-j>", "<CMD>bnext<CR>")
 vim.keymap.set({ "n", "i", "t" }, "<A-k>", "<CMD>bprevious<CR>")
-vim.keymap.set("n", "<A-q>", "<CMD>bdelete()<CR>")
+vim.keymap.set("n", "<A-q>", "<CMD>bdelete<CR>")
 vim.keymap.set("n", "<Leader>Q", "<CMD>bufdo bdelete<CR>")
 
 vim.keymap.set("n", "<Leader>K", "<CMD>nohlsearch<CR>")

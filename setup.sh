@@ -66,24 +66,20 @@ curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip > $JMTMP/je
 unzip $JMTMP/jetbrains-mono.zip -d $JMTMP
 mv $JMTMP/fonts /usr/share/fonts/jetbrains-mono
 
-# echo "========================================="
-# echo "Yubikey stuff"
+echo "========================================="
+echo "Yubikey stuff"
 KEYID="0x3B6861376B6D3D78"
 pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioauth-desktop
 sudo -u $USER gpg --recv KEYID
 echo -e "5y" | sudo -u $USER gpg --command-fd 0 --edit-key "$KEYID" trust
 sudo -u $USER git config --global user.signingkey "$KEYID"
 sudo -u $USER git config --global commit.gpgsign true
+pamu2fcfg > ~/.config/Yubico/u2f_keys
 PAM_LINE="auth sufficient pam_u2f.so"
 echo $PAM_LINE >> /etc/pam.d/sudo
 echo $PAM_LINE >> /etc/pam.d/polkit-1
 echo $PAM_LINE >> /etc/pam.d/lightdm
 echo $PAM_LINE >> /etc/pam.d/i3lock
-
-echo "========================================="
-echo "Global git config"
-sudo -u $USER git config --global user.email "mstrobel97@gmail.com"
-sudo -u $USER git config --global user.name "Michael Strobel"
 
 echo "========================================="
 echo "Install additional packages"

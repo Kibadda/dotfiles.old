@@ -4,7 +4,8 @@ gui:
   showRandomTip: false
   showBottomLine: false
   showCommandLog: false
-  overrideGpg: true
   showIcons: true
+git:
+  overrideGpg: true
 os:
   openCommand: 'nvim --server $NVIM --remote {{filename}}'

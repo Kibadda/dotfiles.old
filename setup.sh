@@ -101,6 +101,15 @@ while true; do
   esac
 done
 
+while true; do
+  read -p "Do you want to install custom boot screen? " yn
+  case $yn in
+    [Yy]* ) pacman -S --noconfirm bootsplash-systemd bootsplash-manager bootsplash-theme-manjaro-glitch; sudo bootsplash-manager --set "manjaro-glitch"; break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
+
 echo "========================================="
 echo "Rebooting"
 # shutdown -r now

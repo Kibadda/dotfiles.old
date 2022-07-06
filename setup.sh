@@ -25,7 +25,7 @@ sed -i "s/#EnableAUR/EnableAUR/" /etc/pamac.conf
 
 echo "========================================="
 echo "Install applications"
-pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip zsh
+pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip yarn zsh
 
 echo "========================================="
 echo "Install AUR packages"
@@ -45,7 +45,11 @@ echo "========================================="
 echo "Install LunarVim"
 # yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 which npm
-ll /usr/bin/npm
+which yarn
+ls -la /usr/bin/npm
+ls -la /usr/bin/yarn
+npm config get prefix
+yarn config get prefix
 echo $USER
 sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 

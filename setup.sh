@@ -11,54 +11,54 @@ while true; do
   fi
 done
 
-echo "========================================="
+echo "============================================================================================"
 echo "Update all packages"
 pacman -Syyuu --noconfirm
 
-echo "========================================="
+echo "============================================================================================"
 echo "Install pulse"
 yes | sudo -u $USER install_pulse
 
-echo "========================================="
+echo "============================================================================================"
 echo "Enable AUR support"
 sed -i "s/#EnableAUR/EnableAUR/" /etc/pamac.conf
 
-echo "========================================="
+echo "============================================================================================"
 echo "Install applications"
 pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip yarn zsh
 
-echo "========================================="
+echo "============================================================================================"
 echo "Install AUR packages"
 pamac install --no-confirm google-chrome
 
-echo "========================================="
+echo "============================================================================================"
 echo "Install oh-my-zsh and powerlevel"
 yes | sudo -u $USER bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo -u $USER git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
-echo "========================================="
+echo "============================================================================================"
 echo "change default shell"
 LINE_NUMBER=$(grep -n $USER /etc/passwd | cut -f1 -d:)
 sed -i "${LINE_NUMBER}s=/bin/bash=/usr/bin/zsh=" /etc/passwd
 
-echo "========================================="
+echo "============================================================================================"
 echo "Install LunarVim"
 yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 
-echo "========================================="
+echo "============================================================================================"
 echo "Remove default configs"
 CONFIG="$HOME/.config"
 rm -rf $CONFIG/kitty $CONFIG/lazygit $CONFIG/ranger $CONFIG/nvim $CONFIG/i3 $CONFIG/lvim $CONFIG/rofi
 rm -f $HOME/.zshrc $HOME/.zshenv $HOME/.p10k.zsh $HOME/.Xresources $HOME/.profile $HOME/.bashrc $CONFIG/mimeapps.list
 
-echo "========================================="
+echo "============================================================================================"
 echo "Link all dotfile configs"
 DOTFILES="$HOME/.dotfiles"
 sudo -u $USER git clone https://github.com/Kibadda/dotfiles.git $DOTFILES
 sudo -u $USER git -C $DOTFILES remote set-url origin git@github.com:Kibadda/dotfiles.git
 sudo -u $USER bash $DOTFILES/install
 
-echo "========================================="
+echo "============================================================================================"
 echo "JetBrains Mono font"
 JMTMP="/tmp/jetbrains-mono"
 mkdir $JMTMP
@@ -66,7 +66,7 @@ curl -L https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip > $JMTMP/je
 unzip $JMTMP/jetbrains-mono.zip -d $JMTMP
 mv $JMTMP/fonts /usr/share/fonts/jetbrains-mono
 
-echo "========================================="
+echo "============================================================================================"
 echo "Yubikey stuff"
 KEYID="0x3B6861376B6D3D78"
 pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioath-desktop pam-u2f
@@ -82,7 +82,7 @@ sed -i "1 a$PAM_LINE" /etc/pam.d/polkit-1
 sed -i "1 a$PAM_LINE" /etc/pam.d/lightdm
 sed -i "1 a$PAM_LINE" /etc/pam.d/i3lock
 
-echo "========================================="
+echo "============================================================================================"
 echo "Install additional packages"
 while true; do
   read -p "Do you want to install ckb-next? " yn
@@ -111,21 +111,21 @@ while true; do
   esac
 done
 
-echo "========================================="
-echo "========================================="
-echo "========================================="
-echo "========================================="
-echo "========================================="
+echo "============================================================================================"
+echo "============================================================================================"
+echo "============================================================================================"
+echo "============================================================================================"
+echo "============================================================================================"
 echo "User Actions"
 echo "i3:   To reload the config, either run \"Meta+Shift+r\" or reboot the computer"
 echo "lvim: To use LunarVim open lvim and type \":PackerCompile<Enter>:PackerInstall<Enter>:q<Enter>\""
 echo "nvim: To use Neovim open nvim and answer both questions with \"y\", then start neovim again and type \"p\", after that you should reopen nvim"
-echo "========================================="
-echo "========================================="
-echo "========================================="
-echo "========================================="
+echo "============================================================================================"
+echo "============================================================================================"
+echo "============================================================================================"
+echo "============================================================================================"
 
-echo "========================================="
+echo "============================================================================================"
 echo "Rebooting"
 while true; do
   read -p "Do you want to reboot now? " yn

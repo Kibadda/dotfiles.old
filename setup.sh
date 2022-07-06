@@ -25,7 +25,7 @@ sed -i "s/#EnableAUR/EnableAUR/" /etc/pamac.conf
 
 echo "============================================================================================"
 echo "Install applications"
-pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip yarn zsh
+pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip yarn zsh composer
 
 echo "============================================================================================"
 echo "Install AUR packages"

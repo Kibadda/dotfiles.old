@@ -111,6 +111,15 @@ while true; do
   esac
 done
 
+while true; do
+  read -p "Enable natural scrolling?" yn
+  case $yn in
+    [Yy]* ) sed -i "$ 1\    Option \"Natural Scrolling\" \"true\"" /etc/X11/xorg.conf.d/30-touchpad.conf; break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
+
 echo "============================================================================================"
 echo "============================================================================================"
 echo "============================================================================================"

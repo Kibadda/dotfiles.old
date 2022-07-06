@@ -44,7 +44,6 @@ sed -i "${LINE_NUMBER}s=/bin/bash=/usr/bin/zsh=" /etc/passwd
 echo "========================================="
 echo "Install LunarVim"
 yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
-lvim --headless +PackerCompile +qa
 
 echo "========================================="
 echo "Remove default configs"
@@ -113,5 +112,26 @@ while true; do
 done
 
 echo "========================================="
+echo "========================================="
+echo "========================================="
+echo "========================================="
+echo "========================================="
+echo "User Actions"
+echo "i3:   To reload the config, either run \"Meta+Shift+r\" or reboot the computer"
+echo "lvim: To use LunarVim open lvim and type \":PackerCompile<Enter>:PackerInstall<Enter>:q<Enter>\""
+echo "nvim: To use Neovim open nvim and answer both questions with \"y\", then start neovim again and type \"p\", after that you should reopen nvim"
+echo "========================================="
+echo "========================================="
+echo "========================================="
+echo "========================================="
+
+echo "========================================="
 echo "Rebooting"
-# shutdown -r now
+while true; do
+  read -p "Do you want to reboot now? " yn
+  case $yn in
+    [Yy]* ) shutdown -r now; break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done

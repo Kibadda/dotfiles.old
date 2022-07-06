@@ -43,15 +43,8 @@ sed -i "${LINE_NUMBER}s=/bin/bash=/usr/bin/zsh=" /etc/passwd
 
 echo "========================================="
 echo "Install LunarVim"
-# yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
-which npm
-which yarn
-ls -la /usr/bin/npm
-ls -la /usr/bin/yarn
-npm config get prefix
-yarn config get prefix
-echo $USER
-sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
+yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
+lvim --headless +PackerCompile +qa
 
 echo "========================================="
 echo "Remove default configs"

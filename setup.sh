@@ -74,8 +74,8 @@ sudo -u $USER gpg --recv $KEYID
 echo -e "5\ny\n" | sudo -u $USER gpg --command-fd 0 --edit-key $KEYID trust
 sudo -u $USER git config --global user.signingkey $KEYID
 sudo -u $USER git config --global commit.gpgsign true
-mkdir ~/.config/Yubico
-pamu2fcfg > ~/.config/Yubico/u2f_keys
+sudo -u $USER mkdir ~/.config/Yubico
+sudo -u $USER pamu2fcfg > ~/.config/Yubico/u2f_keys
 PAM_LINE="auth sufficient pam_u2f.so"
 sed -i "1 a$PAM_LINE" /etc/pam.d/sudo
 sed -i "1 a$PAM_LINE" /etc/pam.d/polkit-1

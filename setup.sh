@@ -43,7 +43,11 @@ sed -i "${LINE_NUMBER}s=/bin/bash=/usr/bin/zsh=" /etc/passwd
 
 echo "========================================="
 echo "Install LunarVim"
-yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
+# yes | sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
+which npm
+ll /usr/bin/npm
+echo $USER
+sudo -u $USER bash -c "$(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)"
 
 echo "========================================="
 echo "Remove default configs"
@@ -69,17 +73,18 @@ mv $JMTMP/fonts /usr/share/fonts/jetbrains-mono
 echo "========================================="
 echo "Yubikey stuff"
 KEYID="0x3B6861376B6D3D78"
-pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioauth-desktop
-sudo -u $USER gpg --recv KEYID
-echo -e "5y" | sudo -u $USER gpg --command-fd 0 --edit-key "$KEYID" trust
-sudo -u $USER git config --global user.signingkey "$KEYID"
+pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioath-desktop pam-u2f
+sudo -u $USER gpg --recv $KEYID
+echo -e "5\ny\n" | sudo -u $USER gpg --command-fd 0 --edit-key $KEYID trust
+sudo -u $USER git config --global user.signingkey $KEYID
 sudo -u $USER git config --global commit.gpgsign true
+mkdir ~/.config/Yubico
 pamu2fcfg > ~/.config/Yubico/u2f_keys
 PAM_LINE="auth sufficient pam_u2f.so"
-echo $PAM_LINE >> /etc/pam.d/sudo
-echo $PAM_LINE >> /etc/pam.d/polkit-1
-echo $PAM_LINE >> /etc/pam.d/lightdm
-echo $PAM_LINE >> /etc/pam.d/i3lock
+sed -i "1 a$PAM_LINE" /etc/pam.d/sudo
+sed -i "1 a$PAM_LINE" /etc/pam.d/polkit-1
+sed -i "1 a$PAM_LINE" /etc/pam.d/lightdm
+sed -i "1 a$PAM_LINE" /etc/pam.d/i3lock
 
 echo "========================================="
 echo "Install additional packages"

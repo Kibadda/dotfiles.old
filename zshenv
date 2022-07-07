@@ -28,3 +28,5 @@ decrypt() {
         echo $MESSAGE
     fi
 }
+
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"

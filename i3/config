@@ -110,11 +110,6 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+Ctrl+space exec playerctl play-pause
-# bindsym $mod+Ctrl+Left exec playerctl previous
-# bindsym $mod+Ctrl+Right exec playerctl next
-bindsym $mod+Ctrl+Up exec playerctl volume 0.1+
-bindsym $mod+Ctrl+Down exec playerctl volume 0.1-
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+m bar mode toggle
@@ -200,6 +195,19 @@ mode "resize" {
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+set $mode_player Pause/Play(Space), Next(Right), Previous(Left), Volume (Up), Volume (Down)
+bindsym $mod+z mode "$mode_player"
+mode "$mode_player" {
+  bindsym Left exec playerctl previous
+  bindsym Right exec playerctl next
+  bindsym space exec playerctl play-pause
+  bindsym Up exec playerctl volume 0.1+
+  bindsym Down exec playerctl volume 0.1-
 
   bindsym Return mode "default"
   bindsym Escape mode "default"

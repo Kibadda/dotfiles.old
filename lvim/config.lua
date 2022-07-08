@@ -47,6 +47,14 @@ require("lvim.lsp.null-ls.formatters").setup {
 }
 
 lvim.plugins = {
+  -- Startscreen
+  { "mhinz/vim-startify" },
+  -- essential tpope stuff
+  { "tpope/vim-repeat" },
+  { "tpope/vim-surround" },
+  -- extra vim syntax
+  { "fladson/vim-kitty" },
+  -- other stuff
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
@@ -65,8 +73,23 @@ lvim.plugins = {
       require("todo-comments").setup()
     end,
   },
-  { "tpope/vim-repeat" },
-  { "tpope/vim-surround" },
-  { "fladson/vim-kitty" },
-  { "mhinz/vim-startify" },
+  { "folke/zen-mode.nvim" },
+  { "folke/twilight.nvim" },
+  { "sickill/vim-pasta" },
+  { "nvim-neorg/neorg-telescope" },
+  { "nvim-neorg/neorg" },
+  {
+    "metakirby5/codi.vim",
+    cmd = "Codi",
+  },
+  {
+    "karb94/neoscroll.nvim",
+    event = "WinScrolled",
+    config = function()
+      require("neoscroll").setup {
+        -- All these keys will be mapped to their corresponding default scrolling animation
+        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+      }
+    end,
+  },
 }

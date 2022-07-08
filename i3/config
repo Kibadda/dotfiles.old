@@ -91,14 +91,14 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 10 -locker i3lock -c 000000
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # Applications
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+Return lvim
+bindsym $mod+Shift+Return exec kitty lvim
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Ctrl+m exec pavucontrol
 bindsym Print exec --no-startup-id i3-scrot
@@ -118,7 +118,7 @@ bindsym $mod+Ctrl+Down exec playerctl volume 0.1-
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+m bar mode toggle
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+9 exec --no-startup-id i3lock -c 000000
 
 bar {
 	i3bar_command i3bar

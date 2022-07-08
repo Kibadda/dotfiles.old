@@ -27,3 +27,22 @@ end, {
   desc = "Open new directory",
   complete = "dir",
 })
+
+vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
+  local auto = require "lvim.core.autocmds"
+  local exists, autocmds = pcall(vim.api.nvim_get_autocmds, {
+    group = "lsp_format_on_save",
+    event = "BufWritePre",
+  })
+  if not exists or #autocmds == 0 then
+    auto.enable_format_on_save()
+    vim.notify("Turned on", "success", { title = "Format on save" })
+  else
+    auto.disable_format_on_save()
+    vim.notify("Turned off", "success", { title = "Format on save" })
+  end
+end, {
+  bang = false,
+  nargs = 0,
+  desc = "Toggle format on save",
+})

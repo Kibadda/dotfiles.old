@@ -137,6 +137,22 @@ while true; do
   echo "============================================================================================"
 done
 
+while true; do
+  read -p "Do you want to install spotify? " yn
+  case $yn in
+    [Yy]* )
+      SPOTIFY_KEY=0x5E3C45D7B312C643
+      sudo -u $USER gpg --recv $SPOTIFY_KEY
+      echo -e "5\ny\n" | sudo -u $USER gpg --command-fd 0 --edit-key $SPOTIFY_KEY trust
+      pamac install --no-confirm spotify
+      break
+      ;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+  echo "============================================================================================"
+done
+
 echo "============================================================================================"
 echo "============================================================================================"
 echo "============================================================================================"

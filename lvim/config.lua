@@ -58,20 +58,10 @@ lvim.plugins = {
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
-    config = function()
-      require("nvim-lastplace").setup {
-        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-        lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-        lastplace_open_folds = true,
-      }
-    end,
   },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end,
   },
   { "folke/zen-mode.nvim" },
   { "folke/twilight.nvim" },
@@ -85,11 +75,5 @@ lvim.plugins = {
   {
     "karb94/neoscroll.nvim",
     event = "WinScrolled",
-    config = function()
-      require("neoscroll").setup {
-        -- All these keys will be mapped to their corresponding default scrolling animation
-        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
-      }
-    end,
   },
 }

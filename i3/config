@@ -82,7 +82,7 @@ bindsym $mod+e layout toggle split
 # /Workspace
 ###############################################
 exec --no-startup-id setxkbmap -option caps:swapescape
-exec --no-startup-id pulseaudio
+exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b

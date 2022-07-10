@@ -33,7 +33,6 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- :LvimCacheReset
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "volar" })
 require("lvim.lsp.manager").setup "intelephense"
 
 require("lvim.lsp.null-ls.formatters").setup {

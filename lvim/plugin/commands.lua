@@ -28,6 +28,21 @@ end, {
   complete = "dir",
 })
 
+vim.api.nvim_create_user_command("OpenFile", function(opts)
+  local input = opts.args
+
+  if input == "" then
+    input = vim.fn.input("file: ", "", "file")
+  end
+
+  vim.cmd(string.format("e %s", input))
+end, {
+  bang = true,
+  nargs = "?",
+  desc = "Open new file",
+  complete = "file",
+})
+
 vim.api.nvim_create_user_command("ToggleFormatOnSave", function()
   local auto = require "lvim.core.autocmds"
   local exists, autocmds = pcall(vim.api.nvim_get_autocmds, {

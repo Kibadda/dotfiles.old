@@ -25,5 +25,6 @@ vim.g.startify_lists = {
 vim.g.startify_commands = {
   { p = "PackerSync" },
   { n = "OpenDirectory" },
+  { f = "OpenFile" },
   { d = "DetachTmux" },
 }

@@ -54,25 +54,13 @@ lvim.plugins = {
   -- extra vim syntax
   { "fladson/vim-kitty" },
   -- other stuff
-  {
-    "ethanholz/nvim-lastplace",
-    event = "BufRead",
-  },
-  {
-    "folke/todo-comments.nvim",
-    event = "BufRead",
-  },
+  { "ethanholz/nvim-lastplace" },
+  { "folke/todo-comments.nvim" },
   { "folke/zen-mode.nvim" },
   { "folke/twilight.nvim" },
   { "sickill/vim-pasta" },
   { "nvim-neorg/neorg-telescope" },
   { "nvim-neorg/neorg" },
-  {
-    "metakirby5/codi.vim",
-    cmd = "Codi",
-  },
-  {
-    "karb94/neoscroll.nvim",
-    event = "WinScrolled",
-  },
+  { "metakirby5/codi.vim", cmd = "Codi" },
+  { "karb94/neoscroll.nvim" },
 }

@@ -24,7 +24,14 @@ lvim.builtin.which_key.mappings["C"] = {
   s = { "<cmd>CodiSelect<cr>", "Select filetype" },
   e = { "<cmd>CodiExpand<cr>", "Expand output" },
 }
-lvim.builtin.which_key.mappings["E"] = { "<cmd>BetterExplore<cr>", "Explorer" }
+lvim.builtin.which_key.mappings["E"] = {
+  "<cmd>BetterExplore<cr>",
+  "Explorer",
+}
+lvim.builtin.which_key.mappings["Q"] = {
+  "<cmd>DetachTmux<cr>",
+  "Detach from tmux",
+}
 
 lvim.builtin.which_key.mappings["w"] = nil
 lvim.builtin.which_key.mappings["q"] = nil

@@ -58,3 +58,11 @@ end, {
   nargs = 0,
   desc = "If open and focused -> close otherwise -> find file",
 })
+
+vim.api.nvim_create_user_command("DetachTmux", function()
+  vim.cmd [[!tmux detach]]
+end, {
+  bang = false,
+  nargs = 0,
+  desc = "Detach from tmux session",
+})

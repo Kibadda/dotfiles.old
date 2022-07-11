@@ -97,6 +97,7 @@ exec_always --no-startup-id fix_xcursor
 
 # Applications
 bindsym $mod+Return exec kitty -1 /bin/bash -c "tmux attach || tmux"
+bindsym $mod+Shift+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Ctrl+m exec pavucontrol

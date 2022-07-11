@@ -24,3 +24,13 @@ vim.api.nvim_create_autocmd("TermClose", {
   pattern = "*",
   command = "bdelete!",
 })
+
+local StartifyGroup = vim.api.nvim_create_augroup("Startify", { clear = true })
+
+vim.api.nvim_create_autocmd("User", {
+  group = StartifyGroup,
+  pattern = "StartifyReady",
+  callback = function()
+    vim.cmd [[cd ~]]
+  end,
+})

@@ -68,4 +68,5 @@ lvim.plugins = {
   { "metakirby5/codi.vim" },
   { "karb94/neoscroll.nvim" },
   { "AndrewRadev/splitjoin.vim" },
+  { "alexghergh/nvim-tmux-navigation" },
 }

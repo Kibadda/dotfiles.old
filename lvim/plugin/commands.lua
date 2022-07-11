@@ -46,3 +46,15 @@ end, {
   nargs = 0,
   desc = "Toggle format on save",
 })
+
+vim.api.nvim_create_user_command("BetterExplore", function()
+  if vim.bo.filetype == "NvimTree" then
+    vim.cmd [[NvimTreeClose]]
+  else
+    vim.cmd [[NvimTreeFindFile]]
+  end
+end, {
+  bang = false,
+  nargs = 0,
+  desc = "If open and focused -> close otherwise -> find file",
+})

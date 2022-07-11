@@ -3,6 +3,10 @@ lvim.line_wrap_cursor_movement = false
 -- :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = false
 lvim.builtin.notify.active = true
+lvim.builtin.which_key.setup.plugins.presets.operators = true
+lvim.builtin.which_key.setup.plugins.presets.motions = true
+lvim.builtin.which_key.setup.plugins.presets.text_objects = true
+lvim.builtin.which_key.setup.plugins.presets.windows = true
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -61,6 +65,7 @@ lvim.plugins = {
   { "sickill/vim-pasta" },
   { "nvim-neorg/neorg-telescope" },
   { "nvim-neorg/neorg" },
-  { "metakirby5/codi.vim", cmd = "Codi" },
+  { "metakirby5/codi.vim" },
   { "karb94/neoscroll.nvim" },
+  { "AndrewRadev/splitjoin.vim" },
 }

@@ -145,7 +145,7 @@ alias merge='git merge'
 alias delete='git branch -d'
 alias lastcom='git show'
 
-# alias vim='nvim'
-# alias vimdot='nvim ~/.dotfiles'
+alias d='tmux detach'
+alias l='lvim'
 
 alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake

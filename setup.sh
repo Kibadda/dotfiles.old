@@ -28,7 +28,7 @@ echo "==========================================================================
 
 echo "============================================================================================"
 echo "applications"
-pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird unzip yarn zsh composer
+pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird tmux unzip yarn zsh composer
 pamac install --no-confirm google-chrome
 echo "============================================================================================"
 
@@ -36,6 +36,11 @@ echo "==========================================================================
 echo "oh-my-zsh and powerlevel10k"
 yes | sudo -u $USER bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo -u $USER git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+echo "============================================================================================"
+
+echo "============================================================================================"
+echo "tmux plugin manager"
+sudo -u $USER $ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 echo "============================================================================================"
 
 echo "============================================================================================"

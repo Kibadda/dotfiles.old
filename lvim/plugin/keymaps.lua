@@ -1,7 +1,7 @@
 vim.keymap.set("n", "<A-w>", "<cmd>silent w<cr>")
 vim.keymap.set("n", "<A-q>", "<cmd>BufferKill<cr>")
-vim.keymap.set({ "n", "i", "t" }, "<A-l>", "<cmd>BufferLineCycleNext<cr>")
-vim.keymap.set({ "n", "i", "t" }, "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
+vim.keymap.set("t", "L", "<cmd>BufferLineCycleNext<cr>")
+vim.keymap.set("t", "H", "<cmd>BufferLineCyclePrev<cr>")
 vim.keymap.set("n", "<A-f>", "<cmd>ToggleFormatOnSave<cr>")
 
 lvim.builtin.which_key.mappings["S"] = {

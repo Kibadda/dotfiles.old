@@ -28,7 +28,7 @@ echo "==========================================================================
 
 echo "============================================================================================"
 echo "applications"
-pacman -S --noconfirm dolphin exa git kitty lazygit neovim npm numlockx php playerctl ranger rofi rust telegram-desktop thunderbird tmux unzip yarn zsh composer
+pacman -S --noconfirm bat dolphin exa git kitty lazygit neovim npm numlockx php playerctl py3status python-tzlocal ranger rofi rust telegram-desktop thunderbird tmux unzip yarn zsh composer
 pamac install --no-confirm google-chrome
 echo "============================================================================================"
 
@@ -80,7 +80,7 @@ echo "==========================================================================
 
 echo "============================================================================================"
 echo "Yubikey stuff"
-pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioath-desktop pam-u2f
+pacman -S --noconfirm yubikey-manager-qt yubikey-personalization-gui yubioath-desktop pam-u2f yubikey-touch-detector
 KEYID="0x3B6861376B6D3D78"
 TOBI="0x4b7228cfe59b7380"
 for KEY in $KEYID $TOBI

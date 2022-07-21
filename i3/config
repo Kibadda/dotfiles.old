@@ -117,7 +117,8 @@ bindsym $mod+9 exec --no-startup-id i3lock -c 000000
 
 bar {
 	i3bar_command i3bar
-	status_command i3status
+	# status_command i3status
+  status_command py3status -c /home/michael/.config/i3/i3status.conf
   position top
 	bindsym button4 nop
 	bindsym button5 nop

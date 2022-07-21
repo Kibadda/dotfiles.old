@@ -117,6 +117,8 @@ alias ls='exa --icons'
 alias la='exa -la --icons'
 alias ll='exa -l --icons'
 
+alias cat='bat'
+
 alias pacu='sudo pacman -Syyuu && sudo pamac update'
 alias paci='sudo pacman -S'
 alias pacr='sudo pacman -R'

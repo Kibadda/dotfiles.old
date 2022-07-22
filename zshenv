@@ -30,3 +30,9 @@ decrypt() {
 }
 
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+if [ -e /home/michael/.nix-profile/etc/profile.d/nix.sh ]; then . /home/michael/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+eval "$(direnv hook zsh)"
+
+[ -f "/home/michael/.ghcup/env" ] && source "/home/michael/.ghcup/env" # ghcup-env

@@ -151,5 +151,3 @@ alias d='tmux detach'
 alias l='lvim'
 
 alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake
-
-[ -f "/home/michael/.ghcup/env" ] && source "/home/michael/.ghcup/env" # ghcup-env

@@ -37,12 +37,12 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- :LvimCacheReset
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "hls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "hls" })
 require("lvim.lsp.manager").setup "intelephense"
 
--- require("lspconfig").hls.setup {
---   cmd = { "/home/michael/.ghcup/hls/1.7.0.0/bin/haskell-language-server-wrapper", "--lsp" },
--- }
+require("lspconfig").hls.setup {
+  cmd = { "/home/michael/.ghcup/hls/1.7.0.0/bin/haskell-language-server-wrapper", "--lsp" },
+}
 
 require("lvim.lsp.null-ls.formatters").setup {
   {

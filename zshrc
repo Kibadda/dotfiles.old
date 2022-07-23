@@ -150,4 +150,6 @@ alias lastcom='git show'
 alias d='tmux detach'
 alias l='lvim'
 
+alias swap='setxkbmap -option caps:swapescape'
+
 alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake

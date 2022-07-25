@@ -83,6 +83,7 @@ lvim.plugins = {
   { "karb94/neoscroll.nvim" },
   { "AndrewRadev/splitjoin.vim" },
   { "alexghergh/nvim-tmux-navigation" },
+  { "norcalli/nvim-colorizer.lua" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },

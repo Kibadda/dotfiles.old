@@ -11,6 +11,7 @@
     ~/.config/rofi: rofi
     ~/.config/ranger: ranger
     ~/.config/mimeapps.list: mimeapps.list
+    ~/.config/dunst: dunst
     ~/.zshrc: zshrc
     ~/.zshenv: zshenv
     ~/.Xresources: Xresources

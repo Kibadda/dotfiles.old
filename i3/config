@@ -201,7 +201,7 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-set $mode_player Pause/Play(Space), Next(Right), Previous(Left), Volume (Up), Volume (Down)
+set $mode_player Pause/Play(Space), Previous(Left), Next(Right), Volume (Up), Volume (Down), (S)huffle, Jump back (Shift+Left), Jump forward (Shift+Right), Loop (N)one (T)rack (P)laylist
 bindsym $mod+z mode "$mode_player"
 mode "$mode_player" {
   bindsym Left exec playerctl previous
@@ -209,6 +209,12 @@ mode "$mode_player" {
   bindsym space exec playerctl play-pause
   bindsym Up exec playerctl volume 0.1+
   bindsym Down exec playerctl volume 0.1-
+  bindsym s exec playerctl shuffle Toggle
+  bindsym Shift+Left exec playerctl position 15-
+  bindsym Shift+Right exec playerctl position 15+
+  bindsym n exec playerctl loop None
+  bindsym t exec playerctl loop Track
+  bindsym p exec playerctl loop Playlist
 
   bindsym Return mode "default"
   bindsym Escape mode "default"

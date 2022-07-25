@@ -37,12 +37,19 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- :LvimCacheReset
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "hls" })
 require("lvim.lsp.manager").setup "intelephense"
 
-require("lspconfig").hls.setup {
-  cmd = { "/home/michael/.ghcup/hls/1.7.0.0/bin/haskell-language-server-wrapper", "--lsp" },
-}
+local is_home = (function()
+  local host = vim.fn.system "echo -n $HOST"
+  return host == "uranus" or host == "titania"
+end)()
+
+if is_home then
+  vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "hls" })
+  require("lspconfig").hls.setup {
+    cmd = { "/home/michael/.ghcup/hls/1.7.0.0/bin/haskell-language-server-wrapper", "--lsp" },
+  }
+end
 
 require("lvim.lsp.null-ls.formatters").setup {
   {

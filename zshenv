@@ -33,6 +33,9 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 if [ -e /home/michael/.nix-profile/etc/profile.d/nix.sh ]; then . /home/michael/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-eval "$(direnv hook zsh)"
+if command -v direnv &> /dev/null
+then
+  eval "$(direnv hook zsh)"
+fi
 
 [ -f "/home/michael/.ghcup/env" ] && source "/home/michael/.ghcup/env" # ghcup-env

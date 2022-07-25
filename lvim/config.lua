@@ -1,4 +1,6 @@
 -- LunarVim settings
+lvim.colorscheme = "gruvbox-baby"
+
 lvim.line_wrap_cursor_movement = false
 -- :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = false
@@ -81,4 +83,7 @@ lvim.plugins = {
   { "karb94/neoscroll.nvim" },
   { "AndrewRadev/splitjoin.vim" },
   { "alexghergh/nvim-tmux-navigation" },
+  -- colorschemes
+  { "sainnhe/gruvbox-material" },
+  { "luisiacc/gruvbox-baby" },
 }

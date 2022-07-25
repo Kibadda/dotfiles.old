@@ -100,7 +100,7 @@ exec --no-startup-id python /home/michael/.config/i3/i3lock/main.py
 bindsym $mod+Return exec kitty -1 /bin/bash -c "tmux attach || tmux"
 bindsym $mod+Shift+Return exec kitty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun -theme sidebar -font "JetBrains Mono 15" -show-icons -show combi
 bindsym $mod+Ctrl+m exec pavucontrol
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w

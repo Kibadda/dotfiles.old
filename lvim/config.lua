@@ -38,6 +38,10 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, "ui-select")
+end
+
 -- :LvimCacheReset
 require("lvim.lsp.manager").setup "intelephense"
 
@@ -84,6 +88,7 @@ lvim.plugins = {
   { "AndrewRadev/splitjoin.vim" },
   { "alexghergh/nvim-tmux-navigation" },
   { "norcalli/nvim-colorizer.lua" },
+  { "nvim-telescope/telescope-ui-select.nvim" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },

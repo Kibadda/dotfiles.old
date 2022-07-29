@@ -25,6 +25,14 @@ lvim.builtin.treesitter.ensure_installed = {
   "haskell",
 }
 
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.smarty = {
+  install_info = {
+    url = "https://github.com/Kibadda/tree-sitter-smarty.git",
+    files = { "src/parser.c" },
+  },
+}
+
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
   i = {
@@ -90,6 +98,7 @@ lvim.plugins = {
   { "alexghergh/nvim-tmux-navigation" },
   { "norcalli/nvim-colorizer.lua" },
   { "nvim-telescope/telescope-ui-select.nvim" },
+  { "nvim-treesitter/playground" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },

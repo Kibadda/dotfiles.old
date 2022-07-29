@@ -42,8 +42,8 @@ lvim.builtin.which_key.mappings["e"] = nil
 
 require("which-key").register({
   g = {
-    J = { "<cmd>SplitjoinJoin<cr>", "Join" },
-    S = { "<cmd>SplitjoinSplit<cr>", "Split" },
+    J = { "<cmd>SplitjoinJoin<cr>", "Join Line" },
+    S = { "<cmd>SplitjoinSplit<cr>", "Split Line" },
     b = { "<Plug>(comment_toggle_blockwise)", "Toggle Comment blockwise" },
     c = { "<Plug>(comment_toggle_linewise)", "Toggle Comment linewise" },
   },

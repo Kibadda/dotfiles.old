@@ -11,7 +11,7 @@ ls.add_snippets(
   make {
     ef = fmt(
       [[
-        exports.{} = function ({}) {{
+        exports.{} = function({}) {{
             {}
         }};
       ]],
@@ -35,13 +35,6 @@ ls.add_snippets(
       }
     ),
 
-    log = fmt(
-      [[
-        console.log({});
-      ]],
-      {
-        i(0),
-      }
-    )
+    log = fmt("console.log({});", { i(0) }),
   }
 )

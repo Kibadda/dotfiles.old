@@ -9,22 +9,8 @@ local make = shared.make
 ls.add_snippets(
   "php",
   make {
-    debug = fmt(
-      [[
-        Util::getLogger()->debug({});
-      ]],
-      {
-        i(0),
-      }
-    ),
-
-    error = fmt(
-      [[
-        Util::getLogger()->error({});
-      ]],
-      {
-        i(0),
-      }
-    ),
+    debug = fmt([[Util::getLogger()->debug({});]], { i(0) }),
+    info = fmt([[Util::getLogger()->info({});]], { i(0) }),
+    error = fmt([[Util::getLogger()->error({});]], { i(0) }),
   }
 )

@@ -81,3 +81,29 @@ end, {
   nargs = 0,
   desc = "Detach from tmux session",
 })
+
+vim.api.nvim_create_user_command("P", function(args)
+  local expression = args.args
+
+  if expression == "" then
+    return
+  end
+
+  -- vim.cmd("lua P(" .. expression .. ")")
+  local func, _ = load("return function () return " .. expression .. " end")
+  if func then
+    local ok, f = pcall(func)
+    if ok then
+      P(f())
+    else
+      vim.notify("Execution error", "error")
+    end
+  else
+    vim.notify("Compilation error", "error")
+  end
+end, {
+  bang = false,
+  nargs = 1,
+  desc = "Wrapper for :lua P",
+  complete = "lua",
+})

@@ -22,6 +22,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
   "php",
   "vue",
+  "haskell",
 }
 
 local _, actions = pcall(require, "telescope.actions")

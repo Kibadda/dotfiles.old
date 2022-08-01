@@ -1,5 +1,6 @@
 -- LunarVim settings
-lvim.colorscheme = "gruvbox-baby"
+-- lvim.colorscheme = "gruvbox-baby"
+lvim.colorscheme = "zephyr"
 
 lvim.line_wrap_cursor_movement = false
 -- :PackerInstall :PackerCompile
@@ -99,7 +100,9 @@ lvim.plugins = {
   { "norcalli/nvim-colorizer.lua" },
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "nvim-treesitter/playground" },
+  -- { "glepnir/lspsaga.nvim" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },
+  { "glepnir/zephyr-nvim" },
 }

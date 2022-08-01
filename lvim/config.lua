@@ -3,7 +3,6 @@
 lvim.colorscheme = "zephyr"
 
 lvim.line_wrap_cursor_movement = false
--- :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = false
 lvim.builtin.notify.active = true
 lvim.builtin.which_key.setup.plugins.presets.operators = true
@@ -101,6 +100,8 @@ lvim.plugins = {
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "nvim-treesitter/playground" },
   -- { "glepnir/lspsaga.nvim" },
+  -- { "MunifTanjim/nui.nvim" },
+  -- { "VonHeikemen/fine-cmdline.nvim" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },

@@ -3,6 +3,7 @@ vim.keymap.set("n", "<A-q>", "<cmd>BufferKill<cr>")
 vim.keymap.set("t", "L", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("t", "H", "<cmd>BufferLineCyclePrev<cr>")
 vim.keymap.set("n", "<A-f>", "<cmd>ToggleFormatOnSave<cr>")
+-- vim.keymap.set("n", ":", "<cmd>FineCmdline<cr>")
 
 lvim.builtin.which_key.mappings["S"] = {
   name = "Startify",

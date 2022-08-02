@@ -105,9 +105,9 @@ bindsym $mod+Shift+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun -theme sidebar -font "JetBrains Mono 15" -show-icons -show combi
 bindsym $mod+Ctrl+m exec pavucontrol
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym Print exec --no-startup-id i3-scrot -dc
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -wc
+bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -sc
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+s sticky toggle

@@ -100,8 +100,9 @@ lvim.plugins = {
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "nvim-treesitter/playground" },
   -- { "glepnir/lspsaga.nvim" },
-  -- { "MunifTanjim/nui.nvim" },
-  -- { "VonHeikemen/fine-cmdline.nvim" },
+  { "MunifTanjim/nui.nvim" },
+  { "VonHeikemen/fine-cmdline.nvim" },
+  { "VonHeikemen/searchbox.nvim" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },

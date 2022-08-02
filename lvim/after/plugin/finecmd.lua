@@ -7,13 +7,6 @@ require("fine-cmdline").setup {
     prompt = " ",
   },
   popup = {
-    position = {
-      row = "50%",
-      col = "50%",
-    },
-    size = {
-      width = "50%",
-    },
     win_options = {
       winhighlight = "Normal:Normal,FloatBorder:Normal",
     },

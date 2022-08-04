@@ -88,7 +88,10 @@ clickable ws = "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>
 myKeys = 
   [ ("M-<Return>", spawn (myTerminal ++ " -1 /bin/zsh -c \"tmux attach || tmux\"")),
     ("M-d", spawn "rofi -combi-modi window,drun -theme sidebar -show-icons -font \"JetBrainsMono 15\" -show combi"),
-    ("M-C-r", spawn "ghc --make -dynamic -threaded $HOME/.config/xmobar/xmobar.hs && xmonad --restart")
+    ("M-C-r", spawn "ghc --make -dynamic -threaded $HOME/.config/xmobar/xmobar.hs && xmonad --restart"),
+    ("<XF86AudioMute>", spawn "amixer set Master toggle"),
+    ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute"),
+    ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
   ]
 
 main :: IO ()

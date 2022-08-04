@@ -1,6 +1,6 @@
 -- LunarVim settings
 -- lvim.colorscheme = "gruvbox-baby"
-lvim.colorscheme = "zephyr"
+-- lvim.colorscheme = "zephyr"
 
 lvim.line_wrap_cursor_movement = false
 lvim.builtin.alpha.active = false
@@ -23,15 +23,19 @@ lvim.builtin.treesitter.ensure_installed = {
   "php",
   "vue",
   "haskell",
+  "html",
 }
 
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.smarty = {
-  install_info = {
-    url = "https://github.com/Kibadda/tree-sitter-smarty.git",
-    files = { "src/parser.c" },
-  },
-}
+lvim.builtin.treesitter.on_config_done = function()
+  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+  parser_config.smarty = {
+    install_info = {
+      url = "https://github.com/Kibadda/tree-sitter-smarty.git",
+      -- url = "/home/michael/plugins/tree-sitter-smarty",
+      files = { "src/parser.c" },
+    },
+  }
+end
 
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {

@@ -1,20 +1,22 @@
 import Data.List (intercalate)
 import Xmobar
 
+type Extension = (Runnable, String)
+
 separator :: String
 separator = "  "
 
 alignSeparator :: String
 alignSeparator = "}{"
 
-leftSide :: [(Runnable, String)]
+leftSide :: [Extension]
 leftSide =
   [ ( Run UnsafeStdinReader,
       " %UnsafeStdinReader% "
     )
   ]
 
-rightSide :: [(Runnable, String)]
+rightSide :: [Extension]
 rightSide =
   [ ( Run Locks,
       "<box type=Bottom width=2 mb=2 color=#3434e0><fc=#3434e0><fn=2>\xf023</fn> %locks%</fc></box>"

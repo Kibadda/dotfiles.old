@@ -3,6 +3,7 @@
 -- lvim.colorscheme = "zephyr"
 
 lvim.line_wrap_cursor_movement = false
+lvim.format_on_save = false
 lvim.builtin.alpha.active = false
 lvim.builtin.notify.active = true
 lvim.builtin.which_key.setup.plugins.presets.operators = true

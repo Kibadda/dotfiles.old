@@ -1,20 +1,21 @@
 -- {{ imports
-import System.IO
-import XMonad
-import XMonad.Util.SpawnOnce
-import XMonad.Util.EZConfig
-import XMonad.Util.Run
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.StatusBar
-import XMonad.Hooks.StatusBar.PP
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.Loggers
-import Data.Maybe
-import qualified XMonad.StackSet as W
-import qualified Data.Map as M
 
 import Colors.GruvboxDark
+import qualified Data.Map as M
+import Data.Maybe
+import System.IO
+import XMonad
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
+import qualified XMonad.StackSet as W
+import XMonad.Util.EZConfig
+import XMonad.Util.Loggers
+import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
+
 -- }}
 
 -- {{ general settings
@@ -45,8 +46,10 @@ myNormColor = colorBack
 -- focused border color
 myFocusColor :: String
 myFocusColor = color15
+
 -- }}
 
+windowCount = Int
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 -- apps/tasks which should run on start
@@ -62,10 +65,11 @@ myStartupHook = do
   spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
 
 -- manage defaults for apps
-myManageHook = composeAll
-  [ className =? "confirm" --> doFloat,
-    className =? "dialog" --> doFloat
-  ]
+myManageHook =
+  composeAll
+    [ className =? "confirm" --> doFloat,
+      className =? "dialog" --> doFloat
+    ]
 
 -- layouts
 myLayoutHook = avoidStruts (tall ||| Full)
@@ -76,16 +80,19 @@ myLayoutHook = avoidStruts (tall ||| Full)
     delta = 3 / 100
 
 -- workspace names
+myWorkspaces = [String]
 myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..]
+
+myWorkspaceIndices = M.fromList $ zip myWorkspaces [1 ..]
 
 -- helper function to make xmobar clickable
+clickable :: String -> String
 clickable ws = "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
   where
     i = fromJust $ M.lookup ws myWorkspaceIndices
 
 -- keybindings
-myKeys = 
+myKeys =
   [ ("M-<Return>", spawn (myTerminal ++ " -1 /bin/zsh -c \"tmux attach || tmux\"")),
     ("M-d", spawn "rofi -combi-modi window,drun -theme sidebar -show-icons -font \"JetBrainsMono 15\" -show combi"),
     ("M-C-r", spawn "ghc --make -dynamic -threaded $HOME/.config/xmobar/xmobar.hs && xmonad --restart"),
@@ -98,26 +105,32 @@ myKeys =
 main :: IO ()
 main = do
   xmproc0 <- spawnPipe "xmobar -x 0"
-  xmonad $ ewmh $ docks $ def
-    { modMask = myModMask,
-      terminal = myTerminal,
-      startupHook = myStartupHook,
-      borderWidth = myBorderWidth,
-      workspaces = myWorkspaces,
-      normalBorderColor = myNormColor,
-      focusedBorderColor = myFocusColor,
-      manageHook = myManageHook <+> manageDocks,
-      layoutHook = myLayoutHook,
-      logHook = dynamicLogWithPP $ xmobarPP
-        { ppOutput = \x -> hPutStrLn xmproc0 x,
-          ppCurrent = xmobarColor color06 "" . wrap ("<box type=Bottom width=2 mb=2 color=" ++ color06 ++ ">") "</box>",
-	  ppVisible = xmobarColor color06 "" . clickable,
-          ppHidden = xmobarColor color05 "" . wrap ("<box type=Top width=2 mt=2 color=" ++ color05 ++ ">") "</box>" . clickable,
-	  ppHiddenNoWindows = xmobarColor color05 "" . clickable,
-          ppTitle = xmobarColor color16 "" . shorten 60,
-          ppSep = "<fc=" ++ color09 ++ "> <fn=1>|</fn> </fc>",
-          ppUrgent = xmobarColor color02 "" . wrap "!" "!",
-          ppExtras = [windowCount],
-          ppOrder = \(ws:l:t:ex) -> [ws, l] ++ ex ++ [t]
-        }
-    } `additionalKeysP` myKeys
+  xmonad $
+    ewmh $
+      docks $
+        def
+          { modMask = myModMask,
+            terminal = myTerminal,
+            startupHook = myStartupHook,
+            borderWidth = myBorderWidth,
+            workspaces = myWorkspaces,
+            normalBorderColor = myNormColor,
+            focusedBorderColor = myFocusColor,
+            manageHook = myManageHook <+> manageDocks,
+            layoutHook = myLayoutHook,
+            logHook =
+              dynamicLogWithPP $
+                xmobarPP
+                  { ppOutput = hPutStrLn xmproc0,
+                    ppCurrent = xmobarColor color06 "" . wrap ("<box type=Bottom width=2 mb=2 color=" ++ color06 ++ ">") "</box>",
+                    ppVisible = xmobarColor color06 "" . clickable,
+                    ppHidden = xmobarColor color05 "" . wrap ("<box type=Top width=2 mt=2 color=" ++ color05 ++ ">") "</box>" . clickable,
+                    ppHiddenNoWindows = xmobarColor color05 "" . clickable,
+                    ppTitle = xmobarColor color16 "" . shorten 60,
+                    ppSep = "<fc=" ++ color09 ++ "> <fn=1>|</fn> </fc>",
+                    ppUrgent = xmobarColor color02 "" . wrap "!" "!",
+                    ppExtras = [windowCount],
+                    ppOrder = \(ws : l : t : ex) -> [ws, l] ++ ex ++ [t]
+                  }
+          }
+          `additionalKeysP` myKeys

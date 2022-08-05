@@ -91,7 +91,8 @@ myKeys =
     ("M-C-r", spawn "ghc --make -dynamic -threaded $HOME/.config/xmobar/xmobar.hs && xmonad --restart"),
     ("<XF86AudioMute>", spawn "amixer set Master toggle"),
     ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute"),
-    ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
+    ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute"),
+    ("M-S-q", spawn ".local/bin/powermenu")
   ]
 
 main :: IO ()

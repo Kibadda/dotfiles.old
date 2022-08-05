@@ -49,7 +49,6 @@ myFocusColor = color15
 
 -- }}
 
-windowCount = Int
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 -- apps/tasks which should run on start
@@ -59,6 +58,8 @@ myStartupHook = do
   spawnOnce "picom"
   -- swap caps with escape
   spawnOnce "setxkbmap -option caps:swapescape"
+  -- enable numlock
+  spawnOnce "numlockx on"
   -- set background image
   spawnOnce "feh --randomize --bg-fill $HOME/.config/xmonad/wallpapers/*"
   -- system tray
@@ -80,7 +81,6 @@ myLayoutHook = avoidStruts (tall ||| Full)
     delta = 3 / 100
 
 -- workspace names
-myWorkspaces = [String]
 myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 
 myWorkspaceIndices = M.fromList $ zip myWorkspaces [1 ..]

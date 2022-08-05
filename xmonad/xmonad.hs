@@ -49,6 +49,7 @@ myFocusColor = color15
 
 -- }}
 
+windowCount = Int
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 -- apps/tasks which should run on start
@@ -79,11 +80,13 @@ myLayoutHook = avoidStruts (tall ||| Full)
     delta = 3 / 100
 
 -- workspace names
+myWorkspaces = [String]
 myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 
 myWorkspaceIndices = M.fromList $ zip myWorkspaces [1 ..]
 
 -- helper function to make xmobar clickable
+clickable :: String -> String
 clickable ws = "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
   where
     i = fromJust $ M.lookup ws myWorkspaceIndices

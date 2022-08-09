@@ -11,6 +11,7 @@
     ~/.config/ranger: ranger
     ~/.config/mimeapps.list: mimeapps.list
     ~/.config/dunst: dunst
+    ~/.local/bin: bin
     ~/.zshrc: zshrc
     ~/.zshenv: zshenv
     ~/.Xresources: Xresources

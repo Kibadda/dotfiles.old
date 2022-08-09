@@ -41,14 +41,14 @@ rightSide =
     ),
     ( Run $ Date "<fn=2>\xf017</fn> %d.%m.%Y - %H:%M:%S" "date" 10,
       "<box type=Bottom width=2 mb=2 color=#83a598><fc=#83a598><action=`xdg-open https://calendar.google.com`>%date%</action></fc></box>"
-    ),
-    ( Run $ Com ".local/bin/trayer-padding" [] "trayerpad" 20,
-      "%trayerpad%"
+    -- ),
+    -- ( Run $ Com ".local/bin/trayer-padding" [] "trayerpad" 20,
+    --   "%trayerpad%"
     )
   ]
 
 myTemplate :: String
-myTemplate = intercalate separator (map snd leftSide) ++ alignSeparator ++ intercalate separator (map snd rightSide)
+myTemplate = intercalate separator (map snd leftSide) ++ alignSeparator ++ intercalate separator (map snd rightSide) ++ separator
 
 myCommands :: [Runnable]
 myCommands = map fst leftSide ++ map fst rightSide

@@ -8,8 +8,10 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Layout.NoBorders
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Loggers
@@ -53,7 +55,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 -- apps/tasks which should run on start
 myStartupHook = do
-  spawn "killall trayer"
+  -- spawn "killall trayer"
   -- run compositor
   spawnOnce "picom"
   -- swap caps with escape
@@ -63,17 +65,18 @@ myStartupHook = do
   -- set background image
   spawnOnce "feh --randomize --bg-fill $HOME/.config/xmonad/wallpapers/*"
   -- system tray
-  spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
+  -- spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
 
 -- manage defaults for apps
 myManageHook =
   composeAll
     [ className =? "confirm" --> doFloat,
-      className =? "dialog" --> doFloat
+      className =? "dialog" --> doFloat,
+      isFullscreen --> doFullFloat
     ]
 
 -- layouts
-myLayoutHook = avoidStruts (tall ||| Full)
+myLayoutHook = smartBorders $ avoidStruts (tall ||| Full)
   where
     tall = Tall nmaster delta ratio
     nmaster = 1
@@ -99,7 +102,7 @@ myKeys =
     ("<XF86AudioMute>", spawn "amixer set Master toggle"),
     ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute"),
     ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute"),
-    ("M-S-q", spawn ".local/bin/powermenu")
+    ("M-S-q", spawn $ "kitty powermenu")
   ]
 
 main :: IO ()
@@ -118,6 +121,7 @@ main = do
             focusedBorderColor = myFocusColor,
             manageHook = myManageHook <+> manageDocks,
             layoutHook = myLayoutHook,
+	    handleEventHook = fullscreenEventHook,
             logHook =
               dynamicLogWithPP $
                 xmobarPP

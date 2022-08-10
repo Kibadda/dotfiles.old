@@ -3,9 +3,11 @@
 import Colors.GruvboxDark
 import qualified Data.Map as M
 import Data.Maybe
+import Data.Ratio
 import System.IO
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -75,6 +77,11 @@ myManageHook =
       isFullscreen --> doFullFloat
     ]
 
+myDynamicManageHook =
+  composeAll
+    [ title =? "powermenu" --> doRectFloat (W.RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2))
+    ]
+
 -- layouts
 myLayoutHook = smartBorders $ avoidStruts (tall ||| Full)
   where
@@ -121,7 +128,7 @@ main = do
             focusedBorderColor = myFocusColor,
             manageHook = myManageHook <+> manageDocks,
             layoutHook = myLayoutHook,
-	    handleEventHook = fullscreenEventHook,
+	    handleEventHook = dynamicPropertyChange "WM_NAME" myDynamicManageHook <+> fullscreenEventHook,
             logHook =
               dynamicLogWithPP $
                 xmobarPP

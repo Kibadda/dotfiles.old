@@ -1,0 +1,10 @@
+#!/bin/bash
+
+wlan=$(ip addr show wlan0 | grep -Po 'inet \K[\d.]+')
+ethn=$(ip addr show enp4s0 | grep -Po 'inet \K[\d.]+')
+
+if [ "$ethn" != "" ]; then
+  echo $ethn
+elif [ "$wlan" != "" ]; then
+  echo $wlan
+fi

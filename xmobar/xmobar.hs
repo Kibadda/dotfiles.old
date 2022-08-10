@@ -110,8 +110,18 @@ rightSide =
     )
   ]
 
+sessions =
+  [ xmobarColor "#83A598" "" $ xmobarAction "kitty powermenu -c Shutdown" $ xmobarIcon "\xf011",
+    xmobarColor "#83A598" "" $ xmobarAction "kitty powermenu -c Lock" $ xmobarIcon "\xf023"
+  ] 
+
 myTemplate :: String
-myTemplate = intercalate separator (map snd leftSide) ++ alignSeparator ++ intercalate separator (map snd rightSide) ++ " "
+myTemplate = intercalate separator (map snd leftSide)
+  ++ alignSeparator
+  ++ intercalate separator (map snd rightSide)
+  ++ separator
+  ++ intercalate separator sessions
+  ++ " "
 
 myCommands :: [Runnable]
 myCommands = map fst leftSide ++ map fst rightSide

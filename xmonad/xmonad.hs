@@ -6,6 +6,7 @@ import Data.Maybe
 import Data.Ratio
 import System.IO
 import XMonad
+import XMonad.Actions.SpawnOn
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.EwmhDesktops
@@ -68,11 +69,13 @@ myStartupHook = do
   -- spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
 
 -- manage defaults for apps
-myManageHook =
+myManageHook = manageDocks <+> manageSpawn <+>
   composeAll
     [ className =? "confirm" --> doFloat,
       className =? "dialog" --> doFloat,
-      isFullscreen --> doFullFloat
+      isFullscreen --> doFullFloat,
+      className =? "google-chrome" --> doShift (myWorkspaces !! 0),
+      className =? "Spotify" --> doShift (myWorkspaces !! 8)
     ]
 
 myDynamicManageHook =
@@ -89,7 +92,7 @@ myLayoutHook = smartBorders $ avoidStruts (tall ||| Full)
     delta = 3 / 100
 
 -- workspace names
-myWorkspaces = ["www", "dev", "3", "4", "5", "6", "7", "8", "<fn=1>\xf001</fn>"]
+myWorkspaces = map (wrap "<fn=1>" "</fn>") ["\xf7a2", "\xf120", "3", "4", "5", "6", "7", "8", "\xf001"]
 
 myWorkspaceIndices = M.fromList $ zip myWorkspaces [1 ..]
 
@@ -137,7 +140,7 @@ main = do
               workspaces = myWorkspaces,
               normalBorderColor = myNormColor,
               focusedBorderColor = myFocusColor,
-              manageHook = myManageHook <+> manageDocks,
+              manageHook = myManageHook,
               layoutHook = myLayoutHook,
               handleEventHook = dynamicPropertyChange "WM_NAME" myDynamicManageHook,
               logHook = myXmobarPP xmproc0

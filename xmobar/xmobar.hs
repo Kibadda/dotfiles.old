@@ -22,7 +22,7 @@ xmobarColor fg bg = wrap open "</fc>"
     open = concat ["<fc=", fg, if null bg then "" else "," <> bg, ">"]
 
 xmobarIcon :: Icon -> String
-xmobarIcon = wrap "<fn=2>" "</fn>"
+xmobarIcon = wrap "<fn=1>" "</fn>"
 
 xmobarAction :: Action -> Text -> String
 xmobarAction action = wrap open "</action>"
@@ -121,8 +121,7 @@ myFont = "xft:JetBrainsMono Nerd Font:weight=bold:pixelsize=12:antialias=true:hi
 
 myAdditionalFonts :: [String]
 myAdditionalFonts =
-  [ "xft:Mononoki:pixelsize=11:antialias=true:hinting=true",
-    "xft:Font Awesome 6 Free Solid:pixelsize=12",
+  [ "xft:Font Awesome 6 Free Solid:pixelsize=12",
     "xft:Font Awesome 6 Brands:pixelsize=12"
   ]
 

@@ -53,8 +53,6 @@ myFocusColor = color15
 
 -- }}
 
-windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
-
 -- apps/tasks which should run on start
 myStartupHook = do
   -- spawn "killall trayer"
@@ -91,7 +89,7 @@ myLayoutHook = smartBorders $ avoidStruts (tall ||| Full)
     delta = 3 / 100
 
 -- workspace names
-myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
+myWorkspaces = ["www", "dev", "3", "4", "5", "6", "7", "8", "9"]
 
 myWorkspaceIndices = M.fromList $ zip myWorkspaces [1 ..]
 
@@ -117,31 +115,31 @@ main = do
   xmproc0 <- spawnPipe "xmobar -x 0"
   xmonad $
     ewmh $
-      docks $
-        def
-          { modMask = myModMask,
-            terminal = myTerminal,
-            startupHook = myStartupHook,
-            borderWidth = myBorderWidth,
-            workspaces = myWorkspaces,
-            normalBorderColor = myNormColor,
-            focusedBorderColor = myFocusColor,
-            manageHook = myManageHook <+> manageDocks,
-            layoutHook = myLayoutHook,
-	    handleEventHook = dynamicPropertyChange "WM_NAME" myDynamicManageHook <+> fullscreenEventHook,
-            logHook =
-              dynamicLogWithPP $
-                xmobarPP
-                  { ppOutput = hPutStrLn xmproc0,
-                    ppCurrent = xmobarColor color06 "" . wrap ("<box type=Bottom width=2 mb=2 color=" ++ color06 ++ ">") "</box>",
-                    ppVisible = xmobarColor color06 "" . clickable,
-                    ppHidden = xmobarColor color05 "" . wrap ("<box type=Top width=2 mt=2 color=" ++ color05 ++ ">") "</box>" . clickable,
-                    ppHiddenNoWindows = xmobarColor color05 "" . clickable,
-                    ppTitle = xmobarColor color16 "" . shorten 60,
-                    ppSep = "<fc=" ++ color09 ++ "> <fn=1>|</fn> </fc>",
-                    ppUrgent = xmobarColor color02 "" . wrap "!" "!",
-                    ppExtras = [windowCount],
-                    ppOrder = \(ws : l : t : ex) -> [ws, l] ++ ex ++ [t]
-                  }
-          }
-          `additionalKeysP` myKeys
+      ewmhFullscreen $
+        docks $
+          def
+            { modMask = myModMask,
+              terminal = myTerminal,
+              startupHook = myStartupHook,
+              borderWidth = myBorderWidth,
+              workspaces = myWorkspaces,
+              normalBorderColor = myNormColor,
+              focusedBorderColor = myFocusColor,
+              manageHook = myManageHook <+> manageDocks,
+              layoutHook = myLayoutHook,
+              handleEventHook = dynamicPropertyChange "WM_NAME" myDynamicManageHook,
+              logHook =
+                dynamicLogWithPP $
+                  xmobarPP
+                    { ppOutput = hPutStrLn xmproc0,
+                      ppCurrent = xmobarColor color06 "" . wrap "[" "]",
+                      ppVisible = xmobarColor color06 "" . clickable,
+                      ppHidden = xmobarColor color06 "" . wrap " " " " . clickable,
+                      ppHiddenNoWindows = xmobarColor color05 "" . wrap " " " " . clickable,
+                      ppTitle = xmobarColor color16 "" . shorten 0,
+                      ppSep = " | ",
+                      ppUrgent = xmobarColor color02 "" . wrap "!" "!",
+                      ppOrder = \(ws : l : _ : _) -> [ws, l]
+                    }
+            }
+            `additionalKeysP` myKeys

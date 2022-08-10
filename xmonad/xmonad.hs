@@ -89,7 +89,7 @@ myLayoutHook = smartBorders $ avoidStruts (tall ||| Full)
     delta = 3 / 100
 
 -- workspace names
-myWorkspaces = ["www", "dev", "3", "4", "5", "6", "7", "8", "9"]
+myWorkspaces = ["www", "dev", "3", "4", "5", "6", "7", "8", "<fn=1>\xf001</fn>"]
 
 myWorkspaceIndices = M.fromList $ zip myWorkspaces [1 ..]
 
@@ -102,13 +102,25 @@ clickable ws = "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>
 -- keybindings
 myKeys =
   [ ("M-<Return>", spawn (myTerminal ++ " -1 /bin/zsh -c \"tmux attach || tmux\"")),
-    ("M-d", spawn "rofi -combi-modi window,drun -theme sidebar -show-icons -font \"JetBrainsMono 15\" -show combi"),
+    ("M-d", spawn "rofi -combi-modi window,drun -theme sidebar -show-icons -font \"JetBrainsMono 12\" -show combi"),
     ("M-C-r", spawn "ghc --make -dynamic -threaded $HOME/.config/xmobar/xmobar.hs && xmonad --restart"),
     ("<XF86AudioMute>", spawn "amixer set Master toggle"),
     ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute"),
     ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute"),
     ("M-S-q", spawn $ "kitty powermenu")
   ]
+
+myXmobarPP xmproc = dynamicLogWithPP $ xmobarPP
+  { ppOutput = hPutStrLn xmproc,
+    ppCurrent = xmobarColor color06 "" . wrap "[" "]",
+    ppVisible = xmobarColor color06 "" . clickable,
+    ppHidden = xmobarColor color06 "" . wrap " " " " . clickable,
+    ppHiddenNoWindows = xmobarColor color05 "" . wrap " " " " . clickable,
+    ppTitle = xmobarColor color16 "" . shorten 0,
+    ppSep = " | ",
+    ppUrgent = xmobarColor color02 "" . wrap "!" "!",
+    ppOrder = \(ws : l : _ : _) -> [ws, l]
+  }
 
 main :: IO ()
 main = do
@@ -128,18 +140,6 @@ main = do
               manageHook = myManageHook <+> manageDocks,
               layoutHook = myLayoutHook,
               handleEventHook = dynamicPropertyChange "WM_NAME" myDynamicManageHook,
-              logHook =
-                dynamicLogWithPP $
-                  xmobarPP
-                    { ppOutput = hPutStrLn xmproc0,
-                      ppCurrent = xmobarColor color06 "" . wrap "[" "]",
-                      ppVisible = xmobarColor color06 "" . clickable,
-                      ppHidden = xmobarColor color06 "" . wrap " " " " . clickable,
-                      ppHiddenNoWindows = xmobarColor color05 "" . wrap " " " " . clickable,
-                      ppTitle = xmobarColor color16 "" . shorten 0,
-                      ppSep = " | ",
-                      ppUrgent = xmobarColor color02 "" . wrap "!" "!",
-                      ppOrder = \(ws : l : _ : _) -> [ws, l]
-                    }
+              logHook = myXmobarPP xmproc0
             }
             `additionalKeysP` myKeys

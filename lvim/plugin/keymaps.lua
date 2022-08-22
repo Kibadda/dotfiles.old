@@ -48,11 +48,4 @@ require("which-key").register({
     b = { "<Plug>(comment_toggle_blockwise)", "Toggle Comment blockwise" },
     c = { "<Plug>(comment_toggle_linewise)", "Toggle Comment linewise" },
   },
-  d = {
-    s = { "<Plug>Dsurround", "Delete surrounding" },
-  },
-  c = {
-    s = { "<Plug>Csurround", "Change surrounding" },
-    S = { "<Plug>CSurround", "Change surrounding (multiline)" },
-  },
 }, { prefix = "" })

@@ -86,7 +86,7 @@ lvim.plugins = {
   { "mhinz/vim-startify" },
   -- essential tpope stuff
   { "tpope/vim-repeat" },
-  { "tpope/vim-surround" },
+  -- { "tpope/vim-surround" },
   -- extra vim syntax
   { "fladson/vim-kitty" },
   -- other stuff
@@ -108,6 +108,8 @@ lvim.plugins = {
   { "MunifTanjim/nui.nvim" },
   { "VonHeikemen/fine-cmdline.nvim" },
   { "VonHeikemen/searchbox.nvim" },
+  { "kylechui/nvim-surround" },
+  { "phaazon/mind.nvim", branch = "v2" },
   -- colorschemes
   { "sainnhe/gruvbox-material" },
   { "luisiacc/gruvbox-baby" },

@@ -38,8 +38,10 @@ local custom_attach = function(client)
       f = { vim.lsp.buf.format, "Format" },
       j = { vim.diagnostic.goto_next, "Next Diagnostic" },
       k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
-      d = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
+      d = { "<Cmd>Telescope diagnostics bufnr=0<CR>", "Show Buffer Diagnostics" },
+      w = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
       r = { vim.lsp.buf.rename, "Rename" },
+      i = { "<Cmd>LspInfo<CR>", "Lsp Info" },
     },
   }, { buffer = 0 })
 

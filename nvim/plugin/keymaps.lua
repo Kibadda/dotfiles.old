@@ -1,10 +1,13 @@
 vim.g.mapleader = " "
 
 RegisterKeymaps("<Leader>", {
-  P = {
+  p = {
     name = "Packer",
     s = { "<Cmd>PackerSync<CR>", "Sync" },
+    S = { "<Cmd>PackerStatus<CR>", "Status" },
     i = { "<Cmd>PackerInstall<CR>", "Install" },
+    u = { "<Cmd>PackerUpdate<CR>", "Update" },
+    C = { "<Cmd>PackerClean<CR>", "Clean" },
     c = { "<Cmd>PackerCompile<CR>", "Compile" },
   },
   h = { "<Cmd>nohlsearch<CR>", "Remove highlight" },

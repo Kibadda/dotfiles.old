@@ -28,5 +28,7 @@ RegisterKeymaps("<Leader>", {
     n = { "<Cmd>Telescope notify<CR>", "Notifications" },
     k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
     H = { "<Cmd>Telescope highlights<CR>", "Highlights" },
+    r = { "<Cmd>Telescope registers<CR>", "Registers" },
+    c = { "<Cmd>Telescope commands<CR>", "Commands" },
   },
 })

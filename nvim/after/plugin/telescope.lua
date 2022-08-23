@@ -25,5 +25,8 @@ RegisterKeymaps("<Leader>", {
     g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
     h = { "<Cmd>Telescope help_tags<CR>", "Help" },
     b = { "<Cmd>Telescope builtin<CR>", "Builtin" },
+    n = { "<Cmd>Telescope notify<CR>", "Notifications" },
+    k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
+    H = { "<Cmd>Telescope highlights<CR>", "Highlights" },
   },
 })

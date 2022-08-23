@@ -1,10 +1,6 @@
 vim.g.mapleader = " "
 
 RegisterKeymaps("<Leader>", {
-  g = {
-    name = "Git",
-    g = { "<Cmd>OpenTerminal lazygit<CR>", "Lazygit" },
-  },
   P = {
     name = "Packer",
     s = { "<Cmd>PackerSync<CR>", "Sync" },

@@ -28,6 +28,7 @@ local custom_attach = function(client)
   RegisterKeymaps("", {
     K = { vim.lsp.buf.hover, "Hover" },
     ["gd"] = { vim.lsp.buf.definition, "Definition" },
+    ["gr"] = { "<Cmd>Telescope lsp_references<CR>", "References" },
   }, { buffer = 0 })
 
   RegisterKeymaps("<Leader>", {
@@ -37,6 +38,7 @@ local custom_attach = function(client)
       f = { vim.lsp.buf.format, "Format" },
       j = { vim.diagnostic.goto_next, "Next Diagnostic" },
       k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
+      d = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
       r = { vim.lsp.buf.rename, "Rename" },
     },
   }, { buffer = 0 })

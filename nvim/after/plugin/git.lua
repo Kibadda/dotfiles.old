@@ -4,12 +4,17 @@ end
 
 require("gitsigns").setup {}
 
-RegisterKeymaps("<Leader", {
+RegisterKeymaps("<Leader>", {
   g = {
     name = "Git",
     d = { "<Cmd>Gitsigns diffthis<CR>", "Diff" },
     j = { "<Cmd>Gitsigns next_hunk<CR>", "Next Hunk" },
     k = { "<Cmd>Gitsigns prev_hunk<CR>", "Prev Hunk" },
-    b = { "<Cmd>Gitsigns blame_line<CR>", "Blame Line" },
+    l = { "<Cmd>Gitsigns blame_line<CR>", "Blame Line" },
+    s = { "<Cmd>Telescope git_status<CR>", "Status" },
+    g = { "<Cmd>OpenTerminal lazygit<CR>", "Lazygit" },
+    b = { "<Cmd>Telescope git_branches<CR>", "Checkout Branche" },
+    c = { "<Cmd>Telescope git_commits<CR>", "Checkout Commit" },
+    C = { "<Cmd>Telescope git_bcommits<CR>", "Checkout Commit (current file)" },
   },
 })

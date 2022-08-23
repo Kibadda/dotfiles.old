@@ -6,6 +6,8 @@ vim.g.startify_session_persistence = true
 vim.g.startify_change_to_vcs_root = true
 vim.g.startify_enable_unsafe = true
 
+vim.g.startify_session_savevars = { "g:lsp_auto_format "}
+
 vim.g.startify_custom_header = vim.fn["startify#pad"] {
   "╔═══════════════════════════════════════════════════════╗",
   "║                                                       ║",

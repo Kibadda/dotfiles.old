@@ -20,7 +20,9 @@ RegisterKeymaps("<Leader>", {
   },
 })
 
-vim.g.lsp_auto_format = 0
+if not vim.fn.exists "g:lsp_auto_format" then
+  vim.g.lsp_auto_format = 0
+end
 
 local custom_attach = function(client)
   RegisterKeymaps("", {

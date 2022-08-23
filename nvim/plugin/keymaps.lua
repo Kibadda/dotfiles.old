@@ -18,6 +18,8 @@ RegisterKeymaps("", {
   Y = { "y$", "Yank till EOF" },
   ["gJ"] = { "<Cmd>SplitjoinJoin<CR>", "Join lines" },
   ["gS"] = { "<Cmd>SplitjoinSplit<CR>", "Split line" },
+  -- ["<A-j>"] = ":m .+1<CR>==",
+  -- ["<A-k>"] = ":m .-2<CR>==",
 })
 
 RegisterKeymaps("", {

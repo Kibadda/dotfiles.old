@@ -13,7 +13,7 @@ require("bufferline").setup {
       style = "none",
     },
     name_formatter = function(buf)
-      if buf.name:find(":") then
+      if buf.name:find ":" then
         local split = vim.split(buf.name, ":")
         return split[#split]
       end
@@ -21,7 +21,7 @@ require("bufferline").setup {
   },
 }
 
-RegisterKeymaps("", {
+RegisterKeymaps("n", "", {
   H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
   L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
 })

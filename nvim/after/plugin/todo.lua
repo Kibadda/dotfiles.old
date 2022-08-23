@@ -4,7 +4,7 @@ end
 
 require("todo-comments").setup {}
 
-RegisterKeymaps("<Leader>", {
+RegisterKeymaps("n", "<Leader>", {
   s = {
     t = { "<Cmd>TodoTelescope<CR>", "Todos" },
   },

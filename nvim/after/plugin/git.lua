@@ -4,7 +4,7 @@ end
 
 require("gitsigns").setup {}
 
-RegisterKeymaps("<Leader>", {
+RegisterKeymaps("n", "<Leader>", {
   g = {
     name = "Git",
     d = { "<Cmd>Gitsigns diffthis<CR>", "Diff" },

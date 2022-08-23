@@ -12,7 +12,7 @@ require("mason-lspconfig").setup {
   },
 }
 
-RegisterKeymaps("<Leader>", {
+RegisterKeymaps("n", "<Leader>", {
   M = { "<Cmd>Mason<CR>", "Mason" },
   l = {
     name = "Lsp",
@@ -25,13 +25,13 @@ if not vim.fn.exists "g:lsp_auto_format" then
 end
 
 local custom_attach = function(client)
-  RegisterKeymaps("", {
+  RegisterKeymaps("n", "", {
     K = { vim.lsp.buf.hover, "Hover" },
     ["gd"] = { vim.lsp.buf.definition, "Definition" },
     ["gr"] = { "<Cmd>Telescope lsp_references<CR>", "References" },
   }, { buffer = 0 })
 
-  RegisterKeymaps("<Leader>", {
+  RegisterKeymaps("n", "<Leader>", {
     l = {
       name = "Lsp",
       c = { vim.lsp.buf.code_action, "Code Action" },

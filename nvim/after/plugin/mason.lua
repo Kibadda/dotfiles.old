@@ -35,6 +35,9 @@ local custom_attach = function(client)
       name = "Lsp",
       c = { vim.lsp.buf.code_action, "Code Action" },
       f = { vim.lsp.buf.format, "Format" },
+      j = { vim.diagnostic.goto_next, "Next Diagnostic" },
+      k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
+      r = { vim.lsp.buf.rename, "Rename" },
     },
   }, { buffer = 0 })
 

@@ -3,38 +3,12 @@ _ = vim.cmd [[packadd vimball]]
 
 return require("packer").startup {
   function(use)
-    local function local_use(first, second, opts)
-      opts = opts or {}
-
-      local plug_path, home
-
-      -- default user is Kibadda
-      if second == nil then
-        plug_path = first
-        home = "Kibadda"
-      else
-        plug_path = second
-        home = first
-      end
-
-      -- check if package exists locally
-      if vim.fn.isdirectory(vim.fn.expand("~/plugins/" .. plug_path)) == 1 then
-        opts[1] = "~/plugins/" .. plug_path
-      else
-        opts[1] = string.format("%s/%s", home, plug_path)
-      end
-
-      use(opts)
-    end
-
     use "wbthomason/packer.nvim"
     use "kyazdani42/nvim-web-devicons"
     use "nvim-lua/plenary.nvim"
 
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/gruvbuddy.nvim"
-    use "tjdevries/nlua.nvim"
-    use "tjdevries/complextras.nvim"
     use "nvim-lualine/lualine.nvim"
     use "akinsho/bufferline.nvim"
     use "rcarriga/nvim-notify"
@@ -46,9 +20,21 @@ return require("packer").startup {
     use "fladson/vim-kitty"
     use "kylechui/nvim-surround"
     use "nvim-treesitter/nvim-treesitter"
+    use "nvim-treesitter/playground"
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
+    use "nvim-telescope/telescope-fzy-native.nvim"
+    use "nvim-telescope/telescope-file-browser.nvim"
     use "lewis6991/gitsigns.nvim"
+    use "antoinemadec/FixCursorHold.nvim"
+    use "sickill/vim-pasta"
+    use "AndrewRadev/splitjoin.vim"
+    use "windwp/nvim-autopairs"
+    use "norcalli/nvim-colorizer.lua"
+    use "folke/todo-comments.nvim"
+    use "folke/zen-mode.nvim"
+    use "folke/twilight.nvim"
+    use "karb94/neoscroll.nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"
@@ -59,7 +45,8 @@ return require("packer").startup {
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
-
+    use "jose-elias-alvarez/null-ls.nvim"
+    use "folke/lua-dev.nvim"
   end,
   config = {
     luarocks = {

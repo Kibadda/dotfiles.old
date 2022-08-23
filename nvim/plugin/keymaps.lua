@@ -1,8 +1,6 @@
 vim.g.mapleader = " "
 
-local wk = require("which-key")
-
-wk.register({
+RegisterKeymaps("<Leader>", {
   g = {
     name = "Git",
     g = { "<Cmd>OpenTerminal lazygit<CR>", "Lazygit" },
@@ -13,12 +11,28 @@ wk.register({
     i = { "<Cmd>PackerInstall<CR>", "Install" },
     c = { "<Cmd>PackerCompile<CR>", "Compile" },
   },
-}, {
-  prefix = "<Leader>",
+  h = { "<Cmd>nohlsearch<CR>", "Remove highlight" },
 })
 
-wk.register({
-  Y = { "y$", "Yank till EOF" }
+RegisterKeymaps("", {
+  Y = { "y$", "Yank till EOF" },
+  ["gJ"] = { "<Cmd>SplitjoinJoin<CR>", "Join lines" },
+  ["gS"] = { "<Cmd>SplitjoinSplit<CR>", "Split line" },
+})
+
+RegisterKeymaps("", {
+  y = { "myy`y", "yank" },
+  Y = { "myY`y", "Yank" },
+  ["<"] = { "<gv", "dedent" },
+  [">"] = { ">gv", "indent" },
+  ["<C-r>"] = { '"hy:%s/<C-r>h/', "Replace" },
 }, {
-  prefix = "",
+  mode = "v",
+})
+
+RegisterKeymaps("", {
+  ["<S-CR>"] = { "<C-o>o", "New line on bottom" },
+  ["<C-CR>"] = { "<C-o>O", "New line on top" },
+}, {
+  mode = "i",
 })

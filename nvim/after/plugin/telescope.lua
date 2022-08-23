@@ -2,7 +2,6 @@ if not pcall(require, "telescope") then
   return
 end
 
-local actions = require "telescope.actions"
 require("telescope").setup {
   defaults = {
     mappings = {
@@ -15,15 +14,16 @@ require("telescope").setup {
 }
 
 require("telescope").load_extension "ui-select"
+require("telescope").load_extension "fzy_native"
+require("telescope").load_extension "file_browser"
 
-require("which-key").register({
+RegisterKeymaps("<Leader>", {
   f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+  e = { "<Cmd>Telescope file_browser<CR>", "Browse Files" },
   s = {
     name = "Search",
-    t = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
+    g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
     h = { "<Cmd>Telescope help_tags<CR>", "Help" },
     b = { "<Cmd>Telescope builtin<CR>", "Builtin" },
   },
-}, {
-  prefix = "<Leader>",
 })

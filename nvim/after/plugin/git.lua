@@ -4,7 +4,7 @@ end
 
 require("gitsigns").setup {}
 
-require("which-key").register({
+RegisterKeymaps("<Leader", {
   g = {
     name = "Git",
     d = { "<Cmd>Gitsigns diffthis<CR>", "Diff" },
@@ -12,6 +12,4 @@ require("which-key").register({
     k = { "<Cmd>Gitsigns prev_hunk<CR>", "Prev Hunk" },
     b = { "<Cmd>Gitsigns blame_line<CR>", "Blame Line" },
   },
-}, {
-  prefix = "<Leader>",
 })

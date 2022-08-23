@@ -12,7 +12,7 @@ require("bufferline").setup {
     indicator = {
       style = "none",
     },
-    name_formatter = function (buf)
+    name_formatter = function(buf)
       if buf.name:find(":") then
         local split = vim.split(buf.name, ":")
         return split[#split]
@@ -21,9 +21,7 @@ require("bufferline").setup {
   },
 }
 
-require("which-key").register({
+RegisterKeymaps("", {
   H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
   L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
-}, {
-  prefix = "",
 })

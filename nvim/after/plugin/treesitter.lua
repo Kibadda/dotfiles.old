@@ -17,5 +17,6 @@ require("nvim-treesitter.configs").setup {
     "vue",
     "haskell",
     "html",
+    "sql",
   },
 }

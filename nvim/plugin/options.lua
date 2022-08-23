@@ -31,7 +31,7 @@ local options = {
   diffopt = { "internal", "filler", "closeoff", "hiddenoff", "algorithm:minimal" },
   laststatus = 3,
   signcolumn = "yes:2",
-  timeoutlen = 500,
+  timeoutlen = 100,
   termguicolors = true,
   -- winbar = "%=%m %f",
 }
@@ -39,3 +39,5 @@ local options = {
 for opt, val in pairs(options) do
   vim.opt[opt] = val
 end
+
+vim.g.cursorhold_updatetime = 250

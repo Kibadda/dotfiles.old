@@ -33,7 +33,7 @@ local options = {
   signcolumn = "yes:2",
   timeoutlen = 100,
   termguicolors = true,
-  -- winbar = "%=%m %f",
+  winbar = "%=%m %f",
 }
 
 for opt, val in pairs(options) do

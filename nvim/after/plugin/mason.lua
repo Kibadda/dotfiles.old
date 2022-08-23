@@ -32,7 +32,7 @@ local custom_attach = function(client)
     l = {
       name = "Lsp",
       c = { vim.lsp.buf.code_action, "Code Action" },
-      f = { vim.lsp.buf.formatting, "Format" },
+      f = { vim.lsp.buf.format, "Format" },
     },
   }, { buffer = 0 })
 
@@ -53,7 +53,7 @@ local custom_attach = function(client)
     pattern = "*",
     callback = function()
       if vim.g.lsp_auto_format == 1 then
-        vim.lsp.buf.formatting_sync()
+        vim.lsp.buf.format()
       end
     end,
   })

@@ -35,6 +35,7 @@ return require("packer").startup {
     use "folke/zen-mode.nvim"
     use "folke/twilight.nvim"
     use "karb94/neoscroll.nvim"
+    use "phaazon/mind.nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

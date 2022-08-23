@@ -2,7 +2,9 @@ if not pcall(require, "colorbuddy") then
   return
 end
 
-require("colorizer").setup {}
+require("colorizer").setup {
+  "*",
+}
 require("colorbuddy").colorscheme "gruvbuddy"
 
 local Group = require("colorbuddy.group").Group

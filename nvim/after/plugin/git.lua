@@ -13,7 +13,7 @@ RegisterKeymaps("n", "<Leader>", {
     l = { "<Cmd>Gitsigns blame_line<CR>", "Blame Line" },
     s = { "<Cmd>Telescope git_status<CR>", "Status" },
     g = { "<Cmd>OpenTerminal lazygit<CR>", "Lazygit" },
-    b = { "<Cmd>Telescope git_branches<CR>", "Checkout Branche" },
+    b = { "<Cmd>Telescope git_branches<CR>", "Checkout Branches" },
     c = { "<Cmd>Telescope git_commits<CR>", "Checkout Commit" },
     C = { "<Cmd>Telescope git_bcommits<CR>", "Checkout Commit (current file)" },
   },

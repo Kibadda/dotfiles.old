@@ -10,7 +10,7 @@ RegisterKeymaps("n", "<Leader>", {
     C = { "<Cmd>PackerClean<CR>", "Clean" },
     c = { "<Cmd>PackerCompile<CR>", "Compile" },
   },
-  h = { "<Cmd>nohlsearch<CR>", "Remove highlight" },
+  h = { "<Cmd>SearchBoxClear<CR>", "Remove highlight" },
 })
 
 RegisterKeymaps("n", "", {
@@ -24,12 +24,11 @@ RegisterKeymaps("n", "", {
   P = { "Paste before" },
 })
 
-RegisterKeymaps("v", "", {
+RegisterKeymaps("x", "", {
   y = { "myy`y", "yank" },
   Y = { "myY`y", "Yank" },
   ["<"] = { "<gv", "dedent" },
   [">"] = { ">gv", "indent" },
-  ["<C-r>"] = { '"hy:%s/<C-r>h/', "Replace" },
 })
 
 RegisterKeymaps("i", "", {

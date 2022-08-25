@@ -11,6 +11,7 @@ RegisterKeymaps("n", "<Leader>", {
     c = { "<Cmd>PackerCompile<CR>", "Compile" },
   },
   h = { "<Cmd>SearchBoxClear<CR>", "Remove highlight" },
+  Q = { "<Cmd>DetachTmux<CR>", "Detach" },
 })
 
 RegisterKeymaps("n", "", {

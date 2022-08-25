@@ -21,10 +21,28 @@ end, {
   desc = "toggle auto format option",
 })
 
-vim.api.nvim_create_user_command("DetachTmux", function ()
+vim.api.nvim_create_user_command("DetachTmux", function()
   vim.cmd [[!tmux detach]]
 end, {
   bang = false,
   nargs = 0,
-  desc = "Detach from tmux"
+  desc = "Detach from tmux",
 })
+
+vim.api.nvim_create_user_command("SaveAndSource", function()
+  vim.cmd [[w]]
+
+  if vim.bo.filetype == "lua" then
+    vim.cmd [[luafile %]]
+  elseif vim.bo.filetype == "vim" then
+    vim.cmd [[source %]]
+  end
+end, {
+  bang = false,
+  nargs = 0,
+  desc = "Save and source current file",
+})
+
+vim.cmd [[cabbrev x SaveAndSource]]
+
+vim.cmd [[cabbrev d bd]]

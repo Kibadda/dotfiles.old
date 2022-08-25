@@ -10,6 +10,7 @@ require("searchbox").setup {
   },
 }
 
+-- fix highlighting of popup menus
 vim.cmd [[highlight FloatBorder guifg=#e0e0e0 guibg=#282c34]]
 
 RegisterKeymaps("n", "", {

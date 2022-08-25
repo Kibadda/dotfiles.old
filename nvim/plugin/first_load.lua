@@ -1,4 +1,4 @@
-local download_packer = function()
+if not pcall(require, "packer") then
   if vim.fn.input "Download Packer? (y for yes)" ~= "y" then
     return
   end
@@ -13,30 +13,13 @@ local download_packer = function()
 
   print(out)
   print "Downloading packer.nvim"
-end
 
-local download_lsps = function()
-  if vim.fn.input "Download Lsps? (y for yes)" ~= "y" then
+  if vim.fn.input "Restart now? (y for yes)" ~= "y" then
     return
   end
 
-  if vim.fn.executable "npm" ~= 1 then
-    return
-  end
-
-  print(
-    vim.fn.system "npm i -g intelephense vscode-langservers-extracted typescript typescript-language-server vim-language-server"
-  )
-  print "Downloaded lsps"
-end
-
-if not pcall(require, "packer") then
-  download_packer()
-
-  -- download_lsps()
-
-  print "(You'll need to restart now)"
   vim.cmd [[qa]]
+
   return true
 end
 

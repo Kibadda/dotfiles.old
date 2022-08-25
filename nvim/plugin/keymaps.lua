@@ -14,12 +14,14 @@ RegisterKeymaps("n", "<Leader>", {
 })
 
 RegisterKeymaps("n", "", {
-  Y = { "y$", "Yank till EOL" },
-  ["gJ"] = { "<Cmd>SplitjoinJoin<CR>", "Join lines" },
-  ["gS"] = { "<Cmd>SplitjoinSplit<CR>", "Split line" },
+  Y = { "Yank till EOL" },
+  ["gJ"] = { "Join lines" },
+  ["gS"] = { "Split line" },
   ["<C-q>"] = { "<Plug>(qf_qf_toggle_stay)", "QF: toggle" },
   ["<C-Up>"] = { "<Plug>(qf_qf_previous)", "QF: prev" },
   ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
+  p = { "Paste" },
+  P = { "Paste before" },
 })
 
 RegisterKeymaps("v", "", {

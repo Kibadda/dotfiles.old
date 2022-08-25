@@ -3,5 +3,16 @@ if not pcall(require, "neoscroll") then
 end
 
 require("neoscroll").setup {
-  mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+  mappings = {
+    "<C-u>",
+    "<C-d>",
+    "zt",
+    "zz",
+    "zb",
+  },
 }
+
+RegisterKeymaps("n", "", {
+  ["<C-u>"] = { "Scroll cursor up" },
+  ["<C-d>"] = { "Scroll cursor down" },
+})

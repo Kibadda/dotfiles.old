@@ -40,6 +40,7 @@ return require("packer").startup {
     use "VonHeikemen/searchbox.nvim"
     use "kevinhwang91/nvim-bqf"
     use "romainl/vim-qf"
+    use "kevinhwang91/rnvimr"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

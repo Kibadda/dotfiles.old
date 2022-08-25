@@ -19,7 +19,7 @@ require("telescope").load_extension "file_browser"
 
 RegisterKeymaps("n", "<Leader>", {
   f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
-  e = { "<Cmd>Telescope file_browser<CR>", "Browse Files" },
+  -- e = { "<Cmd>Telescope file_browser<CR>", "Browse Files" },
   s = {
     name = "Search",
     g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },

@@ -1,10 +1,13 @@
-vim.api.nvim_create_user_command("OpenTerminal", function(opts)
-  vim.cmd(string.format("term %s", opts.args))
+local function openTerminal(command)
+  vim.cmd(string.format("term %s", command))
+end
+
+vim.api.nvim_create_user_command("Lazygit", function()
+  openTerminal "lazygit"
 end, {
-  bang = true,
-  nargs = "?",
-  desc = "Open terminal",
-  complete = "shellcmd",
+  bang = false,
+  nargs = 0,
+  desc = "Open lazygit",
 })
 
 vim.api.nvim_create_user_command("ToggleAutoFormat", function()

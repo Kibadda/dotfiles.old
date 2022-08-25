@@ -11,3 +11,9 @@ require("which-key").setup {
     border = "single",
   },
 }
+
+RegisterKeymaps("n", "", {
+  ["<Leader>"] = {
+    name = "<Leader>",
+  },
+})

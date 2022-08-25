@@ -26,6 +26,9 @@ require("bufferline").setup {
   },
 }
 
+-- somehow without this the icon background is a different color
+vim.cmd [[highlight BufferLineDevIconLua guifg=#51a0cf guibg=#282c34]]
+
 RegisterKeymaps("n", "", {
   H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
   L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },

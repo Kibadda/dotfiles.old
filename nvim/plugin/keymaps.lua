@@ -22,6 +22,10 @@ RegisterKeymaps("n", "", {
   ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
   p = { "Paste" },
   P = { "Paste before" },
+  n = { "nzz", "next search" },
+  N = { "Nzz", "next search" },
+  ["#"] = { "#zz", "next search" },
+  ["*"] = { "*zz", "next search" },
 })
 
 RegisterKeymaps("x", "", {

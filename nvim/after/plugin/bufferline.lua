@@ -12,6 +12,7 @@ require("bufferline").setup {
     indicator = {
       style = "none",
     },
+    diagnostics = "nvim_lsp",
     name_formatter = function(buf)
       if buf.name:find ":" then
         local split = vim.split(buf.name, ":")
@@ -25,9 +26,6 @@ require("bufferline").setup {
     end,
   },
 }
-
--- somehow without this the icon background is a different color
-vim.cmd [[highlight BufferLineDevIconLua guifg=#51a0cf guibg=#282c34]]
 
 RegisterKeymaps("n", "", {
   H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },

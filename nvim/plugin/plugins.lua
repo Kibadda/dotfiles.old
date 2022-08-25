@@ -38,6 +38,8 @@ return require("packer").startup {
     use "phaazon/mind.nvim"
     use "MunifTanjim/nui.nvim"
     use "VonHeikemen/searchbox.nvim"
+    use "kevinhwang91/nvim-bqf"
+    use "romainl/vim-qf"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

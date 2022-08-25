@@ -35,6 +35,9 @@ RegisterKeymaps("x", "", {
   [">"] = { ">gv", "indent" },
 })
 
+-- this needs mapping in kitty.conf
+-- default behaviour <S-CR> == <C-CR> == <CR>
+-- explanation: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
 RegisterKeymaps("i", "", {
   ["<S-CR>"] = { "<C-o>o", "New line on bottom" },
   ["<C-CR>"] = { "<C-o>O", "New line on top" },

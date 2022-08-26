@@ -16,3 +16,7 @@ Group.new("CmpItemMenu", g.NonText)
 Group.new("CmpItemAbbr", g.Comment.fg:light())
 Group.new("CmpItemAbbrDeprecated", g.Error)
 Group.new("CmpItemAbbrMatchFuzzy", g.Comment, nil, s.italic)
+
+vim.api.nvim_set_hl(0, "BufferLineBackground", { fg = "#80a0ff", bg = "#1e2127" })
+vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "#80a0ff", bg = "#1e2127" })
+vim.api.nvim_set_hl(0, "BufferLineSeparator", { bg = "#1e2127" })

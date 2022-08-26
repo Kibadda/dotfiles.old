@@ -23,7 +23,7 @@ require("lualine").setup {
       {
         function()
           local msg = "LS inactive"
-          local buf_clients = vim.lsp.get_active_clients()
+          local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
           if next(buf_clients) == nil then
             return msg
           end

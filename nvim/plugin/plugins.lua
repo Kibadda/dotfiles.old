@@ -54,6 +54,8 @@ return require("packer").startup {
     use "neovim/nvim-lspconfig"
     use "jose-elias-alvarez/null-ls.nvim"
     use "folke/lua-dev.nvim"
+    use "mfussenegger/nvim-dap"
+    use "rcarriga/nvim-dap-ui"
   end,
   config = {
     autoremove = true,

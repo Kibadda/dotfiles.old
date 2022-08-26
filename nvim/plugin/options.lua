@@ -40,4 +40,6 @@ for opt, val in pairs(options) do
   vim.opt[opt] = val
 end
 
-vim.g.cursorhold_updatetime = 250
+SetGlobal("cursorhold", {
+  updatetime = 250,
+})

@@ -7,7 +7,7 @@ function P(value)
 end
 
 --- register keymaps
--- @param prefix mode    | which mode to use
+-- @param mode string    | which mode to use
 -- @param prefix string  | which prefix to use
 -- @param keymaps table  | table with all keymaps (see which-key github)
 -- @param options ?table | additional options (see which-key github)

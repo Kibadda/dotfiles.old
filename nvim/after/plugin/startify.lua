@@ -1,35 +1,52 @@
-if not vim.g.loaded_startify then
+if not GetGlobal("loaded", "startify") then
   return
 end
 
-vim.g.startify_session_persistence = true
-vim.g.startify_change_to_vcs_root = true
-vim.g.startify_enable_unsafe = true
+local indices = {}
+for index = 1, 99 do
+  table.insert(indices, "" .. index)
+end
 
-vim.g.startify_session_savevars = { "g:lsp_auto_format" }
+local pad = vim.fn["startify#pad"]
 
-vim.g.startify_custom_header = vim.fn["startify#pad"] {
-  "╔═══════════════════════════════════════════════════════╗",
-  "║                                                       ║",
-  "║  ██╗  ██╗██╗██████╗  █████╗ ██████╗ ██████╗  █████╗   ║",
-  "║  ██║ ██╔╝██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ║",
-  "║  █████╔╝ ██║██████╔╝███████║██║  ██║██║  ██║███████║  ║",
-  "║  ██╔═██╗ ██║██╔══██╗██╔══██║██║  ██║██║  ██║██╔══██║  ║",
-  "║  ██║  ██╗██║██████╔╝██║  ██║██████╔╝██████╔╝██║  ██║  ║",
-  "║  ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝  ╚═╝  ║",
-  "║                                                       ║",
-  "╚═══════════════════════════════════════════════════════╝",
-}
-
-vim.g.startify_lists = {
-  { type = "sessions", header = vim.fn["startify#pad"] { "Sessions" } },
-  { type = "commands", header = vim.fn["startify#pad"] { "Commands" } },
-}
-
-vim.g.startify_commands = {
-  { p = "PackerSync" },
-  { d = "DetachTmux" },
-}
+SetGlobal("startify", {
+  session_persistence = true,
+  change_to_vcs_root = true,
+  custom_indices = indices,
+  session_savevars = {
+    "g:lsp_auto_format",
+  },
+  custom_header = pad {
+    "╔═══════════════════════════════════════════════════════╗",
+    "║                                                       ║",
+    "║  ██╗  ██╗██╗██████╗  █████╗ ██████╗ ██████╗  █████╗   ║",
+    "║  ██║ ██╔╝██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ║",
+    "║  █████╔╝ ██║██████╔╝███████║██║  ██║██║  ██║███████║  ║",
+    "║  ██╔═██╗ ██║██╔══██╗██╔══██║██║  ██║██║  ██║██╔══██║  ║",
+    "║  ██║  ██╗██║██████╔╝██║  ██║██████╔╝██████╔╝██║  ██║  ║",
+    "║  ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝  ╚═╝  ║",
+    "║                                                       ║",
+    "╚═══════════════════════════════════════════════════════╝",
+  },
+  lists = {
+    {
+      type = "sessions",
+      header = pad { "Sessions" },
+    },
+    {
+      type = "commands",
+      header = pad { "Commands" },
+    },
+  },
+  commands = {
+    {
+      p = "PackerSync",
+    },
+    {
+      d = "DetachTmux",
+    },
+  },
+})
 
 RegisterKeymaps("n", "<Leader>", {
   S = {

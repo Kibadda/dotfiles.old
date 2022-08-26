@@ -11,12 +11,16 @@ end, {
 })
 
 vim.api.nvim_create_user_command("ToggleAutoFormat", function()
-  if vim.g.lsp_auto_format == 0 then
-    vim.g.lsp_auto_format = 1
-    vim.notify("Turned on", "success", { title = "Auto Format" })
-  else
-    vim.g.lsp_auto_format = 0
+  if GetGlobal("lsp", "auto_format") then
+    SetGlobal("lsp", {
+      auto_format = false,
+    })
     vim.notify("Turned off", "success", { title = "Auto Format" })
+  else
+    SetGlobal("lsp", {
+      auto_format = true,
+    })
+    vim.notify("Turned on", "success", { title = "Auto Format" })
   end
 end, {
   bang = false,

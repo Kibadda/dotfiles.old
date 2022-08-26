@@ -1,4 +1,6 @@
-vim.g.mapleader = " "
+SetGlobal("", {
+  mapleader = " ",
+})
 
 RegisterKeymaps("n", "<Leader>", {
   p = {

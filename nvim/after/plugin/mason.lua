@@ -9,6 +9,7 @@ require("mason-lspconfig").setup {
     "intelephense",
     "cssls",
     "vimls",
+    "tsserver",
   },
 }
 
@@ -21,7 +22,9 @@ RegisterKeymaps("n", "<Leader>", {
 })
 
 if not vim.fn.exists "g:lsp_auto_format" then
-  vim.g.lsp_auto_format = 0
+  SetGlobal("lsp", {
+    auto_format = false,
+  })
 end
 
 local custom_attach = function(client)
@@ -69,7 +72,7 @@ local custom_attach = function(client)
     group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
     pattern = "*",
     callback = function()
-      if vim.g.lsp_auto_format == 1 then
+      if GetGlobal("lsp", "auto_format") then
         vim.lsp.buf.format()
       end
     end,
@@ -86,6 +89,7 @@ local servers = {
   cssls = true,
   vimls = true,
   tsserver = true,
+  hls = true,
 }
 
 local setup_server = function(server, config)

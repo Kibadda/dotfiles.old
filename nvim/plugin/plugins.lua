@@ -54,9 +54,4 @@ return require("packer").startup {
     use "jose-elias-alvarez/null-ls.nvim"
     use "folke/lua-dev.nvim"
   end,
-  config = {
-    luarocks = {
-      python_cmd = "python3",
-    },
-  },
 }

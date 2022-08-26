@@ -1,5 +1,5 @@
 local function openTerminal(command)
-  vim.cmd(string.format("term %s", command))
+  vim.cmd.term(command)
 end
 
 vim.api.nvim_create_user_command("Lazygit", function()
@@ -25,7 +25,7 @@ end, {
 })
 
 vim.api.nvim_create_user_command("DetachTmux", function()
-  vim.cmd [[!tmux detach]]
+  vim.cmd["!"] "tmux detach"
 end, {
   bang = false,
   nargs = 0,
@@ -33,21 +33,15 @@ end, {
 })
 
 vim.api.nvim_create_user_command("SaveAndSource", function()
-  vim.cmd [[w]]
+  vim.cmd.w()
 
   if vim.bo.filetype == "lua" then
-    vim.cmd [[luafile %]]
+    vim.cmd.luafile "%"
   elseif vim.bo.filetype == "vim" then
-    vim.cmd [[source %]]
+    vim.cmd.source "%"
   end
 end, {
   bang = false,
   nargs = 0,
   desc = "Save and source current file",
 })
-
-vim.cmd [[cabbrev x SaveAndSource]]
-
-vim.cmd [[cabbrev d bd]]
-vim.cmd [[cabbrev wd w\|bd]]
-vim.cmd [[cabbrev dw w\|bd]]

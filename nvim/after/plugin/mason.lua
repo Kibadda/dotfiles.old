@@ -48,13 +48,21 @@ local custom_attach = function(client)
   vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 
   if client.server_capabilities.documentHighlightProvider then
-    vim.cmd [[
-      augroup LspDocumentHighlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
+    local LspDocumentHighlight = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
+    vim.api.nvim_clear_autocmds {
+      group = LspDocumentHighlight,
+      buffer = 0,
+    }
+    vim.api.nvim_create_autocmd("CursorHold", {
+      group = LspDocumentHighlight,
+      buffer = 0,
+      callback = vim.lsp.buf.document_highlight,
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      group = LspDocumentHighlight,
+      buffer = 0,
+      callback = vim.lsp.buf.clear_references,
+    })
   end
 
   vim.api.nvim_create_autocmd("BufWritePre", {

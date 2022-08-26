@@ -18,7 +18,7 @@ if not pcall(require, "packer") then
     return
   end
 
-  vim.cmd [[qa]]
+  vim.cmd.qa()
 
   return true
 end

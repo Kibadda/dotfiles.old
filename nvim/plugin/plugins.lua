@@ -1,5 +1,5 @@
-_ = vim.cmd [[packadd packer.nvim]]
-_ = vim.cmd [[packadd vimball]]
+_ = vim.cmd.packadd "packer.nvim"
+_ = vim.cmd.packadd "vimball"
 
 return require("packer").startup {
   function(use)
@@ -24,7 +24,7 @@ return require("packer").startup {
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
     use "nvim-telescope/telescope-fzy-native.nvim"
-    use "nvim-telescope/telescope-file-browser.nvim"
+    -- use "nvim-telescope/telescope-file-browser.nvim"
     use "lewis6991/gitsigns.nvim"
     use "antoinemadec/FixCursorHold.nvim"
     use "sickill/vim-pasta"

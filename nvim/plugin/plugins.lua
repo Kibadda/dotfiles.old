@@ -24,7 +24,6 @@ return require("packer").startup {
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
     use "nvim-telescope/telescope-fzy-native.nvim"
-    -- use "nvim-telescope/telescope-file-browser.nvim"
     use "lewis6991/gitsigns.nvim"
     use "antoinemadec/FixCursorHold.nvim"
     use "sickill/vim-pasta"

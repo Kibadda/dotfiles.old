@@ -23,7 +23,7 @@ require("lualine").setup {
       {
         function()
           local msg = "LS inactive"
-          local buf_clients = vim.lsp.buf_get_clients()
+          local buf_clients = vim.lsp.get_active_clients()
           if next(buf_clients) == nil then
             return msg
           end
@@ -39,7 +39,7 @@ require("lualine").setup {
       },
       {
         function()
-          return "Format: " .. (GetGlobal("lsp", "auto_format") and " " or " ")
+          return " Format: " .. (GetGlobal("lsp", "auto_format") and " " or " ")
         end,
         color = function()
           return { fg = GetGlobal("lsp", "auto_format") and "#A9B665" or "#EA6962" }

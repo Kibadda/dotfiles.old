@@ -2,7 +2,16 @@ if not pcall(require, "mason") then
   return
 end
 
-require("mason").setup {}
+require("mason").setup {
+  ui = {
+    border = "double",
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗",
+    },
+  },
+}
 require("mason-lspconfig").setup {
   ensure_installed = {
     "sumneko_lua",
@@ -72,7 +81,7 @@ local custom_attach = function(client)
     group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
     pattern = "*",
     callback = function()
-      if GetGlobal("lsp", "auto_format") then
+      if GetGlobal("lsp", "auto_format") and client.server_capabilities.documentFormattingProvider then
         vim.lsp.buf.format()
       end
     end,

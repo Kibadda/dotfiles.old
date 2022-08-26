@@ -16,7 +16,15 @@ require("lualine").setup {
       "diagnostics",
     },
     lualine_c = {
-      "filename",
+      function()
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
+        if vim.bo.filetype == "term" then
+          local split = vim.split(filename, ":")
+          filename = split[#split]
+        end
+
+        return filename
+      end,
     },
     lualine_x = {
       "filetype",
@@ -30,8 +38,17 @@ require("lualine").setup {
           local buf_client_names = {}
 
           for _, client in pairs(buf_clients) do
-            table.insert(buf_client_names, client.name)
+            if client.name ~= "null-ls" then
+              table.insert(buf_client_names, client.name)
+            end
           end
+
+          local sources = {}
+          for _, source in pairs(require("null-ls.sources").get_available(vim.bo.filetype)) do
+            table.insert(sources, source.name)
+          end
+
+          vim.list_extend(buf_client_names, sources)
 
           return "[" .. table.concat(buf_client_names, ", ") .. "]"
         end,
@@ -47,10 +64,18 @@ require("lualine").setup {
       },
     },
     lualine_y = {
-      "location",
+      function()
+        local cursor = vim.api.nvim_win_get_cursor(0)
+        return string.format("%03d:%03d", cursor[1], cursor[2] + 1)
+      end,
     },
     lualine_z = {
-      "progress",
+      function()
+        local line = vim.api.nvim_win_get_cursor(0)[1]
+        local total = vim.api.nvim_buf_line_count(0)
+        local percentage = math.floor((line / total) * 100)
+        return string.format("%03d", percentage) .. "%%"
+      end,
     },
   },
 }

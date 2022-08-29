@@ -6,6 +6,6 @@ require("todo-comments").setup {}
 
 RegisterKeymaps("n", "<Leader>", {
   s = {
-    t = { "<Cmd>TodoTelescope<CR>", "Todos" },
+    t = { "<Cmd>TodoTelescope theme=ivy<CR>", "Todos" },
   },
 })

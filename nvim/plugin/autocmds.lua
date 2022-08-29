@@ -26,11 +26,9 @@ vim.api.nvim_create_autocmd("TermOpen", {
   group = TermGroup,
   pattern = "*",
   callback = function()
-    vim.opt_local.filetype = "term"
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.opt_local.signcolumn = "no"
-    vim.opt_local.spell = false
+    SetOptionsLocal {
+      filetype = "term",
+    }
     vim.cmd.startinsert()
   end,
 })

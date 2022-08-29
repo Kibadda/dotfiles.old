@@ -1,4 +1,4 @@
-local options = {
+SetOptions {
   pumblend = 17,
   wildmode = "longest:full,full",
   wildoptions = "pum",
@@ -36,10 +36,6 @@ local options = {
   winbar = "%=%m %f ",
   formatoptions = vim.opt.formatoptions - "a" - "t" + "c" + "q" - "o" + "r" + "n" + "j" - "2",
 }
-
-for opt, val in pairs(options) do
-  vim.opt[opt] = val
-end
 
 SetGlobal("cursorhold", {
   updatetime = 250,

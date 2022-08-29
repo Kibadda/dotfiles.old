@@ -17,3 +17,19 @@ end
 function GetGlobal(plugin, name)
   return vim.g[plugin .. "_" .. name]
 end
+
+--- set global vim options
+-- @param options table
+function SetOptions(options)
+  for key, value in pairs(options) do
+    vim.opt[key] = value
+  end
+end
+
+--- set buffer local vim options
+-- @param options table
+function SetOptionsLocal(options)
+  for key, value in pairs(options) do
+    vim.opt_local[key] = value
+  end
+end

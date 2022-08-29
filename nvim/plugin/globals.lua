@@ -17,3 +17,20 @@ function RegisterKeymaps(mode, prefix, keymaps, options)
   options.mode = mode
   require("which-key").register(keymaps, options)
 end
+
+--- for wrapped lines: gj/gk, for large jumps: add to jump list
+-- @param direction strin
+function JumpDirection(direction)
+  local count = vim.v.count
+
+  if count == 0 then
+    vim.cmd.normal { "g" .. direction, bang = true }
+    return
+  end
+
+  if count > 5 then
+    vim.cmd.normal { "m'", bang = true }
+  end
+
+  vim.cmd.normal { count .. direction, bang = true }
+end

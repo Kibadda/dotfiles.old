@@ -33,6 +33,8 @@ RegisterKeymaps("n", "", {
   ["g<CR>"] = { "Browser: Search word under cursor" },
   ["gG"] = { "Browser: Google Search word under cursor" },
   ["gW"] = { "Browser: Wikipedia Search word under cursor" },
+  j = { "<Cmd>lua JumpDirection('j')<CR>", "Down" },
+  k = { "<Cmd>lua JumpDirection('k')<CR>", "Up" },
 })
 
 RegisterKeymaps("x", "", {

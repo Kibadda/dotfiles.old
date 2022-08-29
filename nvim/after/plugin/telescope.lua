@@ -22,6 +22,7 @@ require("telescope").load_extension "fzy_native"
 
 RegisterKeymaps("n", "<Leader>", {
   f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+  F = { "<Cmd>Telescope find_files no_ignore=true<CR>", "Find All Files" },
   s = {
     name = "Search",
     g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
@@ -32,5 +33,6 @@ RegisterKeymaps("n", "<Leader>", {
     H = { "<Cmd>Telescope highlights<CR>", "Highlights" },
     r = { "<Cmd>Telescope registers<CR>", "Registers" },
     c = { "<Cmd>Telescope commands<CR>", "Commands" },
+    R = { "<Cmd>Telescope resume<CR>", "Resume" },
   },
 })

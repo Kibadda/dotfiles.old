@@ -54,6 +54,8 @@ require("lualine").setup {
         end,
         color = { gui = "bold" },
       },
+    },
+    lualine_y = {
       {
         function()
           return " Format: " .. (GetGlobal("lsp", "auto_format") and " " or " ")
@@ -63,18 +65,22 @@ require("lualine").setup {
         end,
       },
     },
-    lualine_y = {
+    lualine_z = {
       function()
         local cursor = vim.api.nvim_win_get_cursor(0)
         return string.format("%03d:%03d", cursor[1], cursor[2] + 1)
       end,
-    },
-    lualine_z = {
       function()
         local line = vim.api.nvim_win_get_cursor(0)[1]
         local total = vim.api.nvim_buf_line_count(0)
+        if line == 1 then
+          return "Top"
+        end
+        if line == total then
+          return "Bot"
+        end
         local percentage = math.floor((line / total) * 100)
-        return string.format("%03d", percentage) .. "%%"
+        return string.format("%02d", percentage) .. "%%"
       end,
     },
   },

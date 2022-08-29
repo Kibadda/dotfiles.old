@@ -42,6 +42,7 @@ return require("packer").startup {
     use "kevinhwang91/nvim-bqf"
     use "romainl/vim-qf"
     use "kevinhwang91/rnvimr"
+    use "dhruvasagar/vim-open-url"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

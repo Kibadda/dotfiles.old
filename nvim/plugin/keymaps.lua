@@ -29,6 +29,10 @@ RegisterKeymaps("n", "", {
   N = { "Nzz", "next search" },
   ["#"] = { "#zz", "next search" },
   ["*"] = { "*zz", "next search" },
+  ["gB"] = { "Browser: Open URL" },
+  ["g<CR>"] = { "Browser: Search word under cursor" },
+  ["gG"] = { "Browser: Google Search word under cursor" },
+  ["gW"] = { "Browser: Wikipedia Search word under cursor" },
 })
 
 RegisterKeymaps("x", "", {

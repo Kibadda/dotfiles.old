@@ -34,6 +34,7 @@ local options = {
   timeoutlen = 100,
   termguicolors = true,
   winbar = "%=%m %f",
+  formatoptions = vim.opt.formatoptions - "a" - "t" + "c" + "q" - "o" + "r" + "n" + "j" - "2",
 }
 
 for opt, val in pairs(options) do

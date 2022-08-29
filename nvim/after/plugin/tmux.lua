@@ -9,10 +9,10 @@ ntn.setup {
 }
 
 RegisterKeymaps("n", "", {
-  ["<C-h>"] = { ntn.NvimTmuxNavigateLeft, "Tmux move left" },
-  ["<C-j>"] = { ntn.NvimTmuxNavigateDown, "Tmux move down" },
-  ["<C-k>"] = { ntn.NvimTmuxNavigateUp, "Tmux move up" },
-  ["<C-l>"] = { ntn.NvimTmuxNavigateRight, "Tmux move right" },
+  ["<C-h>"] = { ntn.NvimTmuxNavigateLeft, "Tmux: move left" },
+  ["<C-j>"] = { ntn.NvimTmuxNavigateDown, "Tmux: move down" },
+  ["<C-k>"] = { ntn.NvimTmuxNavigateUp, "Tmux: move up" },
+  ["<C-l>"] = { ntn.NvimTmuxNavigateRight, "Tmux: move right" },
 })
 
 local function tmux_command(command)

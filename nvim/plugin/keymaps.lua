@@ -35,6 +35,8 @@ RegisterKeymaps("n", "", {
   ["gW"] = { "Browser: Wikipedia Search word under cursor" },
   j = { "<Cmd>lua JumpDirection('j')<CR>", "Down" },
   k = { "<Cmd>lua JumpDirection('k')<CR>", "Up" },
+  ["<M-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
+  ["<M-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
 })
 
 RegisterKeymaps("x", "", {

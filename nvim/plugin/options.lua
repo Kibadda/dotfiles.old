@@ -13,9 +13,9 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8,
   cursorline = true,
-  tabstop = 4,
-  shiftwidth = 4,
-  softtabstop = 4,
+  tabstop = 2,
+  shiftwidth = 2,
+  softtabstop = 2,
   expandtab = true,
   breakindent = true,
   showbreak = "+++ ",
@@ -33,7 +33,7 @@ local options = {
   signcolumn = "yes:2",
   timeoutlen = 100,
   termguicolors = true,
-  winbar = "%=%m %f",
+  winbar = "%=%m %f ",
   formatoptions = vim.opt.formatoptions - "a" - "t" + "c" + "q" - "o" + "r" + "n" + "j" - "2",
 }
 

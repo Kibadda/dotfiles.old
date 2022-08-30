@@ -2,15 +2,14 @@ if not PluginsOk "nvim-lastplace" then
   return
 end
 
-SetGlobal("lastplace", {
-  ignore_buftype = {
+require("nvim-lastplace").setup {
+  lastplace_ignore_buftype = {
     "quickfix",
     "nofile",
     "help",
   },
-  ignore_filetype = {
+  lastplace_ignore_filetype = {
     "gitcommit",
     "gitrebase",
   },
-})
-require("nvim-lastplace").setup {}
+}

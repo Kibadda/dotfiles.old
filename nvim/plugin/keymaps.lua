@@ -37,6 +37,7 @@ RegisterKeymaps("n", "", {
   k = { "<Cmd>lua JumpDirection('k')<CR>", "Up" },
   ["<M-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
   ["<M-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
+  ["yA"] = { "<Cmd>%y+<CR>", "Yank file content" },
 })
 
 RegisterKeymaps("x", "", {

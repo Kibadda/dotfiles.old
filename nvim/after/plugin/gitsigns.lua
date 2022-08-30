@@ -1,4 +1,4 @@
-if not CheckPlugin "gitsigns" then
+if not PluginsOk "gitsigns" then
   return
 end
 

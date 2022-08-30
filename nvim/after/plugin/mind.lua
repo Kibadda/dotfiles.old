@@ -1,4 +1,4 @@
-if not CheckPlugin "mind" then
+if not PluginsOk "mind" then
   return
 end
 

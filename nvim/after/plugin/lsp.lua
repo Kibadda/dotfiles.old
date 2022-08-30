@@ -1,4 +1,4 @@
-if not CheckPlugin { "mason", "mason-lspconfig" } then
+if not PluginsOk { "mason", "mason-lspconfig" } then
   return
 end
 
@@ -89,7 +89,7 @@ local custom_attach = function(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-if CheckPlugin "cmp_nvim_lsp" then
+if PluginsOk "cmp_nvim_lsp" then
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 end
 
@@ -124,7 +124,7 @@ for server, config in pairs(servers) do
   setup_server(server, config)
 end
 
-if CheckPlugin "lua-dev" then
+if PluginsOk "lua-dev" then
   local luadev = require("lua-dev").setup {
     lspconfig = {
       on_attach = custom_attach,
@@ -145,7 +145,7 @@ if CheckPlugin "lua-dev" then
   lspconfig.sumneko_lua.setup(luadev)
 end
 
-if CheckPlugin "null-ls" then
+if PluginsOk "null-ls" then
   require("null-ls").setup {
     sources = {
       require("null-ls").builtins.formatting.stylua,

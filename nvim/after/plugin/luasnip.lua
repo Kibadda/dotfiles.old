@@ -1,4 +1,4 @@
-if not CheckPlugin "luasnip" then
+if not PluginsOk "luasnip" then
   return
 end
 

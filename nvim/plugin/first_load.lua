@@ -1,4 +1,4 @@
-if not CheckPlugin "packer" then
+if not PluginsOk "packer" then
   if vim.fn.input "Download Packer? (y for yes)" ~= "y" then
     return
   end

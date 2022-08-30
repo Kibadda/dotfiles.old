@@ -1,4 +1,4 @@
-if not CheckPlugin { "cmp", "luasnip" } then
+if not PluginsOk { "cmp", "luasnip" } then
   return
 end
 

@@ -36,7 +36,7 @@ end
 
 --- check if given plugins are installed
 -- @param plugins string|table
-function CheckPlugin(plugins)
+function PluginsOk(plugins)
   if type(plugins) == "string" then
     plugins = { plugins }
   end
@@ -56,7 +56,9 @@ function CheckPlugin(plugins)
   end
 
   if not check then
-    vim.notify(table.concat(not_installed, "\n"), "info", { title = "Packages not installed" })
+    vim.defer_fn(function()
+      vim.notify(table.concat(not_installed, "\n"), "info", { title = "Packages not installed" })
+    end, 1000)
   end
 
   return check

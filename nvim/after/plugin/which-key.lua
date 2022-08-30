@@ -1,4 +1,4 @@
-if not CheckPlugin "which-key" then
+if not PluginsOk "which-key" then
   return
 end
 

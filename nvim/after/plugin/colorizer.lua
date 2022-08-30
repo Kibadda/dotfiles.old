@@ -1,4 +1,4 @@
-if not CheckPlugin "colorizer" then
+if not PluginsOk "colorizer" then
   return
 end
 

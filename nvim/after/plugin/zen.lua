@@ -1,4 +1,4 @@
-if not CheckPlugin { "zen-mode", "twilight" } then
+if not PluginsOk { "zen-mode", "twilight" } then
   return
 end
 

@@ -1,4 +1,4 @@
-if not CheckPlugin "fine-cmdline" then
+if not PluginsOk "fine-cmdline" then
   return
 end
 

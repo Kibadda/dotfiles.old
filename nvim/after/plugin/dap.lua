@@ -1,3 +1,3 @@
-if not CheckPlugin "dap" then
+if not PluginsOk "dap" then
   return
 end

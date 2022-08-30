@@ -1,4 +1,4 @@
-if not CheckPlugin "notify" then
+if not PluginsOk "notify" then
   return
 end
 

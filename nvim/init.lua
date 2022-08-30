@@ -33,3 +33,31 @@ function SetOptionsLocal(options)
     vim.opt_local[key] = value
   end
 end
+
+--- check if given plugins are installed
+-- @param plugins string|table
+function CheckPlugin(plugins)
+  if type(plugins) == "string" then
+    plugins = { plugins }
+  end
+
+  if type(plugins) ~= "table" then
+    return false
+  end
+
+  local check = true
+  local not_installed = {}
+  for _, plugin in pairs(plugins) do
+    local plugin_ok = pcall(require, plugin)
+    if not plugin_ok then
+      check = false
+      table.insert(not_installed, plugin)
+    end
+  end
+
+  if not check then
+    vim.notify(table.concat(not_installed, "\n"), "info", { title = "Packages not installed" })
+  end
+
+  return check
+end

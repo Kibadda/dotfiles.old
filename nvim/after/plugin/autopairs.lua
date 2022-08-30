@@ -1,4 +1,4 @@
-if not pcall(require, "nvim-autopairs") then
+if not CheckPlugin "nvim-autopairs" then
   return
 end
 

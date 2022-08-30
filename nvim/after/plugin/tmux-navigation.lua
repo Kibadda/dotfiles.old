@@ -1,4 +1,4 @@
-if not pcall(require, "nvim-tmux-navigation") then
+if not CheckPlugin "nvim-tmux-navigation" then
   return
 end
 

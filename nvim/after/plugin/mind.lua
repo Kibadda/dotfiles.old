@@ -1,4 +1,4 @@
-if not pcall(require, "mind") then
+if not CheckPlugin "mind" then
   return
 end
 

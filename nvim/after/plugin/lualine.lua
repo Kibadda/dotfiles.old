@@ -1,4 +1,4 @@
-if not pcall(require, "lualine") then
+if not CheckPlugin "lualine" then
   return
 end
 

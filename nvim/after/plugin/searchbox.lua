@@ -1,4 +1,4 @@
-if not pcall(require, "searchbox") then
+if not CheckPlugin "searchbox" then
   return
 end
 

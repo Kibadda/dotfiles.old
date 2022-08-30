@@ -1,4 +1,4 @@
-if not pcall(require, "nvim-surround") then
+if not CheckPlugin "nvim-surround" then
   return
 end
 

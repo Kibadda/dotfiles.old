@@ -1,3 +1,3 @@
-if not pcall(require, "dap") then
+if not CheckPlugin "dap" then
   return
 end

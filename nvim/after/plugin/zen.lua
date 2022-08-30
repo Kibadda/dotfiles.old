@@ -1,4 +1,4 @@
-if not pcall(require, "zen-mode") or not pcall(require, "twilight") then
+if not CheckPlugin { "zen-mode", "twilight" } then
   return
 end
 

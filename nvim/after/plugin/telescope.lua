@@ -1,4 +1,4 @@
-if not pcall(require, "telescope") then
+if not CheckPlugin "telescope" then
   return
 end
 

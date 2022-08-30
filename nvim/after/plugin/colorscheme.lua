@@ -1,4 +1,4 @@
-if not pcall(require, "colorbuddy") then
+if not CheckPlugin "colorbuddy" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not pcall(require, "notify") then
+if not CheckPlugin "notify" then
   return
 end
 

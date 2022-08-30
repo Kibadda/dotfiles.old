@@ -1,4 +1,4 @@
-if not pcall(require, "which-key") then
+if not CheckPlugin "which-key" then
   return
 end
 

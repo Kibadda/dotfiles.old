@@ -1,4 +1,4 @@
-if not pcall(require, "bqf") then
+if not CheckPlugin "bqf" then
   return
 end
 

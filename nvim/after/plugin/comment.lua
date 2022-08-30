@@ -1,4 +1,4 @@
-if not pcall(require, "Comment") then
+if not CheckPlugin "Comment" then
   return
 end
 
@@ -16,7 +16,5 @@ require("Comment").setup {
     line = "gcc",
     block = "gbc",
   },
-  pre_hook = nil,
-  post_hook = nil,
   ignore = "^$",
 }

@@ -1,4 +1,4 @@
-if not pcall(require, "fine-cmdline") then
+if not CheckPlugin "fine-cmdline" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not pcall(require, "nvim-treesitter") then
+if not CheckPlugin "nvim-treesitter" then
   return
 end
 

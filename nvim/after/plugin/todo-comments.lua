@@ -1,4 +1,4 @@
-if not pcall(require, "todo-comments") then
+if not CheckPlugin "todo-comments" then
   return
 end
 

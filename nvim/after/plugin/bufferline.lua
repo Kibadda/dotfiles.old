@@ -1,4 +1,4 @@
-if not pcall(require, "bufferline") then
+if not CheckPlugin "bufferline" then
   return
 end
 

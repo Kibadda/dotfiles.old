@@ -1,4 +1,4 @@
-if not pcall(require, "luasnip") then
+if not CheckPlugin "luasnip" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not pcall(require, "neoscroll") then
+if not CheckPlugin "neoscroll" then
   return
 end
 

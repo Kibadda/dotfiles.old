@@ -12,7 +12,6 @@ require("bufferline").setup {
     indicator = {
       style = "none",
     },
-    diagnostics = "nvim_lsp",
     name_formatter = function(buf)
       if vim.bo.filetype == "term" then
         local split = vim.split(buf.name, ":")

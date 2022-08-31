@@ -19,15 +19,12 @@ require("mason-lspconfig").setup {
     "cssls",
     "vimls",
     "tsserver",
+    "hls",
   },
 }
 
 RegisterKeymaps("n", "<Leader>", {
   M = { "<Cmd>Mason<CR>", "Mason" },
-  l = {
-    name = "Lsp",
-    t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
-  },
 })
 
 if not vim.fn.exists "g:lsp_auto_format" then
@@ -54,6 +51,7 @@ local custom_attach = function(client)
       w = { "<Cmd>Telescope diagnostics theme=ivy<CR>", "Show Diagnostics" },
       r = { vim.lsp.buf.rename, "Rename" },
       i = { "<Cmd>LspInfo<CR>", "Lsp Info" },
+      t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
     },
   }, { buffer = 0 })
 

@@ -19,4 +19,13 @@ require("nvim-treesitter.configs").setup {
     "html",
     "sql",
   },
+  highlight = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+  },
+  playground = {
+    enable = true,
+  },
 }

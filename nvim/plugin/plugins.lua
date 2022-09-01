@@ -9,7 +9,6 @@ return require("packer").startup {
 
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/gruvbuddy.nvim"
-    use "Th3Whit3Wolf/onebuddy"
     use "nvim-lualine/lualine.nvim"
     use "akinsho/bufferline.nvim"
     use "rcarriga/nvim-notify"

@@ -18,7 +18,11 @@ require("neoscroll").setup {
   end,
 }
 
-RegisterKeymaps("n", "", {
-  ["<C-u>"] = { "Scroll cursor up" },
-  ["<C-d>"] = { "Scroll cursor down" },
-})
+RegisterKeymaps {
+  mode = "n",
+  prefix = "",
+  {
+    ["<C-u>"] = { "Scroll cursor up" },
+    ["<C-d>"] = { "Scroll cursor down" },
+  },
+}

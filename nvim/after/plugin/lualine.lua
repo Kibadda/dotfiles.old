@@ -106,7 +106,16 @@ require("lualine").setup {
       end,
     },
   },
+  -- winbar = {
+  --   lualine_z = {
+  --     {
+  --       "filename",
+  --       path = 1,
+  --     },
+  --   },
+  -- },
 }
+
 -- gruvbox-material theme colors
 --   fg1    = '#282828',
 --   color2 = '#504945',

@@ -4,7 +4,6 @@ end
 
 require("mason").setup {
   ui = {
-    border = "double",
     icons = {
       package_installed = "✓",
       package_pending = "➜",
@@ -23,9 +22,17 @@ require("mason-lspconfig").setup {
   },
 }
 
-RegisterKeymaps("n", "<Leader>", {
-  M = { "<Cmd>Mason<CR>", "Mason" },
-})
+RegisterKeymaps {
+  mode = "n",
+  prefix = "<Leader>",
+  {
+    l = {
+      name = "Lsp",
+      M = { "<Cmd>Mason<CR>", "Mason" },
+      L = { "<Cmd>LspInfo<CR>", "LspInfo" },
+    },
+  },
+}
 
 if not vim.fn.exists "g:lsp_auto_format" then
   SetGlobal("lsp", {
@@ -34,26 +41,35 @@ if not vim.fn.exists "g:lsp_auto_format" then
 end
 
 local custom_attach = function(client)
-  RegisterKeymaps("n", "", {
-    K = { vim.lsp.buf.hover, "Hover" },
-    ["gd"] = { vim.lsp.buf.definition, "Definition" },
-    ["gr"] = { "<Cmd>Telescope lsp_references theme=ivy<CR>", "References" },
-  }, { buffer = 0 })
-
-  RegisterKeymaps("n", "<Leader>", {
-    l = {
-      name = "Lsp",
-      c = { vim.lsp.buf.code_action, "Code Action" },
-      f = { vim.lsp.buf.format, "Format" },
-      j = { vim.diagnostic.goto_next, "Next Diagnostic" },
-      k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
-      d = { "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>", "Show Buffer Diagnostics" },
-      w = { "<Cmd>Telescope diagnostics theme=ivy<CR>", "Show Diagnostics" },
-      r = { vim.lsp.buf.rename, "Rename" },
-      i = { "<Cmd>LspInfo<CR>", "Lsp Info" },
-      t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
+  RegisterKeymaps {
+    mode = "n",
+    prefix = "",
+    buffer = 0,
+    {
+      K = { vim.lsp.buf.hover, "Hover" },
+      gd = { vim.lsp.buf.definition, "Definition" },
+      gr = { "<Cmd>Telescope lsp_references theme=ivy<CR>", "References" },
     },
-  }, { buffer = 0 })
+  }
+
+  RegisterKeymaps {
+    mode = "n",
+    prefix = "<Leader>",
+    buffer = 0,
+    {
+      l = {
+        c = { vim.lsp.buf.code_action, "Code Action" },
+        f = { vim.lsp.buf.format, "Format" },
+        j = { vim.diagnostic.goto_next, "Next Diagnostic" },
+        k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
+        d = { "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>", "Show Buffer Diagnostics" },
+        w = { "<Cmd>Telescope diagnostics theme=ivy<CR>", "Show Diagnostics" },
+        r = { vim.lsp.buf.rename, "Rename" },
+        i = { "<Cmd>LspInfo<CR>", "Lsp Info" },
+        t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
+      },
+    },
+  }
 
   vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 

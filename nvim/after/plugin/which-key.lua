@@ -12,8 +12,12 @@ require("which-key").setup {
   },
 }
 
-RegisterKeymaps("n", "", {
-  ["<Leader>"] = {
-    name = "<Leader>",
+RegisterKeymaps {
+  mode = "n",
+  prefix = "",
+  {
+    ["<Leader>"] = {
+      name = "<Leader>",
+    },
   },
-})
+}

@@ -8,6 +8,10 @@ require("fine-cmdline").setup {
   },
 }
 
-RegisterKeymaps("n", "", {
-  ["<CR>"] = { "<Cmd>FineCmdline<CR>", "Cmd Line" },
-})
+RegisterKeymaps {
+  mode = "n",
+  prefix = "",
+  {
+    ["<CR>"] = { "<Cmd>FineCmdline<CR>", "Cmd Line" },
+  },
+}

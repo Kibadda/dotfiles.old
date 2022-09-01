@@ -26,7 +26,11 @@ require("bufferline").setup {
   },
 }
 
-RegisterKeymaps("n", "", {
-  H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
-  L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
-})
+RegisterKeymaps {
+  mode = "n",
+  prefix = "",
+  {
+    H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
+    L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
+  },
+}

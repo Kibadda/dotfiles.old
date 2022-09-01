@@ -7,14 +7,15 @@ function P(value)
 end
 
 --- register keymaps
--- @param mode string    | which mode to use
--- @param prefix string  | which prefix to use
--- @param keymaps table  | table with all keymaps (see which-key github)
--- @param options ?table | additional options (see which-key github)
-function RegisterKeymaps(mode, prefix, keymaps, options)
-  options = options or {}
-  options.prefix = prefix
-  options.mode = mode
+-- @param options table
+function RegisterKeymaps(options)
+  local keymaps = table.remove(options, 1)
+  if options.mode == nil then
+    error "RegisterKeymap: mode is not set"
+  end
+  if options.prefix == nil then
+    error "RegisterKeymap: prefix is not set"
+  end
   require("which-key").register(keymaps, options)
 end
 

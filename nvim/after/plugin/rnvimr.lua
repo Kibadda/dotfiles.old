@@ -15,6 +15,10 @@ SetGlobal("rnvimr", {
 })
 vim.cmd.highlight "link RnvimrNormal CursorLine"
 
-RegisterKeymaps("n", "<Leader>", {
-  e = { "<Cmd>RnvimrToggle<CR>", "Browse Files" },
-})
+RegisterKeymaps {
+  mode = "n",
+  prefix = "<Leader>",
+  {
+    e = { "<Cmd>RnvimrToggle<CR>", "Browse Files" },
+  },
+}

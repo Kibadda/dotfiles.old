@@ -4,8 +4,12 @@ end
 
 require("todo-comments").setup {}
 
-RegisterKeymaps("n", "<Leader>", {
-  s = {
-    t = { "<Cmd>TodoTelescope theme=ivy<CR>", "Todos" },
+RegisterKeymaps {
+  mode = "n",
+  prefix = "<Leader>",
+  {
+    s = {
+      t = { "<Cmd>TodoTelescope theme=ivy<CR>", "Todos" },
+    },
   },
-})
+}

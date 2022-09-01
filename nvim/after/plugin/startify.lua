@@ -48,12 +48,16 @@ SetGlobal("startify", {
   },
 })
 
-RegisterKeymaps("n", "<Leader>", {
-  S = {
-    name = "Startify",
-    c = { "<Cmd>SClose<CR>", "Close" },
-    l = { "<Cmd>SLoad<CR>", "Load" },
-    d = { "<Cmd>SDelete<CR>", "Delete" },
-    s = { "<Cmd>SSave<CR>", "Save" },
+RegisterKeymaps {
+  mode = "n",
+  prefix = "<Leader>",
+  {
+    S = {
+      name = "Startify",
+      c = { "<Cmd>SClose<CR>", "Close" },
+      l = { "<Cmd>SLoad<CR>", "Load" },
+      d = { "<Cmd>SDelete<CR>", "Delete" },
+      s = { "<Cmd>SSave<CR>", "Save" },
+    },
   },
-})
+}

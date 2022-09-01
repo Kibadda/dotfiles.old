@@ -70,7 +70,7 @@ require("lualine").setup {
         end,
         color = { gui = "bold" },
         on_click = function()
-          vim.cmd "Mason"
+          vim.cmd "LspInfo"
         end,
       },
     },

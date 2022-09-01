@@ -28,4 +28,7 @@ require("nvim-treesitter.configs").setup {
   playground = {
     enable = true,
   },
+  indent = {
+    enable = true,
+  },
 }

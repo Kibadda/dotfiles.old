@@ -1,6 +1,6 @@
---- set global variables for given plugin
--- @param plugin string
--- @param options table
+---set global variables for given plugin
+---@param plugin string
+---@param options table
 function SetGlobal(plugin, options)
   local prefix = ""
   if plugin ~= "" then
@@ -11,31 +11,33 @@ function SetGlobal(plugin, options)
   end
 end
 
---- get global variables for given plugin
--- @param plugin string
--- @param name string
+---get global variables for given plugin
+---@param plugin string
+---@param name string
+---@return any
 function GetGlobal(plugin, name)
   return vim.g[plugin .. "_" .. name]
 end
 
---- set global vim options
--- @param options table
+---set global vim options
+---@param options table
 function SetOptions(options)
   for key, value in pairs(options) do
     vim.opt[key] = value
   end
 end
 
---- set buffer local vim options
--- @param options table
+---set buffer local vim options
+---@param options table
 function SetOptionsLocal(options)
   for key, value in pairs(options) do
     vim.opt_local[key] = value
   end
 end
 
---- check if given plugins are installed
--- @param plugins string|table
+---check if given plugins are installed
+---@param plugins string|table
+---@return boolean
 function PluginsOk(plugins)
   if type(plugins) == "string" then
     plugins = { plugins }

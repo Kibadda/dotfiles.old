@@ -5,15 +5,31 @@ end
 require("lualine").setup {
   options = {
     theme = "gruvbox-material",
+    globalstatus = true,
   },
   sections = {
     lualine_a = {
       "mode",
     },
     lualine_b = {
-      "branch",
-      "diff",
-      "diagnostics",
+      {
+        "branch",
+        on_click = function()
+          vim.cmd "Lazygit"
+        end,
+      },
+      {
+        "diff",
+        on_click = function()
+          vim.cmd "Gitsigns diffthis"
+        end,
+      },
+      {
+        "diagnostics",
+        on_click = function()
+          vim.cmd "Telescope diagnostics bufnr=0 theme=get_ivy"
+        end,
+      },
     },
     lualine_c = {
       function()
@@ -53,6 +69,9 @@ require("lualine").setup {
           return "[" .. table.concat(buf_client_names, ", ") .. "]"
         end,
         color = { gui = "bold" },
+        on_click = function()
+          vim.cmd "Mason"
+        end,
       },
     },
     lualine_y = {
@@ -62,6 +81,9 @@ require("lualine").setup {
         end,
         color = function()
           return { fg = GetGlobal("lsp", "auto_format") and "#A9B665" or "#EA6962" }
+        end,
+        on_click = function()
+          vim.cmd "ToggleAutoFormat"
         end,
       },
     },

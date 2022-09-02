@@ -44,3 +44,18 @@ vim.api.nvim_create_autocmd("TermClose", {
   pattern = "*",
   command = "bd!",
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("PluginsGitOpen", { clear = true }),
+  pattern = "plugins.lua",
+  callback = function()
+    RegisterKeymaps {
+      mode = "n",
+      prefix = "",
+      buffer = 0,
+      {
+        gX = { OpenPlugin, "Open Plugin" },
+      },
+    }
+  end,
+})

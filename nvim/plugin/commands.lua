@@ -1,9 +1,5 @@
-local function openTerminal(command)
-  vim.cmd.term(command)
-end
-
 vim.api.nvim_create_user_command("Lazygit", function()
-  openTerminal "lazygit"
+  vim.cmd.term "lazygit"
 end, {
   bang = false,
   nargs = 0,

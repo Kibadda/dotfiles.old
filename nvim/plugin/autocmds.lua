@@ -54,7 +54,18 @@ vim.api.nvim_create_autocmd("BufEnter", {
       prefix = "",
       buffer = 0,
       {
-        gX = { OpenPlugin, "Open Plugin" },
+        gX = {
+          function()
+            OpenPlugin(true)
+          end,
+          "Open plugin in Browser",
+        },
+        gF = {
+          function()
+            OpenPlugin(false)
+          end,
+          "Open plugin file",
+        },
       },
     }
   end,

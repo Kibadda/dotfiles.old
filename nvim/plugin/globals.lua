@@ -50,6 +50,8 @@ end
 
 ---open plugin under cursor in browser
 ---
+---@param in_file boolean wether to open plugin in file or in browser. default: false
+---
 ---works with:
 ---use "author/plugin"
 ---use { "author/plugin", run = "do stuff" }
@@ -59,7 +61,7 @@ end
 ---    P "Hello World!"
 ---  end,
 ---}
-function OpenPlugin()
+function OpenPlugin(in_browser)
   local ts_utils = require "nvim-treesitter.ts_utils"
   local current_node = ts_utils.get_node_at_cursor(0)
 
@@ -95,6 +97,23 @@ function OpenPlugin()
   local root = vim.treesitter.get_string_parser(node_string, "lua", {}):parse()[1]:root()
   local _, node = vim.treesitter.parse_query("lua", query_string):iter_captures(root, 0, 0, -1)()
   local argument = vim.treesitter.get_node_text(node, node_string)
-  local url = "https://github.com/" .. argument
-  os.execute("xdg-open " .. url)
+  argument = argument:gsub('"', "")
+
+  if in_browser then
+    local url = "https://github.com/" .. argument
+    os.execute("xdg-open " .. url)
+  else
+    local split = vim.split(argument, "/")
+    local file_name = split[#split]
+    -- file_name = string.gsub("nvim-", "")
+    -- file_name = file_name:gsub(".nvim", "")
+    -- file_name = file_name:gsub("vim-", "")
+    -- file_name = file_name:gsub(".vim", "")
+
+    file_name = "nvim/after/plugin/" .. file_name .. ".lua"
+
+    if vim.fn.filereadable(file_name) == 1 then
+      vim.cmd.e(file_name)
+    end
+  end
 end

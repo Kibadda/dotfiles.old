@@ -40,11 +40,21 @@ RegisterKeymaps {
     ["<C-q>"] = { "<Plug>(qf_qf_toggle_stay)", "QF: toggle" },
     ["<C-Up>"] = { "<Plug>(qf_qf_previous)", "QF: prev" },
     ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
-    j = { "<Cmd>lua JumpDirection('j')<CR>", "Down" },
-    k = { "<Cmd>lua JumpDirection('k')<CR>", "Up" },
     ["<M-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
     ["<M-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
     yA = { "<Cmd>%y+<CR>", "Yank file content" },
+    j = {
+      function()
+        JumpDirection "j"
+      end,
+      "Down",
+    },
+    k = {
+      function()
+        JumpDirection "k"
+      end,
+      "Up",
+    },
   },
 }
 

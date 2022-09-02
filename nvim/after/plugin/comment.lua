@@ -18,3 +18,6 @@ require("Comment").setup {
   },
   ignore = "^$",
 }
+
+local comment_ft = require "Comment.ft"
+comment_ft.set("smarty", { "{*%s*}", "{*%s*}" })

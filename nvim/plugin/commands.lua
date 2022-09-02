@@ -29,7 +29,7 @@ end, {
 })
 
 vim.api.nvim_create_user_command("DetachTmux", function()
-  vim.cmd["!"] "tmux detach"
+  os.execute "tmux detach"
 end, {
   bang = false,
   nargs = 0,

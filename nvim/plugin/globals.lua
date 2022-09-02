@@ -80,7 +80,7 @@ function OpenPlugin()
   local query_string = [[
     (
      (function_call
-       name: (identifier) @function_name
+       name: (identifier)
        arguments: [
          (arguments (string) @argument)
          (arguments
@@ -92,23 +92,9 @@ function OpenPlugin()
     )
   ]]
 
-  local query = vim.treesitter.parse_query("lua", query_string)
   local root = vim.treesitter.get_string_parser(node_string, "lua", {}):parse()[1]:root()
-
-  for _, match in query:iter_matches(root, 0, 0, -1) do
-    local function_name, argument
-    for id, node in pairs(match) do
-      if query.captures[id] == "function_name" then
-        function_name = vim.treesitter.get_node_text(node, node_string)
-      end
-      if query.captures[id] == "argument" then
-        argument = vim.treesitter.get_node_text(node, node_string)
-      end
-      if function_name and argument then
-        local url = "https://github.com/" .. argument
-        os.execute("xdg-open " .. url)
-        return
-      end
-    end
-  end
+  local _, node = vim.treesitter.parse_query("lua", query_string):iter_captures(root, 0, 0, -1)()
+  local argument = vim.treesitter.get_node_text(node, node_string)
+  local url = "https://github.com/" .. argument
+  os.execute("xdg-open " .. url)
 end

@@ -1,4 +1,5 @@
 ---pretty print given value
+---
 ---@param value any
 ---@return any
 function P(value)
@@ -7,6 +8,7 @@ function P(value)
 end
 
 ---register keymaps
+---
 ---local options = {
 ---  mode = "n",
 ---  prefix = "<Leader>",
@@ -15,6 +17,7 @@ end
 ---    f = { "<Cmd>Telescope find_files<CR>", "Find files" }
 ---  },
 ---}
+---
 ---@param options table
 function RegisterKeymaps(options)
   local keymaps = table.remove(options, 1)
@@ -28,6 +31,7 @@ function RegisterKeymaps(options)
 end
 
 ---for wrapped lines: gj/gk, for large jumps: add to jump list
+---
 ---@param direction string
 function JumpDirection(direction)
   local count = vim.v.count
@@ -45,6 +49,16 @@ function JumpDirection(direction)
 end
 
 ---open plugin under cursor in browser
+---
+---works with:
+---use "author/plugin"
+---use { "author/plugin", run = "do stuff" }
+---use {
+---  "author/plugin",
+---  config = function()
+---    P "Hello World!"
+---  end,
+---}
 function OpenPlugin()
   local ts_utils = require "nvim-treesitter.ts_utils"
   local current_node = ts_utils.get_node_at_cursor(0)

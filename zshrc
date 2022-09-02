@@ -149,6 +149,7 @@ alias lastcom='git show'
 
 alias d='tmux detach'
 alias l='lvim'
+alias n='nvim && clear'
 
 alias swap='setxkbmap -option caps:swapescape'
 

@@ -14,6 +14,7 @@ require("nvim-treesitter.configs").setup {
     "css",
     "yaml",
     "php",
+    "phpdoc",
     "vue",
     "haskell",
     "html",

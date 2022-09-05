@@ -1,23 +1,3 @@
--- vim.ui.select({
---   create_new_name,
---   create,
---   "Do Nothing",
--- }, {
---   prompt = "File missing",
--- }, function(result)
---   if result == create then
---     vim.cmd.e(file_path)
---     add_skeleton(file_name)
---   elseif result == create_new_name then
---     vim.ui.input({
---       prompt = "New name: ",
---     }, function(new_file_name)
---       vim.cmd.e(prefix .. new_file_name .. suffix)
---       add_skeleton(file_name)
---     end)
---   end
--- end)
-
 local function open_menu()
   local Menu = require "nui.menu"
   local Input = require "nui.input"

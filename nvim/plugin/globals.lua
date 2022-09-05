@@ -115,12 +115,14 @@ function OpenPlugin(in_browser)
     if vim.fn.filereadable(file_name) == 1 then
       vim.cmd.e(file_name)
     else
-      -- vim.ui.select({
-      --   "Create File",
-      --   "Do Nothing",
-      -- }, {}, function(args)
-      --   P(args)
-      -- end)
+      vim.ui.select({
+        "Create File",
+        "Do Nothing",
+      }, {}, function(args)
+        if args == "Create File" then
+          vim.cmd.e(file_name)
+        end
+      end)
     end
   end
 end

@@ -105,15 +105,22 @@ function OpenPlugin(in_browser)
   else
     local split = vim.split(argument, "/")
     local file_name = split[#split]
-    -- file_name = string.gsub("nvim-", "")
-    -- file_name = file_name:gsub(".nvim", "")
-    -- file_name = file_name:gsub("vim-", "")
-    -- file_name = file_name:gsub(".vim", "")
+    file_name = string.gsub(file_name, "nvim%-", "")
+    file_name = string.gsub(file_name, "%.nvim", "")
+    file_name = string.gsub(file_name, "vim%-", "")
+    file_name = string.gsub(file_name, "%.vim", "")
 
     file_name = "nvim/after/plugin/" .. file_name .. ".lua"
 
     if vim.fn.filereadable(file_name) == 1 then
       vim.cmd.e(file_name)
+    else
+      -- vim.ui.select({
+      --   "Create File",
+      --   "Do Nothing",
+      -- }, {}, function(args)
+      --   P(args)
+      -- end)
     end
   end
 end

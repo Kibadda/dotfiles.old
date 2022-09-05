@@ -44,6 +44,7 @@ return require("packer").startup {
     use "dhruvasagar/vim-open-url"
     use { "iamcco/markdown-preview.nvim", run = "cd app && npm install" }
     use "ethanholz/nvim-lastplace"
+    use "rest-nvim/rest.nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

@@ -19,6 +19,7 @@ require("nvim-treesitter.configs").setup {
     "haskell",
     "html",
     "sql",
+    "http",
   },
   highlight = {
     enable = true,

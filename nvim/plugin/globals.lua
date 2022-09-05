@@ -120,7 +120,7 @@ function OpenPlugin(in_browser)
     else
       local create = "Create File"
       local create_new_name = "Create File with different name"
-      local add_skeleton = function(module_name)
+      local function add_skeleton(module_name)
         vim.api.nvim_buf_set_lines(0, 0, -1, false, {
           'if not PluginsOk "' .. module_name .. '" then',
           "  return",

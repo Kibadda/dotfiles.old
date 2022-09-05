@@ -120,6 +120,15 @@ function OpenPlugin(in_browser)
     else
       local create = "Create File"
       local create_new_name = "Create File with different name"
+      local add_skeleton = function(module_name)
+        vim.api.nvim_buf_set_lines(0, 0, -1, false, {
+          'if not PluginsOk "' .. module_name .. '" then',
+          "  return",
+          "end",
+          "",
+        })
+        vim.api.nvim_win_set_cursor(0, { 4, 0 })
+      end
       vim.ui.select({
         create_new_name,
         create,
@@ -129,11 +138,13 @@ function OpenPlugin(in_browser)
       }, function(result)
         if result == create then
           vim.cmd.e(file_path)
+          add_skeleton(file_name)
         elseif result == create_new_name then
           vim.ui.input({
             prompt = "New name: ",
           }, function(new_file_name)
             vim.cmd.e(prefix .. new_file_name .. suffix)
+            add_skeleton(file_name)
           end)
         end
       end)

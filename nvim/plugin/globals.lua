@@ -118,36 +118,57 @@ function OpenPlugin(in_browser)
     if vim.fn.filereadable(file_path) == 1 then
       vim.cmd.e(file_path)
     else
-      local create = "Create File"
-      local create_new_name = "Create File with different name"
-      local function add_skeleton(module_name)
-        vim.api.nvim_buf_set_lines(0, 0, -1, false, {
-          'if not PluginsOk "' .. module_name .. '" then',
-          "  return",
-          "end",
-          "",
-        })
-        vim.api.nvim_win_set_cursor(0, { 4, 0 })
+      local Menu = require "nui.menu"
+      local Input = require "nui.input"
+
+      local function set_title(title)
+        return {
+          position = "50%",
+          size = {
+            width = 25,
+            height = 3,
+          },
+          border = {
+            style = "double",
+            text = {
+              top = title,
+              top_align = "center",
+            },
+          },
+          win_options = {
+            winhighlight = "Normal:Normal,FloarBorder:Normal",
+          },
+        }
       end
-      vim.ui.select({
-        create_new_name,
-        create,
-        "Do Nothing",
-      }, {
-        prompt = "File missing",
-      }, function(result)
-        if result == create then
-          vim.cmd.e(file_path)
-          add_skeleton(file_name)
-        elseif result == create_new_name then
-          vim.ui.input({
-            prompt = "New name: ",
-          }, function(new_file_name)
-            vim.cmd.e(prefix .. new_file_name .. suffix)
-            add_skeleton(file_name)
-          end)
-        end
-      end)
+
+      Menu(set_title "[Choose]", {
+        lines = {
+          Menu.item("Create File", { id = 1 }),
+          Menu.item("Create File (other name)", { id = 2 }),
+          Menu.item("Nothing", { id = 3 }),
+        },
+        max_width = 20,
+        keymap = {
+          focus_next = { "j", "<Tab>" },
+          focus_prev = { "k", "<S-Tab>" },
+          close = { "<Esc>" },
+          submit = { "<CR>", "<Space>" },
+        },
+        on_submit = function(item)
+          if item.id == 1 then
+            vim.cmd.e(file_path)
+          elseif item.id == 2 then
+            Input(set_title "[Filename]", {
+              prompt = "> ",
+              on_submit = function(value)
+                if #value > 0 then
+                  vim.cmd.e(prefix .. value .. suffix)
+                end
+              end,
+            }):mount()
+          end
+        end,
+      }):mount()
     end
   end
 end

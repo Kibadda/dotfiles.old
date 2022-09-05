@@ -110,17 +110,31 @@ function OpenPlugin(in_browser)
     file_name = string.gsub(file_name, "vim%-", "")
     file_name = string.gsub(file_name, "%.vim", "")
 
-    file_name = "nvim/after/plugin/" .. file_name .. ".lua"
+    local prefix = "nvim/after/plugin/"
+    local suffix = ".lua"
 
-    if vim.fn.filereadable(file_name) == 1 then
-      vim.cmd.e(file_name)
+    local file_path = prefix .. file_name .. suffix
+
+    if vim.fn.filereadable(file_path) == 1 then
+      vim.cmd.e(file_path)
     else
+      local create = "Create File"
+      local create_new_name = "Create File with different name"
       vim.ui.select({
-        "Create File",
+        create_new_name,
+        create,
         "Do Nothing",
-      }, {}, function(args)
-        if args == "Create File" then
-          vim.cmd.e(file_name)
+      }, {
+        prompt = "File missing",
+      }, function(result)
+        if result == create then
+          vim.cmd.e(file_path)
+        elseif result == create_new_name then
+          vim.ui.input({
+            prompt = "New name: ",
+          }, function(new_file_name)
+            vim.cmd.e(prefix .. new_file_name .. suffix)
+          end)
         end
       end)
     end

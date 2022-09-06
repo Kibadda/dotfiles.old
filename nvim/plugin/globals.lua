@@ -64,7 +64,7 @@ end
 
 ---open plugin under cursor in browser
 ---
----@param in_file boolean wether to open plugin in file or in browser. default: false
+---@param open_in_browser boolean wether to open plugin in browser or in file.
 ---
 ---works with:
 ---use "author/plugin"
@@ -75,7 +75,12 @@ end
 ---    P "Hello World!"
 ---  end,
 ---}
-function OpenPlugin(in_browser)
+function OpenPlugin(open_in_browser)
+  if open_in_browser == nil then
+    error "[OpenPlugin]: open_in_browser must be set"
+    return
+  end
+
   local ts_utils = require "nvim-treesitter.ts_utils"
   local current_node = ts_utils.get_node_at_cursor(0)
 
@@ -113,7 +118,7 @@ function OpenPlugin(in_browser)
   local argument = vim.treesitter.get_node_text(node, node_string)
   argument = argument:gsub('"', "")
 
-  if in_browser then
+  if open_in_browser then
     local url = "https://github.com/" .. argument
     os.execute("xdg-open " .. url)
   else

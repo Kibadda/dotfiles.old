@@ -1,4 +1,4 @@
-if not PluginsOk { "zen-mode", "twilight" } then
+if not PluginsOk "zen-mode" then
   return
 end
 
@@ -18,9 +18,4 @@ require("zen-mode").setup {
       enabled = true,
     },
   },
-}
-
-require("twilight").setup {
-  context = 10,
-  treesitter = true,
 }

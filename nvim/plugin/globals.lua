@@ -128,6 +128,7 @@ function OpenPlugin(open_in_browser)
     file_name = string.gsub(file_name, "%.nvim", "")
     file_name = string.gsub(file_name, "vim%-", "")
     file_name = string.gsub(file_name, "%.vim", "")
+    file_name = string.gsub(file_name, "%.lua", "")
     file_name = string.lower(file_name)
 
     local prefix = "nvim/after/plugin/"

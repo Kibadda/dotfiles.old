@@ -33,6 +33,13 @@ require("nvim-treesitter.configs").setup {
   indent = {
     enable = true,
   },
+  autotag = {
+    enable = true,
+    filetypes = {
+      "html",
+      "smarty",
+    },
+  },
 }
 
 require("nvim-treesitter.parsers").get_parser_configs().smarty = {

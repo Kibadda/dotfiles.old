@@ -50,13 +50,13 @@ end
 
 ---set value depending if cwd is cortx
 ---
----@param value_if_cortex any
+---@param value_if_work any
 ---@param default any
-function SetValue(value_if_cortex, default)
+function SetValue(value_if_work, default)
   local dir = vim.fn.getcwd()
 
   if string.find(dir, "^/media/beta/") then
-    return value_if_cortex
+    return value_if_work
   end
 
   return default

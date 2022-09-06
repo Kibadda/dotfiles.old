@@ -48,6 +48,20 @@ function JumpDirection(direction)
   vim.cmd.normal { count .. direction, bang = true }
 end
 
+---set value depending if cwd is cortx
+---
+---@param value_if_cortex any
+---@param default any
+function SetValue(value_if_cortex, default)
+  local dir = vim.fn.getcwd()
+
+  if string.find(dir, "^/media/beta/") then
+    return value_if_cortex
+  end
+
+  return default
+end
+
 ---open plugin under cursor in browser
 ---
 ---@param in_file boolean wether to open plugin in file or in browser. default: false

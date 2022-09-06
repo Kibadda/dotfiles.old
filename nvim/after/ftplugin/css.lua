@@ -1,5 +1,7 @@
+local ts = SetValue(4, 2)
+
 SetOptionsLocal {
-  tabstop = 4,
-  shiftwidth = 4,
+  tabstop = ts,
+  shiftwidth = ts,
   formatoptions = vim.opt_local.formatoptions - "o",
 }

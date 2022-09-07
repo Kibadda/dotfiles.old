@@ -38,7 +38,7 @@ require("nvim-autopairs").add_rules {
     end)
     :use_key "]",
   -- add spaces around "="
-  Rule("=", "")
+  Rule("=", "", { "-html", "-smarty" })
     :with_pair(cond.not_inside_quote())
     :with_pair(function(opts)
       local last_char = opts.line:sub(opts.col - 1, opts.col - 1)

@@ -34,7 +34,8 @@ SetOptions {
   timeoutlen = 100,
   termguicolors = true,
   winbar = "%=%m %f ",
-  formatoptions = vim.opt.formatoptions - "a" - "t" + "c" + "q" - "o" + "r" + "n" + "j" - "2",
+  formatoptions = GetFormatOptions(vim.opt),
+  textwidth = 120,
 }
 
 SetGlobal("cursorhold", {

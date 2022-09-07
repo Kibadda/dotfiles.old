@@ -62,6 +62,23 @@ function SetValue(value_if_work, default)
   return default
 end
 
+---apply formatoptions
+---
+---@param options any opt/opt_local
+---@return any
+function GetFormatOptions(options)
+  return options.formatoptions
+    - "a" -- do not auto format
+    - "t" -- do not autowrap
+    + "c" -- but do it for comments
+    + "q" -- comment formatting
+    - "o" -- do not insert comment leader when hitting o
+    + "r" -- but to it for Enter
+    + "n" -- format lists
+    + "j" -- remove comment leader for J
+    - "2" -- use first line for indent
+end
+
 ---open plugin under cursor in browser
 ---
 ---@param open_in_browser boolean wether to open plugin in browser or in file.

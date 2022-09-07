@@ -1,3 +1,3 @@
 SetOptionsLocal {
-  formatoptions = vim.opt_local.formatoptions - "o",
+  formatoptions = GetFormatOptions(vim.opt_local),
 }

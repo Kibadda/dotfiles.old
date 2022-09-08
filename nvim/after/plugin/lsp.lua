@@ -17,8 +17,10 @@ require("mason-lspconfig").setup {
     "intelephense",
     "cssls",
     "vimls",
+    "html",
     "tsserver",
     "hls",
+    "vls",
   },
 }
 
@@ -158,6 +160,8 @@ local servers = {
   vimls = true,
   tsserver = true,
   hls = true,
+  html = true,
+  vls = true,
 }
 
 local setup_server = function(server, config)

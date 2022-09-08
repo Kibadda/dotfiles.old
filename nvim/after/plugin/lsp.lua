@@ -106,6 +106,10 @@ if PluginsOk "cmp_nvim_lsp" then
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 end
 
+if PluginsOk "lua-dev" then
+  require("lua-dev").setup {}
+end
+
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -138,6 +142,18 @@ local servers = {
       },
     },
   },
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        format = {
+          enable = false,
+        },
+        workspace = {
+          checkThirdParty = false,
+        },
+      },
+    },
+  },
   cssls = true,
   vimls = true,
   tsserver = true,
@@ -163,27 +179,6 @@ end
 
 for server, config in pairs(servers) do
   setup_server(server, config)
-end
-
-if PluginsOk "lua-dev" then
-  local luadev = require("lua-dev").setup {
-    lspconfig = {
-      on_attach = custom_attach,
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          format = {
-            enable = false,
-          },
-          workspace = {
-            checkThirdParty = false,
-          },
-        },
-      },
-    },
-  }
-
-  lspconfig.sumneko_lua.setup(luadev)
 end
 
 if PluginsOk "null-ls" then

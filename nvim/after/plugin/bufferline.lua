@@ -10,8 +10,10 @@ require("bufferline").setup {
     left_mouse_command = "",
     separator_style = { "|", "|" },
     indicator = {
+      -- style = "underline", -- Highlight not working correctly
       style = "none",
     },
+    truncate_names = false,
     name_formatter = function(buf)
       if vim.bo.filetype == "term" then
         local split = vim.split(buf.name, ":")

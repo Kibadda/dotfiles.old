@@ -1,48 +1,28 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
   pattern = "*",
-  command = "silent! lua vim.highlight.on_yank { higroup='Search', timeout = 200 }",
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("RemoveTrailingWhitespace", { clear = true }),
-  pattern = "*",
   callback = function()
-    local cursor = vim.api.nvim_win_get_cursor(0)
-    vim.api.nvim_command "%s/\\s\\+$//e"
-    vim.api.nvim_win_set_cursor(0, cursor)
+    vim.highlight.on_yank {
+      higroup = "Search",
+      timeout = 200,
+    }
   end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("SourcePluginFile", { clear = true }),
   pattern = "plugins.lua",
-  command = "source <afile>",
-})
-
-local TermGroup = vim.api.nvim_create_augroup("TermGroup", { clear = true })
-
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = TermGroup,
-  pattern = "*",
   callback = function()
-    SetOptionsLocal {
-      filetype = "term",
-    }
-    vim.cmd.startinsert()
+    vim.cmd.source "<afile>"
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = TermGroup,
-  pattern = "term://*",
-  command = "startinsert",
-})
-
 vim.api.nvim_create_autocmd("TermClose", {
-  group = TermGroup,
+  group = vim.api.nvim_create_augroup("TermGroup", { clear = true }),
   pattern = "*",
-  command = "bd!",
+  callback = function()
+    vim.cmd.bd { bang = true }
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {

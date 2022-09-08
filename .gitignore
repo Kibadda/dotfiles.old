@@ -7,3 +7,5 @@ __pycache__
 
 nvim/plugin/packer_compiled.lua
 lvim/plugin/packer_compiled.lua
+
+.env

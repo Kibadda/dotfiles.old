@@ -44,6 +44,12 @@ RegisterKeymaps {
     ["<M-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
     ["<M-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
     yA = { "<Cmd>%y+<CR>", "Yank file content" },
+    gH = {
+      function()
+        OpenInGitub()
+      end,
+      "Open current github",
+    },
     j = {
       function()
         JumpDirection "j"

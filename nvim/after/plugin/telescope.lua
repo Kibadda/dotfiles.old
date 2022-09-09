@@ -37,6 +37,15 @@ RegisterKeymaps {
       r = { "<Cmd>Telescope registers theme=ivy<CR>", "Registers" },
       c = { "<Cmd>Telescope commands theme=ivy<CR>", "Commands" },
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
+      e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
     },
+  },
+}
+
+RegisterKeymaps {
+  mode = "i",
+  prefix = "",
+  {
+    ["<M-e>"] = { "<Cmd>Telescope symbols<CR>", "Emojis" },
   },
 }

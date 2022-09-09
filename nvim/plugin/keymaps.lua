@@ -14,6 +14,7 @@ RegisterKeymaps {
       u = { "<Cmd>PackerUpdate<CR>", "Update" },
       C = { "<Cmd>PackerClean<CR>", "Clean" },
       c = { "<Cmd>PackerCompile<CR>", "Compile" },
+      p = { "<Cmd>PackerSync --preview<CR>", "Sync with preview" },
     },
     h = { "<Cmd>SearchBoxClear<CR>", "Remove highlight" },
     Q = { "<Cmd>DetachTmux<CR>", "Detach" },

@@ -15,19 +15,19 @@ require("lualine").setup {
       {
         "branch",
         on_click = function()
-          vim.cmd "Lazygit"
+          vim.cmd.Lazygit()
         end,
       },
       {
         "diff",
         on_click = function()
-          vim.cmd "Gitsigns diffthis"
+          vim.cmd.Gitsigns "diffthis"
         end,
       },
       {
         "diagnostics",
         on_click = function()
-          vim.cmd "Telescope diagnostics bufnr=0 theme=get_ivy"
+          vim.cmd.Telescope "diagnostics bufnr=0 theme=get_ivy"
         end,
       },
     },
@@ -70,7 +70,7 @@ require("lualine").setup {
         end,
         color = { gui = "bold" },
         on_click = function()
-          vim.cmd "LspInfo"
+          vim.cmd.LspInfo()
         end,
       },
     },
@@ -83,7 +83,7 @@ require("lualine").setup {
           return { fg = GetGlobal("lsp", "auto_format") and "#A9B665" or "#EA6962" }
         end,
         on_click = function()
-          vim.cmd "ToggleAutoFormat"
+          vim.cmd.ToggleAutoFormat()
         end,
       },
     },

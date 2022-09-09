@@ -2,8 +2,7 @@ if false then
   return
 end
 
-local cmd = "Dotenv ~/.dotfiles/.env"
-vim.cmd(cmd)
+vim.cmd.Dotenv "~/.dotfiles/.env"
 
 SetGlobal("calendar", {
   locale = "de",

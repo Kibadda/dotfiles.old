@@ -51,7 +51,6 @@ return require("packer").startup {
     use "itchyny/calendar.vim"
     use "tpope/vim-dotenv"
     use "justinhj/battery.nvim"
-    use "WilsonOh/emoji_picker-nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

@@ -47,6 +47,7 @@ return require("packer").startup {
     use "ethanholz/nvim-lastplace"
     use "rest-nvim/rest.nvim"
     use "phaazon/hop.nvim"
+    use "stevearc/dressing.nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

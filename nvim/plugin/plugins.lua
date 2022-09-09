@@ -50,6 +50,7 @@ return require("packer").startup {
     use "stevearc/dressing.nvim"
     use "itchyny/calendar.vim"
     use "tpope/vim-dotenv"
+    use "justinhj/battery.nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

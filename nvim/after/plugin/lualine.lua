@@ -89,6 +89,9 @@ require("lualine").setup {
     },
     lualine_z = {
       function()
+        return require("battery").get_status_line()
+      end,
+      function()
         local cursor = vim.api.nvim_win_get_cursor(0)
         return string.format("%03d:%03d", cursor[1], cursor[2] + 1)
       end,

@@ -46,7 +46,7 @@ return require("packer").startup {
     use { "iamcco/markdown-preview.nvim", run = "cd app && npm install" }
     use "ethanholz/nvim-lastplace"
     use "rest-nvim/rest.nvim"
-    use { "phaazon/hop.nvim", branch = "v2" }
+    use "phaazon/hop.nvim"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

@@ -27,7 +27,15 @@ function RegisterKeymaps(options)
   if options.prefix == nil then
     error "RegisterKeymap: prefix is not set"
   end
-  require("which-key").register(keymaps, options)
+  if options.mode == "" then
+    for lhs, rhs in pairs(keymaps) do
+      vim.keymap.set("", lhs, rhs[1], {
+        desc = rhs[2],
+      })
+    end
+  else
+    require("which-key").register(keymaps, options)
+  end
 end
 
 ---for wrapped lines: gj/gk, for large jumps: add to jump list

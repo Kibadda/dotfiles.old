@@ -1,6 +1,3 @@
-_ = vim.cmd.packadd "packer.nvim"
-_ = vim.cmd.packadd "vimball"
-
 return require("packer").startup {
   function(use)
     use "wbthomason/packer.nvim"

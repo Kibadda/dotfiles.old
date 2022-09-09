@@ -68,6 +68,6 @@ require("nvim-autopairs").add_rules {
   Rule("then$", "end", "lua"):use_regex(true):end_wise(cond.is_end_line()),
   Rule("do$", "end", "lua"):use_regex(true):end_wise(cond.is_end_line()),
   Rule("function[^%(]*%([^%)]*%)$", "end", "lua"):use_regex(true):end_wise(function(opts)
-    return string.match(opts.next_char, "%).*") or opts.next_char == ""
+    return cond.is_end_line() or string.match(opts.next_char, "%s*[%)%]%}].*")
   end),
 }

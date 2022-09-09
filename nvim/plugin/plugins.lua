@@ -48,6 +48,8 @@ return require("packer").startup {
     use "rest-nvim/rest.nvim"
     use "phaazon/hop.nvim"
     use "stevearc/dressing.nvim"
+    use "itchyny/calendar.vim"
+    use "tpope/vim-dotenv"
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-path"

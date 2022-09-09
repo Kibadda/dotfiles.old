@@ -87,6 +87,13 @@ function GetFormatOptions(options)
     - "2" -- use first line for indent
 end
 
+---get env variable
+---
+---@param name string
+function Env(name)
+  return os.getenv(name)
+end
+
 ---open plugin under cursor in browser
 ---
 ---@param open_in_browser boolean wether to open plugin in browser or in file.

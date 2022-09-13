@@ -151,7 +151,7 @@ alias d='tmux detach'
 alias l='lvim'
 
 n() {
-    nvim $1 && clear
+    nvim "$@" && clear
 }
 
 alias swap='setxkbmap -option caps:swapescape'

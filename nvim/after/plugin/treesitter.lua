@@ -45,6 +45,7 @@ require("nvim-treesitter.configs").setup {
 require("nvim-treesitter.parsers").get_parser_configs().smarty = {
   install_info = {
     url = "https://github.com/Kibadda/tree-sitter-smarty",
+    -- url = "/home/michael/plugins/tree-sitter-smarty",
     files = { "src/parser.c", "src/scanner.cc" },
     branch = "master",
   },

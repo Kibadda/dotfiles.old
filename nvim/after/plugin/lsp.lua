@@ -1,4 +1,4 @@
-if not PluginsOk { "mason", "mason-lspconfig" } then
+if not PluginsOk { "mason", "mason-lspconfig", "mason-null-ls" } then
   return
 end
 
@@ -23,6 +23,19 @@ require("mason-lspconfig").setup {
     "vls",
   },
 }
+require("mason-null-ls").setup {
+  ensure_installed = {
+    "stylua",
+    "prettier",
+  },
+}
+require("mason-null-ls").check_install(true)
+
+if not vim.fn.exists "g:lsp_auto_format" then
+  SetGlobal("lsp", {
+    auto_format = false,
+  })
+end
 
 RegisterKeymaps {
   mode = "n",
@@ -35,12 +48,6 @@ RegisterKeymaps {
     },
   },
 }
-
-if not vim.fn.exists "g:lsp_auto_format" then
-  SetGlobal("lsp", {
-    auto_format = false,
-  })
-end
 
 local custom_attach = function(client)
   RegisterKeymaps {

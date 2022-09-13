@@ -56,10 +56,11 @@ return require("packer").startup {
     use "hrsh7th/cmp-nvim-lsp"
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
     use "jose-elias-alvarez/null-ls.nvim"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
+    use "jayp0521/mason-null-ls.nvim"
     use "folke/lua-dev.nvim"
   end,
   config = {

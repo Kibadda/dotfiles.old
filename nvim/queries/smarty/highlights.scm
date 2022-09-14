@@ -47,6 +47,10 @@
 (smarty_attribute
   (attribute_value) @string)
 
+(smarty_value) @string
+
+(smarty_inline) @tag.delimiter
+
 (smarty_comment) @comment
 
 [

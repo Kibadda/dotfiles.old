@@ -23,7 +23,8 @@ RegisterKeymaps {
       b = { "<Cmd>Telescope git_branches<CR>", "Checkout Branches" },
       c = { "<Cmd>Telescope git_commits<CR>", "Checkout Commit" },
       C = { "<Cmd>Telescope git_bcommits<CR>", "Checkout Commit (current file)" },
-      r = { "<Cmd>Gitsigns reset_buffer<CR>", "Reset Buffer" },
+      r = { "<Cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
+      R = { "<Cmd>Gitsigns reset_buffer<CR>", "Reset Buffer" },
     },
   },
 }

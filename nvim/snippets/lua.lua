@@ -4,15 +4,18 @@ local s = luasnip.snippet
 local i = luasnip.insert_node
 local n = luasnip.snippet_node
 local d = luasnip.dynamic_node
+local f = luasnip.function_node
 
 return {
   s(
     "pok",
     fmt(
       [[
-        if not PluginsOk "{}" then
+        if not PluginsOk "[]" then
           return
         end
+
+        require("[]").setup {[]}
       ]],
       {
         d(1, function()
@@ -21,6 +24,13 @@ return {
             i(1, current_file_name),
           })
         end),
+        f(function(args)
+          return args[1]
+        end, { 1 }),
+        i(0),
+      },
+      {
+        delimiters = "[]",
       }
     )
   ),

@@ -2,7 +2,7 @@ SetOptions {
   pumblend = 17,
   wildmode = "longest:full,full",
   wildoptions = "pum",
-  cmdheight = 2,
+  cmdheight = 0,
   relativenumber = true,
   number = true,
   ignorecase = true,

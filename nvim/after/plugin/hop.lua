@@ -1,4 +1,4 @@
-if not PluginsOk "hop" then
+if true or not PluginsOk "hop" then
   return
 end
 

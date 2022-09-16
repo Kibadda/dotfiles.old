@@ -1,5 +1,4 @@
 ---pretty print given value
----
 ---@param value any
 ---@return any
 function P(value)
@@ -8,7 +7,6 @@ function P(value)
 end
 
 ---register keymaps
----
 ---local options = {
 ---  mode = "n",
 ---  prefix = "<Leader>",
@@ -17,7 +15,6 @@ end
 ---    f = { "<Cmd>Telescope find_files<CR>", "Find files" }
 ---  },
 ---}
----
 ---@param options table
 function RegisterKeymaps(options)
   local keymaps = table.remove(options, 1)
@@ -45,7 +42,6 @@ function RegisterKeymaps(options)
 end
 
 ---for wrapped lines: gj/gk, for large jumps: add to jump list
----
 ---@param direction string
 function JumpDirection(direction)
   local count = vim.v.count
@@ -63,7 +59,6 @@ function JumpDirection(direction)
 end
 
 ---set value depending if cwd is cortex
----
 ---@param value_if_work any
 ---@param default any
 function SetValue(value_if_work, default)
@@ -77,8 +72,7 @@ function SetValue(value_if_work, default)
 end
 
 ---apply formatoptions
----
----@param options any opt/opt_local
+---@param options any
 ---@return any
 function GetFormatOptions(options)
   return options.formatoptions
@@ -94,7 +88,6 @@ function GetFormatOptions(options)
 end
 
 ---get env variable
----
 ---@param name string
 function Env(name)
   return os.getenv(name)
@@ -130,9 +123,6 @@ function OpenInGitub()
 end
 
 ---open plugin under cursor in browser
----
----@param open_in_browser boolean wether to open plugin in browser or in file.
----
 ---works with:
 ---use "author/plugin"
 ---use { "author/plugin", run = "do stuff" }
@@ -142,6 +132,7 @@ end
 ---    P "Hello World!"
 ---  end,
 ---}
+---@param open_in_browser boolean
 function OpenPlugin(open_in_browser)
   if open_in_browser == nil then
     error "[OpenPlugin]: open_in_browser must be set"

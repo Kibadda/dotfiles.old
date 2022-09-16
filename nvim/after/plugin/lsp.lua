@@ -50,13 +50,14 @@ RegisterKeymaps {
 }
 
 local custom_attach = function(client)
+  local handlers = require "user.lsp.handlers"
   RegisterKeymaps {
     mode = "n",
     prefix = "",
     buffer = 0,
     {
       K = { vim.lsp.buf.hover, "Hover" },
-      gd = { vim.lsp.buf.definition, "Definition" },
+      gd = { handlers.definition, "Definition" },
       gr = { "<Cmd>Telescope lsp_references theme=ivy<CR>", "References" },
     },
   }

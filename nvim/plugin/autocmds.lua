@@ -34,8 +34,8 @@ vim.api.nvim_create_autocmd("TermClose", {
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  group = vim.api.nvim_create_augroup("EnterInsterInTerm", { clear = true }),
-  pattern = "term://",
+  group = vim.api.nvim_create_augroup("EnterInsertInTerm", { clear = true }),
+  pattern = "term://*",
   callback = function()
     vim.cmd.startinsert()
   end,

@@ -50,7 +50,6 @@ return require("packer").startup {
     use "stevearc/dressing.nvim"
     use "tpope/vim-repeat"
     use "tpope/vim-dotenv"
-    use "VonHeikemen/fine-cmdline.nvim"
     use "VonHeikemen/searchbox.nvim"
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"

@@ -77,6 +77,7 @@ local custom_attach = function(client)
         d = { "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>", "Show Buffer Diagnostics" },
         w = { "<Cmd>Telescope diagnostics theme=ivy<CR>", "Show Diagnostics" },
         r = { vim.lsp.buf.rename, "Rename" },
+        R = { handlers.rename, "Rename with Qf" },
         t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
       },
     },

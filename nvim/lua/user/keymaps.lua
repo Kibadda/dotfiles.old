@@ -14,7 +14,7 @@ RegisterKeymaps {
     },
     h = { "<Cmd>SearchBoxClear<CR>", "Remove highlight" },
     Q = { "<Cmd>DetachTmux<CR>", "Detach" },
-    P = { "<Cmd>e nvim/plugin/plugins.lua<CR>", "Edit Plugins" },
+    P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
   },
 }
 

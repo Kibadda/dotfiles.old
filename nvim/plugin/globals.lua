@@ -62,7 +62,7 @@ function JumpDirection(direction)
   vim.cmd.normal { count .. direction, bang = true }
 end
 
----set value depending if cwd is cortx
+---set value depending if cwd is cortex
 ---
 ---@param value_if_work any
 ---@param default any

@@ -8,10 +8,12 @@ require("searchbox").setup {
     confirm = "menu",
     show_matches = true,
   },
+  popup = {
+    win_options = {
+      winhighlight = "Normal:FloatBorder,FloatBorder:FloatBorder",
+    },
+  },
 }
-
--- fix highlighting of popup menus
-vim.cmd.highlight "FloatBorder guifg=#e0e0e0 guibg=#282c34"
 
 RegisterKeymaps {
   mode = "n",

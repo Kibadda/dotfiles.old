@@ -6,6 +6,11 @@ require("fine-cmdline").setup {
   cmdline = {
     prompt = " ",
   },
+  popup = {
+    win_options = {
+      winhighlight = "Normal:FloatBorder,FloatBorder:FloatBorder",
+    },
+  },
 }
 
 RegisterKeymaps {

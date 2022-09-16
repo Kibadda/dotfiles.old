@@ -14,10 +14,7 @@ if not PluginsOk "packer" then
   print(out)
   print "Downloading packer.nvim"
 
-  if vim.fn.input "Restart now? (y for yes)" ~= "y" then
-    return
-  end
-
+  vim.fn.input "You need to restart now"
   vim.cmd.qa()
 
   return true

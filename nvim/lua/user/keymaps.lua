@@ -1,7 +1,3 @@
-SetGlobal("", {
-  mapleader = " ",
-})
-
 RegisterKeymaps {
   mode = "n",
   prefix = "<Leader>",

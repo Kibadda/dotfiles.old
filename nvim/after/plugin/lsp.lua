@@ -51,6 +51,8 @@ RegisterKeymaps {
 
 local custom_attach = function(client)
   local handlers = require "user.lsp.handlers"
+  handlers.hoverBorderStyle()
+
   RegisterKeymaps {
     mode = "n",
     prefix = "",

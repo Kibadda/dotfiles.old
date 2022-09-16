@@ -1,5 +1,12 @@
 local M = {}
 
+---change border style of hover handler
+function M.hoverBorderStyle()
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "single",
+  })
+end
+
 ---filter out framework results if at least one other result is found
 function M.definition()
   local params = vim.lsp.util.make_position_params(0, "utf-8")

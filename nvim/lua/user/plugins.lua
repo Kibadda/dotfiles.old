@@ -7,6 +7,10 @@ return require("packer").startup {
     use "MunifTanjim/nui.nvim"
     use "nvim-lua/plenary.nvim"
 
+    -- Colorscheme
+    use "tjdevries/colorbuddy.nvim"
+    use "tjdevries/gruvbuddy.nvim"
+
     -- Plugins
     use "akinsho/bufferline.nvim"
     use "alexghergh/nvim-tmux-navigation"
@@ -44,8 +48,6 @@ return require("packer").startup {
     use "romainl/vim-qf"
     use "sickill/vim-pasta"
     use "stevearc/dressing.nvim"
-    use "tjdevries/colorbuddy.nvim"
-    use "tjdevries/gruvbuddy.nvim"
     use "tpope/vim-repeat"
     use "tpope/vim-dotenv"
     use "VonHeikemen/fine-cmdline.nvim"

@@ -86,6 +86,7 @@ RegisterKeymaps {
   {
     ["<S-CR>"] = { "<C-o>o", "New line on bottom" },
     ["<C-CR>"] = { "<C-o>O", "New line on top" },
+    -- <C-h> == <C-BS>
     ["<C-h>"] = { "<C-w>", "Remove previous word" },
   },
 }

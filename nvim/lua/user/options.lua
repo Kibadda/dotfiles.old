@@ -9,7 +9,7 @@ SetOptions {
   smartcase = true,
   splitright = true,
   splitbelow = true,
-  updatetime = 1000,
+  updatetime = 250,
   scrolloff = 8,
   sidescrolloff = 8,
   cursorline = true,
@@ -37,7 +37,3 @@ SetOptions {
   formatoptions = GetFormatOptions(vim.opt),
   textwidth = 120,
 }
-
-SetGlobal("cursorhold", {
-  updatetime = 250,
-})

@@ -15,7 +15,6 @@ return require("packer").startup {
     use "akinsho/bufferline.nvim"
     use "alexghergh/nvim-tmux-navigation"
     use "AndrewRadev/splitjoin.vim"
-    use "antoinemadec/FixCursorHold.nvim"
     use "dhruvasagar/vim-open-url"
     use "ethanholz/nvim-lastplace"
     use "fladson/vim-kitty"

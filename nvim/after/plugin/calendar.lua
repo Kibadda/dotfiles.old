@@ -1,4 +1,4 @@
-if false then
+if not GetGlobal("loaded", "calendar") then
   return
 end
 

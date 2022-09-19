@@ -1,3 +1,7 @@
+if not GetGlobal("loaded", "rnvimr") then
+  return
+end
+
 SetGlobal("rnvimr", {
   vanilla = true,
   enable_ex = true,

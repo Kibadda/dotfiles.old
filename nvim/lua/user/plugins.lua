@@ -40,7 +40,6 @@ return require("packer").startup {
     use "nvim-telescope/telescope-fzy-native.nvim"
     use "nvim-telescope/telescope-symbols.nvim"
     use "nvim-telescope/telescope-ui-select.nvim"
-    use "phaazon/hop.nvim"
     use "phaazon/mind.nvim"
     use "rcarriga/nvim-notify"
     use "rest-nvim/rest.nvim"

@@ -73,8 +73,8 @@ local M = {}
 ---setup all configured servers
 function M.setup()
   local lsp = require "user.lsp"
-  local attach = lsp.attach()
-  local capabilities = lsp.capabilities()
+  local attach = lsp.get_on_attach()
+  local capabilities = lsp.get_capabilities()
 
   for server, config in pairs(server_list) do
     setup_server {

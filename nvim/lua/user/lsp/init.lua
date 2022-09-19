@@ -1,7 +1,7 @@
 local M = {}
 
 ---custom attach
-function M.attach()
+function M.get_on_attach()
   return function(client)
     local handlers = require "user.lsp.handlers"
     handlers.hoverBorderStyle()
@@ -70,7 +70,7 @@ end
 
 ---get capabilities
 ---@return table
-function M.capabilities()
+function M.get_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   if PluginsOk "cmp_nvim_lsp" then
     capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)

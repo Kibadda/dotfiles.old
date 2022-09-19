@@ -30,7 +30,7 @@ function M.get_on_attach()
           d = { "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>", "Show Buffer Diagnostics" },
           w = { "<Cmd>Telescope diagnostics theme=ivy<CR>", "Show Diagnostics" },
           r = { vim.lsp.buf.rename, "Rename" },
-          R = { handlers.rename, "Rename with Qf" },
+          R = { "<Cmd>LspRestart<CR>", "Restart" },
           t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
         },
       },

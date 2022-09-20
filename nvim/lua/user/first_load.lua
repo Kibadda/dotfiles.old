@@ -1,20 +1,13 @@
 if not PluginsOk "packer" then
-  if vim.fn.input "Download Packer? (y for yes)" ~= "y" then
-    return
-  end
-
   local directory = string.format("%s/site/pack/packer/start/", vim.fn.stdpath "data")
 
   vim.fn.mkdir(directory, "p")
 
-  local out = vim.fn.system(
-    string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "/packer.nvim")
-  )
+  local github_url = "https://github.com/wbthomason/packer.nvim"
 
-  print(out)
-  print "Downloading packer.nvim"
+  vim.fn.system(string.format("git clone %s %s", github_url, directory .. "/packer.nvim"))
 
-  vim.fn.input "You need to restart now"
+  vim.fn.input "You need to restart now (press anything to continue)"
   vim.cmd.qa()
 
   return true

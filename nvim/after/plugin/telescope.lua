@@ -10,10 +10,8 @@ require("telescope").setup {
         ["<C-k>"] = "move_selection_previous",
       },
     },
-    file_ignore_patterns = {
-      "dotbot",
-      "vendor",
-    },
+    -- TODO: somehow exclude files which path start with htdocs
+    -- file_ignore_patterns = {},
   },
 }
 

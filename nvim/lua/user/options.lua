@@ -33,7 +33,7 @@ SetOptions {
   signcolumn = "yes:2",
   timeoutlen = 100,
   termguicolors = true,
-  winbar = "%=%m %f:%L ",
+  winbar = "%=%m %{fnamemodify(expand('%'), ':.')}:%L ",
   formatoptions = GetFormatOptions(vim.opt),
   textwidth = 120,
 }

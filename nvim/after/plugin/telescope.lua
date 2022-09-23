@@ -46,6 +46,10 @@ RegisterKeymaps {
 }
 
 local function terminal_emojis(source)
+  if type(source) ~= "table" then
+    source = { source }
+  end
+
   require("telescope.builtin").symbols {
     attach_mappings = function(prompt_bufnr, map)
       local function close_telescope(callback)
@@ -67,7 +71,7 @@ local function terminal_emojis(source)
       end)
       return true
     end,
-    sources = { source },
+    sources = source,
   }
 end
 

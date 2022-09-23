@@ -48,6 +48,7 @@ RegisterKeymaps {
       name = "Lsp",
       M = { "<Cmd>Mason<CR>", "Mason" },
       L = { "<Cmd>LspInfo<CR>", "LspInfo" },
+      t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
     },
   },
 }

@@ -32,7 +32,6 @@ function M.get_on_attach()
           w = { "<Cmd>Telescope diagnostics theme=ivy<CR>", "Show Diagnostics" },
           r = { vim.lsp.buf.rename, "Rename" },
           R = { "<Cmd>LspRestart<CR>", "Restart" },
-          t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
         },
       },
     }

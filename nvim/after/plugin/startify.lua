@@ -34,10 +34,10 @@ SetGlobal("startify", {
       type = "sessions",
       header = pad { "Sessions" },
     },
-    {
-      type = "commands",
-      header = pad { "Commands" },
-    },
+    -- {
+    --   type = "commands",
+    --   header = pad { "Commands" },
+    -- },
   },
   commands = {
     {

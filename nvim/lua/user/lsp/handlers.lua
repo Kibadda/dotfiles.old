@@ -66,6 +66,10 @@ function M.progessNotifcation()
   local notify = require "user.notify"
 
   vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+    if not GetGlobal("lsp", "progress_notifications") then
+      return
+    end
+
     local client_id = ctx.client_id
 
     local val = result.value

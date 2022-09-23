@@ -12,6 +12,7 @@ function M.get_on_attach()
       buffer = 0,
       {
         K = { vim.lsp.buf.hover, "Hover" },
+        ["<C-S-k>"] = { vim.diagnostic.open_float, "Diagnostic" },
         gd = { handlers.definition, "Definition" },
         gr = { "<Cmd>Telescope lsp_references theme=ivy<CR>", "References" },
       },

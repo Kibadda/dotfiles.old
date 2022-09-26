@@ -4,6 +4,7 @@ end
 
 require("telescope").setup {
   defaults = {
+    winblend = 20,
     mappings = {
       i = {
         ["<C-j>"] = "move_selection_next",
@@ -57,7 +58,7 @@ RegisterKeymaps {
       r = { "<Cmd>Telescope registers theme=ivy<CR>", "Registers" },
       c = { "<Cmd>Telescope commands theme=ivy<CR>", "Commands" },
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
-      e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
+      e = { "<Cmd>Telescope symbols theme=ivy<CR>", "Emojis" },
       a = { "<Cmd>Telescope telescope-alternate alternate_file theme=ivy<CR>", "Alternate" },
     },
   },
@@ -67,7 +68,7 @@ RegisterKeymaps {
   mode = "i",
   prefix = "",
   {
-    ["<M-e>"] = { "<Cmd>Telescope symbols<CR>", "Emojis" },
+    ["<M-e>"] = { "<Cmd>Telescope symbols theme=ivy<CR>", "Emojis" },
   },
 }
 
@@ -76,7 +77,7 @@ local function terminal_emojis(source)
     source = { source }
   end
 
-  require("telescope.builtin").symbols {
+  require("telescope.builtin").symbols(require("telescope.themes").get_ivy {
     attach_mappings = function(prompt_bufnr, map)
       local function close_telescope(callback)
         local actions = require "telescope.actions"
@@ -98,7 +99,7 @@ local function terminal_emojis(source)
       return true
     end,
     sources = source,
-  }
+  })
 end
 
 RegisterKeymaps {

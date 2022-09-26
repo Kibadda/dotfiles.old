@@ -29,7 +29,9 @@ vim.api.nvim_create_autocmd("TermClose", {
   group = vim.api.nvim_create_augroup("CloseBufferAfterTermClose", { clear = true }),
   pattern = "*",
   callback = function()
-    vim.cmd.bd { bang = true }
+    if vim.bo.filetype ~= "TelescopePrompt" then
+      vim.cmd.bd { bang = true }
+    end
   end,
 })
 

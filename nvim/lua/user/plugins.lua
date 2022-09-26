@@ -12,6 +12,7 @@ return require("packer").startup {
     use "tjdevries/gruvbuddy.nvim"
 
     -- Plugins
+    use "AckslD/messages.nvim"
     use "akinsho/bufferline.nvim"
     use "alexghergh/nvim-tmux-navigation"
     use "AndrewRadev/splitjoin.vim"

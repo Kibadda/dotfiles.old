@@ -78,6 +78,7 @@ local function terminal_emojis(source)
   end
 
   require("telescope.builtin").symbols(require("telescope.themes").get_ivy {
+    winblend = 0,
     attach_mappings = function(prompt_bufnr, map)
       local function close_telescope(callback)
         local actions = require "telescope.actions"

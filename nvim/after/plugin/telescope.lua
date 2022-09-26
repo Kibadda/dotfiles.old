@@ -13,7 +13,32 @@ require("telescope").setup {
     -- TODO: somehow exclude files which path start with htdocs
     -- file_ignore_patterns = {},
   },
+  extensions = {
+    -- FIX: multiple files not working
+    ["telescope-alternate"] = {
+      mappings = {
+        {
+          "project/lib/objects/(.*).class.php",
+          { "project/lib/dao/[1]DAO.class.php", "DAO" },
+          { "project/templates/**/[1:pascal_to_snake]*.tpl", "Template" },
+          { "project/htdocs/**/[1:pascal_to_snake]*.php", "Controller" },
+          { "project/htdocs/static/js/*[1:pascal_to_snake]*.js", "Script" },
+        },
+      },
+      transformers = {
+        pascal_to_snake = function(w)
+          local toReturn = {}
+          for word in string.gmatch(w, "%u%U*") do
+            table.insert(toReturn, string.lower(word))
+          end
+          return table.concat(toReturn, "_")
+        end,
+      },
+    },
+  },
 }
+
+require("telescope").load_extension "telescope-alternate"
 
 RegisterKeymaps {
   mode = "n",
@@ -33,6 +58,7 @@ RegisterKeymaps {
       c = { "<Cmd>Telescope commands theme=ivy<CR>", "Commands" },
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
       e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
+      a = { "<Cmd>Telescope telescope-alternate alternate_file theme=ivy<CR>", "Alternate" },
     },
   },
 }

@@ -38,6 +38,7 @@ return require("packer").startup {
     use "nvim-treesitter/playground"
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-symbols.nvim"
+    use "otavioschwanck/telescope-alternate.nvim"
     use "phaazon/mind.nvim"
     use "rcarriga/nvim-notify"
     use "rest-nvim/rest.nvim"

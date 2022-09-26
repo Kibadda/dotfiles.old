@@ -65,6 +65,9 @@ return require("packer").startup {
     use "saadparwaiz1/cmp_luasnip"
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
+
+    -- self
+    use "Kibadda/laravel-docs.nvim"
   end,
   config = {
     autoremove = true,

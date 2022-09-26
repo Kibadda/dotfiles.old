@@ -40,6 +40,7 @@ require("telescope").setup {
 }
 
 require("telescope").load_extension "telescope-alternate"
+require("telescope").load_extension "laraveldocs"
 
 RegisterKeymaps {
   mode = "n",
@@ -60,6 +61,7 @@ RegisterKeymaps {
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
       e = { "<Cmd>Telescope symbols theme=ivy<CR>", "Emojis" },
       a = { "<Cmd>Telescope telescope-alternate alternate_file theme=ivy<CR>", "Alternate" },
+      l = { "<Cmd>Telescope laraveldocs theme=ivy<CR>", "Laravel Docs" },
     },
   },
 }

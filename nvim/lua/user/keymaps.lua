@@ -71,6 +71,8 @@ RegisterKeymaps {
     Y = { "myY`y", "Yank" },
     ["<"] = { "<gv", "dedent" },
     [">"] = { ">gv", "indent" },
+    ["<M-j>"] = { ":m '>+1<CR>gv=gv", "Move lines down" },
+    ["<M-k>"] = { ":m '<-2<CR>gv=gv", "Move lines up" },
   },
 }
 

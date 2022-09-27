@@ -3,7 +3,7 @@ if not PluginsOk "telescope" then
 end
 
 require("telescope").setup {
-  defaults = {
+  defaults = require("telescope.themes").get_ivy {
     winblend = 20,
     mappings = {
       i = {
@@ -49,21 +49,21 @@ RegisterKeymaps {
   mode = "n",
   prefix = "<Leader>",
   {
-    f = { "<Cmd>Telescope find_files theme=ivy<CR>", "Find Files" },
-    F = { "<Cmd>Telescope find_files no_ignore=true theme=ivy<CR>", "Find All Files" },
+    f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+    F = { "<Cmd>Telescope find_files no_ignore=true<CR>", "Find All Files" },
     s = {
       name = "Search",
-      g = { "<Cmd>Telescope live_grep theme=ivy<CR>", "Live Grep" },
-      h = { "<Cmd>Telescope help_tags theme=ivy<CR>", "Help" },
-      b = { "<Cmd>Telescope builtin theme=ivy<CR>", "Builtin" },
-      n = { "<Cmd>Telescope notify theme=ivy<CR>", "Notifications" },
-      k = { "<Cmd>Telescope keymaps theme=ivy<CR>", "Keymaps" },
-      H = { "<Cmd>Telescope highlights theme=ivy<CR>", "Highlights" },
-      r = { "<Cmd>Telescope registers theme=ivy<CR>", "Registers" },
-      c = { "<Cmd>Telescope commands theme=ivy<CR>", "Commands" },
+      g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
+      h = { "<Cmd>Telescope help_tags<CR>", "Help" },
+      b = { "<Cmd>Telescope builtin<CR>", "Builtin" },
+      n = { "<Cmd>Telescope notify<CR>", "Notifications" },
+      k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
+      H = { "<Cmd>Telescope highlights<CR>", "Highlights" },
+      r = { "<Cmd>Telescope registers<CR>", "Registers" },
+      c = { "<Cmd>Telescope commands<CR>", "Commands" },
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
-      e = { "<Cmd>Telescope symbols theme=ivy<CR>", "Emojis" },
-      a = { "<Cmd>Telescope telescope-alternate alternate_file theme=ivy<CR>", "Alternate" },
+      e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
+      a = { "<Cmd>Telescope telescope-alternate alternate_file<CR>", "Alternate" },
       l = { "<Cmd>Telescope laravel-docs theme=dropdown<CR>", "Laravel Docs" },
     },
   },
@@ -73,7 +73,7 @@ RegisterKeymaps {
   mode = "i",
   prefix = "",
   {
-    ["<M-e>"] = { "<Cmd>Telescope symbols theme=ivy<CR>", "Emojis" },
+    ["<M-e>"] = { "<Cmd>Telescope symbols<CR>", "Emojis" },
   },
 }
 
@@ -82,7 +82,7 @@ local function terminal_emojis(source)
     source = { source }
   end
 
-  require("telescope.builtin").symbols(require("telescope.themes").get_ivy {
+  require("telescope.builtin").symbols {
     winblend = 0,
     attach_mappings = function(prompt_bufnr, map)
       local function close_telescope(callback)
@@ -105,7 +105,7 @@ local function terminal_emojis(source)
       return true
     end,
     sources = source,
-  })
+  }
 end
 
 RegisterKeymaps {

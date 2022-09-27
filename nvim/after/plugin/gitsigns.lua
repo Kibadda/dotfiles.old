@@ -16,7 +16,7 @@ RegisterKeymaps {
       l = { "<Cmd>Gitsigns blame_line<CR>", "Blame Line" },
       s = { "<Cmd>Telescope git_status<CR>", "Status" },
       g = {
-        -- FIX: I really do not know why
+        -- FIX: I really do not know why (╯°□°)╯︵ ┻━┻
         function()
           if not string.find(vim.fn.getcwd(), "^/media/beta/") then
             vim.cmd.Lazygit()

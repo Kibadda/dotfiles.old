@@ -3,16 +3,27 @@ if not PluginsOk "telescope" then
 end
 
 require("telescope").setup {
-  defaults = require("telescope.themes").get_ivy {
+  defaults = {
+    sorting_strategy = "ascending",
+    layout_strategy = "bottom_pane",
     winblend = 20,
+    prompt_prefix = "Search: ",
+    results_title = false,
+    borderchars = {
+      prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
+      results = { " ", " ", "─", "│", " ", " ", "─", "└" },
+      preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
+    },
     mappings = {
       i = {
         ["<C-j>"] = "move_selection_next",
         ["<C-k>"] = "move_selection_previous",
       },
     },
-    -- TODO: somehow exclude files which path start with htdocs
-    -- file_ignore_patterns = {},
+    -- TODO: somehow exclude files which path start with htdocs in "Telescope lsp_references"
+    -- file_ignore_patterns = {
+    --   "^htdocs/",
+    -- },
   },
   extensions = {
     -- FIX: multiple files not working

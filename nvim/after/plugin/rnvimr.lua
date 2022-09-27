@@ -17,7 +17,6 @@ SetGlobal("rnvimr", {
     "--cmd=set draw_borders both",
   },
 })
-vim.cmd.highlight "link RnvimrNormal CursorLine"
 
 RegisterKeymaps {
   mode = "n",

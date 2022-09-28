@@ -9,11 +9,11 @@ local cond = require "nvim-autopairs.conds"
 
 require("nvim-autopairs").add_rules {
   -- add spaces inside brackets
-  Rule(" ", " "):with_pair(function(opts)
+  Rule(" ", " ", "-markdown"):with_pair(function(opts)
     local pair = opts.line:sub(opts.col - 1, opts.col)
     return vim.tbl_contains({ "()", "[]", "{}" }, pair)
   end),
-  Rule("( ", " )")
+  Rule("( ", " )", "-markdown")
     :with_pair(function()
       return false
     end)
@@ -21,7 +21,7 @@ require("nvim-autopairs").add_rules {
       return opts.prev_char:match ".%)" ~= nil
     end)
     :use_key ")",
-  Rule("{ ", " }")
+  Rule("{ ", " }", "-markdown")
     :with_pair(function()
       return false
     end)
@@ -29,7 +29,7 @@ require("nvim-autopairs").add_rules {
       return opts.prev_char:match ".%}" ~= nil
     end)
     :use_key "}",
-  Rule("[ ", " ]")
+  Rule("[ ", " ]", "-markdown")
     :with_pair(function()
       return false
     end)

@@ -154,6 +154,8 @@ n() {
     nvim "$@" && clear
 }
 
+export EDITOR=/usr/local/bin/nvim
+
 alias swap='setxkbmap -option caps:swapescape'
 
 alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake

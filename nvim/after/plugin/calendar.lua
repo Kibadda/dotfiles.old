@@ -2,7 +2,12 @@ if not GetGlobal("loaded", "calendar") then
   return
 end
 
-vim.cmd.Dotenv "~/.dotfiles/.env"
+local envfile = "~/.dotfiles/.env"
+if vim.fn.filereadable(envfile) == 0 then
+  return
+end
+
+vim.cmd.Dotenv(envfile)
 
 SetGlobal("calendar", {
   locale = "de",

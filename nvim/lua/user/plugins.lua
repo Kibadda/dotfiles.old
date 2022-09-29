@@ -25,6 +25,7 @@ return require("packer").startup {
     use "folke/twilight.nvim"
     use { "iamcco/markdown-preview.nvim", run = "cd app && npm install" }
     use "itchyny/calendar.vim"
+    use "ja-ford/delaytrain.nvim"
     use "justinhj/battery.nvim"
     use "karb94/neoscroll.nvim"
     use "kevinhwang91/nvim-bqf"

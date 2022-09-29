@@ -3,12 +3,11 @@ if not PluginsOk "messages" then
 end
 
 require("messages").setup {
-  prepare_buffer = function(opts)
-    vim.cmd.split()
+  prepare_buffer = function()
+    vim.cmd.vsplit()
 
     local win = vim.api.nvim_get_current_win()
     local buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_win_set_height(win, opts.height)
     vim.api.nvim_win_set_buf(win, buf)
 
     RegisterKeymaps {
@@ -21,12 +20,6 @@ require("messages").setup {
     }
 
     return win
-  end,
-  buffer_opts = function(lines)
-    local gheight = vim.api.nvim_list_uis()[1].height
-    return {
-      height = math.floor(require("messages.utils").clip_val(1, #lines, gheight * 0.5)),
-    }
   end,
 }
 

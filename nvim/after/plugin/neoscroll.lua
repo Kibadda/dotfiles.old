@@ -14,12 +14,6 @@ require("neoscroll").setup {
     "zz",
     "zb",
   },
-  -- pre_hook = function()
-  --   vim.wo.cursorline = false
-  -- end,
-  -- post_hook = function()
-  --   vim.wo.cursorline = true
-  -- end,
 }
 
 RegisterKeymaps {

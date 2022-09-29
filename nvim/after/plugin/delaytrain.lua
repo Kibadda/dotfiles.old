@@ -1,4 +1,4 @@
-if not PluginsOk "delaytrain" then
+if true or not PluginsOk "delaytrain" then
   return
 end
 

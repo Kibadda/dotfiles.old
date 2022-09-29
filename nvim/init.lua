@@ -9,6 +9,8 @@ _ = {
   ]======================================],
 }
 
+require "impatient"
+
 require "user.globals"
 
 if require "user.first_load" then

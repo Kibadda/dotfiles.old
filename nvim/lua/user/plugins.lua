@@ -32,6 +32,7 @@ return require("packer").startup {
     use "kevinhwang91/rnvimr"
     use "kylechui/nvim-surround"
     use "lewis6991/gitsigns.nvim"
+    use "lewis6991/impatient.nvim"
     use "mhinz/vim-startify"
     use "norcalli/nvim-colorizer.lua"
     use "numToStr/Comment.nvim"

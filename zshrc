@@ -154,6 +154,17 @@ n() {
     nvim "$@" && clear
 }
 
+build_nvim() {
+  CURRENT=$(pwd)
+  cd ~/neovim
+  git fetch
+  git pull
+  echo "Sudo privileges are needed"
+  sudo make CMAKE_BUILD_TYPE=RelWithDebInfo
+  sudo make install
+  cd $CURRENT
+}
+
 export EDITOR=/usr/local/bin/nvim
 
 alias swap='setxkbmap -option caps:swapescape'

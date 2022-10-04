@@ -9,7 +9,7 @@ RegisterKeymaps {
   prefix = "<Leader>",
   {
     s = {
-      t = { "<Cmd>TodoTelescope theme=ivy<CR>", "Todos" },
+      t = { "<Cmd>TodoTelescope<CR>", "Todos" },
     },
   },
 }

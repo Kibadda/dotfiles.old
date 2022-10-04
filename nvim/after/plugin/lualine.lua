@@ -27,7 +27,7 @@ require("lualine").setup {
       {
         "diagnostics",
         on_click = function()
-          vim.cmd.Telescope "diagnostics bufnr=0 theme=get_ivy"
+          vim.cmd.Telescope "diagnostics bufnr=0"
         end,
       },
     },
@@ -35,7 +35,7 @@ require("lualine").setup {
       function()
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
         if vim.bo.filetype == "term" then
-          local split = vim.split(filename, ":")
+          local split = vim.split(filename, ":", { plain = true })
           filename = split[#split]
         end
 

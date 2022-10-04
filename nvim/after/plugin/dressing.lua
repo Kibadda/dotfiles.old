@@ -7,6 +7,6 @@ require("dressing").setup {
     winblend = 0,
   },
   select = {
-    telescope = require("telescope.themes").get_ivy { ... },
+    telescope = { ... },
   },
 }

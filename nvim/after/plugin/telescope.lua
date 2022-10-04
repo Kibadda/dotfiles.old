@@ -30,11 +30,22 @@ require("telescope").setup {
     ["telescope-alternate"] = {
       mappings = {
         {
-          "project/lib/objects/(.*).class.php",
-          { "project/lib/dao/[1]DAO.class.php", "DAO" },
-          { "project/templates/**/[1:pascal_to_snake]*.tpl", "Template" },
-          { "project/htdocs/**/[1:pascal_to_snake]*.php", "Controller" },
-          { "project/htdocs/static/js/*[1:pascal_to_snake]*.js", "Script" },
+          pattern = "project/lib/objects/(.*).class.php",
+          targets = {
+            { "project/lib/dao/[1]DAO.class.php", "DAO" },
+            { "project/templates/**/[1:pascal_to_snake]*.tpl", "Template" },
+            { "project/htdocs/**/[1:pascal_to_snake]*.php", "Controller" },
+            { "project/htdocs/static/js/*[1:pascal_to_snake]*.js", "Script" },
+          },
+        },
+        {
+          pattern = "project/lib/dao/(.*)DAO.class.php",
+          targets = {
+            { "project/lib/objects/[1].class.php", "Model" },
+            { "project/templates/**/[1:pascal_to_snake]*.tpl", "Template" },
+            { "project/htdocs/**/[1:pascal_to_snake]*.php", "Controller" },
+            { "project/htdocs/static/js/*[1:pascal_to_snake]*.js", "Script" },
+          },
         },
       },
       transformers = {

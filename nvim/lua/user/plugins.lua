@@ -19,6 +19,7 @@ return require("packer").startup {
     use "dhruvasagar/vim-open-url"
     use "ethanholz/nvim-lastplace"
     use "fladson/vim-kitty"
+    use "folke/noice.nvim"
     use "folke/which-key.nvim"
     use "folke/todo-comments.nvim"
     use "folke/zen-mode.nvim"

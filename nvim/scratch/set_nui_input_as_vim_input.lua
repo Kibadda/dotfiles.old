@@ -16,7 +16,7 @@ local function ui_input(options, on_confirm)
         },
       },
       win_options = {
-        winhighlight = "Normal:Normal,FloarBorder:Normal",
+        winhighlight = "Normal:Normal,FloatBorder:Normal",
       },
     }, options.popup_options or {}),
     vim.tbl_deep_extend("force", {

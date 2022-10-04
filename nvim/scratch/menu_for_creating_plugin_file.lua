@@ -15,7 +15,7 @@ local function open_menu()
       },
     },
     win_options = {
-      winhighlight = "Normal:Normal,FloarBorder:Normal",
+      winhighlight = "Normal:Normal,FloatBorder:Normal",
     },
   }
 
@@ -42,7 +42,7 @@ local function open_menu()
       },
       on_submit = function(item)
         if item.id == 1 then
-          P "open file"
+          vim.pretty_print "open file"
         elseif item.id == 2 then
           local input = Input(
             vim.tbl_deep_extend("force", options, {

@@ -1,11 +1,3 @@
----pretty print given value
----@param value any
----@return any
-function P(value)
-  print(vim.inspect(value))
-  return value
-end
-
 ---register keymaps
 ---local options = {
 ---  mode = "n",
@@ -180,7 +172,7 @@ function OpenPlugin(open_in_browser)
     local url = "https://github.com/" .. argument
     os.execute("xdg-open " .. url)
   else
-    local split = vim.split(argument, "/")
+    local split = vim.split(argument, "/", { plain = true })
     local file_name = split[#split]
     file_name = string.gsub(file_name, "nvim%-", "")
     file_name = string.gsub(file_name, "%.nvim", "")

@@ -73,6 +73,18 @@ RegisterKeymaps {
     [">"] = { ">gv", "indent" },
     ["<M-j>"] = { ":m '>+1<CR>gv=gv", "Move lines down" },
     ["<M-k>"] = { ":m '<-2<CR>gv=gv", "Move lines up" },
+    j = {
+      function()
+        JumpDirection "j"
+      end,
+      "Down",
+    },
+    k = {
+      function()
+        JumpDirection "k"
+      end,
+      "Up",
+    },
   },
 }
 

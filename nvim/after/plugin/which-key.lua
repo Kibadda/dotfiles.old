@@ -3,9 +3,11 @@ if not PluginsOk "which-key" then
 end
 
 require("which-key").setup {
-  spelling = {
-    enabled = true,
-    suggestions = 20,
+  plugins = {
+    spelling = {
+      enabled = true,
+      suggestions = 20,
+    },
   },
   window = {
     border = "single",

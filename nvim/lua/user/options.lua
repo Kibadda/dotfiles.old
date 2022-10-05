@@ -36,4 +36,5 @@ SetOptions {
   winbar = "%=%m %{fnamemodify(expand('%'), ':.')}:%L ",
   formatoptions = GetFormatOptions(vim.opt),
   textwidth = 120,
+  fileformats = "unix",
 }

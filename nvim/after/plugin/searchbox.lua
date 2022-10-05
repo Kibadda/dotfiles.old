@@ -1,4 +1,4 @@
-if not PluginsOk "searchbox" then
+if true or not PluginsOk "searchbox" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not pcall(require, "searchbox") then
+if true or not pcall(require, "searchbox") then
   return
 end
 

@@ -63,20 +63,10 @@ function SetValue(value_if_work, default)
   return default
 end
 
----apply formatoptions
----@param options any
----@return any
-function GetFormatOptions(options)
-  return options.formatoptions
-    - "a" -- do not auto format
-    - "t" -- do not autowrap
-    + "c" -- but do it for comments
-    + "q" -- comment formatting
-    - "o" -- do not insert comment leader when hitting o
-    + "r" -- but to it for Enter
-    + "n" -- format lists
-    + "j" -- remove comment leader for J
-    - "2" -- use first line for indent
+---get formatoptions
+---@return string
+function GetFormatOptions()
+  return "nljqrc"
 end
 
 ---get env variable
@@ -240,15 +230,23 @@ end
 ---@param options table
 function SetOptions(options)
   for key, value in pairs(options) do
-    vim.opt[key] = value
+    vim.o[key] = value
   end
 end
 
 ---set buffer local vim options
 ---@param options table
-function SetOptionsLocal(options)
+function SetBufferOptions(options)
   for key, value in pairs(options) do
-    vim.opt_local[key] = value
+    vim.bo[key] = value
+  end
+end
+
+---set window local vim options
+---@param options table
+function SetWindowOptions(options)
+  for key, value in pairs(options) do
+    vim.wo[key] = value
   end
 end
 

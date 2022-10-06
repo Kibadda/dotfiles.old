@@ -1,7 +1,7 @@
 local ts = SetValue(4, 2)
 
-SetOptionsLocal {
+SetBufferOptions {
   tabstop = ts,
   shiftwidth = ts,
-  formatoptions = GetFormatOptions(vim.opt_local),
+  formatoptions = GetFormatOptions(),
 }

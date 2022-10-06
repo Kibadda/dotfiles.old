@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
   callback = function()
-    SetOptionsLocal {
+    SetBufferOptions {
       filetype = "term",
     }
   end,

@@ -10,14 +10,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  group = vim.api.nvim_create_augroup("RemoveTrailingWhitespace", { clear = true }),
-  pattern = "*",
-  callback = function()
-    vim.cmd "%s/\\s\\+$//e"
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("SourcePluginFile", { clear = true }),
   pattern = "plugins.lua",
   callback = function()

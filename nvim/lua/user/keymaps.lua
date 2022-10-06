@@ -28,26 +28,21 @@ RegisterKeymaps {
     gS = { "Split line" },
     p = { "Paste" },
     P = { "Paste before" },
-    n = { "nzz", "next search" },
-    N = { "Nzz", "next search" },
-    ["#"] = { "#zz", "next search" },
-    ["*"] = { "*zz", "next search" },
     gB = { "Browser: Open URL" },
     ["g<CR>"] = { "Browser: Search word under cursor" },
     gG = { "Browser: Google Search word under cursor" },
     gW = { "Browser: Wikipedia Search word under cursor" },
+    n = { "nzz", "next search" },
+    N = { "Nzz", "next search" },
+    ["#"] = { "#zz", "next search" },
+    ["*"] = { "*zz", "next search" },
     ["<C-q>"] = { "<Plug>(qf_qf_toggle_stay)", "QF: toggle" },
     ["<C-Up>"] = { "<Plug>(qf_qf_previous)", "QF: prev" },
     ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
     ["<M-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
     ["<M-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
     yA = { "<Cmd>%y+<CR>", "Yank file content" },
-    gH = {
-      function()
-        OpenInGitub()
-      end,
-      "Open current github",
-    },
+    gH = { "<Cmd>OpenInGithub<CR>", "Open current github" },
     j = {
       function()
         JumpDirection "j"

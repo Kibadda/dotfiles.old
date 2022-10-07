@@ -15,6 +15,33 @@ RegisterKeymaps {
       k = { "<Cmd>Gitsigns prev_hunk<CR>", "Prev Hunk" },
       l = { "<Cmd>Gitsigns blame_line<CR>", "Blame Line" },
       s = { "<Cmd>Telescope git_status<CR>", "Status" },
+      -- S = {
+      --   function()
+      --     require("telescope.builtin").git_status {
+      --       attach_mappings = function(prompt_bufnr, map)
+      --         map("n", "c", function()
+      --           require("plenary.job")
+      --             :new({
+      --               command = "git",
+      --               args = {
+      --                 "commit",
+      --                 "-m",
+      --                 string.format([["%s"]], vim.fn.input "commit message: "),
+      --               },
+      --               cwd = vim.fn.getcwd(),
+      --               on_exit = function()
+      --                 require("telescope.actions").close(prompt_bufnr)
+      --               end,
+      --             })
+      --             :sync()
+      --         end)
+
+      --         return true
+      --       end,
+      --     }
+      --   end,
+      --   "Status",
+      -- },
       g = {
         -- FIX: I really do not know why (╯°□°)╯︵ ┻━┻
         function()

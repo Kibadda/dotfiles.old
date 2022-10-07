@@ -77,6 +77,7 @@ end
 
 ---open plugin under cursor in browser
 ---works with:
+---<pre>
 ---use "author/plugin"
 ---use { "author/plugin", run = "do stuff" }
 ---use {
@@ -85,6 +86,7 @@ end
 ---    P "Hello World!"
 ---  end,
 ---}
+---</pre>
 ---@param open_in_browser boolean
 function OpenPlugin(open_in_browser)
   if open_in_browser == nil then

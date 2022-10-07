@@ -59,7 +59,7 @@ require("telescope").setup {
       },
     },
     ["laravel-docs"] = {
-      preview = false,
+      preview = true,
     },
   },
 }
@@ -85,8 +85,9 @@ RegisterKeymaps {
       c = { "<Cmd>Telescope commands<CR>", "Commands" },
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
       e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
+      o = { "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Laravel Docs" },
       a = { "<Cmd>Telescope telescope-alternate alternate_file<CR>", "Alternate" },
-      l = { "<Cmd>Telescope laravel-docs theme=dropdown<CR>", "Laravel Docs" },
+      l = { "<Cmd>Telescope laravel-docs<CR>", "Laravel Docs" },
     },
   },
 }

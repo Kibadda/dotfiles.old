@@ -1,4 +1,4 @@
-if not PluginsOk "noice" then
+if true or not PluginsOk "noice" then
   return
 end
 
@@ -18,6 +18,11 @@ require("noice").setup {
     },
     {
       filter = { event = "msg_show", find = "L, " },
+      opts = { skip = true },
+    },
+    -- FIX: wierd message
+    {
+      filter = { event = "msg_show", find = "<$" },
       opts = { skip = true },
     },
   },

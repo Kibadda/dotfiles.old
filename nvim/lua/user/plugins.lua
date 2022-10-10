@@ -49,6 +49,7 @@ return require("packer").startup {
     use "romainl/vim-qf"
     use "sickill/vim-pasta"
     use "stevearc/dressing.nvim"
+    use "tpope/vim-fugitive"
     use "tpope/vim-repeat"
     use "tpope/vim-dotenv"
     use "VonHeikemen/searchbox.nvim"

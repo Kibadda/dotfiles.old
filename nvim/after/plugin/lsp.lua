@@ -21,6 +21,7 @@ require("mason-lspconfig").setup {
     "tsserver",
     "hls",
     "vls",
+    "bashls",
   },
 }
 

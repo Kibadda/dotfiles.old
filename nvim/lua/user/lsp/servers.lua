@@ -46,6 +46,7 @@ local server_list = {
   hls = true,
   html = true,
   vls = true,
+  bashls = true,
 }
 
 local function setup_server(options)

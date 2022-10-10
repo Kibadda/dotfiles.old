@@ -12,24 +12,9 @@ require("lualine").setup {
       "mode",
     },
     lualine_b = {
-      {
-        "branch",
-        on_click = function()
-          vim.cmd.Lazygit()
-        end,
-      },
-      {
-        "diff",
-        on_click = function()
-          vim.cmd.Gitsigns "diffthis"
-        end,
-      },
-      {
-        "diagnostics",
-        on_click = function()
-          vim.cmd.Telescope "diagnostics bufnr=0"
-        end,
-      },
+      { "branch" },
+      { "diff" },
+      { "diagnostics" },
     },
     lualine_c = {
       function()
@@ -64,14 +49,11 @@ require("lualine").setup {
             table.insert(sources, source.name)
           end
 
-          vim.list_extend(buf_client_names, sources)
+          vim.list_extend(buf_client_names, sources, 1, #sources)
 
           return "[" .. table.concat(buf_client_names, ", ") .. "]"
         end,
         color = { gui = "bold" },
-        on_click = function()
-          vim.cmd.LspInfo()
-        end,
       },
     },
     lualine_y = {
@@ -81,9 +63,6 @@ require("lualine").setup {
         end,
         color = function()
           return { fg = GetGlobal("lsp", "auto_format") and "#A9B665" or "#EA6962" }
-        end,
-        on_click = function()
-          vim.cmd.ToggleAutoFormat()
         end,
       },
     },
@@ -109,24 +88,4 @@ require("lualine").setup {
       end,
     },
   },
-  -- winbar = {
-  --   lualine_z = {
-  --     {
-  --       "filename",
-  --       path = 1,
-  --     },
-  --   },
-  -- },
 }
-
--- gruvbox-material theme colors
---   fg1    = '#282828',
---   color2 = '#504945',
---   fg2    = '#ddc7a1',
---   color3 = '#32302f',
---   color4 = '#a89984',
---   color5 = '#7daea3',
---   color6 = '#a9b665',
---   color7 = '#d8a657',
---   color8 = '#d3869b',
---   color9 = '#ea6962',

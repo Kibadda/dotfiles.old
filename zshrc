@@ -119,36 +119,34 @@ alias ll='exa -l --icons'
 
 alias cat='bat'
 
-alias pacu='sudo pacman -Syyuu && sudo pamac update'
+alias pacu='sudo pacman -Syyuu'
 alias paci='sudo pacman -S'
 alias pacr='sudo pacman -R'
 
-alias a='php artisan'
-alias mf='a migrate:fresh'
-alias mfs='mf --seed'
-alias mfb='a migrate:fresh && a db:seed --class=BaseSeeder'
-alias tin='a tinker'
-alias pest='./vendor/bin/pest'
-alias dusk='a pest:dusk'
-alias q:work='a queue:work'
-alias q:clear='a queue:clear'
-alias log='cat /dev/null > storage/logs/laravel.log && cat /dev/null > storage/logs/admin.log'
+# alias a='php artisan'
+# alias mf='a migrate:fresh'
+# alias mfs='mf --seed'
+# alias mfb='a migrate:fresh && a db:seed --class=BaseSeeder'
+# alias tin='a tinker'
+# alias pest='./vendor/bin/pest'
+# alias dusk='a pest:dusk'
+# alias q:work='a queue:work'
+# alias q:clear='a queue:clear'
+# alias log='cat /dev/null > storage/logs/laravel.log && cat /dev/null > storage/logs/admin.log'
 
 alias ssh='kitty +kitten ssh'
 
-alias status='git status'
-alias fetch='git fetch --prune'
-alias add='git add .'
-alias commit='git commit'
-alias push='git push'
-alias pull='git pull'
-alias checkout='git checkout'
-alias merge='git merge'
-alias delete='git branch -d'
-alias lastcom='git show'
+alias gs='git status'
+alias gf='git fetch --prune'
+alias ga='git add .'
+alias gc='git commit'
+alias gp='git push'
+alias gpu='git pull'
+alias gsw='git switch'
+alias gm='git merge'
+alias gd='git branch -d'
 
 alias d='tmux detach'
-alias l='lvim'
 
 n() {
     nvim "$@" && clear
@@ -169,4 +167,4 @@ export EDITOR=/usr/local/bin/nvim
 
 alias swap='setxkbmap -option caps:swapescape'
 
-alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake
+# alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake

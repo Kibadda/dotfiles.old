@@ -10,32 +10,21 @@ gpgconf --launch gpg-agent
 export TOBI=0x4b7228cfe59b7380
 
 encrypt() {
-    if [ -f "$2" ]; then
-        output=~/"${2}".$(date +%s).enc
-        gpg --encrypt --armor --sign --output ${output} -r ${1} "${2}" && echo "${2} -> ${output}"
-    else
-        echo $2 | gpg --armor --clearsign | gpg --encrypt --armor --recipient $1
-    fi
+  if [ -f "$2" ]; then
+    output=~/"${2}".$(date +%s).enc
+    gpg --encrypt --armor --sign --output ${output} -r ${1} "${2}" && echo "${2} -> ${output}"
+  else
+    echo $2 | gpg --armor --clearsign | gpg --encrypt --armor --recipient $1
+  fi
 }
 
 decrypt() {
-    if [ -f "$1" ]; then
-        output=$(echo "${1}" | rev | cut -c16- | rev)
-        gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
-    else
-        MESSAGE="$(echo $1 | gpg --decrypt --armor)"
-        echo $MESSAGE | gpg --verify
-        echo $MESSAGE
-    fi
+  if [ -f "$1" ]; then
+    output=$(echo "${1}" | rev | cut -c16- | rev)
+    gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
+  else
+    MESSAGE="$(echo $1 | gpg --decrypt --armor)"
+    echo $MESSAGE | gpg --verify
+    echo $MESSAGE
+  fi
 }
-
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-
-if [ -e /home/michael/.nix-profile/etc/profile.d/nix.sh ]; then . /home/michael/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-if command -v direnv &> /dev/null
-then
-  eval "$(direnv hook zsh)"
-fi
-
-[ -f "/home/michael/.ghcup/env" ] && source "/home/michael/.ghcup/env" # ghcup-env

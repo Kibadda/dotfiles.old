@@ -96,3 +96,11 @@ RegisterKeymaps {
     ["<C-h>"] = { "<C-w>", "Remove previous word" },
   },
 }
+
+-- RegisterKeymaps {
+--   mode = "c",
+--   prefix = "",
+--   {
+--     w = { "<Cmd>checktime<Bar>w<CR>", "checktime if file is on samba share" },
+--   },
+-- }

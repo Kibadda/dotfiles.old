@@ -20,10 +20,6 @@ require("noice").setup {
       filter = { event = "msg_show", find = "L, " },
       opts = { skip = true },
     },
-    -- {
-    --   filter = { event = "msg_show", find = "<$" },
-    --   opts = { skip = true },
-    -- },
   },
   views = {
     cmdline_popup = {

@@ -1,4 +1,4 @@
-if not PluginsOk "noice" then
+if true or not PluginsOk "noice" then
   return
 end
 

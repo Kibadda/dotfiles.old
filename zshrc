@@ -119,9 +119,9 @@ alias ll='exa -l --icons'
 
 alias cat='bat'
 
-alias pacu='sudo pacman -Syyuu'
-alias paci='sudo pacman -S'
-alias pacr='sudo pacman -R'
+alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pacu="sudo pacman -Syyuu"
+alias pacr="pacman -Qd | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 
 # alias a='php artisan'
 # alias mf='a migrate:fresh'

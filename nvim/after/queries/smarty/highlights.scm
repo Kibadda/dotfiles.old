@@ -63,6 +63,7 @@
  "{if"
  "{/if}"
  "{else}"
+ ; "{elseif"
  "{foreach"
  "{/foreach}"
  "{generate"

@@ -14,7 +14,7 @@
   "/>"
   "}"
   "{else}"
-  ; "{/if}"
+  ; "{elseif"
   "{/foreach}"
 ] @branch
 

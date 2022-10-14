@@ -18,7 +18,7 @@ SetOptions {
   softtabstop = 2,
   expandtab = true,
   breakindent = true,
-  showbreak = "+++ ",
+  showbreak = "|-> ",
   linebreak = true,
   foldenable = false,
   modelines = 1,

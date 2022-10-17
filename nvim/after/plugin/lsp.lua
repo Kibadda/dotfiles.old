@@ -67,8 +67,8 @@ if not vim.fn.exists "g:lsp_progress_notifications" then
   })
 end
 
-if PluginsOk "lua-dev" then
-  require("lua-dev").setup {}
+if PluginsOk "neodev" then
+  require("neodev").setup {}
 end
 
 require("user.lsp.servers").setup()

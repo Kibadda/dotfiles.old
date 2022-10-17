@@ -7,6 +7,6 @@ require("notify").setup {
   render = "simple",
 }
 
--- vim.notify = require "notify"
+vim.notify = require "notify"
 
 require("user.lsp.handlers").progessNotifcation()

@@ -1,4 +1,4 @@
-if not PluginsOk "nvim-tmux-navigation" then
+if true or not PluginsOk "nvim-tmux-navigation" then
   return
 end
 

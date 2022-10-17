@@ -34,6 +34,7 @@ return require("packer").startup {
     use "lewis6991/gitsigns.nvim"
     use "lewis6991/impatient.nvim"
     use "mhinz/vim-startify"
+    use "mrjones2014/smart-splits.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "numToStr/Comment.nvim"
     use "nvim-lualine/lualine.nvim"

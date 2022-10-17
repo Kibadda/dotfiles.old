@@ -24,7 +24,6 @@ return require("packer").startup {
     use "folke/todo-comments.nvim"
     use "folke/zen-mode.nvim"
     use "folke/twilight.nvim"
-    use { "iamcco/markdown-preview.nvim", run = "cd app && npm install" }
     use "itchyny/calendar.vim"
     use "ja-ford/delaytrain.nvim"
     use "justinhj/battery.nvim"
@@ -50,6 +49,7 @@ return require("packer").startup {
     use "romainl/vim-qf"
     use "sickill/vim-pasta"
     use "stevearc/dressing.nvim"
+    use { "toppair/peek.nvim", run = "deno task --quiet build:fast" }
     use "tpope/vim-dotenv"
     use "tpope/vim-fugitive"
     use "tpope/vim-repeat"

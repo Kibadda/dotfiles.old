@@ -39,8 +39,8 @@ RegisterKeymaps {
     ["<C-q>"] = { "<Plug>(qf_qf_toggle_stay)", "QF: toggle" },
     ["<C-Up>"] = { "<Plug>(qf_qf_previous)", "QF: prev" },
     ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
-    ["<M-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
-    ["<M-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
+    ["<C-S-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
+    ["<C-S-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
     yA = { "<Cmd>%y+<CR>", "Yank file content" },
     gH = { "<Cmd>OpenInGithub<CR>", "Open current github" },
     j = {
@@ -66,8 +66,8 @@ RegisterKeymaps {
     Y = { "myY`y", "Yank" },
     ["<"] = { "<gv", "dedent" },
     [">"] = { ">gv", "indent" },
-    ["<M-j>"] = { ":m '>+1<CR>gv=gv", "Move lines down" },
-    ["<M-k>"] = { ":m '<-2<CR>gv=gv", "Move lines up" },
+    ["<C-S-j>"] = { ":m '>+1<CR>gv=gv", "Move lines down" },
+    ["<C-S-k>"] = { ":m '<-2<CR>gv=gv", "Move lines up" },
     j = {
       function()
         JumpDirection "j"

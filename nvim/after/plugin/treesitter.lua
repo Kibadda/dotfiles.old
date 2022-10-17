@@ -20,6 +20,8 @@ require("nvim-treesitter.configs").setup {
     "html",
     "sql",
     "http",
+    "markdown",
+    "markdown_inline",
   },
   highlight = {
     enable = true,

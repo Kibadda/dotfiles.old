@@ -3,7 +3,7 @@ if not PluginsOk "peek" then
 end
 
 require("peek").setup {
-  update_in_insert = false,
+  update_on_change = false,
 }
 
 RegisterKeymaps {

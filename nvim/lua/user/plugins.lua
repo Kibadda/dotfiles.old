@@ -24,6 +24,7 @@ return require("packer").startup {
     use "folke/twilight.nvim"
     use "folke/which-key.nvim"
     use "folke/zen-mode.nvim"
+    use "gorbit99/codewindow.nvim"
     use "itchyny/calendar.vim"
     use "ja-ford/delaytrain.nvim"
     use "justinhj/battery.nvim"

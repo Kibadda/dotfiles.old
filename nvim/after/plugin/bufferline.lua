@@ -21,7 +21,8 @@ require("bufferline").setup {
       end
     end,
     custom_filter = function(buf_number)
-      if vim.bo[buf_number].filetype ~= "qf" then
+      local filetype = vim.bo[buf_number].filetype
+      if filetype ~= "qf" and filetype ~= "fugitive" then
         return true
       end
     end,

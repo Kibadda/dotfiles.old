@@ -67,6 +67,11 @@ if not vim.fn.exists "g:lsp_progress_notifications" then
   })
 end
 
+local handlers = require "user.lsp.handlers"
+handlers.hoverBorderStyle()
+handlers.showMessage()
+handlers.publishDiagnostics()
+
 if PluginsOk "neodev" then
   require("neodev").setup {}
 end

@@ -7,6 +7,25 @@ function M.hoverBorderStyle()
   })
 end
 
+---lsp messages send to buffer
+function M.showMessage()
+  vim.lsp.handlers["window/showMessage"] = require "user.lsp.show_message"
+end
+
+---update publish diagnostics settings
+function M.publishDiagnostics()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.handlers["textDocument/publishDiagnostics"], {
+      signs = {
+        severity_limit = "Error",
+      },
+      underline = {
+        severity_limit = "Warning",
+      },
+      virtual_text = true,
+    })
+end
+
 ---filter out framework results if at least one other result is found
 function M.definition()
   local params = vim.lsp.util.make_position_params(0, "utf-8")
@@ -107,10 +126,6 @@ function M.progessNotifcation()
       notif_data.spinner = nil
     end
   end
-end
-
-function M.showMessage()
-  vim.lsp.handlers["window/showMessage"] = require "user.lsp.show_message"
 end
 
 return M

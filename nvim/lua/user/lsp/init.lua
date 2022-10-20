@@ -4,8 +4,6 @@ local M = {}
 function M.get_on_attach()
   return function(client)
     local handlers = require "user.lsp.handlers"
-    handlers.hoverBorderStyle()
-    handlers.showMessage()
 
     RegisterKeymaps {
       mode = "n",

@@ -3,10 +3,13 @@ if true or not PluginsOk "noice" then
 end
 
 require("noice").setup {
+  popupmenu = {
+    backend = "cmp",
+  },
   routes = {
     {
       view = "split",
-      filter = { event = "msg_show", min_height = 20 },
+      filter = { event = "msg_show", min_height = 10 },
     },
     {
       filter = { event = "msg_show", find = "level" },
@@ -22,33 +25,36 @@ require("noice").setup {
     },
   },
   views = {
-    cmdline_popup = {
-      position = {
-        row = 10,
-        col = "50%",
-      },
-      size = {
-        width = 60,
-        height = "auto",
-      },
+    split = {
+      enter = true,
     },
-    popupmenu = {
-      relative = "editor",
-      position = {
-        row = 13,
-        col = "50%",
-      },
-      size = {
-        width = 60,
-        height = 10,
-      },
-      border = {
-        style = "rounded",
-        padding = { 0, 1 },
-      },
-      win_options = {
-        winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-      },
-    },
+    -- cmdline_popup = {
+    --   position = {
+    --     row = 10,
+    --     col = "50%",
+    --   },
+    --   size = {
+    --     width = 60,
+    --     height = "auto",
+    --   },
+    -- },
+    -- popupmenu = {
+    --   relative = "editor",
+    --   position = {
+    --     row = 13,
+    --     col = "50%",
+    --   },
+    --   size = {
+    --     width = 60,
+    --     height = 10,
+    --   },
+    --   border = {
+    --     style = "rounded",
+    --     padding = { 0, 1 },
+    --   },
+    --   win_options = {
+    --     winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+    --   },
+    -- },
   },
 }

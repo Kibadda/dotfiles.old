@@ -12,7 +12,7 @@ RegisterKeymaps {
       c = { "<Cmd>PackerCompile<CR>", "Compile" },
       p = { "<Cmd>PackerSync --preview<CR>", "Sync with preview" },
     },
-    h = { "<Cmd>SearchBoxClear<CR>", "Remove highlight" },
+    h = { "<Cmd>nohl<CR>", "Remove highlight" },
     Q = { "<Cmd>DetachTmux<CR>", "Detach" },
     P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
     I = { "<Cmd>e nvim/init.lua<CR>", "Edit Init" },

@@ -28,6 +28,10 @@ require("lualine").setup {
       end,
     },
     lualine_x = {
+      {
+        require("noice").api.status.mode.get,
+        cond = require("noice").api.status.mode.has,
+      },
       "filetype",
       {
         function()

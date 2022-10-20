@@ -109,4 +109,8 @@ function M.progessNotifcation()
   end
 end
 
+function M.showMessage()
+  vim.lsp.handlers["window/showMessage"] = require "user.lsp.show_message"
+end
+
 return M

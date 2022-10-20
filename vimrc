@@ -16,15 +16,18 @@ set wrap
 set showbreak=+++\ 
 set linebreak
 
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 
 set noswapfile
 
 set fileformats=unix
 
 set wildmode=longest:full,full
-set wildoptions=pum
 set wildmenu
+
+if v:version >= 900
+  set wildoptions=pum
+endif
 
 let g:currentmode={
   \ '__'     : '- ',
@@ -56,5 +59,44 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+nnoremap Y y$
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap # #zz
+nnoremap * *zz
+
+xnoremap y myy`y
+xnoremap Y myY`y
+xnoremap < <gv
+xnoremap > >gv
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+augroup highlightYankedText
+  autocmd!
+  autocmd TextYankPost * call FlashYankedText()
+augroup END
+
+function! FlashYankedText()
+  if (!exists('g:yankedTextMatches'))
+    let g:yankedTextMatches = []
+  endif
+
+  let matchId = matchadd('Search', ".\\%>'\\[\\_.*\\%<']..")
+  let windowId = winnr()
+
+	call add(g:yankedTextMatches, [windowId, matchId])
+	call timer_start(200, 'DeleteTemporaryMatch')
+endfunction
+
+function! DeleteTemporaryMatch(timerId)
+  while !empty(g:yankedTextMatches)
+    let match = remove(g:yankedTextMatches, 0)
+    let windowID = match[0]
+    let matchID = match[1]
+
+    try
+      call matchdelete(matchID, windowID)
+    endtry
+  endwhile
+endfunction

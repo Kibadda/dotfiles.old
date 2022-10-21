@@ -157,8 +157,8 @@ build_nvim() {
   cd ~/neovim
   git fetch
   git pull
-  echo "Sudo privileges are needed"
   make CMAKE_BUILD_TYPE=RelWithDebInfo
+  echo "Sudo privileges are needed"
   sudo make install
   cd $CURRENT
 }

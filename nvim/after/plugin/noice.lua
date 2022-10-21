@@ -28,6 +28,9 @@ require("noice").setup {
       },
     },
   },
+  lsp_progress = {
+    enabled = false,
+  },
   routes = {
     {
       view = "split",

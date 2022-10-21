@@ -29,7 +29,7 @@ function M.get_on_attach()
           k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
           d = { "<Cmd>Telescope diagnostics bufnr=0<CR>", "Show Buffer Diagnostics" },
           w = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
-          r = { vim.lsp.buf.rename, "Rename" },
+          r = { ":IncRename ", "Rename" },
           R = { "<Cmd>LspRestart<CR>", "Restart" },
         },
       },

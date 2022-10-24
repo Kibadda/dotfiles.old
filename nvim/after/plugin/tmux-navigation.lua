@@ -21,7 +21,7 @@ RegisterKeymaps {
 
 local function tmux_command(command)
   local tmux_socket = vim.fn.split(vim.env.TMUX, ",")[1]
-  return vim.fn.system("tmux -S " .. tmux_socket .. " " .. command)
+  return vim.fn.system(("tmux -S %s %s"):format(tmux_socket, command))
 end
 
 RegisterKeymaps {

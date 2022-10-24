@@ -157,7 +157,7 @@ setup_options = {
     format = function(entry, vim_item)
       local max_width = setup_options.formatting.max_width
       if max_width ~= 0 and #vim_item.abbr > max_width then
-        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. "…"
+        vim_item.abbr = ("%s…"):format(string.sub(vim_item.abbr, 1, max_width - 1))
       end
       vim_item.kind = setup_options.formatting.kind_icons[vim_item.kind]
       vim_item.menu = setup_options.formatting.source_names[entry.source.name]

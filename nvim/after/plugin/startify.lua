@@ -4,7 +4,7 @@ end
 
 local indices = {}
 for index = 1, 99 do
-  table.insert(indices, "" .. index)
+  table.insert(indices, ("%d"):format(index))
 end
 
 local pad = vim.fn["startify#pad"]

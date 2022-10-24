@@ -39,7 +39,7 @@ function JumpDirection(direction)
   local count = vim.v.count
 
   if count == 0 then
-    vim.cmd.normal { "g" .. direction, bang = true }
+    vim.cmd.normal { ("g%s"):format(direction), bang = true }
     return
   end
 
@@ -47,7 +47,7 @@ function JumpDirection(direction)
     vim.cmd.normal { "m'", bang = true }
   end
 
-  vim.cmd.normal { count .. direction, bang = true }
+  vim.cmd.normal { ("%d%s"):format(count, direction), bang = true }
 end
 
 ---set value depending if cwd is cortex
@@ -132,8 +132,7 @@ function OpenPlugin(open_in_browser)
   argument = argument:gsub('"', "")
 
   if open_in_browser then
-    local url = "https://github.com/" .. argument
-    os.execute("xdg-open " .. url)
+    os.execute(("xdg-open https://github.com/%s"):format(argument))
   else
     local split = vim.split(argument, "/", { plain = true })
     local file_name = split[#split]
@@ -147,7 +146,7 @@ function OpenPlugin(open_in_browser)
     local prefix = "nvim/after/plugin/"
     local suffix = ".lua"
 
-    local file_path = prefix .. file_name .. suffix
+    local file_path = ("%s%s%s"):format(prefix, file_name, suffix)
 
     if vim.fn.filereadable(file_path) == 1 then
       vim.cmd.e(file_path)
@@ -196,7 +195,7 @@ function OpenPlugin(open_in_browser)
               prompt = "> ",
               on_submit = function(value)
                 if #value > 0 then
-                  vim.cmd.e(prefix .. value .. suffix)
+                  vim.cmd.e(("%s%s%s"):format(prefix, value, suffix))
                 end
               end,
             }):mount()
@@ -213,10 +212,10 @@ end
 function SetGlobal(plugin, options)
   local prefix = ""
   if plugin ~= "" then
-    prefix = plugin .. "_"
+    prefix = ("%s_"):format(plugin)
   end
   for name, value in pairs(options) do
-    vim.g[prefix .. name] = value
+    vim.g[("%s%s"):format(prefix, name)] = value
   end
 end
 
@@ -225,7 +224,7 @@ end
 ---@param name string
 ---@return any
 function GetGlobal(plugin, name)
-  return vim.g[plugin .. "_" .. name]
+  return vim.g[("%s_%s"):format(plugin, name)]
 end
 
 ---set global vim options

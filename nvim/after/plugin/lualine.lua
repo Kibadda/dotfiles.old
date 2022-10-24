@@ -55,7 +55,7 @@ require("lualine").setup {
 
           vim.list_extend(buf_client_names, sources, 1, #sources)
 
-          return "[" .. table.concat(buf_client_names, ", ") .. "]"
+          return ("[%s]"):format(table.concat(buf_client_names, ", "))
         end,
         color = { gui = "bold" },
       },
@@ -63,7 +63,7 @@ require("lualine").setup {
     lualine_y = {
       {
         function()
-          return " Format: " .. (GetGlobal("lsp", "auto_format") and " " or " ")
+          return (" Format: %s"):format(GetGlobal("lsp", "auto_format") and " " or " ")
         end,
         color = function()
           return { fg = GetGlobal("lsp", "auto_format") and "#A9B665" or "#EA6962" }
@@ -88,7 +88,7 @@ require("lualine").setup {
           return "Bot"
         end
         local percentage = math.floor((line / total) * 100)
-        return string.format("%02d", percentage) .. "%%"
+        return ("%02d%%%%"):format(percentage)
       end,
     },
   },

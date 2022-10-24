@@ -80,7 +80,7 @@ vim.api.nvim_create_user_command("OpenInGithub", function()
     args = {
       "config",
       "--get",
-      "remote." .. remote .. ".url",
+      ("remote.%s.url"):format(remote),
     },
     cwd = vim.fn.getcwd(),
   }
@@ -89,7 +89,7 @@ vim.api.nvim_create_user_command("OpenInGithub", function()
   remote_url = string.gsub(remote_url, "%.git", "")
   remote_url = string.gsub(remote_url, ":", "/")
   remote_url = string.gsub(remote_url, "git@", "https://")
-  os.execute("xdg-open " .. remote_url)
+  os.execute(("xdg-open %s"):format(remote_url))
 end, {
   bang = false,
   nargs = 0,

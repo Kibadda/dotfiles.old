@@ -46,7 +46,7 @@ return function(_, result, ctx)
     local type = protocol.MessageType[result.type]
     table.insert(messages, string.format("LSP %s %s", client_name, type))
     for _, text in ipairs(vim.split(result.message, "\n")) do
-      table.insert(messages, "  " .. text .. "  ")
+      table.insert(messages, ("  %s  "):format(text))
     end
   end
 

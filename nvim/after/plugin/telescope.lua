@@ -58,9 +58,6 @@ require("telescope").setup {
         end,
       },
     },
-    ["laravel-docs"] = {
-      preview = true,
-    },
   },
 }
 

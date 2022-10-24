@@ -76,4 +76,15 @@ if PluginsOk "neodev" then
   require("neodev").setup {}
 end
 
+if PluginsOk "lsp_signature" then
+  require("lsp_signature").setup {
+    handler_opts = {
+      border = "single",
+    },
+    floating_window = false,
+    hint_enable = false,
+    toggle_key = "<M-x>",
+  }
+end
+
 require("user.lsp.servers").setup()

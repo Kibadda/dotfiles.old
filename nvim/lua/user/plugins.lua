@@ -58,6 +58,7 @@ return require("packer").startup {
     use "jose-elias-alvarez/null-ls.nvim"
     use "L3MON4D3/LuaSnip"
     use "neovim/nvim-lspconfig"
+    use "ray-x/lsp_signature.nvim"
     use "saadparwaiz1/cmp_luasnip"
     use "smjonas/inc-rename.nvim"
     use "williamboman/mason.nvim"

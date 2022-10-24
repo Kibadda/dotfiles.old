@@ -107,7 +107,7 @@ function OpenPlugin(open_in_browser)
 
   local node_string = vim.treesitter.get_node_text(current_node, 0)
 
-  if string.sub(node_string, 1, 3) ~= "use" then
+  if string.sub(node_string, 1, 3) ~= "use" and string.sub(node_string, 1, 9) ~= "local_use" then
     return
   end
 

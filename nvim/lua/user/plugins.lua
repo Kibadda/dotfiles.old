@@ -78,6 +78,7 @@ return require("packer").startup {
       use(opts)
     end
     local_use "laravel-docs.nvim"
+    local_use "markdown-docs.nvim"
   end,
   config = {
     autoremove = true,

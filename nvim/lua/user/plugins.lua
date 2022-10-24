@@ -64,7 +64,19 @@ return require("packer").startup {
     use "williamboman/mason-lspconfig.nvim"
 
     -- self
-    use "Kibadda/laravel-docs.nvim"
+    local local_use = function(name, opts)
+      opts = opts or {}
+
+      local path = ("~/plugins/%s"):format(name)
+      if vim.fn.isdirectory(vim.fn.expand(path)) == 1 then
+        opts[1] = path
+      else
+        opts[1] = ("Kibadda/%s"):format(name)
+      end
+
+      use(opts)
+    end
+    local_use "laravel-docs.nvim"
   end,
   config = {
     autoremove = true,

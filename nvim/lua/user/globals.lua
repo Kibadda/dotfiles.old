@@ -162,14 +162,14 @@ function OpenPlugin(open_in_browser)
             height = 3,
           },
           border = {
-            style = "double",
+            style = "single",
             text = {
               top = title,
               top_align = "center",
             },
           },
           win_options = {
-            winhighlight = "Normal:Normal,FloarBorder:Normal",
+            winhighlight = "Normal:Normal,FloatBorder:Normal",
           },
         }
       end

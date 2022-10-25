@@ -15,6 +15,7 @@ return require("packer").startup {
     use "akinsho/bufferline.nvim"
     use "AndrewRadev/splitjoin.vim"
     use "dhruvasagar/vim-open-url"
+    use "echasnovski/mini.nvim"
     use "ethanholz/nvim-lastplace"
     use "fladson/vim-kitty"
     use "folke/noice.nvim"

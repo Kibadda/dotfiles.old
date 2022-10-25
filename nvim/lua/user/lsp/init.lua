@@ -27,26 +27,10 @@ function M.get_on_attach()
           f = { vim.lsp.buf.format, "Format" },
           j = { vim.diagnostic.goto_next, "Next Diagnostic" },
           k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
+          r = { vim.lsp.buf.rename, "Rename" },
           d = { "<Cmd>Telescope diagnostics bufnr=0<CR>", "Show Buffer Diagnostics" },
           w = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
           R = { "<Cmd>LspRestart<CR>", "Restart" },
-        },
-      },
-    }
-
-    RegisterKeymaps {
-      mode = "n",
-      prefix = "<Leader>",
-      buffer = 0,
-      expr = true,
-      {
-        l = {
-          r = {
-            function()
-              return (":IncRename %s"):format(vim.fn.expand "<cword>")
-            end,
-            "Rename",
-          },
         },
       },
     }

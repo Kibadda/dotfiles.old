@@ -19,6 +19,7 @@ return require("packer").startup {
     use "ethanholz/nvim-lastplace"
     use "fladson/vim-kitty"
     use "folke/noice.nvim"
+    use "folke/todo-comments.nvim"
     use "folke/which-key.nvim"
     use "gorbit99/codewindow.nvim"
     use "itchyny/calendar.vim"

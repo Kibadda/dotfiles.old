@@ -8,5 +8,3 @@ require("notify").setup {
 }
 
 vim.notify = require "notify"
-
-require("user.lsp.handlers").progessNotifcation()

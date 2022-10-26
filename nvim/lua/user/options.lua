@@ -37,4 +37,5 @@ SetOptions {
   formatoptions = GetFormatOptions(),
   textwidth = 120,
   fileformats = "unix",
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals"
 }

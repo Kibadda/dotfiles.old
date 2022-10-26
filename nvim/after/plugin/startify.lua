@@ -13,10 +13,6 @@ SetGlobal("startify", {
   session_persistence = true,
   change_to_vcs_root = true,
   custom_indices = indices,
-  session_savevars = {
-    "g:lsp_auto_format",
-    "g:lsp_progress_notifications",
-  },
   custom_header = pad {
     "╔═══════════════════════════════════════════════════════╗",
     "║                                                       ║",

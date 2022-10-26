@@ -50,20 +50,13 @@ RegisterKeymaps {
       M = { "<Cmd>Mason<CR>", "Mason" },
       L = { "<Cmd>LspInfo<CR>", "LspInfo" },
       t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
-      p = { "<Cmd>ToggleProgressNotifications<CR>", "Toggle Progress Notifications" },
     },
   },
 }
 
-if not vim.fn.exists "g:lsp_auto_format" then
-  SetGlobal("lsp", {
-    auto_format = false,
-  })
-end
-
-if not vim.fn.exists "g:lsp_progress_notifications" then
-  SetGlobal("lsp", {
-    progress_notifications = false,
+if not vim.fn.exists "g:Lsp_auto_format" then
+  SetGlobal("Lsp", {
+    auto_format = 0,
   })
 end
 

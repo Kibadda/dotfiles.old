@@ -7,14 +7,14 @@ end, {
 })
 
 vim.api.nvim_create_user_command("ToggleAutoFormat", function()
-  if GetGlobal("lsp", "auto_format") then
-    SetGlobal("lsp", {
-      auto_format = false,
+  if GetGlobal("Lsp", "auto_format") == 1 then
+    SetGlobal("Lsp", {
+      auto_format = 0,
     })
     vim.notify("Turned off", "success", { title = "Auto Format" })
   else
-    SetGlobal("lsp", {
-      auto_format = true,
+    SetGlobal("Lsp", {
+      auto_format = 1,
     })
     vim.notify("Turned on", "success", { title = "Auto Format" })
   end
@@ -22,24 +22,6 @@ end, {
   bang = false,
   nargs = 0,
   desc = "toggle auto format option",
-})
-
-vim.api.nvim_create_user_command("ToggleProgressNotifications", function()
-  if GetGlobal("lsp", "progress_notifications") then
-    SetGlobal("lsp", {
-      progress_notifications = false,
-    })
-    vim.notify("Turned off", "success", { title = "Progress Notifications" })
-  else
-    SetGlobal("lsp", {
-      progress_notifications = true,
-    })
-    vim.notify("Turned on", "success", { title = "Progress Notifications" })
-  end
-end, {
-  bang = false,
-  nargs = 0,
-  desc = "toggle progress notifications option",
 })
 
 vim.api.nvim_create_user_command("DetachTmux", function()

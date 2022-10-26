@@ -63,10 +63,10 @@ require("lualine").setup {
     lualine_y = {
       {
         function()
-          return (" Format: %s"):format(GetGlobal("lsp", "auto_format") and " " or " ")
+          return (" Format: %s"):format(GetGlobal("Lsp", "auto_format") == 1 and " " or " ")
         end,
         color = function()
-          return { fg = GetGlobal("lsp", "auto_format") and "#A9B665" or "#EA6962" }
+          return { fg = GetGlobal("Lsp", "auto_format") == 1 and "#A9B665" or "#EA6962" }
         end,
       },
     },

@@ -11,6 +11,9 @@ local pad = vim.fn["startify#pad"]
 
 SetGlobal("startify", {
   session_persistence = true,
+  session_before_save = {
+    "silent! Neotree close",
+  },
   change_to_vcs_root = true,
   custom_indices = indices,
   custom_header = pad {

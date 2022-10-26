@@ -18,6 +18,7 @@ RegisterKeymaps {
   mode = "n",
   prefix = "<Leader>",
   {
-    e = { "<Cmd>Neotree reveal<CR>", "Browse Files" },
+    e = { "<Cmd>Neotree reveal<CR>", "Open/Focus Neotree" },
+    E = { "<Cmd>Neotree close<CR>", "Close Neotree" },
   },
 }

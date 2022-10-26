@@ -22,12 +22,6 @@ function RegisterKeymaps(options)
         desc = rhs[2],
       })
     end
-  elseif type(options.mode) == "table" then
-    for _, mode in ipairs(options.mode) do
-      local opt = vim.deepcopy(options)
-      opt.mode = mode
-      require("which-key").register(keymaps, opt)
-    end
   else
     require("which-key").register(keymaps, options)
   end

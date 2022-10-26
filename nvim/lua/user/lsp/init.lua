@@ -2,11 +2,11 @@ local M = {}
 
 ---custom attach
 function M.get_on_attach()
-  return function(client)
+  return function(client, bufnr)
     RegisterKeymaps {
       mode = "n",
       prefix = "",
-      buffer = 0,
+      buffer = bufnr,
       {
         K = { vim.lsp.buf.hover, "Hover" },
         -- ["<C-S-k>"] = { vim.diagnostic.open_float, "Diagnostic" },
@@ -18,7 +18,7 @@ function M.get_on_attach()
     RegisterKeymaps {
       mode = "n",
       prefix = "<Leader>",
-      buffer = 0,
+      buffer = bufnr,
       {
         l = {
           c = { vim.lsp.buf.code_action, "Code Action" },
@@ -40,16 +40,16 @@ function M.get_on_attach()
       local LspDocumentHighlight = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
       vim.api.nvim_clear_autocmds {
         group = LspDocumentHighlight,
-        buffer = 0,
+        buffer = bufnr,
       }
       vim.api.nvim_create_autocmd("CursorHold", {
         group = LspDocumentHighlight,
-        buffer = 0,
+        buffer = bufnr,
         callback = vim.lsp.buf.document_highlight,
       })
       vim.api.nvim_create_autocmd("CursorMoved", {
         group = LspDocumentHighlight,
-        buffer = 0,
+        buffer = bufnr,
         callback = vim.lsp.buf.clear_references,
       })
     end
@@ -57,11 +57,11 @@ function M.get_on_attach()
     local LspFormatting = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
     vim.api.nvim_clear_autocmds {
       group = LspFormatting,
-      buffer = 0,
+      buffer = bufnr,
     }
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = LspFormatting,
-      buffer = 0,
+      buffer = bufnr,
       callback = function()
         if GetGlobal("lsp", "auto_format") and client.server_capabilities.documentFormattingProvider then
           vim.lsp.buf.format()

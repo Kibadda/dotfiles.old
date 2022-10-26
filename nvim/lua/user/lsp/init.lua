@@ -28,6 +28,7 @@ function M.get_on_attach()
           j = { vim.diagnostic.goto_next, "Next Diagnostic" },
           k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
           r = { vim.lsp.buf.rename, "Rename" },
+          l = { vim.lsp.codelens.run, "Codelens" },
           d = { "<Cmd>Telescope diagnostics bufnr=0<CR>", "Show Buffer Diagnostics" },
           w = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
           R = { "<Cmd>LspRestart<CR>", "Restart" },

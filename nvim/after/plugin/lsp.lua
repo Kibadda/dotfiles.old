@@ -88,3 +88,9 @@ if PluginsOk "lsp_signature" then
 end
 
 require("user.lsp.servers").setup()
+
+require("haskell-tools").setup {
+  hls = {
+    on_attach = require("user.lsp").get_on_attach(),
+  },
+}

@@ -21,7 +21,6 @@ return require("packer").startup {
     use "folke/noice.nvim"
     use "folke/todo-comments.nvim"
     use "folke/which-key.nvim"
-    use "gorbit99/codewindow.nvim"
     use "itchyny/calendar.vim"
     use "justinhj/battery.nvim"
     use "karb94/neoscroll.nvim"

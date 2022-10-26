@@ -3,8 +3,6 @@ local M = {}
 ---custom attach
 function M.get_on_attach()
   return function(client)
-    local handlers = require "user.lsp.handlers"
-
     RegisterKeymaps {
       mode = "n",
       prefix = "",
@@ -12,7 +10,7 @@ function M.get_on_attach()
       {
         K = { vim.lsp.buf.hover, "Hover" },
         -- ["<C-S-k>"] = { vim.diagnostic.open_float, "Diagnostic" },
-        gd = { handlers.definition, "Definition" },
+        gd = { require("user.lsp.handlers").definition, "Definition" },
         gr = { "<Cmd>Telescope lsp_references<CR>", "References" },
       },
     }
@@ -56,9 +54,14 @@ function M.get_on_attach()
       })
     end
 
+    local LspFormatting = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
+    vim.api.nvim_clear_autocmds {
+      group = LspFormatting,
+      buffer = 0,
+    }
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-      pattern = "*",
+      group = LspFormatting,
+      buffer = 0,
       callback = function()
         if GetGlobal("lsp", "auto_format") and client.server_capabilities.documentFormattingProvider then
           vim.lsp.buf.format()

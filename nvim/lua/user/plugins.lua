@@ -26,7 +26,6 @@ return require("packer").startup {
     use "justinhj/battery.nvim"
     use "karb94/neoscroll.nvim"
     use "kevinhwang91/nvim-bqf"
-    use "kevinhwang91/rnvimr"
     use "kylechui/nvim-surround"
     use "lewis6991/gitsigns.nvim"
     use "lewis6991/impatient.nvim"

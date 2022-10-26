@@ -42,3 +42,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --     vim.v.fcs_choice = "reload"
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd("SessionLoadPost", {
+  group = vim.api.nvim_create_augroup("OpenNeotreeOnSessionLoad", { clear = true }),
+  callback = function()
+    vim.cmd "Neotree filesystem show"
+  end,
+})

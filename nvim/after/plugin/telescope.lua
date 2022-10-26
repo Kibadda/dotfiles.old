@@ -20,6 +20,7 @@ require("telescope").setup {
         ["<C-k>"] = "move_selection_previous",
       },
     },
+    generic_sorter = require("mini.fuzzy").get_telescope_sorter,
     -- TODO: somehow exclude files which path start with htdocs in "Telescope lsp_references"
     -- file_ignore_patterns = {
     --   "^htdocs/",

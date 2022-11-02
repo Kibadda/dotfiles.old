@@ -1,9 +1,3 @@
----get env variable
----@param name string
-function Env(name)
-  return os.getenv(name)
-end
-
 ---set global variables for given plugin
 ---@param plugin string
 ---@param options table

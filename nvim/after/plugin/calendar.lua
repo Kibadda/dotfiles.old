@@ -19,9 +19,9 @@ SetGlobal("calendar", {
   week_number = true,
   frame = "default",
   google_calendar = true,
-  google_api_key = Env "CALENDAR_GOOGLE_API_KEY",
-  google_client_id = Env "CALENDAR_GOOGLE_CLIENT_ID",
-  google_client_secret = Env "CALENDAR_GOOGLE_CLIENT_SECRET",
+  google_api_key = os.getenv "CALENDAR_GOOGLE_API_KEY",
+  google_client_id = os.getenv "CALENDAR_GOOGLE_CLIENT_ID",
+  google_client_secret = os.getenv "CALENDAR_GOOGLE_CLIENT_SECRET",
 })
 
 require("user.utils").register_keymaps {

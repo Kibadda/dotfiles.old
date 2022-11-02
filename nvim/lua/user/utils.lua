@@ -1,20 +1,10 @@
-vim.api.nvim_create_user_command("Lazygit", function()
-  vim.cmd.term "lazygit"
-end, {
-  bang = false,
-  nargs = 0,
-  desc = "Open lazygit",
-})
+local M = {}
 
-vim.api.nvim_create_user_command("DetachTmux", function()
+function M.detach_from_tmux()
   os.execute "tmux detach"
-end, {
-  bang = false,
-  nargs = 0,
-  desc = "Detach from tmux",
-})
+end
 
-vim.api.nvim_create_user_command("SaveAndSource", function()
+function M.save_and_source()
   vim.cmd.w()
 
   if vim.bo.filetype == "lua" then
@@ -22,13 +12,9 @@ vim.api.nvim_create_user_command("SaveAndSource", function()
   elseif vim.bo.filetype == "vim" then
     vim.cmd.source "%"
   end
-end, {
-  bang = false,
-  nargs = 0,
-  desc = "Save and source current file",
-})
+end
 
-vim.api.nvim_create_user_command("OpenInGithub", function()
+function M.open_in_github()
   local Job = require "plenary.job"
   local job1 = Job:new {
     command = "git",
@@ -54,8 +40,6 @@ vim.api.nvim_create_user_command("OpenInGithub", function()
   remote_url = string.gsub(remote_url, ":", "/")
   remote_url = string.gsub(remote_url, "git@", "https://")
   os.execute(("xdg-open %s"):format(remote_url))
-end, {
-  bang = false,
-  nargs = 0,
-  desc = "Open current project on github",
-})
+end
+
+return M

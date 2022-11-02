@@ -13,7 +13,7 @@ RegisterKeymaps {
       p = { "<Cmd>PackerSync --preview<CR>", "Sync with preview" },
     },
     h = { "<Cmd>nohl<CR>", "Remove highlight" },
-    Q = { "<Cmd>DetachTmux<CR>", "Detach" },
+    Q = { require("user.utils").detach_from_tmux, "Detach" },
     P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
     I = { "<Cmd>e nvim/init.lua<CR>", "Edit Init" },
   },
@@ -42,7 +42,7 @@ RegisterKeymaps {
     ["<C-S-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
     ["<C-S-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
     yA = { "<Cmd>%y+<CR>", "Yank file content" },
-    gH = { "<Cmd>OpenInGithub<CR>", "Open current github" },
+    gH = { require("user.utils").open_in_github, "Open current github" },
     j = {
       function()
         JumpDirection "j"

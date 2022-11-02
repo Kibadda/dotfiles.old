@@ -27,6 +27,14 @@ function RegisterKeymaps(options)
   end
 end
 
+---register abbreviations
+---@param abbreviations table
+function RegisterCAbbreviations(abbreviations)
+  for k, v in pairs(abbreviations) do
+    vim.cmd.cabbrev(("%s %s"):format(k, v))
+  end
+end
+
 ---for wrapped lines: gj/gk, for large jumps: add to jump list
 ---@param direction string
 function JumpDirection(direction)

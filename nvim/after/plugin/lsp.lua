@@ -49,16 +49,10 @@ RegisterKeymaps {
       name = "Lsp",
       M = { "<Cmd>Mason<CR>", "Mason" },
       L = { "<Cmd>LspInfo<CR>", "LspInfo" },
-      t = { "<Cmd>ToggleAutoFormat<CR>", "Toggle Auto Format" },
+      t = { require("user.auto_format").toggle, "Toggle Auto Format" },
     },
   },
 }
-
-if not vim.fn.exists "g:Lsp_auto_format" then
-  SetGlobal("Lsp", {
-    auto_format = 0,
-  })
-end
 
 require("user.lsp.handlers").publishDiagnostics()
 

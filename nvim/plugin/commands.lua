@@ -6,24 +6,6 @@ end, {
   desc = "Open lazygit",
 })
 
-vim.api.nvim_create_user_command("ToggleAutoFormat", function()
-  if GetGlobal("Lsp", "auto_format") == 1 then
-    SetGlobal("Lsp", {
-      auto_format = 0,
-    })
-    vim.notify("Turned off", "success", { title = "Auto Format" })
-  else
-    SetGlobal("Lsp", {
-      auto_format = 1,
-    })
-    vim.notify("Turned on", "success", { title = "Auto Format" })
-  end
-end, {
-  bang = false,
-  nargs = 0,
-  desc = "toggle auto format option",
-})
-
 vim.api.nvim_create_user_command("DetachTmux", function()
   os.execute "tmux detach"
 end, {

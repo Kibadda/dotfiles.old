@@ -63,7 +63,7 @@ function M.get_on_attach()
       group = LspFormatting,
       buffer = bufnr,
       callback = function()
-        if GetGlobal("Lsp", "auto_format") == 1 and client.server_capabilities.documentFormattingProvider then
+        if require("user.auto_format").is_on() and client.server_capabilities.documentFormattingProvider then
           vim.lsp.buf.format()
         end
       end,

@@ -54,7 +54,7 @@ local function enter_auth()
   })
 end
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

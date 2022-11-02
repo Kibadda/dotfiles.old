@@ -10,7 +10,7 @@ require("messages").setup {
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_win_set_buf(win, buf)
 
-    require("user.utils").register_keymaps {
+    require("user.utils.register").keymaps {
       mode = "n",
       prefix = "",
       buffer = buf,
@@ -27,7 +27,7 @@ function Msg(...)
   require("messages.api").capture_thing(...)
 end
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

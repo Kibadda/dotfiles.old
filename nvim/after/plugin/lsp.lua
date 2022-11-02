@@ -41,7 +41,7 @@ if PluginsOk { "mason-null-ls", "null-ls" } then
   null_ls.setup {}
 end
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

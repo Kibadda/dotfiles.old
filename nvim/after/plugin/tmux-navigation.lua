@@ -8,7 +8,7 @@ ntn.setup {
   disable_when_zoomed = true,
 }
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "",
   {
@@ -24,7 +24,7 @@ local function tmux_command(command)
   return vim.fn.system(("tmux -S %s %s"):format(tmux_socket, command))
 end
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

@@ -12,6 +12,7 @@ _ = {
 require "impatient"
 
 require "user.globals"
+require "user.plugins"
 
 if require "user.first_load" then
   return
@@ -24,7 +25,6 @@ require("user.utils.globals").set("", {
 
 require "user.disable_builtin"
 require "user.options"
-require "user.plugins"
 require "user.keymaps"
 require "user.autocmds"
 require "user.abbreviations"

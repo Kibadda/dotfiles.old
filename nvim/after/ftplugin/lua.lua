@@ -3,7 +3,7 @@ SetBufferOptions {
 }
 
 if vim.fn.fnamemodify(vim.fn.expandcmd "%", ":t") == "plugins.lua" then
-  require("user.utils").register_keymaps {
+  require("user.utils.register").keymaps {
     mode = "n",
     prefix = "",
     buffer = 0,

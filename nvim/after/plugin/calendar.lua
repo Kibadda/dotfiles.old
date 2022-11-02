@@ -26,7 +26,7 @@ globals.set("calendar", {
   google_client_secret = os.getenv "CALENDAR_GOOGLE_CLIENT_SECRET",
 })
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

@@ -1,4 +1,4 @@
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {
@@ -19,7 +19,7 @@ require("user.utils").register_keymaps {
   },
 }
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "",
   {
@@ -58,7 +58,7 @@ require("user.utils").register_keymaps {
   },
 }
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "x",
   prefix = "",
   {
@@ -86,7 +86,7 @@ require("user.utils").register_keymaps {
 -- this needs mapping in kitty.conf
 -- default behaviour <S-CR> == <C-CR> == <CR>
 -- explanation: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "i",
   prefix = "",
   {

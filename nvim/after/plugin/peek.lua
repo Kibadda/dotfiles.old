@@ -6,7 +6,7 @@ require("peek").setup {
   update_on_change = false,
 }
 
-require("user.utils").register_keymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

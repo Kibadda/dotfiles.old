@@ -41,6 +41,7 @@ return require("packer").startup {
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-symbols.nvim"
+    use "nvim-zh/colorful-winsep.nvim"
     use "otavioschwanck/telescope-alternate.nvim"
     use "rest-nvim/rest.nvim"
     use "romainl/vim-qf"

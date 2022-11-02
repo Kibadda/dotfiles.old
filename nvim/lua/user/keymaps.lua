@@ -45,13 +45,13 @@ require("user.utils").register_keymaps {
     gH = { require("user.utils").open_in_github, "Open current github" },
     j = {
       function()
-        JumpDirection "j"
+        require("user.utils").jump_direction "j"
       end,
       "Down",
     },
     k = {
       function()
-        JumpDirection "k"
+        require("user.utils").jump_direction "k"
       end,
       "Up",
     },
@@ -70,13 +70,13 @@ require("user.utils").register_keymaps {
     ["<C-S-k>"] = { ":m '<-2<CR>gv=gv", "Move lines up" },
     j = {
       function()
-        JumpDirection "j"
+        require("user.utils").jump_direction "j"
       end,
       "Down",
     },
     k = {
       function()
-        JumpDirection "k"
+        require("user.utils").jump_direction "k"
       end,
       "Up",
     },
@@ -86,7 +86,7 @@ require("user.utils").register_keymaps {
 -- this needs mapping in kitty.conf
 -- default behaviour <S-CR> == <C-CR> == <CR>
 -- explanation: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "i",
   prefix = "",
   {

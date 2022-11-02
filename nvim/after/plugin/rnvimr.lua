@@ -1,8 +1,10 @@
-if not GetGlobal("loaded", "rnvimr") then
+local globals = require "user.utils.globals"
+
+if not globals.get("loaded", "rnvimr") then
   return
 end
 
-SetGlobal("rnvimr", {
+globals.set("rnvimr", {
   vanilla = true,
   enable_ex = true,
   enable_picker = true,

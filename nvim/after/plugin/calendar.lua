@@ -1,4 +1,6 @@
-if not GetGlobal("loaded", "calendar") then
+local globals = require "user.utils.globals"
+
+if not globals.get("loaded", "calendar") then
   return
 end
 
@@ -9,7 +11,7 @@ end
 
 vim.cmd.Dotenv(envfile)
 
-SetGlobal("calendar", {
+globals.set("calendar", {
   locale = "de",
   first_day = "monday",
   date_endian = "little",

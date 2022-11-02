@@ -17,7 +17,7 @@ if require "user.first_load" then
   return
 end
 
-SetGlobal("", {
+require("user.utils.globals").set("", {
   mapleader = " ",
   formatoptions = "nljqrc",
 })

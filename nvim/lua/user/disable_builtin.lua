@@ -1,4 +1,4 @@
-SetGlobal("loaded", {
+require("user.utils.globals").set("loaded", {
   gzip = true,
   zip = true,
   zipPlugin = true,

@@ -1,4 +1,6 @@
-if not GetGlobal("loaded", "startify") then
+local globals = require "user.utils.globals"
+
+if not globals.get("loaded", "startify") then
   return
 end
 
@@ -9,7 +11,7 @@ end
 
 local pad = vim.fn["startify#pad"]
 
-SetGlobal("startify", {
+globals.set("startify", {
   session_persistence = true,
   session_before_save = {
     "silent! Neotree close",

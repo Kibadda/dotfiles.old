@@ -65,7 +65,7 @@ require("telescope").setup {
 require("telescope").load_extension "telescope-alternate"
 require("telescope").load_extension "laravel-docs"
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<Leader>",
   {
@@ -90,7 +90,7 @@ RegisterKeymaps {
   },
 }
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "i",
   prefix = "",
   {
@@ -129,7 +129,7 @@ local function terminal_emojis(source)
   }
 end
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "t",
   prefix = "",
   {

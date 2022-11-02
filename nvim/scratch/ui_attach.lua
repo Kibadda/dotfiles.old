@@ -37,7 +37,7 @@ local function detachCmdLine()
   vim.ui_detach(ns)
 end
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<C-s>",
   {

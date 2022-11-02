@@ -4,7 +4,7 @@ end
 
 require("gitsigns").setup {}
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

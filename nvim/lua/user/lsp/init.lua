@@ -3,7 +3,7 @@ local M = {}
 ---custom attach
 function M.get_on_attach()
   return function(client, bufnr)
-    RegisterKeymaps {
+    require("user.utils").register_keymaps {
       mode = "n",
       prefix = "",
       buffer = bufnr,
@@ -15,7 +15,7 @@ function M.get_on_attach()
       },
     }
 
-    RegisterKeymaps {
+    require("user.utils").register_keymaps {
       mode = "n",
       prefix = "<Leader>",
       buffer = bufnr,

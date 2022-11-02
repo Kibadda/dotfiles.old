@@ -15,7 +15,7 @@ require("neo-tree").setup {
   },
 }
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

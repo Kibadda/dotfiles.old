@@ -18,7 +18,7 @@ SetGlobal("rnvimr", {
   },
 })
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

@@ -24,7 +24,7 @@ SetGlobal("calendar", {
   google_client_secret = Env "CALENDAR_GOOGLE_CLIENT_SECRET",
 })
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

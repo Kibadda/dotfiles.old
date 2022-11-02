@@ -16,7 +16,7 @@ require("smart-splits").setup {
   },
 }
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "",
   {
@@ -27,7 +27,7 @@ RegisterKeymaps {
   },
 }
 
-RegisterKeymaps {
+require("user.utils").register_keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

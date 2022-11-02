@@ -9,7 +9,7 @@ local cond = require "nvim-autopairs.conds"
 
 require("nvim-autopairs").add_rules {
   -- add spaces inside brackets
-  Rule(" ", " ", "-markdown"):with_pair(function(opts)
+  Rule(" ", " ", { "-markdown", "-norg" }):with_pair(function(opts)
     local pair = opts.line:sub(opts.col - 1, opts.col)
     return vim.tbl_contains({ "()", "[]", "{}" }, pair)
   end),

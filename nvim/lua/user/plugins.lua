@@ -35,6 +35,7 @@ return require("packer").startup {
     use "numToStr/Comment.nvim"
     use "nvim-lualine/lualine.nvim"
     use { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" }
+    use { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-textobjects"

@@ -1,0 +1,3 @@
+SetWindowOptions {
+  conceallevel = 1,
+}

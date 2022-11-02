@@ -1,5 +1,5 @@
 SetBufferOptions {
-  formatoptions = GetFormatOptions(),
+  formatoptions = vim.g.formatoptions,
 }
 
 if vim.fn.fnamemodify(vim.fn.expandcmd "%", ":t") == "plugins.lua" then

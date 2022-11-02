@@ -19,6 +19,7 @@ end
 
 SetGlobal("", {
   mapleader = " ",
+  formatoptions = "nljqrc",
 })
 
 require "user.disable_builtin"

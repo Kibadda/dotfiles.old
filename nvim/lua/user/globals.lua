@@ -11,12 +11,6 @@ function SetValue(value_if_work, default)
   return default
 end
 
----get formatoptions
----@return string
-function GetFormatOptions()
-  return "nljqrc"
-end
-
 ---get env variable
 ---@param name string
 function Env(name)

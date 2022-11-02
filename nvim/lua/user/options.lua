@@ -34,8 +34,8 @@ SetOptions {
   timeoutlen = 100,
   termguicolors = true,
   winbar = "%=%m %{fnamemodify(expand('%'), ':.')}:%L ",
-  formatoptions = GetFormatOptions(),
+  formatoptions = vim.g.formatoptions,
   textwidth = 120,
   fileformats = "unix",
-  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals"
+  sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals",
 }

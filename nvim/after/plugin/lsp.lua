@@ -60,24 +60,10 @@ if not vim.fn.exists "g:Lsp_auto_format" then
   })
 end
 
-local handlers = require "user.lsp.handlers"
-handlers.hoverBorderStyle()
-handlers.showMessage()
-handlers.publishDiagnostics()
+require("user.lsp.handlers").publishDiagnostics()
 
 if PluginsOk "neodev" then
   require("neodev").setup {}
-end
-
-if PluginsOk "lsp_signature" then
-  require("lsp_signature").setup {
-    handler_opts = {
-      border = "single",
-    },
-    floating_window = false,
-    hint_enable = false,
-    toggle_key = "<M-x>",
-  }
 end
 
 require("user.lsp.servers").setup()

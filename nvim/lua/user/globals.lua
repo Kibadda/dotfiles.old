@@ -1,16 +1,3 @@
----set value depending if cwd is cortex
----@param value_if_work any
----@param default any
-function SetValue(value_if_work, default)
-  local dir = vim.fn.getcwd()
-
-  if string.find(dir, "^/media/beta/") then
-    return value_if_work
-  end
-
-  return default
-end
-
 ---get env variable
 ---@param name string
 function Env(name)

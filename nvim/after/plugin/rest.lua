@@ -5,9 +5,27 @@ end
 require("rest-nvim").setup {}
 
 local function enter_auth()
-  local method = vim.fn.input("method: ", "Basic")
-  local username = vim.fn.input "username: "
-  local password = vim.fn.input "password: "
+  local method
+  vim.ui.input({ prompt = "method: ", default = "Basic" }, function(input)
+    method = input
+  end)
+  if method == nil then
+    return
+  end
+  local username
+  vim.ui.input({ prompt = "username: " }, function(input)
+    username = input
+  end)
+  if username == nil then
+    return
+  end
+  local password
+  vim.ui.input({ prompt = "password: " }, function(input)
+    password = input
+  end)
+  if password == nil then
+    return
+  end
 
   local data = username .. ":" .. password
 

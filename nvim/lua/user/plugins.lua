@@ -41,6 +41,7 @@ return require("packer").startup {
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-symbols.nvim"
     use "otavioschwanck/telescope-alternate.nvim"
+    use "rest-nvim/rest.nvim"
     use "romainl/vim-qf"
     use "sickill/vim-pasta"
     use { "toppair/peek.nvim", run = "deno task --quiet build:fast" }

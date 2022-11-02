@@ -72,4 +72,12 @@ function M.register_keymaps(options)
   end
 end
 
+---register abbreviations
+---@param abbreviations table
+function M.register_abbreviations(abbreviations)
+  for k, v in pairs(abbreviations) do
+    vim.cmd.cabbrev(("%s %s"):format(k, v))
+  end
+end
+
 return M

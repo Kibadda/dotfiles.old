@@ -1,6 +1,6 @@
 -- require "user.mini.starter"
 require "user.mini.align"
-require "user.mini.indentscope"
+-- require "user.mini.indentscope"
 require "user.mini.jump"
 require "user.mini.jump2d"
 require "user.mini.fuzzy"

@@ -4,7 +4,7 @@ local i = luasnip.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 return {
-  s("debug", fmt("// WARN: remove\nUtil::getLogger()->debug({});", { i(0) })),
+  s("debug", fmt("Util::getLogger()->debug({});", { i(0) })),
   s("info", fmt("Util::getLogger()->info({});", { i(0) })),
   s("error", fmt("Util::getLogger()->error({});", { i(0) })),
 }, {}

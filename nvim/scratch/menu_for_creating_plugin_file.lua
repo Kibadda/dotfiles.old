@@ -22,6 +22,7 @@ local function open_menu()
   local menu = Menu(
     vim.tbl_deep_extend("force", options, {
       border = {
+        style = "single",
         text = {
           top = "[Choose]",
         },
@@ -55,7 +56,7 @@ local function open_menu()
             {
               prompt = "> ",
               on_submit = function(value)
-                P("open file " .. value)
+                vim.pretty_print("open file " .. value)
               end,
             }
           )

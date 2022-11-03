@@ -2,7 +2,7 @@
 --   vim.pretty_print { k, v }
 -- end
 
-vim.pretty_print(vim.fs.find(function(file)
+vim.pretty_print(vim.fs.find(function()
   return string.match("artisan.md", ".md$") ~= nil
 end, {
   path = "~/.cache/laravel-docs",

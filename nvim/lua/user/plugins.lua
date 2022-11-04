@@ -28,7 +28,7 @@ require("packer").startup {
     use "kylechui/nvim-surround"
     use "lewis6991/gitsigns.nvim"
     use "lewis6991/impatient.nvim"
-    use "mhinz/vim-startify"
+    -- use "mhinz/vim-startify"
     use "MrcJkb/haskell-tools.nvim"
     use "mrjones2014/smart-splits.nvim"
     use "norcalli/nvim-colorizer.lua"

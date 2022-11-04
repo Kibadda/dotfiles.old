@@ -17,7 +17,6 @@ globals.set("startify", {
     "silent! Neotree close",
   },
   change_to_vcs_root = true,
-  custom_indices = indices,
   custom_header = pad {
     "╔═══════════════════════════════════════════════════════╗",
     "║                                                       ║",
@@ -34,15 +33,38 @@ globals.set("startify", {
     {
       type = "sessions",
       header = pad { "Sessions" },
+      indices = indices,
     },
     {
-      type = "commands",
-      header = pad { "Commands" },
-    },
-  },
-  commands = {
-    {
-      p = "PackerSync --preview",
+      type = function()
+        local query_string = [[
+          (todo_item1
+            state: (todo_item_undone)
+            content: (paragraph (paragraph_segment) @todo)
+          )
+        ]]
+
+        local directory = vim.fn.expand "$HOME/notes"
+        local file = string.format("%s/index.norg", directory)
+        local file_string = table.concat(vim.fn.readfile(file), "\n")
+
+        local captures = {}
+
+        local parser = vim.treesitter.get_string_parser(file_string, "norg", {})
+        local root = parser:parse()[1]:root()
+        local query = vim.treesitter.parse_query("norg", query_string)
+
+        for _, node in query:iter_captures(root) do
+          table.insert(captures, {
+            line = vim.treesitter.get_node_text(node, file_string),
+            cmd = "",
+          })
+        end
+
+        return vim.list_slice(captures, 1, 10)
+      end,
+      header = pad { "Todos" },
+      indices = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " },
     },
   },
 })

@@ -55,7 +55,6 @@ return require("packer").startup {
     use "mhinz/vim-startify"
     use "MrcJkb/haskell-tools.nvim"
     use "mrjones2014/smart-splits.nvim"
-    use "narutoxy/silicon.lua"
     use "norcalli/nvim-colorizer.lua"
     use "numToStr/Comment.nvim"
     use "nvim-lualine/lualine.nvim"

@@ -50,6 +50,7 @@ return require("packer").startup {
     use "karb94/neoscroll.nvim"
     use "kevinhwang91/nvim-bqf"
     use "kylechui/nvim-surround"
+    use "lervag/vimtex"
     use "lewis6991/gitsigns.nvim"
     use "lewis6991/impatient.nvim"
     use "mhinz/vim-startify"

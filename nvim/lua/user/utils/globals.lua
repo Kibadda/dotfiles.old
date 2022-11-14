@@ -18,7 +18,11 @@ end
 ---@param option_name string
 ---@return any
 function M.get(plugin_name, option_name)
-  return vim.g[("%s_%s"):format(plugin_name, option_name)]
+  local prefix = ""
+  if plugin_name ~= "" then
+    prefix = ("%s_"):format(plugin_name)
+  end
+  return vim.g[("%s%s"):format(prefix, option_name)]
 end
 
 return M

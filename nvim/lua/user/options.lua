@@ -1,4 +1,4 @@
-SetOptions {
+require("user.utils.options").set {
   pumblend = 17,
   wildmode = "longest:full,full",
   wildoptions = "pum",

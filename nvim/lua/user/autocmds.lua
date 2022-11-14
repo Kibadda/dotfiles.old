@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup("TermFileType", { clear = true }),
   pattern = "*",
   callback = function()
-    SetBufferOptions {
+    require("user.utils.options").set {
       filetype = "term",
     }
   end,

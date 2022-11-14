@@ -1,4 +1,4 @@
-SetBufferOptions {
+require("user.utils.options").set {
   formatoptions = vim.g.formatoptions,
 }
 

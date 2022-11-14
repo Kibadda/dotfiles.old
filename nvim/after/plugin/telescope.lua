@@ -1,4 +1,4 @@
-if not PluginsOk "telescope" then
+if not plugins_ok "telescope" then
   return
 end
 

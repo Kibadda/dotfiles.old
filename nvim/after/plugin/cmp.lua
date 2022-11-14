@@ -1,4 +1,4 @@
-if not PluginsOk { "cmp", "luasnip" } then
+if not plugins_ok { "cmp", "luasnip" } then
   return
 end
 

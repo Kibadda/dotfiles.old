@@ -1,4 +1,4 @@
-if not PluginsOk "nvim-surround" then
+if not plugins_ok "nvim-surround" then
   return
 end
 

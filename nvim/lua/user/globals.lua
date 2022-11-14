@@ -1,7 +1,7 @@
 ---check if given plugins are installed
 ---@param plugins string|table
 ---@return boolean
-function PluginsOk(plugins)
+function _G.plugins_ok(plugins)
   if type(plugins) == "string" then
     plugins = { plugins }
   end

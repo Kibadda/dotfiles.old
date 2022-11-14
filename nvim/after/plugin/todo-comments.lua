@@ -1,4 +1,4 @@
-if not PluginsOk "todo-comments" then
+if not plugins_ok "todo-comments" then
   return
 end
 

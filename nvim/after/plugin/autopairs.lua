@@ -1,4 +1,4 @@
-if not PluginsOk "nvim-autopairs" then
+if not plugins_ok "nvim-autopairs" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not PluginsOk "twilight" then
+if not plugins_ok "twilight" then
   return
 end
 

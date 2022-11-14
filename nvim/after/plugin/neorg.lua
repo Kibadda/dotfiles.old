@@ -1,4 +1,4 @@
-if not PluginsOk "neorg" then
+if not plugins_ok "neorg" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not PluginsOk "battery" then
+if not plugins_ok "battery" then
   return
 end
 

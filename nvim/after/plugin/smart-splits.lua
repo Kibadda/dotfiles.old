@@ -1,4 +1,4 @@
-if not PluginsOk "smart-splits" then
+if not plugins_ok "smart-splits" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not PluginsOk "rest-nvim" then
+if not plugins_ok "rest-nvim" then
   return
 end
 

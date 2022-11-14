@@ -1,4 +1,4 @@
-if not PluginsOk "zen-mode" then
+if not plugins_ok "zen-mode" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not PluginsOk "packer" then
+if not plugins_ok "packer" then
   local directory = string.format("%s/site/pack/packer/start/", vim.fn.stdpath "data")
 
   vim.fn.mkdir(directory, "p")

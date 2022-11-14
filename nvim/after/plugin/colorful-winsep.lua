@@ -1,4 +1,4 @@
-if not PluginsOk "colorful-winsep" then
+if not plugins_ok "colorful-winsep" then
   return
 end
 

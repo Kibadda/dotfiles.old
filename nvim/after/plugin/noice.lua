@@ -1,4 +1,4 @@
-if not PluginsOk "noice" then
+if not plugins_ok "noice" then
   return
 end
 

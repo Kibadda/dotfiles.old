@@ -1,4 +1,4 @@
-if not PluginsOk "neo-tree" then
+if not plugins_ok "neo-tree" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not PluginsOk "colorbuddy" then
+if not plugins_ok "colorbuddy" then
   return
 end
 

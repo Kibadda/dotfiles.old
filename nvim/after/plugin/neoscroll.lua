@@ -1,4 +1,4 @@
-if not PluginsOk "neoscroll" then
+if not plugins_ok "neoscroll" then
   return
 end
 

@@ -1,4 +1,4 @@
-if not PluginsOk "bqf" then
+if not plugins_ok "bqf" then
   return
 end
 

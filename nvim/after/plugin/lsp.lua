@@ -1,4 +1,4 @@
-if not PluginsOk { "lspconfig", "mason", "mason-lspconfig" } then
+if not plugins_ok { "lspconfig", "mason", "mason-lspconfig" } then
   return
 end
 
@@ -25,7 +25,7 @@ require("mason-lspconfig").setup {
   },
 }
 
-if PluginsOk { "mason-null-ls", "null-ls" } then
+if plugins_ok { "mason-null-ls", "null-ls" } then
   local null_ls = require "null-ls"
   require("mason-null-ls").setup {
     ensure_installed = {
@@ -56,7 +56,7 @@ require("user.utils.register").keymaps {
 
 require("user.lsp.handlers").publishDiagnostics()
 
-if PluginsOk "neodev" then
+if plugins_ok "neodev" then
   require("neodev").setup {}
 end
 

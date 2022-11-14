@@ -1,4 +1,4 @@
-if not PluginsOk "bufferline" then
+if not plugins_ok "bufferline" then
   return
 end
 

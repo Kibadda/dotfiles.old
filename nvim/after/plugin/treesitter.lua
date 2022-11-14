@@ -1,4 +1,4 @@
-if not PluginsOk "nvim-treesitter" then
+if not plugins_ok "nvim-treesitter" then
   return
 end
 

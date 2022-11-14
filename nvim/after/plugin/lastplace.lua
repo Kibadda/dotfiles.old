@@ -1,4 +1,4 @@
-if not PluginsOk "nvim-lastplace" then
+if not plugins_ok "nvim-lastplace" then
   return
 end
 

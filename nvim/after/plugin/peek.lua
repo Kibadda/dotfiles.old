@@ -1,4 +1,4 @@
-if not PluginsOk "peek" then
+if not plugins_ok "peek" then
   return
 end
 

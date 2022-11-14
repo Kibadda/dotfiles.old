@@ -1,4 +1,4 @@
-if not PluginsOk "lualine" then
+if not plugins_ok "lualine" then
   return
 end
 

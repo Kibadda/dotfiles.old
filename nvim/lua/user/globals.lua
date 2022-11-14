@@ -20,5 +20,9 @@ function _G.plugins_ok(plugins)
     end
   end
 
+  if require("user.utils.globals").get("", "notify_about_missing_plugins") then
+    vim.notify(table.concat(not_installed, "\n"), vim.log.levels.INFO, { title = "Missing Plugins" })
+  end
+
   return check
 end

@@ -7,7 +7,10 @@ if not PluginsOk "packer" then
 
   vim.fn.system(string.format("git clone %s %s/packer.nvim", github_url, directory))
 
-  vim.fn.input "You need to restart now (press anything to continue)"
+  vim.ui.input {
+    prompt = "You need to restart now (press anything to continue)",
+  }
+
   vim.cmd.qa()
 
   return true

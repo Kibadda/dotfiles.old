@@ -12,11 +12,12 @@ _ = {
 require "impatient"
 
 require "user.globals"
-require "user.plugins"
 
 if require "user.first_load" then
   return
 end
+
+require "user.plugins"
 
 require("user.utils.globals").set("", {
   mapleader = " ",

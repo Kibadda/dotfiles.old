@@ -34,7 +34,7 @@ require("user.utils.options").set {
   timeoutlen = 100,
   termguicolors = true,
   winbar = "%=%m %{fnamemodify(expand('%'), ':.')}:%L ",
-  formatoptions = vim.g.formatoptions,
+  formatoptions = require("user.utils.globals").get("", "formatoptions"),
   textwidth = 120,
   fileformats = "unix",
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals",

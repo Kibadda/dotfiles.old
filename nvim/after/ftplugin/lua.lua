@@ -1,5 +1,5 @@
 require("user.utils.options").set {
-  formatoptions = vim.g.formatoptions,
+  formatoptions = require("user.utils.globals").get("", "formatoptions"),
 }
 
 if vim.fn.fnamemodify(vim.fn.expandcmd "%", ":t") == "plugins.lua" then

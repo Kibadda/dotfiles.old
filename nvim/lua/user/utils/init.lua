@@ -72,4 +72,14 @@ function M.set_value(value_if_work, default)
   return default
 end
 
+function M.set_cwd_options(value_if_work, default)
+  local ts = M.set_value(value_if_work, default)
+
+  require("user.utils.options").set {
+    tabstop = ts,
+    shiftwidth = ts,
+    formatoptions = require("user.utils.globals").get("", "formatoptions"),
+  }
+end
+
 return M

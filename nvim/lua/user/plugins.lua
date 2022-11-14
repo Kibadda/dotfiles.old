@@ -35,11 +35,11 @@ require("packer").startup {
     use "nvim-lualine/lualine.nvim"
     use { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" }
     use { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
+    use "nvim-telescope/telescope.nvim"
+    use "nvim-telescope/telescope-symbols.nvim"
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-textobjects"
-    use "nvim-telescope/telescope.nvim"
-    use "nvim-telescope/telescope-symbols.nvim"
     use "nvim-zh/colorful-winsep.nvim"
     use "otavioschwanck/telescope-alternate.nvim"
     use "rest-nvim/rest.nvim"

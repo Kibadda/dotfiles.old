@@ -10,6 +10,7 @@ require("packer").startup {
     -- Colorscheme
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/gruvbuddy.nvim"
+    use "sam4llis/nvim-tundra"
 
     -- Plugins
     use "akinsho/bufferline.nvim"

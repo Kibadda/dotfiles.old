@@ -4,7 +4,8 @@ end
 
 require("lualine").setup {
   options = {
-    theme = "gruvbox-material",
+    theme = "tundra",
+    -- theme = "gruvbox-material",
     globalstatus = true,
   },
   sections = {

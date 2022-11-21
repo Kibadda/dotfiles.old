@@ -11,7 +11,7 @@ return {
     "pok",
     fmt(
       [[
-        if not PluginsOk "[]" then
+        if not plugins_ok "[]" then
           return
         end
 

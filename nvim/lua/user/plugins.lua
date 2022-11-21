@@ -50,6 +50,7 @@ require("packer").startup {
     use "tpope/vim-dotenv"
     use "tpope/vim-fugitive"
     use "tpope/vim-repeat"
+    use "uga-rosa/translate.nvim"
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
 

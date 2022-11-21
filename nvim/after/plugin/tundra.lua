@@ -1,7 +1,7 @@
-if not plugins_ok "tundra" then
+if not plugins_ok "nvim-tundra" then
   return
 end
 
-require("tundra").setup {}
+-- require("nvim-tundra").setup {}
 
 vim.cmd.colorscheme "tundra"

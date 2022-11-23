@@ -9,9 +9,10 @@ if not plugins_ok "packer" then
 
   vim.ui.input {
     prompt = "You need to restart now (press anything to continue)",
+    on_confirm = function()
+      vim.cmd.qa()
+    end,
   }
-
-  vim.cmd.qa()
 
   return true
 end

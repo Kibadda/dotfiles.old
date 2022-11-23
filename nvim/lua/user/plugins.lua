@@ -20,6 +20,7 @@ require("packer").startup {
     use "fladson/vim-kitty"
     use "folke/noice.nvim"
     use "folke/todo-comments.nvim"
+    use "folke/zen-mode.nvim"
     use "folke/which-key.nvim"
     use "itchyny/calendar.vim"
     use "justinhj/battery.nvim"

@@ -24,5 +24,10 @@ require("neorg").setup {
         extensions = "all",
       },
     },
+    ["core.presenter"] = {
+      config = {
+        zen_mode = "zen-mode",
+      },
+    },
   },
 }

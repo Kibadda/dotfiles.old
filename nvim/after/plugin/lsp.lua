@@ -62,8 +62,10 @@ end
 
 require("user.lsp.servers").setup()
 
-require("haskell-tools").setup {
-  hls = {
-    on_attach = require("user.lsp").get_on_attach(),
-  },
-}
+if plugins_ok "haskell-tools" then
+  require("haskell-tools").setup {
+    hls = {
+      on_attach = require("user.lsp").get_on_attach(),
+    },
+  }
+end

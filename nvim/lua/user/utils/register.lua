@@ -12,6 +12,10 @@ local M = {}
 ---```
 ---@param options table
 function M.keymaps(options)
+  if not plugins_ok "which-key" then
+    return
+  end
+
   local keymaps = table.remove(options, 1)
   if options.mode == nil then
     error "RegisterKeymap: mode is not set"

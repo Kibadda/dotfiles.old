@@ -9,9 +9,11 @@ _ = {
   ]======================================],
 }
 
-require "impatient"
-
 require "user.globals"
+
+if plugins_ok "impatient" then
+  require "impatient"
+end
 
 if require "user.first_load" then
   return

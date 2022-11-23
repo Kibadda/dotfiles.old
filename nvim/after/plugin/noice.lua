@@ -15,11 +15,12 @@ require("noice").setup {
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
-    -- documentation = {
-    --   opts = {
-    --     border = "single",
-    --   },
-    -- },
+    -- FIX: somehow this kills my neovim in intelephense
+    -- together with treesitter
+    -- without php parser -> no crash
+    signature = {
+      enabled = false,
+    },
   },
   routes = {
     {

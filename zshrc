@@ -167,4 +167,4 @@ export EDITOR=/usr/local/bin/nvim
 
 alias swap='setxkbmap -option caps:swapescape'
 
-# alias luamake=/home/michael/.cache/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake
+[ -f "/home/michael/.ghcup/env" ] && source "/home/michael/.ghcup/env" # ghcup-env

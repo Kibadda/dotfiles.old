@@ -51,7 +51,7 @@ require("packer").startup {
     use "tpope/vim-fugitive"
     use "tpope/vim-repeat"
     use "uga-rosa/translate.nvim"
-    use "Wansmer/treesj"
+    -- use "Wansmer/treesj"
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
 
@@ -84,6 +84,7 @@ require("packer").startup {
     end
     local_use "laravel-docs.nvim"
     local_use "markdown-docs.nvim"
+    local_use "treesj"
   end,
   config = {
     autoremove = true,

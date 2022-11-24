@@ -14,7 +14,6 @@ require("packer").startup {
 
     -- Plugins
     use "akinsho/bufferline.nvim"
-    use "AndrewRadev/splitjoin.vim"
     use "dhruvasagar/vim-open-url"
     use "ethanholz/nvim-lastplace"
     use "fladson/vim-kitty"
@@ -52,6 +51,7 @@ require("packer").startup {
     use "tpope/vim-fugitive"
     use "tpope/vim-repeat"
     use "uga-rosa/translate.nvim"
+    use "Wansmer/treesj"
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
 

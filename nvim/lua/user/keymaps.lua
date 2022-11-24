@@ -24,8 +24,6 @@ require("user.utils.register").keymaps {
   prefix = "",
   {
     Y = { "Yank till EOL" },
-    gJ = { "Join lines" },
-    gS = { "Split line" },
     p = { "Paste" },
     P = { "Paste before" },
     gB = { "Browser: Open URL" },

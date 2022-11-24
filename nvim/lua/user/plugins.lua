@@ -6,6 +6,7 @@ require("packer").startup {
     use "kyazdani42/nvim-web-devicons"
     use "MunifTanjim/nui.nvim"
     use "nvim-lua/plenary.nvim"
+    use "tami5/sqlite.lua"
 
     -- Colorscheme
     use "tjdevries/colorbuddy.nvim"
@@ -20,6 +21,7 @@ require("packer").startup {
     -- Plugins
     use "akinsho/bufferline.nvim"
     use "dhruvasagar/vim-open-url"
+    use { "empat94/nvim-rss", rocks = { "luaexpat" } }
     use "ethanholz/nvim-lastplace"
     use "fladson/vim-kitty"
     use "folke/noice.nvim"

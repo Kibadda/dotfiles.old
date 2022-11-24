@@ -1,4 +1,4 @@
-if not PluginsOk "nvim-rss" then
+if not plugins_ok "nvim-rss" then
   return
 end
 
@@ -6,7 +6,7 @@ require("nvim-rss").setup {
   feeds_dir = vim.fn.expand "~/.config/nvim",
 }
 
-RegisterKeymaps {
+require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {

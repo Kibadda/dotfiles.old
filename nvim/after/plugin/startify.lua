@@ -22,7 +22,7 @@ globals.set("startify", {
     "│                                                       │",
     "└───────────────────────────────────────────────────────┘",
   },
-  lists = require("user.startify").lists {
+  lists = require("start-screen-sections").get_sections {
     main_section = {
       name = "Dotfiles",
       sessions = { "dotfiles", "notes" },

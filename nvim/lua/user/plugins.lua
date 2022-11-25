@@ -84,6 +84,7 @@ require("packer").startup {
     end
     local_use "laravel-docs.nvim"
     local_use "markdown-docs.nvim"
+    local_use "start-screen-sections.nvim"
   end,
   config = {
     autoremove = true,

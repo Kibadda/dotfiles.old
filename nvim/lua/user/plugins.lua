@@ -55,6 +55,38 @@ require("packer").startup {
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
 
+    -- TODO: somwhow find a way to autosave session at vimclose
+    -- and save vim.g.LspAutoFormat in session
+    -- then I can use mini.starter as greeter
+    -- use {
+    --   "echasnovski/mini.starter",
+    --   requires = "/home/michael/plugins/start-screen-sections.nvim",
+    --   config = function()
+    --     require("mini.starter").setup {
+    --       header = table.concat({
+    --         "╔═══════════════════════════════════════════════════════╗",
+    --         "║                                                       ║",
+    --         "║  ██╗  ██╗██╗██████╗  █████╗ ██████╗ ██████╗  █████╗   ║",
+    --         "║  ██║ ██╔╝██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ║",
+    --         "║  █████╔╝ ██║██████╔╝███████║██║  ██║██║  ██║███████║  ║",
+    --         "║  ██╔═██╗ ██║██╔══██╗██╔══██║██║  ██║██║  ██║██╔══██║  ║",
+    --         "║  ██║ ╚██╗██║██████╔╝██║  ██║██████╔╝██████╔╝██║  ██║  ║",
+    --         "║  ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝  ╚═╝  ║",
+    --         "║                                                       ║",
+    --         "╚═══════════════════════════════════════════════════════╝",
+    --       }, "\n"),
+    --       items = require("start-screen-sections").get_sections {
+    --         plugin = "mini",
+    --         main_section = {
+    --           name = "Dotfiles",
+    --           sessions = { "dotfiles", "notes" },
+    --         },
+    --       },
+    --       footer = "",
+    --     }
+    --   end,
+    -- }
+
     -- Lsp and Cmp
     use "folke/lua-dev.nvim"
     use "hrsh7th/nvim-cmp"

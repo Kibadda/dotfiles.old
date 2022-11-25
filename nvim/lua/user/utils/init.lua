@@ -59,21 +59,14 @@ function M.jump_direction(direction)
   vim.cmd.normal { ("%d%s"):format(count, direction), bang = true }
 end
 
----set value depending if cwd is cortex
+---set options depending if cwd is cortex
 ---@param value_if_work any
 ---@param default any
-function M.set_value(value_if_work, default)
-  local dir = vim.fn.getcwd()
-
-  if string.find(dir, "^/media/") then
-    return value_if_work
-  end
-
-  return default
-end
-
 function M.set_cwd_options(value_if_work, default)
-  local ts = M.set_value(value_if_work, default)
+  local ts = default
+  if string.find(vim.fn.getcwd(), "^/media/") then
+    ts = value_if_work
+  end
 
   require("user.utils.options").set {
     tabstop = ts,

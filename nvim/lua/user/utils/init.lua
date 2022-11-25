@@ -82,4 +82,74 @@ function M.set_cwd_options(value_if_work, default)
   }
 end
 
+---get all open todos from notes directory
+---@return table, table
+function M.get_open_todos()
+  local norg_files = vim.fs.find(function(file)
+    return string.match(file, ".norg$") ~= nil
+  end, {
+    path = "$HOME/notes",
+    type = "file",
+    limit = math.huge,
+  })
+
+  local captures = {}
+
+  local function file_to_name(file)
+    local split = vim.split(file, "/")
+    local file_name = split[#split]
+    return vim.split(file_name, "%.")[1]
+  end
+
+  for _, file in ipairs(norg_files) do
+    local query_string = [[
+      (todo_item1
+        state: (todo_item_undone)
+        content: (paragraph (paragraph_segment) @todo)
+      )
+    ]]
+
+    local name = file_to_name(file)
+
+    captures[name] = {}
+
+    local file_string = table.concat(vim.fn.readfile(vim.fn.expand(file)), "\n")
+
+    local root = vim.treesitter.get_string_parser(file_string, "norg", {}):parse()[1]:root()
+    local query = vim.treesitter.parse_query("norg", query_string)
+
+    for _, node in query:iter_captures(root) do
+      table.insert(captures[name], {
+        line = vim.treesitter.get_node_text(node, file_string),
+        cmd = "",
+      })
+    end
+  end
+
+  local main_todos
+  local remaining_todos = {}
+
+  for name, todos in pairs(captures) do
+    if name == "index" then
+      main_todos = {
+        type = function()
+          return vim.list_slice(todos, 1, 10)
+        end,
+        header = vim.fn["startify#pad"] { "Todos" },
+        indices = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " },
+      }
+    else
+      table.insert(remaining_todos, {
+        type = function()
+          return vim.list_slice(todos, 1, 10)
+        end,
+        header = vim.fn["startify#pad"] { name },
+        indices = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " },
+      })
+    end
+  end
+
+  return main_todos, remaining_todos
+end
+
 return M

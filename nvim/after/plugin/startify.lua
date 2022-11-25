@@ -4,22 +4,13 @@ if not globals.get("loaded", "startify") then
   return
 end
 
-local indices = {}
-for index = 1, 99 do
-  table.insert(indices, ("%d"):format(index))
-end
-
-local pad = vim.fn["startify#pad"]
-
-local main_todos, remaining_todos = require("user.utils").get_open_todos()
-
 globals.set("startify", {
   session_persistence = true,
   session_before_save = {
     "silent! Neotree close",
   },
   change_to_vcs_root = true,
-  custom_header = pad {
+  custom_header = vim.fn["startify#pad"] {
     "┌───────────────────────────────────────────────────────┐",
     "│                                                       │",
     "│  ██┐  ██┐██┐██████┐  █████┐ ██████┐ ██████┐  █████┐   │",
@@ -31,14 +22,11 @@ globals.set("startify", {
     "│                                                       │",
     "└───────────────────────────────────────────────────────┘",
   },
-  lists = {
-    {
-      type = "sessions",
-      header = pad { "Sessions" },
-      indices = indices,
+  lists = require("user.startify").lists {
+    main_section = {
+      name = "Dotfiles",
+      sessions = { "dotfiles", "notes" },
     },
-    main_todos,
-    table.unpack(remaining_todos),
   },
 })
 

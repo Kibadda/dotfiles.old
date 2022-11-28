@@ -16,6 +16,7 @@ require("user.utils.register").keymaps {
     Q = { require("user.utils").detach_from_tmux, "Detach" },
     P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
     I = { "<Cmd>e nvim/init.lua<CR>", "Edit Init" },
+    T = { require("user.utils.terminal").open_terminal, "Terminal" },
   },
 }
 

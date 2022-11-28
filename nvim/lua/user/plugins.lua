@@ -13,8 +13,8 @@ require("packer").startup {
     use "sam4llis/nvim-tundra"
 
     -- Greeter
-    use { "echasnovski/mini.starter" }
-    use { "echasnovski/mini.sessions" }
+    use "echasnovski/mini.starter"
+    use "echasnovski/mini.sessions"
     -- use "mhinz/vim-startify"
 
     -- Plugins

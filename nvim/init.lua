@@ -24,7 +24,7 @@ require "user.plugins"
 require("user.utils.globals").set("", {
   mapleader = " ",
   formatoptions = "nljqrc",
-  notify_about_missing_plugins = true,
+  notify_about_missing_plugins = false,
 })
 
 require "user.disable_builtin"

@@ -12,6 +12,11 @@ require("packer").startup {
     use "tjdevries/gruvbuddy.nvim"
     use "sam4llis/nvim-tundra"
 
+    -- Greeter
+    use { "echasnovski/mini.starter" }
+    use { "echasnovski/mini.sessions" }
+    -- use "mhinz/vim-startify"
+
     -- Plugins
     use "akinsho/bufferline.nvim"
     use "dhruvasagar/vim-open-url"
@@ -28,7 +33,6 @@ require("packer").startup {
     use "kylechui/nvim-surround"
     use "lewis6991/gitsigns.nvim"
     use "lewis6991/impatient.nvim"
-    use "mhinz/vim-startify"
     use "MrcJkb/haskell-tools.nvim"
     use "mrjones2014/smart-splits.nvim"
     use "norcalli/nvim-colorizer.lua"
@@ -54,38 +58,6 @@ require("packer").startup {
     use "Wansmer/treesj"
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
-
-    -- TODO: somwhow find a way to autosave session at vimclose
-    -- and save vim.g.LspAutoFormat in session
-    -- then I can use mini.starter as greeter
-    -- use {
-    --   "echasnovski/mini.starter",
-    --   requires = "/home/michael/plugins/start-screen-sections.nvim",
-    --   config = function()
-    --     require("mini.starter").setup {
-    --       header = table.concat({
-    --         "╔═══════════════════════════════════════════════════════╗",
-    --         "║                                                       ║",
-    --         "║  ██╗  ██╗██╗██████╗  █████╗ ██████╗ ██████╗  █████╗   ║",
-    --         "║  ██║ ██╔╝██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ║",
-    --         "║  █████╔╝ ██║██████╔╝███████║██║  ██║██║  ██║███████║  ║",
-    --         "║  ██╔═██╗ ██║██╔══██╗██╔══██║██║  ██║██║  ██║██╔══██║  ║",
-    --         "║  ██║ ╚██╗██║██████╔╝██║  ██║██████╔╝██████╔╝██║  ██║  ║",
-    --         "║  ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝  ╚═╝  ║",
-    --         "║                                                       ║",
-    --         "╚═══════════════════════════════════════════════════════╝",
-    --       }, "\n"),
-    --       items = require("start-screen-sections").get_sections {
-    --         plugin = "mini",
-    --         main_section = {
-    --           name = "Dotfiles",
-    --           sessions = { "dotfiles", "notes" },
-    --         },
-    --       },
-    --       footer = "",
-    --     }
-    --   end,
-    -- }
 
     -- Lsp and Cmp
     use "folke/lua-dev.nvim"

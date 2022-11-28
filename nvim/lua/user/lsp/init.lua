@@ -30,6 +30,7 @@ function M.get_on_attach()
           d = { "<Cmd>Telescope diagnostics bufnr=0<CR>", "Show Buffer Diagnostics" },
           w = { "<Cmd>Telescope diagnostics<CR>", "Show Diagnostics" },
           R = { "<Cmd>LspRestart<CR>", "Restart" },
+          D = { "<Cmd>Telescope lsp_document_symbols<CR>", "Symbols" },
         },
       },
     }

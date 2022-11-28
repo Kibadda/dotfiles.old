@@ -82,7 +82,7 @@ require("user.utils.register").keymaps {
       c = { "<Cmd>Telescope commands<CR>", "Commands" },
       R = { "<Cmd>Telescope resume<CR>", "Resume" },
       e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
-      o = { "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Laravel Docs" },
+      o = { "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Recent Files" },
       a = { "<Cmd>Telescope telescope-alternate alternate_file<CR>", "Alternate" },
       l = { "<Cmd>Telescope laravel-docs<CR>", "Laravel Docs" },
     },

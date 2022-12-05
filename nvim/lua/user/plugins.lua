@@ -13,9 +13,9 @@ require("packer").startup {
     use "sam4llis/nvim-tundra"
 
     -- Greeter
-    use "echasnovski/mini.starter"
-    use "echasnovski/mini.sessions"
-    -- use "mhinz/vim-startify"
+    -- use "echasnovski/mini.starter"
+    -- use "echasnovski/mini.sessions"
+    use "mhinz/vim-startify"
 
     -- Plugins
     use "akinsho/bufferline.nvim"
@@ -42,7 +42,7 @@ require("packer").startup {
     use { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-symbols.nvim"
-    use "nvim-treesitter/nvim-treesitter"
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate all" }
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "nvim-zh/colorful-winsep.nvim"
@@ -72,6 +72,10 @@ require("packer").startup {
     use "saadparwaiz1/cmp_luasnip"
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
+
+    -- stupid stuff
+    -- use "eandrju/cellular-automaton.nvim"
+    -- use "tamton-aquib/duck.nvim"
 
     -- self
     local local_use = function(name, opts)

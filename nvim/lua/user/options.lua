@@ -1,4 +1,5 @@
 require("user.utils.options").set {
+  completeopt = "menuone,noselect",
   pumblend = 17,
   wildmode = "longest:full,full",
   wildoptions = "pum",

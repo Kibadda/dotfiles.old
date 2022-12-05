@@ -31,12 +31,25 @@ if plugins_ok { "mason-null-ls", "null-ls" } then
   require("mason-null-ls").setup {
     ensure_installed = {
       "stylua",
+      "beautysh",
     },
     automatic_installation = true,
   }
   require("mason-null-ls").setup_handlers {
     stylua = function()
       null_ls.register(null_ls.builtins.formatting.stylua)
+    end,
+    beautysh = function()
+      null_ls.register(null_ls.builtins.formatting.beautysh.with {
+        extra_args = function(params)
+          return params.options
+            and params.options.tabSize
+            and {
+              "-i",
+              params.options.tabSize,
+            }
+        end,
+      })
     end,
   }
   null_ls.setup {}

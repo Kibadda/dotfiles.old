@@ -39,4 +39,5 @@ require("user.utils.options").set {
   textwidth = 120,
   fileformats = "unix",
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals",
+  spell = false,
 }

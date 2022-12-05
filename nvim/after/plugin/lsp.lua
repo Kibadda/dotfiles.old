@@ -83,3 +83,6 @@ if plugins_ok "haskell-tools" then
     },
   }
 end
+
+-- set border of LspInfo window
+require("lspconfig.ui.windows").default_options.border = "single"

@@ -22,6 +22,11 @@ require("nvim-treesitter.configs").setup {
     "http",
     "markdown",
     "markdown_inline",
+    "regex",
+    "gitcommit",
+    "gitignore",
+    "gitattributes",
+    "git_rebase",
   },
   highlight = {
     enable = true,

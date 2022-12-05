@@ -42,7 +42,7 @@ require("packer").startup {
     use { "nvim-neorg/neorg", run = ":Neorg sync-parsers" }
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-symbols.nvim"
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate all" }
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdateSync" }
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "nvim-zh/colorful-winsep.nvim"

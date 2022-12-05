@@ -1,16 +1,16 @@
 local M = {}
 
 ---change border style of hover handler
--- function M.hoverBorderStyle()
---   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
---     border = "single",
---   })
--- end
+function M.hoverBorderStyle()
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "single",
+  })
+end
 
 ---lsp messages send to buffer
--- function M.showMessage()
---   vim.lsp.handlers["window/showMessage"] = require "user.lsp.show_message"
--- end
+function M.showMessage()
+  vim.lsp.handlers["window/showMessage"] = require "user.lsp.show_message"
+end
 
 ---update publish diagnostics settings
 function M.publishDiagnostics()

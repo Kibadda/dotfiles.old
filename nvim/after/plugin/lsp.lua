@@ -68,7 +68,10 @@ require("user.utils.register").keymaps {
   },
 }
 
-require("user.lsp.handlers").publishDiagnostics()
+local handlers = require "user.lsp.handlers"
+handlers.publishDiagnostics()
+handlers.hoverBorderStyle()
+handlers.showMessage()
 
 if plugins_ok "neodev" then
   require("neodev").setup {}

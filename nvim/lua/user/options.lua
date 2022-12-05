@@ -1,4 +1,6 @@
-require("user.utils.options").set {
+local utils_options = require "user.utils.options"
+
+utils_options.set {
   completeopt = "menuone,noselect",
   pumblend = 17,
   wildmode = "longest:full,full",
@@ -41,3 +43,11 @@ require("user.utils.options").set {
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals",
   spell = false,
 }
+
+vim.on_key(function(char)
+  if vim.fn.mode() == "n" then
+    utils_options.set {
+      hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/", "z" }, vim.fn.keytrans(char)),
+    }
+  end
+end, vim.api.nvim_create_namespace "auto_hlsearch")

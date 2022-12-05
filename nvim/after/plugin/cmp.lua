@@ -5,7 +5,7 @@ end
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 
-local jumpable = function(backwards)
+local function jumpable(backwards)
   if backwards == nil then
     backwards = false
   else
@@ -14,7 +14,7 @@ local jumpable = function(backwards)
   local win_get_cursor = vim.api.nvim_win_get_cursor
   local get_current_buf = vim.api.nvim_get_current_buf
 
-  local inside_snippet = function()
+  local function inside_snippet()
     local node = luasnip.session.current_nodes[get_current_buf()]
     if not node then
       return false
@@ -26,7 +26,7 @@ local jumpable = function(backwards)
     return pos[1] >= snip_begin_pos[1] and pos[1] <= snip_end_pos[1]
   end
 
-  local seek_luasnip_cursor_node = function()
+  local function seek_luasnip_cursor_node()
     local pos = win_get_cursor(0)
     pos[1] = pos[1] - 1
     local node = luasnip.session.current_nodes[get_current_buf()]
@@ -93,12 +93,13 @@ local jumpable = function(backwards)
   end
 end
 
+local window_options = {
+  border = "single",
+  scrolloff = 1,
+}
+
 local setup_options
 setup_options = {
-  confirm_opts = {
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = false,
-  },
   completion = {
     keyword_length = 1,
   },
@@ -168,12 +169,12 @@ setup_options = {
   },
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(window_options),
+    documentation = cmp.config.window.bordered(window_options),
   },
   sources = {
     { name = "nvim_lsp" },
@@ -197,10 +198,7 @@ setup_options = {
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if jumpable(true) then
         luasnip.jump(-1)
@@ -209,12 +207,9 @@ setup_options = {
       else
         fallback()
       end
-    end, {
-      "i",
-      "s",
-    }),
+    end, { "i", "s" }),
 
-    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-l>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() and cmp.confirm(setup_options.confirm_opts) then

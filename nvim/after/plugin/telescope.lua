@@ -25,44 +25,9 @@ require("telescope").setup {
     --   "^htdocs/",
     -- },
   },
-  extensions = {
-    -- FIX: multiple files not working
-    ["telescope-alternate"] = {
-      mappings = {
-        {
-          pattern = "project/lib/objects/(.*).class.php",
-          targets = {
-            { "project/lib/dao/[1]DAO.class.php", "DAO" },
-            { "project/templates/**/[1:pascal_to_snake]*.tpl", "Template" },
-            { "project/htdocs/**/[1:pascal_to_snake]*.php", "Controller" },
-            { "project/htdocs/static/js/*[1:pascal_to_snake]*.js", "Script" },
-          },
-        },
-        {
-          pattern = "project/lib/dao/(.*)DAO.class.php",
-          targets = {
-            { "project/lib/objects/[1].class.php", "Model" },
-            { "project/templates/**/[1:pascal_to_snake]*.tpl", "Template" },
-            { "project/htdocs/**/[1:pascal_to_snake]*.php", "Controller" },
-            { "project/htdocs/static/js/*[1:pascal_to_snake]*.js", "Script" },
-          },
-        },
-      },
-      transformers = {
-        pascal_to_snake = function(w)
-          local toReturn = {}
-          for word in string.gmatch(w, "%u%U*") do
-            table.insert(toReturn, string.lower(word))
-          end
-          return table.concat(toReturn, "_")
-        end,
-      },
-    },
-  },
 }
 
-require("telescope").load_extension "telescope-alternate"
-require("telescope").load_extension "laravel-docs"
+pcall(require("telescope").load_extension, "laravel-docs")
 
 require("user.utils.register").keymaps {
   mode = "n",
@@ -146,3 +111,47 @@ require("user.utils.register").keymaps {
     },
   },
 }
+
+if false then
+  vim.ui.select = function(items, opts, on_choice)
+    opts = opts or {}
+    require("telescope.pickers")
+      .new({}, {
+        borderchars = {
+          prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
+          results = { " ", "│", "─", "│", " ", " ", "┘", "└" },
+        },
+        prompt_title = (opts.prompt or "Select one of"):gsub(":", ""),
+        finder = require("telescope.finders").new_table {
+          results = items,
+          entry_maker = function(item)
+            return {
+              display = item,
+              ordinal = item,
+              value = item,
+            }
+          end,
+        },
+        attach_mappings = function(prompt_bufnr)
+          require("telescope.actions").select_default:replace(function()
+            local selection = require("telescope.actions.state").get_selected_entry()
+            if not selection then
+              return
+            end
+            require("telescope.actions").close(prompt_bufnr)
+            local idx = nil
+            for i, item in ipairs(items) do
+              if item == selection.value then
+                idx = i
+                break
+              end
+            end
+            on_choice(selection.value, idx)
+          end)
+          return true
+        end,
+        sorter = require("telescope.config").values.generic_sorter(),
+      })
+      :find()
+  end
+end

@@ -46,7 +46,6 @@ require("packer").startup {
     use "nvim-treesitter/playground"
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "nvim-zh/colorful-winsep.nvim"
-    use "otavioschwanck/telescope-alternate.nvim"
     use "rest-nvim/rest.nvim"
     use "romainl/vim-qf"
     use "sickill/vim-pasta"

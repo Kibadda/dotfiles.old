@@ -27,7 +27,7 @@ globals.set("startify", {
     notes_project_header = "Current Projects",
     main_section = {
       name = "Dotfiles",
-      sessions = { "dotfiles", "notes" },
+      sessions = { "dotfiles", "notes", "advent-of-code" },
     },
   },
 })

@@ -89,6 +89,7 @@ require("packer").startup {
     local_use "laravel-docs.nvim"
     local_use "markdown-docs.nvim"
     local_use "start-screen-sections.nvim"
+    local_use "advent-of-code"
   end,
   config = {
     autoremove = true,

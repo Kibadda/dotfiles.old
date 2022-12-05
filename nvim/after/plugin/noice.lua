@@ -22,6 +22,13 @@ require("noice").setup {
       enabled = false,
     },
   },
+  views = {
+    cmdline_popup = {
+      border = {
+        style = "single",
+      },
+    },
+  },
   routes = {
     {
       view = "split",

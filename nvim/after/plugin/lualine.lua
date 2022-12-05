@@ -29,10 +29,10 @@ require("lualine").setup {
       end,
     },
     lualine_x = {
-      {
+      plugins_ok "noice" and {
         require("noice").api.status.mode.get,
         cond = require("noice").api.status.mode.has,
-      },
+      } or "",
       "filetype",
       {
         function()

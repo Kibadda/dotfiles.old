@@ -2,7 +2,7 @@ require("user.utils.options").set {
   pumblend = 17,
   wildmode = "longest:full,full",
   wildoptions = "pum",
-  cmdheight = 2,
+  cmdheight = 1,
   relativenumber = true,
   number = true,
   ignorecase = true,

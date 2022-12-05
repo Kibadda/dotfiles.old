@@ -134,7 +134,7 @@ alias pacr="pacman -Qd | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo
 # alias q:clear='a queue:clear'
 # alias log='cat /dev/null > storage/logs/laravel.log && cat /dev/null > storage/logs/admin.log'
 
-alias ssh='kitty +kitten ssh'
+# alias ssh='kitty +kitten ssh'
 
 alias gs='git status'
 alias gf='git fetch --prune'

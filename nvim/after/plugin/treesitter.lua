@@ -27,6 +27,7 @@ require("nvim-treesitter.configs").setup {
     "gitignore",
     "gitattributes",
     "git_rebase",
+    "smarty",
   },
   highlight = {
     enable = true,

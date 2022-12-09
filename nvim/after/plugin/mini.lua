@@ -12,7 +12,7 @@ require("mini.sessions").setup {
   },
 }
 
-local sections = require("start-screen-sections").get_sections {
+local sections = require("projectodo").get_sections {
   plugin = "mini-starter",
   notes_project_header = "Current Projects",
   main_section = {

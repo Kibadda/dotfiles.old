@@ -22,7 +22,7 @@ globals.set("startify", {
     "│                                                       │",
     "└───────────────────────────────────────────────────────┘",
   },
-  lists = require("start-screen-sections").get_sections {
+  lists = require("projectodo").get_sections {
     plugin = "vim-startify",
     notes_project_header = "Current Projects",
     main_section = {

@@ -164,6 +164,7 @@ build_nvim() {
 }
 
 export EDITOR=/usr/local/bin/nvim
+export PATH=$PATH:$HOME/.cargo/bin
 
 alias swap='setxkbmap -option caps:swapescape'
 

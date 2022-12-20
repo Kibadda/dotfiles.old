@@ -5,7 +5,6 @@ end
 require("lualine").setup {
   options = {
     theme = "tundra",
-    -- theme = "gruvbox-material",
     globalstatus = true,
   },
   sections = {
@@ -13,9 +12,9 @@ require("lualine").setup {
       "mode",
     },
     lualine_b = {
-      { "branch" },
-      { "diff" },
-      { "diagnostics" },
+      "branch",
+      "diff",
+      "diagnostics",
     },
     lualine_c = {
       function()
@@ -54,7 +53,7 @@ require("lualine").setup {
             table.insert(sources, source.name)
           end
 
-          vim.list_extend(buf_client_names, sources, 1, #sources)
+          vim.list_extend(buf_client_names, sources)
 
           return ("[%s]"):format(table.concat(buf_client_names, ", "))
         end,

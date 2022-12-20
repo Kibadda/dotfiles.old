@@ -8,8 +8,8 @@ require("packer").startup {
     use "nvim-lua/plenary.nvim"
 
     -- Colorscheme
-    use "tjdevries/colorbuddy.nvim"
-    use "tjdevries/gruvbuddy.nvim"
+    -- use "tjdevries/colorbuddy.nvim"
+    -- use "tjdevries/gruvbuddy.nvim"
     use "sam4llis/nvim-tundra"
 
     -- Greeter

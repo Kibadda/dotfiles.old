@@ -3,6 +3,8 @@ local M = {}
 ---custom attach
 function M.get_on_attach()
   return function(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
+
     require("user.utils.register").keymaps {
       mode = "n",
       prefix = "",

@@ -69,6 +69,8 @@
  "{generate"
  "{include"
  "{t"
+ "{literal}"
+ "{/literal}"
  "{/t}"
  "<!"
  "=>"

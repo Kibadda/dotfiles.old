@@ -5,11 +5,7 @@
 - link:
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
-    ~/.config/lvim: lvim
-    ~/.config/lazygit: lazygit
     ~/.config/i3: i3
-    ~/.config/ranger: ranger
-    ~/.config/mimeapps.list: mimeapps.list
     ~/.config/dunst: dunst
     ~/.local/bin: bin
     ~/.zshrc: zshrc

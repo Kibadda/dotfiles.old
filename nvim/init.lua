@@ -10,16 +10,7 @@ _ = {
 }
 
 require "user.globals"
-
-if plugins_ok "impatient" then
-  require "impatient"
-end
-
-if require "user.first_load" then
-  return
-end
-
-require "user.plugins"
+require "user.options"
 
 require("user.utils.globals").set("", {
   mapleader = " ",
@@ -27,8 +18,8 @@ require("user.utils.globals").set("", {
   notify_about_missing_plugins = false,
 })
 
-require "user.disable_builtin"
-require "user.options"
+require "user.lazy"
+
 require "user.keymaps"
 require "user.autocmds"
 require "user.abbreviations"

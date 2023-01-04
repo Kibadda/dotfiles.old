@@ -2,16 +2,7 @@ require("user.utils.register").keymaps {
   mode = "n",
   prefix = "<Leader>",
   {
-    p = {
-      name = "Packer",
-      s = { "<Cmd>PackerSync<CR>", "Sync" },
-      S = { "<Cmd>PackerStatus<CR>", "Status" },
-      i = { "<Cmd>PackerInstall<CR>", "Install" },
-      u = { "<Cmd>PackerUpdate<CR>", "Update" },
-      C = { "<Cmd>PackerClean<CR>", "Clean" },
-      c = { "<Cmd>PackerCompile<CR>", "Compile" },
-      p = { "<Cmd>PackerSync --preview<CR>", "Sync with preview" },
-    },
+    L = { "<Cmd>Lazy<CR>", "Lazy" },
     h = { "<Cmd>nohl<CR>", "Remove highlight" },
     Q = { require("user.utils").detach_from_tmux, "Detach" },
     P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
@@ -95,11 +86,3 @@ require("user.utils.register").keymaps {
     ["<C-h>"] = { "<C-w>", "Remove previous word" },
   },
 }
-
--- RegisterKeymaps {
---   mode = "c",
---   prefix = "",
---   {
---     w = { "<Cmd>checktime<Bar>w<CR>", "checktime if file is on samba share" },
---   },
--- }

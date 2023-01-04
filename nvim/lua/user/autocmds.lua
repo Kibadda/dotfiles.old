@@ -35,14 +35,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- vim.api.nvim_create_autocmd("FileChangedShell", {
---   group = vim.api.nvim_create_augroup("ReloadSambaFile", { clear = true }),
---   pattern = "/media/**/*",
---   callback = function()
---     vim.v.fcs_choice = "reload"
---   end,
--- })
-
 vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup("TermFileType", { clear = true }),
   pattern = "*",

@@ -7,7 +7,7 @@ local M = {
 
 function M.config()
   local envfile = "~/.dotfiles/.env"
-  if vim.fn.filereadable(envfile) == 0 then
+  if vim.fn.filereadable(vim.fn.expand(envfile)) == 0 then
     return
   end
 
@@ -23,9 +23,9 @@ function M.config()
     week_number = true,
     frame = "default",
     google_calendar = true,
-    google_api_key = os.getenv "CALENDAR_GOOGLE_API_KEY",
-    google_client_id = os.getenv "CALENDAR_GOOGLE_CLIENT_ID",
-    google_client_secret = os.getenv "CALENDAR_GOOGLE_CLIENT_SECRET",
+    google_api_key = vim.env.CALENDAR_GOOGLE_API_KEY,
+    google_client_id = vim.env.CALENDAR_GOOGLE_CLIENT_ID,
+    google_client_secret = vim.env.CALENDAR_GOOGLE_CLIENT_SECRET,
   })
 
   require("user.utils.register").keymaps {

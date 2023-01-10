@@ -7,14 +7,14 @@ local M = {
 
 function M.config()
   local envfile = "~/.dotfiles/.env"
-  if vim.fn.filereadable(envfile) == 0 then
+  if vim.fn.filereadable(vim.fn.expand(envfile)) == 0 then
     return
   end
 
   vim.cmd.Dotenv(envfile)
 
   require("user.utils.globals").set("", {
-    deepl_api_auth_key = os.getenv "DEEPL_API_KEY",
+    deepl_api_auth_key = vim.env.DEEPL_API_KEY,
   })
 
   require("translate").setup {

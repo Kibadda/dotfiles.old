@@ -2,8 +2,25 @@ local M = {
   "mhinz/vim-startify",
   dependencies = {
     { "Kibadda/projectodo.nvim", dev = true },
+    { "nvim-neorg/neorg" },
   },
 }
+
+function M.init()
+  require("user.utils.register").keymaps {
+    n = {
+      ["<Leader>"] = {
+        S = {
+          name = "Startify",
+          c = { "<Cmd>SClose<CR>", "Close" },
+          l = { "<Cmd>SLoad<CR>", "Load" },
+          d = { "<Cmd>SDelete<CR>", "Delete" },
+          s = { "<Cmd>SSave<CR>", "Save" },
+        },
+      },
+    },
+  }
+end
 
 function M.config()
   local globals = require "user.utils.globals"
@@ -33,20 +50,6 @@ function M.config()
       },
     },
   })
-
-  require("user.utils.register").keymaps {
-    n = {
-      ["<Leader>"] = {
-        S = {
-          name = "Startify",
-          c = { "<Cmd>SClose<CR>", "Close" },
-          l = { "<Cmd>SLoad<CR>", "Load" },
-          d = { "<Cmd>SDelete<CR>", "Delete" },
-          s = { "<Cmd>SSave<CR>", "Save" },
-        },
-      },
-    },
-  }
 end
 
 return M

@@ -3,7 +3,19 @@ local M = {
   dependencies = {
     "tpope/vim-dotenv",
   },
+  cmd = "Calendar",
+  disabled = true,
 }
+
+function M.init()
+  require("user.utils.register").keymaps {
+    n = {
+      ["<Leader>"] = {
+        C = { "<Plug>(calendar)", "Open calendar" },
+      },
+    },
+  }
+end
 
 function M.config()
   local envfile = "~/.dotfiles/.env"
@@ -27,14 +39,6 @@ function M.config()
     google_client_id = vim.env.CALENDAR_GOOGLE_CLIENT_ID,
     google_client_secret = vim.env.CALENDAR_GOOGLE_CLIENT_SECRET,
   })
-
-  require("user.utils.register").keymaps {
-    n = {
-      ["<Leader>"] = {
-        C = { "<Plug>(calendar)", "Open calendar" },
-      },
-    },
-  }
 end
 
 return M

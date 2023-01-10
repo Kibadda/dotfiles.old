@@ -3,30 +3,10 @@ local M = {
   dependencies = {
     "nvim-telescope/telescope-symbols.nvim",
   },
+  cmd = "Telescope",
 }
 
-function M.config()
-  require("telescope").setup {
-    defaults = {
-      sorting_strategy = "ascending",
-      layout_strategy = "bottom_pane",
-      winblend = 20,
-      prompt_prefix = "Search: ",
-      results_title = false,
-      borderchars = {
-        prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
-        results = { " ", " ", "─", "│", " ", " ", "─", "└" },
-        preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
-      },
-      mappings = {
-        i = {
-          ["<C-j>"] = "move_selection_next",
-          ["<C-k>"] = "move_selection_previous",
-        },
-      },
-    },
-  }
-
+function M.init()
   require("user.utils.register").keymaps {
     n = {
       ["<Leader>"] = {
@@ -47,6 +27,29 @@ function M.config()
     },
     i = {
       ["<M-e>"] = { "<Cmd>Telescope symbols<CR>", "Emojis" },
+    },
+  }
+end
+
+function M.config()
+  require("telescope").setup {
+    defaults = {
+      sorting_strategy = "ascending",
+      layout_strategy = "bottom_pane",
+      winblend = 20,
+      prompt_prefix = "Search: ",
+      results_title = false,
+      borderchars = {
+        prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
+        results = { " ", " ", "─", "│", " ", " ", "─", "└" },
+        preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
+      },
+      mappings = {
+        i = {
+          ["<C-j>"] = "move_selection_next",
+          ["<C-k>"] = "move_selection_previous",
+        },
+      },
     },
   }
 end

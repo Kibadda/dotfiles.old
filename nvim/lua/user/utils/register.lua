@@ -23,7 +23,11 @@ function M.keymaps(options)
     if type(opts) ~= "table" then
       opts = { mode = opts }
     end
-    require("which-key").register(keymaps, opts)
+    if not pcall(require, "which-key") then
+      print "why is this not loaded"
+    else
+      require("which-key").register(keymaps, opts)
+    end
   end
 end
 

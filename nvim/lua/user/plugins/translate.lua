@@ -3,7 +3,22 @@ local M = {
   dependencies = {
     "tpope/vim-dotenv",
   },
+  cmd = "Translate",
 }
+
+function M.init()
+  require("user.utils.register").keymaps {
+    x = {
+      ["<Leader>"] = {
+        T = {
+          name = "Translate",
+          e = { ":Translate -output=replace en<CR>", "To english" },
+          d = { ":Translate -output=replace de<CR>", "To german" },
+        },
+      },
+    },
+  }
+end
 
 function M.config()
   local envfile = "~/.dotfiles/.env"
@@ -22,18 +37,6 @@ function M.config()
       command = "deepl_free",
     },
   }
-
-  -- require("user.utils.register").keymaps {
-  --   mode = "x",
-  --   prefix = "<Leader>",
-  --   {
-  --     T = {
-  --       name = "Translate",
-  --       e = { "<Cmd>Translate -output=replace en<CR>", "To english" },
-  --       d = { "<Cmd>Translate -output=replace de<CR>", "To german" },
-  --     },
-  --   },
-  -- }
 end
 
 return M

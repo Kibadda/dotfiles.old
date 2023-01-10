@@ -1,5 +1,6 @@
 local M = {
   "rest-nvim/rest.nvim",
+  event = "VeryLazy",
 }
 
 function M.config()

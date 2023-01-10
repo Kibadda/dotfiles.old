@@ -7,6 +7,20 @@ local M = {
   },
 }
 
+function M.init()
+  require("user.utils.register").keymaps {
+    n = {
+      ["<Leader>"] = {
+        l = {
+          name = "Lsp",
+          M = { "<Cmd>Mason<CR>", "Mason" },
+          L = { "<Cmd>LspInfo<CR>", "LspInfo" },
+        },
+      },
+    },
+  }
+end
+
 function M.config()
   require("mason").setup {
     ui = {
@@ -60,18 +74,6 @@ function M.config()
     end,
   }
   null_ls.setup {}
-
-  require("user.utils.register").keymaps {
-    n = {
-      ["<Leader>"] = {
-        l = {
-          name = "Lsp",
-          M = { "<Cmd>Mason<CR>", "Mason" },
-          L = { "<Cmd>LspInfo<CR>", "LspInfo" },
-        },
-      },
-    },
-  }
 end
 
 return M

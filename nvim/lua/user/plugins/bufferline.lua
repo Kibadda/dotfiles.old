@@ -2,6 +2,15 @@ local M = {
   "akinsho/bufferline.nvim",
 }
 
+function M.init()
+  require("user.utils.register").keymaps {
+    n = {
+      H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
+      L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
+    },
+  }
+end
+
 function M.config()
   require("bufferline").setup {
     options = {
@@ -18,13 +27,6 @@ function M.config()
         local filetype = vim.bo[buf_number].filetype
         return filetype ~= "qf" and filetype ~= "fugitive"
       end,
-    },
-  }
-
-  require("user.utils.register").keymaps {
-    n = {
-      H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
-      L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
     },
   }
 end

@@ -9,13 +9,13 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      m = {
-        name = "Markdown",
-        p = { require("peek").open, "Start" },
-        s = { require("peek").close, "Stop" },
+    n = {
+      ["<Leader>"] = {
+        m = {
+          name = "Markdown",
+          p = { require("peek").open, "Start" },
+          s = { require("peek").close, "Stop" },
+        },
       },
     },
   }

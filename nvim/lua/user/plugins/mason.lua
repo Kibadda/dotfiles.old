@@ -62,13 +62,13 @@ function M.config()
   null_ls.setup {}
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      l = {
-        name = "Lsp",
-        M = { "<Cmd>Mason<CR>", "Mason" },
-        L = { "<Cmd>LspInfo<CR>", "LspInfo" },
+    n = {
+      ["<Leader>"] = {
+        l = {
+          name = "Lsp",
+          M = { "<Cmd>Mason<CR>", "Mason" },
+          L = { "<Cmd>LspInfo<CR>", "LspInfo" },
+        },
       },
     },
   }

@@ -18,21 +18,14 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "",
-    {
+    n = {
+      ["<Leader>"] = {
+        t = { require("smart-splits").start_resize_mode, "Resize Tmux" },
+      },
       ["<C-h>"] = { require("smart-splits").move_cursor_left, "Tmux: move left" },
       ["<C-j>"] = { require("smart-splits").move_cursor_down, "Tmux: move down" },
       ["<C-k>"] = { require("smart-splits").move_cursor_up, "Tmux: move up" },
       ["<C-l>"] = { require("smart-splits").move_cursor_right, "Tmux: move right" },
-    },
-  }
-
-  require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      t = { require("smart-splits").start_resize_mode, "Resize Tmux" },
     },
   }
 end

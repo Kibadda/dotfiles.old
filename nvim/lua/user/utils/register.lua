@@ -1,36 +1,29 @@
 local M = {}
 
----```lua
----local options = {
----  mode = "n",
----  prefix = "<Leader>",
----  which_key_option = "value"
----  {
----    f = { "<Cmd>Telescope find_files<CR>", "Find files" }
----  },
----}
----```
+--- ```lua
+--- local options = {
+---   "mode" = keymaps,
+--- }
+--- ```
+--- `mode` can be a string or a table with additional options
+--- e.g.:
+--- ```lua
+--- local options = {
+---   [{ mode = "n", buffer = 15 }] = {
+---     ["<Leader>f"] = { function() print "pressed leader+f" end, "Printing stuff" },
+---   },
+---   i = {
+---     -- ...
+---   }
+--- }
+--- ```
 ---@param options table
 function M.keymaps(options)
-  if not plugins_ok "which-key" then
-    return
-  end
-
-  local keymaps = table.remove(options, 1)
-  if options.mode == nil then
-    error "RegisterKeymap: mode is not set"
-  end
-  if options.prefix == nil then
-    error "RegisterKeymap: prefix is not set"
-  end
-  if options.mode == "" then
-    for lhs, rhs in pairs(keymaps) do
-      vim.keymap.set("", lhs, rhs[1], {
-        desc = rhs[2],
-      })
+  for opts, keymaps in pairs(options) do
+    if type(opts) ~= "table" then
+      opts = { mode = opts }
     end
-  else
-    require("which-key").register(keymaps, options)
+    require("which-key").register(keymaps, opts)
   end
 end
 

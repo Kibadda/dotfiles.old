@@ -37,15 +37,15 @@ function M.config()
   })
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      S = {
-        name = "Startify",
-        c = { "<Cmd>SClose<CR>", "Close" },
-        l = { "<Cmd>SLoad<CR>", "Load" },
-        d = { "<Cmd>SDelete<CR>", "Delete" },
-        s = { "<Cmd>SSave<CR>", "Save" },
+    n = {
+      ["<Leader>"] = {
+        S = {
+          name = "Startify",
+          c = { "<Cmd>SClose<CR>", "Close" },
+          l = { "<Cmd>SLoad<CR>", "Load" },
+          d = { "<Cmd>SDelete<CR>", "Delete" },
+          s = { "<Cmd>SSave<CR>", "Save" },
+        },
       },
     },
   }

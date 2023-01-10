@@ -27,37 +27,25 @@ function M.config()
     },
   }
 
-  -- pcall(require("telescope").load_extension, "laravel-docs")
-
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
-      F = { "<Cmd>Telescope find_files no_ignore=true<CR>", "Find All Files" },
-      s = {
-        name = "Search",
-        g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
-        h = { "<Cmd>Telescope help_tags<CR>", "Help" },
-        b = { "<Cmd>Telescope builtin<CR>", "Builtin" },
-        n = { "<Cmd>Telescope notify<CR>", "Notifications" },
-        k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
-        H = { "<Cmd>Telescope highlights<CR>", "Highlights" },
-        r = { "<Cmd>Telescope registers<CR>", "Registers" },
-        c = { "<Cmd>Telescope commands<CR>", "Commands" },
-        R = { "<Cmd>Telescope resume<CR>", "Resume" },
-        e = { "<Cmd>Telescope symbols<CR>", "Emojis" },
-        o = { "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Recent Files" },
-        a = { "<Cmd>Telescope telescope-alternate alternate_file<CR>", "Alternate" },
-        l = { "<Cmd>Telescope laravel-docs<CR>", "Laravel Docs" },
+    n = {
+      ["<Leader>"] = {
+        f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+        F = { "<Cmd>Telescope find_files no_ignore=true hidden=true<CR>", "Find All Files" },
+        s = {
+          name = "Search",
+          g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
+          h = { "<Cmd>Telescope help_tags<CR>", "Help" },
+          b = { "<Cmd>Telescope builtin<CR>", "Builtin" },
+          k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
+          H = { "<Cmd>Telescope highlights<CR>", "Highlights" },
+          r = { "<Cmd>Telescope registers<CR>", "Registers" },
+          c = { "<Cmd>Telescope commands<CR>", "Commands" },
+          R = { "<Cmd>Telescope resume<CR>", "Resume" },
+        },
       },
     },
-  }
-
-  require("user.utils.register").keymaps {
-    mode = "i",
-    prefix = "",
-    {
+    i = {
       ["<M-e>"] = { "<Cmd>Telescope symbols<CR>", "Emojis" },
     },
   }

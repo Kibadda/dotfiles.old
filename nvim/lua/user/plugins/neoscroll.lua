@@ -18,15 +18,13 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "",
-    {
-      ["<C-u>"] = { "Scroll cursor up half page" },
-      ["<C-d>"] = { "Scroll cursor down half page" },
-      ["<C-b>"] = { "Scroll cursor up full page" },
-      ["<C-f>"] = { "Scroll cursor down full page" },
-      ["<C-y>"] = { "Scroll page down" },
-      ["<C-e>"] = { "Scroll page up" },
+    n = {
+      ["<C-u>"] = "Scroll cursor up half page",
+      ["<C-d>"] = "Scroll cursor down half page",
+      ["<C-b>"] = "Scroll cursor up full page",
+      ["<C-f>"] = "Scroll cursor down full page",
+      ["<C-y>"] = "Scroll page down",
+      ["<C-e>"] = "Scroll page up",
     },
   }
 end

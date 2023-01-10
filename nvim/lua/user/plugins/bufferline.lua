@@ -22,9 +22,7 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "",
-    {
+    n = {
       H = { "<Cmd>BufferLineCyclePrev<CR>", "Buffer prev" },
       L = { "<Cmd>BufferLineCycleNext<CR>", "Buffer next" },
     },

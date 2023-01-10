@@ -56,15 +56,15 @@ function M.config()
   end
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      H = {
-        name = "Http",
-        a = { enter_auth, "Auth" },
-        r = { "<Plug>RestNvim", "Run request" },
-        p = { "<Plug>RestNvimPreview", "Preview command" },
-        l = { "<Plug>RestNvimLast", "Run last request" },
+    n = {
+      ["<Leader>"] = {
+        H = {
+          name = "Http",
+          a = { enter_auth, "Auth" },
+          r = { "<Plug>RestNvim", "Run request" },
+          p = { "<Plug>RestNvimPreview", "Preview command" },
+          l = { "<Plug>RestNvimLast", "Run last request" },
+        },
       },
     },
   }

@@ -1,27 +1,25 @@
-require("user.utils.register").keymaps {
-  mode = "n",
-  prefix = "<Leader>",
-  {
-    L = { "<Cmd>Lazy<CR>", "Lazy" },
-    h = { "<Cmd>nohl<CR>", "Remove highlight" },
-    Q = { require("user.utils").detach_from_tmux, "Detach" },
-    P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
-    I = { "<Cmd>e nvim/init.lua<CR>", "Edit Init" },
-    T = { require("user.utils.terminal").open_terminal, "Terminal" },
-  },
-}
+local utils = require "user.utils"
 
 require("user.utils.register").keymaps {
-  mode = "n",
-  prefix = "",
-  {
-    Y = { "Yank till EOL" },
-    p = { "Paste" },
-    P = { "Paste before" },
-    gB = { "Browser: Open URL" },
-    ["g<CR>"] = { "Browser: Search word under cursor" },
-    gG = { "Browser: Google Search word under cursor" },
-    gW = { "Browser: Wikipedia Search word under cursor" },
+  n = {
+    ["<Leader>"] = {
+      L = { "<Cmd>Lazy<CR>", "Lazy" },
+      h = { "<Cmd>nohl<CR>", "Remove highlight" },
+      Q = { utils.detach_from_tmux, "Detach" },
+      P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
+      I = { "<Cmd>e nvim/init.lua<CR>", "Edit Init" },
+      T = { utils.open_terminal, "Terminal" },
+    },
+    g = {
+      B = { utils.open_url, "Open URL" },
+      H = { utils.open_in_github, "Open current github" },
+    },
+    y = {
+      A = { "<Cmd>%y+<CR>", "Yank file content" },
+    },
+    Y = "Yank till EOL",
+    p = "Paste",
+    P = "Paste before",
     n = { "nzz", "next search" },
     N = { "Nzz", "next search" },
     ["#"] = { "#zz", "next search" },
@@ -31,55 +29,23 @@ require("user.utils.register").keymaps {
     ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
     ["<C-S-j>"] = { "<Cmd>m .+1<CR>==", "Move line down" },
     ["<C-S-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
-    yA = { "<Cmd>%y+<CR>", "Yank file content" },
-    gH = { require("user.utils").open_in_github, "Open current github" },
-    j = {
-      function()
-        require("user.utils").jump_direction "j"
-      end,
-      "Down",
-    },
-    k = {
-      function()
-        require("user.utils").jump_direction "k"
-      end,
-      "Up",
-    },
+    j = { utils.jump_direction "j", "Down" },
+    k = { utils.jump_direction "k", "Up" },
   },
-}
-
-require("user.utils.register").keymaps {
-  mode = "x",
-  prefix = "",
-  {
+  x = {
     y = { "myy`y", "yank" },
     Y = { "myY`y", "Yank" },
     ["<"] = { "<gv", "dedent" },
     [">"] = { ">gv", "indent" },
     ["<C-S-j>"] = { ":m '>+1<CR>gv=gv", "Move lines down" },
     ["<C-S-k>"] = { ":m '<-2<CR>gv=gv", "Move lines up" },
-    j = {
-      function()
-        require("user.utils").jump_direction "j"
-      end,
-      "Down",
-    },
-    k = {
-      function()
-        require("user.utils").jump_direction "k"
-      end,
-      "Up",
-    },
+    j = { utils.jump_direction "j", "Down" },
+    k = { utils.jump_direction "k", "Up" },
   },
-}
-
--- this needs mapping in kitty.conf
--- default behaviour <S-CR> == <C-CR> == <CR>
--- explanation: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
-require("user.utils.register").keymaps {
-  mode = "i",
-  prefix = "",
-  {
+  i = {
+    -- this needs mapping in kitty.conf
+    -- default behaviour <S-CR> == <C-CR> == <CR>
+    -- explanation: https://www.reddit.com/r/neovim/comments/mbj8m5/how_to_setup_ctrlshiftkey_mappings_in_neovim_and/
     ["<S-CR>"] = { "<C-o>o", "New line on bottom" },
     ["<C-CR>"] = { "<C-o>O", "New line on top" },
     -- <C-h> == <C-BS>

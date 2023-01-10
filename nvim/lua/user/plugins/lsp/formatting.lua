@@ -43,12 +43,12 @@ function M.setup(client, bufnr)
   end
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      l = {
-        name = "Lsp",
-        t = { M.toggle, "Toggle Auto Format" },
+    n = {
+      ["<Leader>"] = {
+        l = {
+          name = "Lsp",
+          t = { M.toggle, "Toggle Auto Format" },
+        },
       },
     },
   }

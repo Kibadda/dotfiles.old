@@ -11,11 +11,11 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "",
-    {
-      gJ = { "<Cmd>TSJJoin<CR>", "Join Lines" },
-      gS = { "<Cmd>TSJSplit<CR>", "Split Lines" },
+    n = {
+      g = {
+        J = { "<Cmd>TSJJoin<CR>", "Join Lines" },
+        S = { "<Cmd>TSJSplit<CR>", "Split Lines" },
+      },
     },
   }
 end

@@ -13,11 +13,11 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      s = {
-        t = { "<Cmd>TodoTelescope<CR>", "Todos" },
+    n = {
+      ["<Leader>"] = {
+        s = {
+          t = { "<Cmd>TodoTelescope<CR>", "Todos" },
+        },
       },
     },
   }

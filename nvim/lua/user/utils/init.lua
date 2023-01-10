@@ -45,18 +45,20 @@ end
 ---for wrapped lines: gj/gk, for large jumps: add to jump list
 ---@param direction string
 function M.jump_direction(direction)
-  local count = vim.v.count
+  return function()
+    local count = vim.v.count
 
-  if count == 0 then
-    vim.cmd.normal { ("g%s"):format(direction), bang = true }
-    return
+    if count == 0 then
+      vim.cmd.normal { ("g%s"):format(direction), bang = true }
+      return
+    end
+
+    if count > 5 then
+      vim.cmd.normal { "m'", bang = true }
+    end
+
+    vim.cmd.normal { ("%d%s"):format(count, direction), bang = true }
   end
-
-  if count > 5 then
-    vim.cmd.normal { "m'", bang = true }
-  end
-
-  vim.cmd.normal { ("%d%s"):format(count, direction), bang = true }
 end
 
 ---set options depending if cwd is cortex

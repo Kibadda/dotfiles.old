@@ -16,9 +16,7 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "",
-    {
+    n = {
       ["<Leader>"] = {
         name = "<Leader>",
       },

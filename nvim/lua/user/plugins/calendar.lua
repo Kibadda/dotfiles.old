@@ -29,10 +29,10 @@ function M.config()
   })
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      C = { "<Plug>(calendar)", "Open calendar" },
+    n = {
+      ["<Leader>"] = {
+        C = { "<Plug>(calendar)", "Open calendar" },
+      },
     },
   }
 end

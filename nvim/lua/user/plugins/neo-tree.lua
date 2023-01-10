@@ -18,11 +18,11 @@ function M.config()
   }
 
   require("user.utils.register").keymaps {
-    mode = "n",
-    prefix = "<Leader>",
-    {
-      e = { "<Cmd>Neotree reveal<CR>", "Open/Focus Neotree" },
-      E = { "<Cmd>Neotree close<CR>", "Close Neotree" },
+    n = {
+      ["<Leader>"] = {
+        e = { "<Cmd>Neotree reveal<CR>", "Open/Focus Neotree" },
+        E = { "<Cmd>Neotree close<CR>", "Close Neotree" },
+      },
     },
   }
 end

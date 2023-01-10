@@ -27,8 +27,6 @@ function M.config()
       "└───────────────────────────────────────────────────────┘",
     },
     lists = require("projectodo").get_sections {
-      plugin = "vim-startify",
-      notes_project_header = "Current Projects",
       main_section = {
         name = "Dotfiles",
         sessions = { "dotfiles", "notes", "advent-of-code" },

@@ -18,6 +18,19 @@ require("lazy").setup("user.plugins", {
   },
   ui = {
     border = "single",
+    ---@type table<string, fun(plugin: LazyPlugin)>
+    custom_keys = {
+      t = function(plugin)
+        require("lazy.util").float_term(nil, {
+          cwd = plugin.dir,
+        })
+      end,
+      l = function(plugin)
+        require("lazy.util").float_term({ "git", "log", "--graph", "--decorate", "--oneline" }, {
+          cwd = plugin.dir,
+        })
+      end,
+    },
   },
   performance = {
     rtp = {

@@ -10,7 +10,6 @@ return {
   "tpope/vim-fugitive",
   "tpope/vim-repeat",
   "sickill/vim-pasta",
-  "dhruvasagar/vim-open-url",
   "romainl/vim-qf",
   {
     "norcalli/nvim-colorizer.lua",
@@ -33,5 +32,4 @@ return {
 
   { "Kibadda/advent-of-code", dev = true },
   { "Kibadda/laravel-docs.nvim", dev = true },
-  { "Kibadda/markdown-docs.nvim", dev = true },
 }

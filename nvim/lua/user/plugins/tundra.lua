@@ -13,7 +13,7 @@ function M.init()
             require("nvim-tundra.commands").toggle_transparency()
 
             os.execute(
-              ("kitty @ --to %s set-background-opactiy"):format(
+              ("kitty @ --to %s set-background-opacity %s"):format(
                 vim.env.KITTY_LISTEN_ON,
                 vim.g.tundra_opts.transparent_background and 0.9 or 1
               )
@@ -32,6 +32,7 @@ function M.config()
     overwrite = {
       highlights = {
         ["@constant"] = { fg = "#DE935F", bold = true },
+        NormalFloat = { link = "Normal" },
       },
     },
   }

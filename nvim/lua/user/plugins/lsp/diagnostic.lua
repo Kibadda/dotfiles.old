@@ -3,6 +3,9 @@ local M = {}
 function M.setup()
   vim.diagnostic.config {
     severity_sort = true,
+    float = {
+      border = "single",
+    },
   }
 
   local ns = vim.api.nvim_create_namespace "my_namespace"

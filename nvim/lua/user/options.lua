@@ -2,7 +2,7 @@ local utils_options = require "user.utils.options"
 
 utils_options.set {
   completeopt = "menuone,noselect",
-  pumblend = 17,
+  pumblend = 0,
   wildmode = "longest:full,full",
   wildoptions = "pum",
   cmdheight = 1,

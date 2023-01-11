@@ -15,15 +15,13 @@ function M.init()
   }
 end
 
-function M.config()
-  require("todo-comments").setup {
-    keywords = {
-      CRTX = { icon = "🔥", color = "warning" },
-    },
-    highlight = {
-      pattern = [[.*<(KEYWORDS)>\s*]],
-    },
-  }
-end
+M.opts = {
+  keywords = {
+    CRTX = { icon = "🔥", color = "warning" },
+  },
+  highlight = {
+    pattern = [[.*<(KEYWORDS)>\s*]],
+  },
+}
 
 return M

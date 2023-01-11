@@ -23,9 +23,7 @@ function M.init()
 end
 
 function M.config()
-  local globals = require "user.utils.globals"
-
-  globals.set("startify", {
+  require("user.utils.globals").set("startify", {
     session_persistence = true,
     session_before_save = {
       "silent! Neotree close",

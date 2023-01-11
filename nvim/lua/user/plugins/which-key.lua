@@ -2,19 +2,7 @@ local M = {
   "folke/which-key.nvim",
 }
 
-function M.config()
-  require("which-key").setup {
-    plugins = {
-      spelling = {
-        enabled = true,
-        suggestions = 20,
-      },
-    },
-    window = {
-      border = "single",
-    },
-  }
-
+function M.init()
   require("user.utils.register").keymaps {
     n = {
       ["<Leader>"] = {
@@ -23,5 +11,17 @@ function M.config()
     },
   }
 end
+
+M.opts = {
+  plugins = {
+    spelling = {
+      enabled = true,
+      suggestions = 20,
+    },
+  },
+  window = {
+    border = "single",
+  },
+}
 
 return M

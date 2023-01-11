@@ -31,27 +31,25 @@ function M.init()
   }
 end
 
-function M.config()
-  require("telescope").setup {
-    defaults = {
-      sorting_strategy = "ascending",
-      layout_strategy = "bottom_pane",
-      winblend = 20,
-      prompt_prefix = "Search: ",
-      results_title = false,
-      borderchars = {
-        prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
-        results = { " ", " ", "─", "│", " ", " ", "─", "└" },
-        preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
-      },
-      mappings = {
-        i = {
-          ["<C-j>"] = "move_selection_next",
-          ["<C-k>"] = "move_selection_previous",
-        },
+M.opts = {
+  defaults = {
+    sorting_strategy = "ascending",
+    layout_strategy = "bottom_pane",
+    winblend = 0,
+    prompt_prefix = "Search: ",
+    results_title = false,
+    borderchars = {
+      prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
+      results = { " ", " ", "─", "│", " ", " ", "─", "└" },
+      preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
+    },
+    mappings = {
+      i = {
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
       },
     },
-  }
-end
+  },
+}
 
 return M

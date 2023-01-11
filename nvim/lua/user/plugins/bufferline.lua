@@ -11,24 +11,22 @@ function M.init()
   }
 end
 
-function M.config()
-  require("bufferline").setup {
-    options = {
-      show_buffer_close_icons = false,
-      show_close_icon = false,
-      right_mouse_command = "",
-      left_mouse_command = "",
-      separator_style = "|",
-      indicator = {
-        style = "none",
-      },
-      truncate_names = false,
-      custom_filter = function(buf_number)
-        local filetype = vim.bo[buf_number].filetype
-        return filetype ~= "qf" and filetype ~= "fugitive"
-      end,
+M.opts = {
+  options = {
+    show_buffer_close_icons = false,
+    show_close_icon = false,
+    right_mouse_command = "",
+    left_mouse_command = "",
+    separator_style = { "|", "|" },
+    indicator = {
+      style = "none",
     },
-  }
-end
+    truncate_names = false,
+    custom_filter = function(buf_number)
+      local filetype = vim.bo[buf_number].filetype
+      return filetype ~= "qf" and filetype ~= "fugitive"
+    end,
+  },
+}
 
 return M

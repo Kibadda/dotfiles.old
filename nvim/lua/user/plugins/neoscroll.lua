@@ -2,21 +2,7 @@ local M = {
   "karb94/neoscroll.nvim",
 }
 
-function M.config()
-  require("neoscroll").setup {
-    mappings = {
-      "<C-u>",
-      "<C-d>",
-      "<C-b>",
-      "<C-f>",
-      "<C-y>",
-      "<C-e>",
-      "zt",
-      "zz",
-      "zb",
-    },
-  }
-
+function M.init()
   require("user.utils.register").keymaps {
     n = {
       ["<C-u>"] = "Scroll cursor up half page",
@@ -28,5 +14,19 @@ function M.config()
     },
   }
 end
+
+M.opts = {
+  mappings = {
+    "<C-u>",
+    "<C-d>",
+    "<C-b>",
+    "<C-f>",
+    "<C-y>",
+    "<C-e>",
+    "zt",
+    "zz",
+    "zb",
+  },
+}
 
 return M

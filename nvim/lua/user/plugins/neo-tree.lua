@@ -15,19 +15,17 @@ function M.init()
   }
 end
 
-function M.config()
-  require("neo-tree").setup {
-    close_if_last_window = true,
-    popup_border_style = "single",
-    window = {
-      position = "right",
-      width = 50,
-    },
-    filesystem = {
-      follow_current_file = true,
-      hijack_netrw_behavior = "open_current",
-    },
-  }
-end
+M.opts = {
+  close_if_last_window = true,
+  popup_border_style = "single",
+  window = {
+    position = "right",
+    width = 50,
+  },
+  filesystem = {
+    follow_current_file = true,
+    hijack_netrw_behavior = "open_current",
+  },
+}
 
 return M

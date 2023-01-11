@@ -4,7 +4,7 @@ local M = {
     "tpope/vim-dotenv",
   },
   cmd = "Calendar",
-  disabled = true,
+  enabled = false,
 }
 
 function M.init()
@@ -18,13 +18,6 @@ function M.init()
 end
 
 function M.config()
-  local envfile = "~/.dotfiles/.env"
-  if vim.fn.filereadable(vim.fn.expand(envfile)) == 0 then
-    return
-  end
-
-  vim.cmd.Dotenv(envfile)
-
   require("user.utils.globals").set("calendar", {
     locale = "de",
     first_day = "monday",

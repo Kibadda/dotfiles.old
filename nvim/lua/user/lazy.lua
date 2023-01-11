@@ -16,6 +16,9 @@ require("lazy").setup("user.plugins", {
     pattern = { "Kibadda" },
     path = "~/plugins",
   },
+  install = {
+    colorscheme = { "tundra" },
+  },
   ui = {
     border = "single",
     ---@type table<string, fun(plugin: LazyPlugin)>
@@ -31,6 +34,9 @@ require("lazy").setup("user.plugins", {
         })
       end,
     },
+  },
+  diff = {
+    cmd = "terminal_git",
   },
   performance = {
     rtp = {

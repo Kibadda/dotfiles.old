@@ -28,10 +28,8 @@ function M.init()
   }
 end
 
-function M.config()
-  require("peek").setup {
-    update_on_change = false,
-  }
-end
+M.opts = {
+  update_on_change = false,
+}
 
 return M

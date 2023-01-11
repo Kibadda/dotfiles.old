@@ -1,11 +1,10 @@
 local M = {
   "rest-nvim/rest.nvim",
-  event = "VeryLazy",
+  keys = { "<Leader>Hr", "<Leader>Hp", "<Leader>Hl" },
+  opts = true,
 }
 
-function M.config()
-  require("rest-nvim").setup {}
-
+function M.init()
   local function enter_auth()
     local method
     vim.ui.input({ prompt = "method: ", default = "Basic" }, function(input)

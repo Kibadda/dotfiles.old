@@ -83,19 +83,14 @@ function M.open_terminal(opts)
     size = 60,
   })
 
-  local cmd = ""
-  if opts.position == "top" or opts.position == "left" then
-    cmd = cmd .. "topleft "
-  end
-  if opts.size ~= nil then
-    cmd = cmd .. opts.size
-  end
-  if opts.position == "left" or opts.position == "right" then
-    cmd = cmd .. "v"
-  end
-  cmd = cmd .. "split"
+  vim.cmd(
+    ("%s%s%ssplit"):format(
+      (opts.position == "top" or opts.position == "left") and "topleft " or "",
+      opts.size or "",
+      (opts.position == "left" or opts.position == "right") and "v" or ""
+    )
+  )
 
-  vim.cmd(cmd)
   local winid = vim.api.nvim_get_current_win()
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_set_current_win(winid)

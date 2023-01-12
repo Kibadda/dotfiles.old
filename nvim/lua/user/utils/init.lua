@@ -111,4 +111,68 @@ function M.open_url()
   os.execute("xdg-open " .. vim.fn.expand "<cWORD>")
 end
 
+function M.open_plugin()
+  local query_string = [[
+    (variable_declaration
+      (assignment_statement
+        (variable_list
+          name: (identifier) @module (#eq? @module "M"))
+        (expression_list
+          value: (table_constructor
+            [
+              (field
+                !name
+                value: (string) @plugin)
+              (field
+                name: (identifier) @dependencies (#eq? @dependencies "dependencies")
+                value: (table_constructor
+                  [
+                    (field
+                      !name
+                      value: (string) @plugin)
+                    (field
+                      !name
+                      value: (table_constructor
+                        (field
+                          !name
+                          value: (string) @plugin)))
+                  ]))
+            ]))))
+  ]]
+
+  local root = vim.treesitter.get_parser(0, "lua", {}):parse()[1]:root()
+  local query = vim.treesitter.query.parse_query("lua", query_string)
+
+  local plugins = {}
+  for _, match in query:iter_matches(root, 0, 0, -1) do
+    for id, node in pairs(match) do
+      if query.captures[id] == "plugin" then
+        local text = vim.treesitter.query.get_node_text(node, 0)
+        plugins[#plugins + 1] = text:gsub('"', "")
+      end
+    end
+  end
+
+  if #plugins == 0 then
+    return
+  end
+
+  local function open(plugin)
+    os.execute(("xdg-open https://github.com/%s"):format(plugin))
+  end
+
+  if #plugins == 1 then
+    open(plugins[1])
+  else
+    require "telescope"
+    vim.ui.select(plugins, {
+      prompt = "Select plugin to open",
+    }, function(choice)
+      if choice then
+        open(choice)
+      end
+    end)
+  end
+end
+
 return M

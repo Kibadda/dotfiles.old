@@ -104,7 +104,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker i3lock -c 000000
 exec --no-startup-id feh --bg-fill $HOME/.config/i3/wallpapers/yosemite-lowpoly.jpg
 exec_always --no-startup-id ff-theme-util

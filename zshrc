@@ -169,3 +169,5 @@ export PATH=$PATH:$HOME/.cargo/bin
 alias swap='setxkbmap -option caps:swapescape'
 
 [ -f "/home/michael/.ghcup/env" ] && source "/home/michael/.ghcup/env" # ghcup-env
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

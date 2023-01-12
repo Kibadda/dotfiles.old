@@ -4,10 +4,8 @@ require("user.utils.register").keymaps {
   n = {
     ["<Leader>"] = {
       L = { "<Cmd>Lazy<CR>", "Lazy" },
-      h = { "<Cmd>nohl<CR>", "Remove highlight" },
       Q = { utils.detach_from_tmux, "Detach" },
-      P = { "<Cmd>e nvim/lua/user/plugins.lua<CR>", "Edit Plugins" },
-      I = { "<Cmd>e nvim/init.lua<CR>", "Edit Init" },
+      P = { require("user.utils.plugin").new, "New Plugin File" },
       T = { utils.open_terminal, "Terminal" },
     },
     g = {

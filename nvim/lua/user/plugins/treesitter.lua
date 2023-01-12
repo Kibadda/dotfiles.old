@@ -45,6 +45,8 @@ function M.config()
       "gitattributes",
       "git_rebase",
       "smarty",
+      "norg",
+      "norg_meta",
     },
     highlight = {
       enable = true,

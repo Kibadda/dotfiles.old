@@ -1,9 +1,16 @@
 local M = {
   "mhinz/vim-startify",
   dependencies = {
-    { "Kibadda/projectodo.nvim", dev = true },
-    "nvim-neorg/neorg",
+    {
+      "Kibadda/projectodo.nvim",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
+      dev = true,
+    },
   },
+  lazy = false,
+  priority = 999,
 }
 
 function M.init()

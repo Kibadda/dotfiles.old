@@ -2,7 +2,7 @@ local M = {
   "mhinz/vim-startify",
   dependencies = {
     { "Kibadda/projectodo.nvim", dev = true },
-    { "nvim-neorg/neorg" },
+    "nvim-neorg/neorg",
   },
 }
 

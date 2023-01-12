@@ -2,6 +2,7 @@ local M = {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-telescope/telescope-symbols.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   cmd = "Telescope",
 }
@@ -31,25 +32,39 @@ function M.init()
   }
 end
 
-M.opts = {
-  defaults = {
-    sorting_strategy = "ascending",
-    layout_strategy = "bottom_pane",
-    winblend = 0,
-    prompt_prefix = "Search: ",
-    results_title = false,
-    borderchars = {
-      prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
-      results = { " ", " ", "─", "│", " ", " ", "─", "└" },
-      preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
-    },
-    mappings = {
-      i = {
-        ["<C-j>"] = "move_selection_next",
-        ["<C-k>"] = "move_selection_previous",
+function M.config()
+  require("telescope").setup {
+    defaults = {
+      sorting_strategy = "ascending",
+      layout_strategy = "bottom_pane",
+      winblend = 0,
+      prompt_prefix = "Search: ",
+      results_title = false,
+      borderchars = {
+        prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
+        results = { " ", " ", "─", "│", " ", " ", "─", "└" },
+        preview = { "─", "│", "─", "│", "┌", "┤", "┘", "┴" },
+      },
+      mappings = {
+        i = {
+          ["<C-j>"] = "move_selection_next",
+          ["<C-k>"] = "move_selection_previous",
+        },
       },
     },
-  },
-}
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown {
+          borderchars = {
+            prompt = { "─", "│", " ", "│", "┌", "┐", " ", " " },
+            results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+          },
+        },
+      },
+    },
+  }
+
+  require("telescope").load_extension "ui-select"
+end
 
 return M

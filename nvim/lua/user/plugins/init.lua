@@ -20,7 +20,18 @@ return {
   { "tpope/vim-fugitive", cmd = "G" },
   "tpope/vim-repeat",
   "sickill/vim-pasta",
-  "romainl/vim-qf",
+  {
+    "romainl/vim-qf",
+    init = function()
+      require("user.utils.register").keymaps {
+        n = {
+          ["<C-q>"] = { "<Plug>(qf_qf_toggle_stay)", "QF: toggle" },
+          ["<C-Up>"] = { "<Plug>(qf_qf_previous)", "QF: prev" },
+          ["<C-Down>"] = { "<Plug>(qf_qf_next)", "QF: next" },
+        }
+      }
+    end,
+  },
   { "norcalli/nvim-colorizer.lua", opts = { "*" } },
   { "nvim-zh/colorful-winsep.nvim", config = true },
   { "kylechui/nvim-surround", config = true },

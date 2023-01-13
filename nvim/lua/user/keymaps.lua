@@ -7,6 +7,7 @@ require("user.utils.register").keymaps {
       Q = { utils.detach_from_tmux, "Detach" },
       P = { require("user.utils.plugin").new, "New Plugin File" },
       T = { utils.open_terminal, "Terminal" },
+      n = { utils.new_scratch, "New Scratch" },
     },
     g = {
       B = { utils.open_url, "Open URL" },

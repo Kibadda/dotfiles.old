@@ -106,4 +106,14 @@ function M.open_url()
   os.execute("xdg-open " .. vim.fn.expand "<cWORD>")
 end
 
+function M.new_scratch()
+  vim.ui.input({
+    prompt = "Filename: ",
+  }, function(input)
+    if input and input ~= "" then
+      vim.cmd(("e %s/%s.lua"):format(vim.fn.stdpath "config" .. "/scratch", input))
+    end
+  end)
+end
+
 return M

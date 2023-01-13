@@ -20,6 +20,7 @@ require("lazy").setup("user.plugins", {
     path = "~/plugins",
   },
   install = {
+    -- missing = false,
     colorscheme = { "tundra" },
   },
   ui = {

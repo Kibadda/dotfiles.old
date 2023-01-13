@@ -28,11 +28,6 @@ require("lazy").setup("user.plugins", {
           cwd = plugin.dir,
         })
       end,
-      l = function(plugin)
-        require("lazy.util").float_term({ "git", "log", "--graph", "--decorate", "--oneline" }, {
-          cwd = plugin.dir,
-        })
-      end,
     },
   },
   diff = {

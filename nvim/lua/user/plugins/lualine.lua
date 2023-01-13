@@ -4,6 +4,7 @@ local M = {
     "sam4llis/nvim-tundra",
     "jose-elias-alvarez/null-ls.nvim",
   },
+  event = "VimEnter",
 }
 
 M.opts = {

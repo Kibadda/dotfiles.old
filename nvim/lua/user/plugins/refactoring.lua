@@ -1,6 +1,10 @@
 local M = {
   "ThePrimeagen/refactoring.nvim",
   config = true,
+  keys = { {
+    "<Leader>r",
+    mode = "x",
+  } },
 }
 
 function M.init()

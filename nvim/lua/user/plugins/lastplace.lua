@@ -1,5 +1,6 @@
 local M = {
   "ethanholz/nvim-lastplace",
+  event = "VeryLazy",
 }
 
 M.opts = {

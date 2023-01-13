@@ -3,7 +3,9 @@ local M = {
   dependencies = {
     "folke/lua-dev.nvim",
     "MrcJkb/haskell-tools.nvim",
+    "williamboman/mason.nvim",
   },
+  event = "BufEnter"
 }
 
 function M.config()

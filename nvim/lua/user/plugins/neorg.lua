@@ -1,6 +1,7 @@
 local M = {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
+  ft = "norg",
 }
 
 M.opts = {

@@ -55,3 +55,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.go.backupext = backup
   end,
 })
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "HeirlineInitWinbar",
+  callback = function(args)
+    if
+      vim.tbl_contains({ "prompt", "nofile", "help", "quickfix", "startify" }, vim.bo[args.buf].buftype)
+      or vim.tbl_contains({ "gitcommit", "fugitive", "startify" }, vim.bo[args.buf].filetype)
+    then
+      vim.opt_local.winbar = nil
+    end
+  end,
+})

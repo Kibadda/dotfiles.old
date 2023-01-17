@@ -33,21 +33,22 @@ utils_options.set {
   mouse = "nv",
   diffopt = "internal,filler,closeoff,hiddenoff,algorithm:minimal",
   laststatus = 3,
-  signcolumn = "yes:2",
+  signcolumn = "no",
+  showtabline = 2,
   timeoutlen = 100,
   termguicolors = true,
-  winbar = "%=%m %{fnamemodify(expand('%'), ':.')}:%L ",
   formatoptions = require("user.utils.globals").get("", "formatoptions"),
   textwidth = 120,
   fileformats = "unix",
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals",
   spell = false,
+  showmode = false,
 }
 
 vim.on_key(function(char)
   if vim.fn.mode() == "n" then
     utils_options.set {
-      hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/", "z" }, vim.fn.keytrans(char)),
+      hlsearch = vim.tbl_contains({ "n", "N", "*", "#", "?", "/", "z" }, vim.fn.keytrans(char)),
     }
   end
 end, vim.api.nvim_create_namespace "auto_hlsearch")

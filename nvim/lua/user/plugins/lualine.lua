@@ -1,10 +1,10 @@
 local M = {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "sam4llis/nvim-tundra",
     "jose-elias-alvarez/null-ls.nvim",
   },
   event = "VimEnter",
+  enabled = false,
 }
 
 M.opts = {

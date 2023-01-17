@@ -1,11 +1,14 @@
 return {
   -- Dependencies
   "kyazdani42/nvim-web-devicons",
-  -- "MunifTanjim/nui.nvim",
+  "MunifTanjim/nui.nvim",
   "nvim-lua/plenary.nvim",
 
   -- Plugins
-  { "fladson/vim-kitty", event = "VeryLazy" },
+  {
+    "fladson/vim-kitty",
+    event = "VeryLazy",
+  },
   {
     "tpope/vim-dotenv",
     config = function()
@@ -17,9 +20,18 @@ return {
       vim.cmd.Dotenv(envfile)
     end,
   },
-  { "tpope/vim-fugitive", cmd = "G" },
-  { "tpope/vim-repeat", event = "VeryLazy" },
-  { "sickill/vim-pasta", event = "VeryLazy" },
+  {
+    "tpope/vim-fugitive",
+    cmd = "G",
+  },
+  {
+    "tpope/vim-repeat",
+    event = "VeryLazy",
+  },
+  {
+    "sickill/vim-pasta",
+    event = "VeryLazy",
+  },
   {
     "romainl/vim-qf",
     init = function()
@@ -33,12 +45,29 @@ return {
     end,
     event = "VeryLazy",
   },
-  { "norcalli/nvim-colorizer.lua", opts = { "*" }, event = "BufEnter" },
-  { "nvim-zh/colorful-winsep.nvim", config = true, event = "WinEnter" },
+  {
+    "norcalli/nvim-colorizer.lua",
+    opts = { "*" },
+    event = "BufEnter",
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = "WinEnter",
+  },
   {
     "kylechui/nvim-surround",
     config = true,
     keys = { "cs", "ds", "ys", { "S", mode = "x" } },
+  },
+  {
+    "chrisgrieser/nvim-recorder",
+    config = function()
+      require("recorder").setup {
+        mapping = {},
+      }
+    end,
+    keys = { "q" },
   },
 
   { "Kibadda/advent-of-code", dev = true },

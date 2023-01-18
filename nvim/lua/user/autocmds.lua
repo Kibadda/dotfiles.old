@@ -67,3 +67,17 @@ vim.api.nvim_create_autocmd("User", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("PluginFileKeymap", { clear = true }),
+  pattern = "*/lua/user/plugins/{*.lua,*/init.lua}",
+  callback = function(args)
+    require("user.utils.register").keymaps {
+      [{ mode = "n", buffer = args.buf }] = {
+        g = {
+          P = { require("user.utils.plugin").open, "Open Plugin" },
+        },
+      },
+    }
+  end,
+})

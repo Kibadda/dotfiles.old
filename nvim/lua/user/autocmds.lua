@@ -57,6 +57,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("User", {
+  group = vim.api.nvim_create_augroup("RemoveWinbarOnFileBufType", { clear = true }),
   pattern = "HeirlineInitWinbar",
   callback = function(args)
     if

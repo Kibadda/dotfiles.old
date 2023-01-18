@@ -1,11 +1,11 @@
 local M = {}
 
-M.buffer = {
+M.buffer = {}
+M.buffer.icon = {
   init = function(self)
-    self.filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.bufnr), ":t")
-
     local devicons = require "nvim-web-devicons"
-    local filetype = vim.api.nvim_buf_get_option(self.bufnr, "filetype") or vim.fn.fnamemodify(self.filename, ":e")
+    local type = vim.api.nvim_buf_get_option(self.bufnr, "filetype")
+    local filetype = type ~= "" and type or vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.bufnr), ":e")
     self.icon, self.highlight = devicons.get_icon_by_filetype(filetype)
     if self.icon == nil then
       local default = devicons.get_default_icon()
@@ -14,42 +14,50 @@ M.buffer = {
       self.highlight = { fg = default.color }
     end
   end,
-  hl = { bg = "" },
-  {
-    provider = function(self)
-      return self.icon
-    end,
-    hl = function(self)
-      return self.highlight
-    end,
-  },
-  {
-    provider = function(self)
-      return self.filename
-    end,
-    hl = function(self)
-      if self.is_active then
-        return { italic = true }
-      end
+  provider = function(self)
+    return self.icon
+  end,
+  hl = function(self)
+    return self.highlight
+  end,
+}
+M.buffer.name = {
+  init = function(self)
+    self.filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.bufnr), ":t")
+  end,
+  provider = function(self)
+    return self.filename
+  end,
+  hl = function(self)
+    if self.is_active then
+      return { italic = true, bold = true }
+    end
 
-      return {}
-    end,
-  },
-  -- {
-  --   condition = function(self)
-  --     return vim.api.nvim_buf_get_option(self.bufnr, "modified")
-  --   end,
-  --   provider = "[+]",
-  --   hl = { fg = "green" },
-  -- },
-  -- {
-  --   condition = function(self)
-  --     return not vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
-  --       or vim.api.nvim_buf_get_option(self.bufnr, "readonly")
-  --   end,
-  --   provider = "[-]",
-  --   hl = { fg = "orange" },
-  -- },
+    return "@comment"
+  end,
+}
+M.buffer.modified = {
+  init = function(self)
+    self.modified = vim.api.nvim_buf_get_option(self.bufnr, "modified")
+    self.readonly = vim.api.nvim_buf_get_option(self.bufnr, "readonly")
+    self.modifiable = vim.api.nvim_buf_get_option(self.bufnr, "modifiable")
+  end,
+  provider = function(self)
+    if self.modified or self.readonly or not self.modifiable then
+      return "●"
+    end
+
+    return " "
+  end,
+  hl = function(self)
+    if self.readonly or not self.modifiable then
+      return { fg = self.colors.red._600 }
+    elseif self.modified then
+      return { fg = self.colors.green._600 }
+    else
+      return { bg = "" }
+    end
+  end,
 }
 
 M.tabpage = {
@@ -57,6 +65,14 @@ M.tabpage = {
     return "%" .. self.tabnr .. "T " .. self.tabnr .. " %T"
   end,
   hl = { bg = "" },
+}
+
+M.truncate = {}
+M.truncate.right = {
+  provider = "",
+}
+M.truncate.left = {
+  provider = "",
 }
 
 return M

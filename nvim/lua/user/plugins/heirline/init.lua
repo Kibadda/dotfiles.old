@@ -27,6 +27,7 @@ function M.opts()
       init = function(self)
         self.mode = vim.fn.mode()
       end,
+      -- default highlight
       -- hl = function(self)
       --   local name = self.modes.names[self.mode]
       --   if name == "NORMAL" or name == "TERMINAL" then
@@ -93,7 +94,20 @@ function M.opts()
       space,
     },
     -- tabline = {
-    --   utils.make_buflist(tabline.buffer),
+    --   hl = { bg = "" },
+    --   space,
+    --   utils.make_buflist(
+    --     utils.surround({ "▏ ", " ▕" }, "", {
+    --       static = { colors = colors },
+    --       tabline.buffer.icon,
+    --       space,
+    --       tabline.buffer.name,
+    --       space,
+    --       tabline.buffer.modified,
+    --     }),
+    --     tabline.truncate.left,
+    --     tabline.truncate.right
+    --   ),
     --   align,
     --   {
     --     condition = function()

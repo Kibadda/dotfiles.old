@@ -1,6 +1,6 @@
 local M = {
   "karb94/neoscroll.nvim",
-  keys = { "<C-u>", "<C-d>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" }
+  keys = { "<C-u>", "<C-d>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
 }
 
 function M.init()

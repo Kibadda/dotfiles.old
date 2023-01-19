@@ -73,6 +73,34 @@ function M.config()
       })
     end,
   }
+
+  null_ls.register {
+    method = null_ls.methods.CODE_ACTION,
+    filetypes = { "lua" },
+    generator = {
+      fn = function(context)
+        if not context.lsp_params or not context.lsp_params.textDocument or not context.lsp_params.textDocument.uri then
+          return
+        end
+
+        if
+          not context.lsp_params.textDocument.uri:match ".*/lua/user/plugins/[^/]*%.lua"
+          and not context.lsp_params.textDocument.uri:match ".*/lua/user/plugins/[^/]*/init%.lua"
+        then
+          return
+        end
+
+        require "telescope"
+        return {
+          {
+            title = "Open Plugin",
+            action = require("user.utils.plugin").open,
+          },
+        }
+      end,
+    },
+  }
+
   null_ls.setup {}
 end
 

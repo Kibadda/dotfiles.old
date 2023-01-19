@@ -35,6 +35,21 @@ function M.setup()
     })
 
   vim.lsp.buf.definition = definition
+
+  -- local old = vim.lsp.codelens.on_codelens
+  -- vim.lsp.codelens.on_codelens = function(err, result, ctx, ...)
+  --   local lenses = vim.lsp.codelens.get(ctx.bufnr)
+  --   if #lenses > 0 then
+  --     for _, lens in ipairs(vim.lsp.codelens.get(ctx.bufnr)) do
+  --       for _, j in ipairs(result) do
+  --         if lens.data.id ==
+  --       end
+  --       table.insert(result, lens)
+  --     end
+  --   end
+
+  --   old(err, result, ctx, ...)
+  -- end
 end
 
 return M

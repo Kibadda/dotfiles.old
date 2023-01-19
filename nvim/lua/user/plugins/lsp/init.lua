@@ -5,7 +5,7 @@ local M = {
     "MrcJkb/haskell-tools.nvim",
     "williamboman/mason.nvim",
   },
-  event = "BufEnter"
+  event = "BufEnter",
 }
 
 function M.config()
@@ -17,6 +17,7 @@ function M.config()
     require("user.plugins.lsp.keymaps").setup(client, bufnr)
     require("user.plugins.lsp.formatting").setup(client, bufnr)
     require("user.plugins.lsp.highlighting").setup(client, bufnr)
+    require("user.plugins.lsp.codelens").setup(client, bufnr)
   end
 
   local servers = {
@@ -57,6 +58,9 @@ function M.config()
           },
           workspace = {
             checkThirdParty = false,
+          },
+          codeLens = {
+            enable = true,
           },
         },
       },

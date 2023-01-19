@@ -2,6 +2,8 @@ local M = {}
 
 vim.g.LspAutoFormat = vim.g.LspAutoFormat or 0
 
+local LspFormatting = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
+
 function M.toggle()
   vim.g.LspAutoFormat = vim.g.LspAutoFormat == 0 and 1 or 0
   vim.notify(vim.g.LspAutoFormat == 1 and "Turned on" or "Turned off", vim.log.levels.INFO, { title = "Auto Format" })
@@ -30,7 +32,6 @@ function M.setup(client, bufnr)
 
   client.server_capabilities.documentFormattingProvider = enable
   if client.server_capabilities.documentFormattingProvider then
-    local LspFormatting = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
     vim.api.nvim_clear_autocmds {
       group = LspFormatting,
       buffer = bufnr,
@@ -38,7 +39,7 @@ function M.setup(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = LspFormatting,
       buffer = bufnr,
-      callback = require("user.plugins.lsp.formatting").format,
+      callback = M.format,
     })
   end
 

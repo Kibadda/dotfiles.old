@@ -20,11 +20,13 @@ function M.format()
 end
 
 function M.setup(client, bufnr)
-  local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-  local lsp = require "user.plugins.lsp"
-
   local enable = false
-  if lsp.has_formatter(ft) then
+  if
+    #require("null-ls.sources").get_available(
+      vim.api.nvim_buf_get_option(bufnr, "filetype"),
+      require("null-ls").methods.FORMATTING
+    ) > 0
+  then
     enable = true
   else
     enable = not (client.name == "null-ls")
@@ -47,7 +49,6 @@ function M.setup(client, bufnr)
     n = {
       ["<Leader>"] = {
         l = {
-          name = "Lsp",
           t = { M.toggle, "Toggle Auto Format" },
         },
       },

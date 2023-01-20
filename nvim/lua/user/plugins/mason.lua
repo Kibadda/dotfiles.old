@@ -34,20 +34,9 @@ function M.config()
   }
 
   require("mason-lspconfig").setup {
-    ensure_installed = {
-      "sumneko_lua",
-      "intelephense",
-      "cssls",
-      "vimls",
-      "html",
-      "tsserver",
-      "hls",
-      "vls",
-      "bashls",
-    },
+    ensure_installed = vim.tbl_keys(require "user.plugins.lsp.servers"),
   }
 
-  local null_ls = require "null-ls"
   require("mason-null-ls").setup {
     ensure_installed = {
       "stylua",
@@ -56,6 +45,7 @@ function M.config()
     automatic_installation = true,
   }
 
+  local null_ls = require "null-ls"
   require("mason-null-ls").setup_handlers {
     stylua = function()
       null_ls.register(null_ls.builtins.formatting.stylua)

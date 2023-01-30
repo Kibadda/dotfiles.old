@@ -1,23 +1,19 @@
 local M = {
   "echasnovski/mini.starter",
   dependencies = {
-    { "Kibadda/projectodo.nvim", dev = true },
-    "echasnovski/mini.sessions",
+    {
+      "Kibadda/projectodo.nvim",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
+      dev = true,
+    },
   },
-  enabled = false,
+  lazy = false,
+  priority = 999,
 }
 
 function M.config()
-  require("mini.sessions").setup {
-    hooks = {
-      pre = {
-        write = function()
-          vim.cmd.Neotree { "close" }
-        end,
-      },
-    },
-  }
-
   local sections = require("projectodo").get_sections {
     plugin = "mini-starter",
     main_section = {

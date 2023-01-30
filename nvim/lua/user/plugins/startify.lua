@@ -11,6 +11,7 @@ local M = {
   },
   lazy = false,
   priority = 999,
+  enabled = false,
 }
 
 function M.init()

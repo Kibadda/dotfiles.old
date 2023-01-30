@@ -55,7 +55,7 @@ M.buffer.modified = {
     elseif self.modified then
       return { fg = self.colors.green._600 }
     else
-      return { bg = "" }
+      return { bg = self.colors.transparent }
     end
   end,
 }
@@ -64,7 +64,9 @@ M.tabpage = {
   provider = function(self)
     return "%" .. self.tabnr .. "T " .. self.tabnr .. " %T"
   end,
-  hl = { bg = "" },
+  hl = function(self)
+    return { bg = self.colors.transparent }
+  end,
 }
 
 M.truncate = {}

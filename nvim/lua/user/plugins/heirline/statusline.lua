@@ -2,7 +2,7 @@ local M = {}
 
 M.mode = {
   provider = function(self)
-    return " " .. self.modes.names[self.mode] .. " "
+    return (" %s "):format(self.modes.names[self.mode])
   end,
   hl = function(self)
     return self.modes.colors[self.modes.names[self.mode]]
@@ -16,7 +16,7 @@ M.git = {
   end,
   {
     provider = function(self)
-      return self.status.head and " " .. self.status.head .. " " or "no git "
+      return (" %s "):format(self.status.head or "no git")
     end,
   },
   {
@@ -54,25 +54,25 @@ M.diagnostics = {
   update = { "DiagnosticChanged", "BufEnter" },
   {
     provider = function(self)
-      return "E" .. self.error
+      return "E" .. (self.error < 10 and self.error or "#")
     end,
     hl = "DiagnosticSignError",
   },
   {
     provider = function(self)
-      return "W" .. self.warn
+      return "W" .. (self.warn < 10 and self.warn or "#")
     end,
     hl = "DiagnosticSignWarn",
   },
   {
     provider = function(self)
-      return "I" .. self.info
+      return "I" .. (self.info < 10 and self.info or "#")
     end,
     hl = "DiagnosticSignInfo",
   },
   {
     provider = function(self)
-      return "H" .. self.hint
+      return "H" .. (self.hint < 10 and self.hint or "#")
     end,
     hl = "DiagnosticSignHint",
   },

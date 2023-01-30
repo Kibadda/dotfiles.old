@@ -7,9 +7,9 @@ function M.opts()
   local statuscolumn = require "user.plugins.heirline.statuscolumn"
   local statusline = require "user.plugins.heirline.statusline"
   local winbar = require "user.plugins.heirline.winbar"
-  local tabline = require "user.plugins.heirline.tabline"
+  -- local tabline = require "user.plugins.heirline.tabline"
 
-  local utils = require "heirline.utils"
+  -- local utils = require "heirline.utils"
   local colors = require "nvim-tundra.palette.arctic"
 
   local align = { provider = "%=", hl = { bg = "" } }

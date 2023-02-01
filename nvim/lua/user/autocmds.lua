@@ -1,5 +1,8 @@
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+autocmd("TextYankPost", {
+  group = augroup("HighlightYank", { clear = true }),
   pattern = "*",
   callback = function()
     vim.highlight.on_yank {
@@ -9,16 +12,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = vim.api.nvim_create_augroup("SourcePluginFile", { clear = true }),
-  pattern = "plugins.lua",
-  callback = function()
-    vim.cmd.source "<afile>"
-  end,
-})
-
-vim.api.nvim_create_autocmd("TermClose", {
-  group = vim.api.nvim_create_augroup("CloseBufferAfterTermClose", { clear = true }),
+autocmd("TermClose", {
+  group = augroup("CloseBufferAfterTermClose", { clear = true }),
   pattern = "*",
   callback = function()
     if vim.bo.filetype ~= "TelescopePrompt" then
@@ -27,16 +22,16 @@ vim.api.nvim_create_autocmd("TermClose", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = vim.api.nvim_create_augroup("EnterInsertInTerm", { clear = true }),
+autocmd("BufEnter", {
+  group = augroup("EnterInsertInTerm", { clear = true }),
   pattern = "term://*",
   callback = function()
     vim.cmd.startinsert()
   end,
 })
 
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup("TermFileType", { clear = true }),
+autocmd("TermOpen", {
+  group = augroup("TermFileType", { clear = true }),
   pattern = "*",
   callback = function()
     require("user.utils.options").set {
@@ -45,8 +40,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("AutoCreateDir", { clear = true }),
+autocmd("BufWritePre", {
+  group = augroup("AutoCreateDir", { clear = true }),
   callback = function(event)
     local file = vim.loop.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
@@ -56,8 +51,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
-vim.api.nvim_create_autocmd("User", {
-  group = vim.api.nvim_create_augroup("RemoveWinbarOnFileBufType", { clear = true }),
+autocmd("User", {
+  group = augroup("RemoveWinbarOnFileBufType", { clear = true }),
   pattern = "HeirlineInitWinbar",
   callback = function(args)
     if
@@ -69,8 +64,8 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = vim.api.nvim_create_augroup("PluginFileKeymap", { clear = true }),
+autocmd("BufEnter", {
+  group = augroup("PluginFileKeymap", { clear = true }),
   pattern = "*/lua/user/plugins/{*.lua,*/init.lua}",
   callback = function(args)
     require("user.utils.register").keymaps {

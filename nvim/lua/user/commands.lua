@@ -1,10 +1,10 @@
 vim.api.nvim_create_user_command("D", function(argument)
-  vim.cmd.BufferLineCyclePrev()
+  vim.cmd.bp()
   if vim.fn.expand("#"):sub(1, 8) ~= "fugitive" then
     if argument.bang then
-      vim.cmd "bd! #"
+      vim.cmd "sp|bn|bd!"
     else
-      vim.cmd "bd #"
+      vim.cmd "sp|bn|bd"
     end
   end
 end, {

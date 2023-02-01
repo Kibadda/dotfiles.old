@@ -71,5 +71,12 @@ return {
   },
 
   { "Kibadda/advent-of-code", dev = true },
-  { "Kibadda/laravel-docs.nvim", dev = true },
+  {
+    "Kibadda/laravel-docs.nvim",
+    dev = true,
+    cmd = "LaravelDocs",
+    config = function()
+      require("telescope").load_extension "laravel-docs"
+    end,
+  },
 }

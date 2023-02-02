@@ -19,6 +19,16 @@ function M.config()
     filetype = "smarty",
   }
 
+  require("nvim-treesitter.parsers").get_parser_configs().snippets = {
+    install_info = {
+      url = "https://github.com/Kibadda/tree-sitter-snippets.git",
+      -- url = "/home/michael/plugins/tree-sitter-snippets",
+      files = { "src/parser.c" },
+      branch = "main",
+    },
+    filetype = "snippets",
+  }
+
   require("nvim-treesitter.configs").setup {
     ensure_installed = {
       "bash",
@@ -47,6 +57,7 @@ function M.config()
       "smarty",
       "norg",
       "norg_meta",
+      "snippets",
     },
     highlight = {
       enable = true,

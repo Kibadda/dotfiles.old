@@ -4,17 +4,20 @@ local M = {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-nvim-lsp",
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
+    -- "L3MON4D3/LuaSnip",
+    -- "saadparwaiz1/cmp_luasnip",
     "onsails/lspkind.nvim",
+    "dcampos/cmp-snippy",
+    "dcampos/nvim-snippy",
   },
   event = "InsertEnter",
 }
 
 function M.config()
   local cmp = require "cmp"
-  local luasnip = require "luasnip"
+  -- local luasnip = require "luasnip"
   local lspkind = require "lspkind"
+  local snippy = require "snippy.main"
 
   local function has_words_before()
     unpack = unpack or table.unpack
@@ -46,9 +49,10 @@ function M.config()
     sources = {
       { name = "nvim_lsp" },
       { name = "path" },
-      { name = "luasnip" },
+      -- { name = "luasnip" },
       { name = "nvim_lua" },
       { name = "buffer" },
+      { name = "snippy" },
     },
     mapping = cmp.mapping.preset.insert {
       ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -58,8 +62,10 @@ function M.config()
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif luasnip.expand_or_locally_jumpable() then
-          luasnip.expand_or_jump()
+        elseif snippy.can_expand_or_advance() then
+          snippy.expand_or_advance()
+        -- elseif luasnip.expand_or_locally_jumpable() then
+        --   luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -69,16 +75,20 @@ function M.config()
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+        elseif snippy.can_jump(-1) then
+          snippy.previous()
+        -- elseif luasnip.jumpable(-1) then
+        --   luasnip.jump(-1)
         else
           fallback()
         end
       end, { "i", "s" }),
       ["<C-l>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
+          if snippy.can_expand_or_advance() then
+            snippy.expand_or_advance()
+          -- if luasnip.expand_or_locally_jumpable() then
+          --   luasnip.expand_or_jump()
           else
             fallback()
           end
@@ -87,8 +97,10 @@ function M.config()
         end
       end),
       ["<C-h>"] = cmp.mapping(function(fallback)
-        if cmp.visible() and luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+        if cmp.visible() and snippy.can_jump(-1) then
+          snippy.previous()
+        -- if cmp.visible() and luasnip.jumpable(-1) then
+        --   luasnip.jump(-1)
         else
           fallback()
         end

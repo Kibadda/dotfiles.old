@@ -1,0 +1,14 @@
+snippet debug
+	Util::getLogger($0)->debug($1);
+snippet error
+	Util::getLogger($0)->error($1);
+snippet info
+	Util::getLogger($0)->info($1);
+snippet setter
+	public function set${1/\<./\u&/}($0$${1/.*/\0/g}): void {
+		$this->$1 = $$1;
+	}
+snippet getter
+	public function get${1/\<./\u&/}()$0 {
+		return $this->$1;
+	}

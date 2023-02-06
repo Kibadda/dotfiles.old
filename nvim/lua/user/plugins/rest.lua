@@ -1,7 +1,10 @@
 local M = {
   "rest-nvim/rest.nvim",
   keys = { "<Leader>Hr", "<Leader>Hp", "<Leader>Hl" },
-  opts = true,
+}
+
+M.opts = {
+  skip_ssl_verification = true,
 }
 
 function M.init()

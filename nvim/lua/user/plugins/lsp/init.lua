@@ -4,6 +4,7 @@ local M = {
     "folke/lua-dev.nvim",
     "MrcJkb/haskell-tools.nvim",
     "williamboman/mason.nvim",
+    "SmiteshP/nvim-navic",
   },
   event = "BufEnter",
 }
@@ -11,8 +12,16 @@ local M = {
 function M.config()
   require("neodev").setup {}
 
+  require("nvim-navic").setup {
+    highlight = true,
+  }
+
   local function on_attach(client, bufnr)
     client.server_capabilities.semanticTokensProvider = nil
+
+    if client.server_capabilities.documentSymbolProvider then
+      require("nvim-navic").attach(client, bufnr)
+    end
 
     require("user.plugins.lsp.keymaps").setup(client, bufnr)
     require("user.plugins.lsp.formatting").setup(client, bufnr)

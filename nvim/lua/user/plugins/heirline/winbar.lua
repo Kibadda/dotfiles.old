@@ -1,5 +1,11 @@
 local M = {}
 
+M.symbol = {
+  provider = function()
+    return require("nvim-navic").get_location()
+  end,
+}
+
 M.modified = {
   provider = "%m",
 }

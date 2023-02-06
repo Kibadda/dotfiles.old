@@ -9,9 +9,10 @@ local M = {
       dev = true,
     },
   },
-  lazy = false,
-  priority = 999,
+  event = "VimEnter",
 }
+
+local stats
 
 function M.init()
   vim.api.nvim_create_autocmd("User", {
@@ -36,6 +37,14 @@ function M.init()
           },
         },
       }
+    end,
+  })
+
+  vim.api.nvim_create_autocmd("User", {
+    group = vim.api.nvim_create_augroup("UpdateLoadedPlugins", { clear = true }),
+    pattern = "LazyVimStarted",
+    callback = function()
+      stats = require("lazy").stats()
     end,
   })
 end
@@ -64,22 +73,33 @@ function M.config()
     }
   end)
 
+  local day = table.concat(require("user.utils.weekdays")[tonumber(os.date "%w")], "\n")
+
   require("mini.starter").setup {
-    header = table.concat({
-      "┌───────────────────────────────────────────────────────┐",
-      "│                                                       │",
-      "│  ██┐  ██┐██┐██████┐  █████┐ ██████┐ ██████┐  █████┐   │",
-      "│  ██│ ██┌┘██│██┌──██┐██┌──██┐██┌──██┐██┌──██┐██┌──██┐  │",
-      "│  █████┌┘ ██│██████┌┘███████│██│  ██│██│  ██│███████│  │",
-      "│  ██┌─██┐ ██│██┌──██┐██┌──██│██│  ██│██│  ██│██┌──██│  │",
-      "│  ██│ └██┐██│██████┌┘██│  ██│██████┌┘██████┌┘██│  ██│  │",
-      "│  └─┘  └─┘└─┘└─────┘ └─┘  └─┘└─────┘ └─────┘ └─┘  └─┘  │",
-      "│                                                       │",
-      "└───────────────────────────────────────────────────────┘",
-    }, "\n"),
+    header = function()
+      return ("%s\n%s"):format(day, os.date "%d.%m.%Y %H:%M:%S")
+    end,
     items = sections,
-    footer = "",
+    footer = function()
+      if stats then
+        return ("Loaded %d/%d plugins in %dms"):format(stats.loaded, stats.count, stats.startuptime)
+      else
+        return ""
+      end
+    end,
   }
+
+  local timer = vim.loop.new_timer()
+  timer:start(
+    0,
+    1000,
+    vim.schedule_wrap(function()
+      if vim.api.nvim_buf_get_option(0, "filetype") ~= "starter" then
+        timer:stop()
+      end
+      MiniStarter.refresh()
+    end)
+  )
 
   local colors = require "nvim-tundra.palette.arctic"
   vim.cmd.highlight("MiniStarterHeader guifg=" .. colors.red._600)

@@ -12,3 +12,11 @@ snippet getter
 	public function get${1/\<./\u&/}()$0 {
 		return $this->$1;
 	}
+snippet setget
+	public function set${1/\<./\u&/}($2$${1/.*/\0/g}): void {
+		$this->$1 = $$1;
+	}
+
+	public function get${1/\<./\u&/}(): $2{
+		return $this->$1;
+	}

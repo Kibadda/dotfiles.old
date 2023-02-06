@@ -37,6 +37,9 @@ require("lazy").setup("user.plugins", {
   diff = {
     cmd = "terminal_git",
   },
+  change_detection = {
+    notify = false,
+  },
   performance = {
     rtp = {
       disabled_plugins = {

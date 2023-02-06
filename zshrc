@@ -136,7 +136,7 @@ alias pacr="pacman -Qd | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo
 
 # alias ssh='kitty +kitten ssh'
 
-alias gs='git status'
+alias gs='git status -s'
 alias gf='git fetch --prune'
 alias ga='git add .'
 alias gc='git commit'

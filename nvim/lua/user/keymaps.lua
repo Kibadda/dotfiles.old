@@ -24,6 +24,7 @@ require("user.utils.register").keymaps {
     ["<C-S-k>"] = { "<Cmd>m .-2<CR>==", "Move line up" },
     j = { utils.jump_direction "j", "Down" },
     k = { utils.jump_direction "k", "Up" },
+    U = { "<C-r>", "Redo" },
   },
   x = {
     y = { "myy`y", "yank" },

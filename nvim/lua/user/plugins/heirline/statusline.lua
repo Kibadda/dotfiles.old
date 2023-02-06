@@ -123,6 +123,9 @@ M.filetype = {
 }
 
 M.lsp = {
+  condition = function()
+    return package.loaded["lspconfig"]
+  end,
   init = function(self)
     local buf_client_names = {}
 

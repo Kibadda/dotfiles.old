@@ -6,7 +6,7 @@ local M = {
     "williamboman/mason.nvim",
     "SmiteshP/nvim-navic",
   },
-  event = "BufEnter",
+  event = "VeryLazy",
 }
 
 function M.config()

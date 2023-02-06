@@ -56,8 +56,8 @@ autocmd("User", {
   pattern = "HeirlineInitWinbar",
   callback = function(args)
     if
-      vim.tbl_contains({ "prompt", "nofile", "help", "quickfix", "startify" }, vim.bo[args.buf].buftype)
-      or vim.tbl_contains({ "gitcommit", "fugitive", "startify" }, vim.bo[args.buf].filetype)
+      vim.tbl_contains({ "prompt", "nofile", "help", "quickfix", "startify", "starter" }, vim.bo[args.buf].buftype)
+      or vim.tbl_contains({ "gitcommit", "fugitive", "startify", "starter" }, vim.bo[args.buf].filetype)
     then
       vim.opt_local.winbar = nil
     end

@@ -48,7 +48,7 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     opts = { "*" },
-    event = "BufEnter",
+    event = "VeryLazy",
   },
   {
     "nvim-zh/colorful-winsep.nvim",

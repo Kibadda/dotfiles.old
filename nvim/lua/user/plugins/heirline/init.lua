@@ -14,7 +14,7 @@ function M.opts()
 
   local align = { provider = "%=", hl = { bg = "" } }
   local space = { provider = " " }
-  local separator = { provider = " | " }
+  local bar = { provider = " | " }
 
   return {
     statuscolumn = {
@@ -72,15 +72,15 @@ function M.opts()
       statusline.mode,
       space,
       statusline.git,
-      separator,
+      bar,
       statusline.diagnostics,
-      separator,
+      bar,
       statusline.filename,
       align,
       statusline.filetype,
-      separator,
+      bar,
       statusline.lsp,
-      separator,
+      bar,
       statusline.formatting,
       space,
       statusline.position,

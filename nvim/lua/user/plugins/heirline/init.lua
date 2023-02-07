@@ -86,6 +86,7 @@ function M.opts()
       statusline.position,
     },
     winbar = {
+      space,
       winbar.symbol,
       align,
       winbar.modified,

@@ -7,7 +7,7 @@ local M = {
 
 M.opts = {
   pre_save_hook = function()
-    vim.cmd.Neotree { "close" }
+    vim.cmd.Neotree "close"
   end,
 }
 

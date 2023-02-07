@@ -105,7 +105,7 @@ function M.new()
         prompt = "Name: ",
       }, function(input)
         if input then
-          vim.cmd(("e %s/%s"):format(dir, input))
+          vim.cmd(("e %s/%s.lua"):format(dir, input))
         end
       end)
     else

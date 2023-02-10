@@ -19,6 +19,7 @@ function M.setup(_, bufnr)
       },
       K = { vim.lsp.buf.hover, "Hover" },
       gd = { vim.lsp.buf.definition, "Definition" },
+      gD = { require("user.plugins.lsp.definition").open, "Definition split" },
       gr = { "<Cmd>Telescope lsp_references<CR>", "References" },
     },
   }

@@ -96,8 +96,9 @@ function M.config()
     vim.schedule_wrap(function()
       if vim.api.nvim_buf_get_option(0, "filetype") ~= "starter" then
         timer:stop()
+      else
+        MiniStarter.refresh()
       end
-      MiniStarter.refresh()
     end)
   )
 

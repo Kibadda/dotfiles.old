@@ -77,7 +77,7 @@ function M.config()
 
   require("mini.starter").setup {
     header = function()
-      return ("%s\n%s"):format(day, os.date "%d.%m.%Y %H:%M:%S")
+      return day:gsub("AAAAAAAAAAAAAAAAAAA", os.date "%d.%m.%Y %H:%M:%S")
     end,
     items = sections,
     footer = function()

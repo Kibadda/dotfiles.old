@@ -27,17 +27,17 @@ function M.init()
 end
 
 function M.config()
-  require("nvim-tundra").setup {
-    transparent_background = true,
-    overwrite = {
-      highlights = {
-        ["@constant"] = { fg = "#DE935F", bold = true },
-        NormalFloat = { link = "Normal" },
-      },
-    },
-  }
+  -- require("nvim-tundra").setup {
+  --   transparent_background = true,
+  --   overwrite = {
+  --     highlights = {
+  --       ["@constant"] = { fg = "#DE935F", bold = true },
+  --       NormalFloat = { link = "Normal" },
+  --     },
+  --   },
+  -- }
 
-  vim.cmd.colorscheme "tundra"
+  -- vim.cmd.colorscheme "tundra"
 end
 
 return M

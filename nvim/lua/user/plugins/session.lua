@@ -6,9 +6,13 @@ local M = {
 }
 
 M.opts = {
-  pre_save_hook = function()
-    vim.cmd.Neotree "close"
-  end,
+  hooks = {
+    pre = {
+      save = function()
+        vim.cmd.Neotree "close"
+      end,
+    },
+  },
 }
 
 return M

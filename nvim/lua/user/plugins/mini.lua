@@ -37,6 +37,28 @@ function M.init()
       }
     end,
   })
+
+  require("user.utils.register").keymaps {
+    n = {
+      ["<Leader>"] = {
+        S = {
+          name = "Session",
+          n = {
+            function()
+              require("session.core").new()
+            end,
+            "New",
+          },
+          l = {
+            function()
+              require("session.telescope").list()
+            end,
+            "New",
+          },
+        },
+      },
+    },
+  }
 end
 
 function M.config()

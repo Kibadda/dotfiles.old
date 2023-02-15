@@ -1,7 +1,8 @@
 local M = {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "folke/lua-dev.nvim",
+    "folke/neoconf.nvim",
+    "folke/neodev.nvim",
     "MrcJkb/haskell-tools.nvim",
     "williamboman/mason.nvim",
     "SmiteshP/nvim-navic",
@@ -10,6 +11,7 @@ local M = {
 }
 
 function M.config()
+  require("neoconf").setup {}
   require("neodev").setup {}
 
   require("nvim-navic").setup {

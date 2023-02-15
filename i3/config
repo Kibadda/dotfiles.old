@@ -95,7 +95,9 @@ bindsym $mod+e layout toggle split
 ###############################################
 # /Workspace
 ###############################################
-exec --no-startup-id setxkbmap -option caps:swapescape
+# exec --no-startup-id setxkbmap -option caps:swapescape
+exec --no-startup-id setxkbmap -option caps:ctrl_modifier
+exec --no-startup-id xcape -e 'Caps_Lock=Escape' -t 50
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pa-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -113,7 +115,7 @@ exec_always --no-startup-id fix_xcursor
 bindsym $mod+Return exec kitty -1 /bin/bash -c "tmux attach || tmux"
 bindsym $mod+Shift+Return exec kitty
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun -theme sidebar -font "JetBrains Mono 15" -show-icons -show combi
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme sidebar -font "JetBrainsMono Nerd Font 15" -show-icons
 bindsym $mod+Ctrl+m exec pavucontrol
 bindsym Print exec --no-startup-id i3-scrot -dc
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -wc

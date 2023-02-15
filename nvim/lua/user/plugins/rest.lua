@@ -3,10 +3,6 @@ local M = {
   keys = { "<Leader>Hr", "<Leader>Hp", "<Leader>Hl" },
 }
 
-M.opts = {
-  skip_ssl_verification = true,
-}
-
 function M.init()
   local function enter_auth()
     local method
@@ -72,5 +68,9 @@ function M.init()
     },
   }
 end
+
+M.opts = {
+  skip_ssl_verification = true,
+}
 
 return M

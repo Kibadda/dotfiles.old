@@ -12,34 +12,6 @@ autocmd("TextYankPost", {
   end,
 })
 
-autocmd("TermClose", {
-  group = augroup("CloseBufferAfterTermClose", { clear = true }),
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype ~= "TelescopePrompt" then
-      vim.cmd.bd { bang = true }
-    end
-  end,
-})
-
-autocmd("BufEnter", {
-  group = augroup("EnterInsertInTerm", { clear = true }),
-  pattern = "term://*",
-  callback = function()
-    vim.cmd.startinsert()
-  end,
-})
-
-autocmd("TermOpen", {
-  group = augroup("TermFileType", { clear = true }),
-  pattern = "*",
-  callback = function()
-    require("user.utils.options").set {
-      filetype = "term",
-    }
-  end,
-})
-
 autocmd("BufWritePre", {
   group = augroup("AutoCreateDir", { clear = true }),
   callback = function(event)
